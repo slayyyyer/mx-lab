@@ -129,7 +129,9 @@ function render() {
 
   document.querySelector('#standings-table').innerHTML = table(
     ['Pos', 'Rider', 'Points', 'Motos', 'Wins', 'Podiums', 'Best', 'Avg finish', 'DNF'],
-    standings.standings.map((rider, index) => [
+    standings.standings
+      .filter((rider) => rider.points > 0)
+      .map((rider, index) => [
       index + 1,
       esc(rider.name),
       num(rider.points),
