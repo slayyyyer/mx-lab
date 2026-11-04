@@ -396,3 +396,90 @@ the site rather than papered over.
 The extraction step must use an explicit Poppler path. Two `pdftotext` binaries now exist on this
 machine, and silently picking the xpdf one would change parser input — and therefore fixtures —
 without any error.
+
+---
+
+## 14. Corrections and findings from building the parser (2026-11-04)
+
+Building `src/` against real sheets corrected three claims made earlier in this
+document and added four new source hazards. Recorded here rather than silently
+edited, because the earlier reasoning is what led to each mistake.
+
+### 14.1 §7.2 is wrong about the lap chart: it does not carry positions
+
+§7.2 said the lap chart needs coordinates to be parsed. It does need coordinates
+— but coordinates do not make it a position source, because **the grid does not
+contain positions**. Rendering `M2405/M1F1LAP.pdf` page 1 shows rows labelled
+`#<plate> - <initial>. <Surname>` and cells holding **plate numbers**:
+
+```
+#4 - C. Sexton    2   7   7   7   7   7   7   96   96  [233]  [60]  [87]  [103]  [416]
+```
+
+`96`, `233`, `416` are plates, not positions, and the bracketed cells are the
+`Indicates Lapped Rider` marker (boxed in the PDF). The leftmost numeric column
+(`1…39`) is a row sequence number, not a lap-1 position: rows are sorted by
+plate, not by position.
+
+Consequence: **per-lap positions are not available for 2020–2024.** They cannot
+be recovered from cumulative lap times either, because lap 1 has no time, so
+sums from lap 2 onward give relative gaps rather than track position. This is a
+scope limit for analyses 6.1–6.3 and is carried into ADR 0003.
+
+### 14.2 The usable per-lap sheet is `RID`, not `IND`
+
+`M1F1IND` (Individual Segment Times) lays out two riders per page in
+independently-positioned blocks: one rider's name sits at the same y as the
+other's lap rows, and the summary block shifts vertically per rider. `M1F1RID`
+(Individual Lap Times) is a clean 10-column grid of per-lap times with
+`MIN`/`MAX`/`AVG` rows, and parses from `-layout` text alone. The pipeline uses
+`RID`; `IND` is not used.
+
+Hazards found in `RID`:
+
+- The fastest lap is struck through in print, and the summary block **shifts up**
+  for a rider with fewer printed laps, so its `MIN` cell lands on the line where
+  other columns still show a lap. A cell whose first token is `MIN`/`MAX`/`AVG`
+  is a summary, never a lap number.
+- Capability check: `M2405` 450 Moto 1 has 20 riders with 15 lap rows and 18
+  with 14, plus the DNF with none. The 18 are not a parse failure; the sheet
+  simply has no final lap for them (see 14.3).
+
+### 14.3 The sheets often omit the final lap
+
+At Pala, 18 of 40 riders in 450 Moto 1 have 14 lap times for a 15-lap moto, and
+the missing one is the last. Anything built on per-lap times must handle a
+truncated final lap instead of assuming `count == laps completed`.
+
+### 14.4 A results row can wrap onto a continuation line
+
+`M2405/M2F1RES.pdf`, position 40 (`#108 Jorgen-Matthias Talviku`): the name ends
+the row line and the hometown, bike and `DNF` continue on the next line. The
+parser reassembles a row from its continuation only when the interval field is
+missing, and otherwise refuses the layout.
+
+### 14.5 The results sheet has a second table on a later page
+
+After the results table, page 2 carries a `LAP # / LAP LEADER` table whose rows
+also begin `pos  plate`. The row scan is therefore bounded at the session-notes
+block (`SESSION NOTES`, `Humidity:`, `RACE TIME:`), and the position field is
+then required to be contiguous `1..n` — which is what catches a silently
+dropped row.
+
+### 14.6 Qualifying lists every entrant and is printed in two parts
+
+`M1QCOVR` at Pala has **71 rows** for a 40-rider moto: it is the whole entry
+list, not the field. It is split across two pages by a `TOP 36 RIDERS QUALIFY`
+separator, so a parser that stops at the first non-row line silently loses 35
+rows. The qualifying position is the entry-list position; the moto lineup is a
+different, later artefact (`LINEUP` sheet).
+
+### 14.7 2025–2026 per-lap data does exist
+
+§12 recorded that no lap-time strings were found on `results.promotocross.com`.
+That was wrong, and the cause was constructing report URLs by hand: the same
+`p=` value 404s without the parameters the site itself emits. Following the
+links on `?p=view_event&id=<event>` gives `p=view_race_result&id=<report>`,
+which returns a per-rider `Lap Times` table with `LAP TIME`, `SECTORS`, `PACE`
+and a **per-lap position** column (`38th`, `37th`, …). Verified on the 2025
+Ironman event (1,393,052 bytes, 1,555 lap-time strings). See ADR 0003.
