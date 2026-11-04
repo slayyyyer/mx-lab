@@ -25,7 +25,34 @@ import {
 } from './sources/ama.js';
 import { validateEvent } from './validate.js';
 
-export const SCHEMA_VERSION = 1;
+export const SCHEMA_VERSION = 2;
+
+/**
+ * The single place the dataset shape is defined, shared by the PDF adapter and
+ * the LiveTime adapter so the two eras cannot drift apart.
+ */
+export function finalizeEvent({ event, motos, qualifying = [], sources = [], warnings = [] }) {
+  const sortedMotos = [...motos].sort((a, b) =>
+    a.class === b.class ? a.moto - b.moto : a.class.localeCompare(b.class),
+  );
+  return {
+    schema: SCHEMA_VERSION,
+    event: {
+      id: event.id,
+      series: event.series ?? 'AMA Pro Motocross',
+      name: event.name ?? null,
+      track: event.track ?? null,
+      location: event.location ?? null,
+      date: event.date ?? null,
+      round: event.round ?? null,
+      ofRounds: event.ofRounds ?? null,
+    },
+    motos: sortedMotos,
+    qualifying: [...qualifying].sort((a, b) => a.class.localeCompare(b.class)),
+    sources: [...sources].sort((a, b) => a.url.localeCompare(b.url)),
+    warnings: [...new Set(warnings)].sort(),
+  };
+}
 
 /**
  * @param {object} input
@@ -102,30 +129,16 @@ export function assembleEvent({ event, motos, sources = [], overrides = {} }) {
         });
       }
     }
-  }
-
-  builtMotos.sort((a, b) => (a.class === b.class ? a.moto - b.moto : a.class.localeCompare(b.class)));
-
-  return {
-    schema: SCHEMA_VERSION,
-    event: {
-      id: event.id,
-      series: event.series ?? 'AMA Pro Motocross',
-      name: event.name ?? null,
-      track: event.track ?? null,
-      location: event.location ?? null,
-      date: event.date ?? null,
-      round: event.round ?? null,
-      ofRounds: event.ofRounds ?? null,
-    },
+  }  return finalizeEvent({
+    event,
     motos: builtMotos,
-    qualifying: [...qualifyingByKey.values()].sort((a, b) => a.class.localeCompare(b.class)),
-    sources: [...sources].sort((a, b) => a.url.localeCompare(b.url)),
-    warnings: [...new Set(warnings)].sort(),
-  };
+    qualifying: [...qualifyingByKey.values()],
+    sources,
+    warnings,
+  });
 }
 
-async function fetchText(url, offline) {
+export async function fetchText(url, offline) {
   const { bytes, meta } = await fetchBytes(url, { offline });
   return { text: bytes.toString('utf8'), meta };
 }

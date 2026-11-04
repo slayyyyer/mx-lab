@@ -88,8 +88,17 @@ export function validateEvent(event) {
       }
 
       // Strict only when the lap list is complete: otherwise a missing fastest
-      // lap is a source gap, already reported above.
-      if (row.bestLapMs !== null && row.bestLapMs !== undefined && laps.length > 0 && laps.length === expectedLaps) {
+      // lap is a source gap, already reported above. A best lap printed without
+      // milliseconds (`2:04`) is rounded, so it cannot equal a lap time and is
+      // not compared at all — 2025–2026 prints these routinely.
+      const bestIsRounded = row.bestLapMs !== null && row.bestLapMs !== undefined && row.bestLapMs % 1000 === 0;
+      if (
+        row.bestLapMs !== null &&
+        row.bestLapMs !== undefined &&
+        !bestIsRounded &&
+        laps.length > 0 &&
+        laps.length === expectedLaps
+      ) {
         const fastest = Math.min(...laps.filter((lap) => lap.timeMs !== null).map((lap) => lap.timeMs));
         if (Number.isFinite(fastest) && fastest !== row.bestLapMs) {
           warnings.push(`${label}: results best lap ${row.bestLapMs}ms is not in the lap list (fastest ${fastest}ms)`);

@@ -527,5 +527,69 @@ renumbered: renumbering would invent a sixteenth lap and contradict `lapsComplet
   the sheet, a lap number printed twice. The dataset records what the sheet says and names the
   anomaly.
 
-The dataset carries **1,066** such warnings across the 55 events. Failing the build for them would
+The dataset carries **1,090** such warnings across all 77 events. Failing the build for them would
 have published nothing and taught the next person to switch the gate off.
+
+---
+
+## 15. 2025–2026 on `results.promotocross.com` (built 2026-11-04)
+
+ADR 0003 verified the per-lap data and stopped there; this is what building the
+adapter added. Both seasons are now ingested: 11 championship rounds each, four motos and two
+combined qualifying reports per round.
+
+### 15.1 Discovery has two layers, and neither can be constructed
+
+`https://results.promotocross.com/events/` lists every event with a date and an id — including side
+
+events (`WMX`, `Moto Combine`), which are excluded by name. Each event hub then links its own
+reports. Moto reports appear under **three different labels** for the same thing:
+
+```
+250 Moto 1          (most 2025 rounds)
+250 Class Moto 1    (2025 season opener)
+250 Class Moto #1   (2026)
+```
+
+A parser that matches only the first style silently ingests 10 of 22 events. The hub also links
+`Qualifying 1 Group A`, `Consolation Race` and `Overall Results` reports, which are **not** the
+championship motos and are not ingested.
+
+### 15.2 `INTERVAL` is not laps completed
+
+The results table reads `POS | # | BIKE | RIDER | INTERVAL | BEST LAP (LAP #) | TOTAL TIME | …`. For
+the winner `INTERVAL` is `17 Laps`; for a rider a lap down it is `1 Lap`, and for one 13 down,
+`13 Laps` — that is how far **behind** the rider finished, not how far he rode. The count of laps
+ridden is in `TOTAL TIME`, printed as `4/8:50.212` (laps / elapsed). Reading `INTERVAL` as the lap
+count made 40th place look like a 13-lap rider with 4 lap times.
+
+### 15.3 The results table appends ` Holeshot` to a rider's name
+
+Whoever took the holeshot has it appended in the name cell: `HAIDEN DEEGAN Holeshot`. Left in
+place it splits one rider into two identities across a season (`haiden-deegan` and
+`haiden-deegan-holeshot`), which is exactly what the roster is meant to prevent. It is an
+annotation, so it is stripped.
+
+### 15.4 A best lap is sometimes printed without milliseconds
+
+`BEST LAP` is usually `2:05.182`, but occasionally `2:04` — rounded to the second, so it can never
+equal any lap time. Comparing it to the lap list produced ~150 false anomalies per event; a
+whole-second best lap is now not compared at all rather than reported as a mismatch.
+
+### 15.5 Red-flag laps are real and are kept
+
+The source prints laps of ~20 minutes (1,228,570 ms at Washougal 2025, lap 4 of 450 Moto 2). These
+are real timings around a red flag, not parse errors, and they are recorded as warnings with the
+value as printed.
+
+### 15.6 A number is unique per class, not per season
+
+`#1` is the 450 champion and the 250 champion in the same season. Keying a roster on the plate
+alone produced 51 conflicts for 2025; keyed on `class:plate` it produces none, and a real conflict
+would now be visible. Roster: `data/rosters/<year>.json`, built by `scripts/lt-season.js`.
+
+### 15.7 What this unlocks, and what it does not
+
+Per-lap **positions** exist for 2025–2026 and for nothing earlier (§14.1). Analyses that need
+them — lap chart, position fade — are 2025–2026 only unless they are redefined in time terms for
+2020–2024. That split has to be stated on the site, not papered over.

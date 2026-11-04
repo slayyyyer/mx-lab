@@ -1,6 +1,6 @@
 # ADR 0003 — Second source for 2025–2026, and what per-lap data actually exists
 
-- **Status:** accepted for discovery; ingestion not yet implemented
+- **Status:** accepted for discovery; ingestion implemented in ADR 0005
 - **Date:** 2026-11-04
 - **Related:** ADR 0001, `docs/sources.md` §12
 

@@ -6,10 +6,10 @@ One clean, validated dataset of AMA Pro Motocross results, and six analyses publ
 Motocross, or any series, team or rider. Series names appear in plain text only; no logos or marks
 are used. Results are attributed to their timing and scoring providers.
 
-> **Status: the whole 2020–2024 PDF archive is ingested.** 55 events, 8,720 result rows and
-> 123,238 per-lap times, from 546 hashed source PDFs; no event is refused by the gate. The 2025–2026
-> adapter is designed and its data verified, but not yet written (ADR 0003). The six analyses and
-> the site are not started.
+> **Status: 2020–2026 is ingested — 77 events, 12,241 result rows, 174,876 per-lap times.**
+> 2020–2024 comes from the PDF archive (55 events) and 2025–2026 from the LiveTime results site
+> (22 events, ADR 0005); no event is refused by the gate. Per-lap **positions** exist only for
+> 2025–2026. The six analyses and the site are not started.
 
 ## Sources (verified 2026-11-04)
 
@@ -41,32 +41,41 @@ All four are recorded with evidence in `docs/sources.md` §14 and the ADRs:
 
 ## Coverage
 
-| Season | Events | Result rows |
-|---|---|---|
-| 2020 | 9 | 1,400 |
-| 2021 | 12 | 1,920 |
-| 2022 | 12 | 1,880 |
-| 2023 | 11 | 1,760 |
-| 2024 | 11 | 1,760 |
+| Season | Events | Result rows | Per-lap times | Source |
+|---|---|---|---|---|
+| 2020 | 9 | 1,400 | 20,028 | PDF archive |
+| 2021 | 12 | 1,920 | 27,078 | PDF archive |
+| 2022 | 12 | 1,880 | 26,623 | PDF archive |
+| 2023 | 11 | 1,760 | 24,669 | PDF archive |
+| 2024 | 11 | 1,760 | 24,840 | PDF archive |
+| 2025 | 11 | 1,762 | 25,405 | LiveTime |
+| 2026 | 11 | 1,759 | 26,233 | LiveTime |
 
-Every event in the archive's own `M<YY><NN>` numbering from 2020 to 2024 parses; `npm run survey`
-is how that claim is checked, per season.
+Every round parses: `npm run survey` checks 2020–2024 against the archive's own `M<YY><NN>`
+numbering, and `node scripts/lt-season.js` rebuilds a 2025/2026 season plus its roster.
+
+A plate number is unique **per class within a season**, so `data/rosters/<year>.json` maps
+`class:plate` to a rider — that is what identifies a rider across events, and what makes a real
+number conflict visible.
 
 ## Layout
 
 ```
 src/
   build.js              event assembly (pure) + networked build CLI
+  build-lt.js           2025–2026 adapter: LiveTime pages into the same dataset
   validate.js           the gate: contradictions fail, source gaps warn
   identity.js           rider slugs and overrides
-  lib/                  text/time helpers, deterministic JSON, HTTP cache, poppler wrapper
-  parse/                results, lap-times and qualifying sheet parsers
-  sources/ama.js        manifest discovery, sheet kinds, event ids
+  lib/                  text/time, HTML tables, deterministic JSON, HTTP cache, poppler wrapper
+  parse/                results, lap-times, qualifying and LiveTime report parsers
+  sources/              ama.js (manifest discovery), promotocross.js (event index and hubs)
 tests/
   harness.js, run.js    dependency-free test harness
-  *.test.js             36 assertions over committed extracted-text fixtures
+  *.test.js             49 assertions over committed extracted-text and HTML fixtures
 data/events/            committed dataset, one JSON file per event
+data/rosters/           per-season `class:plate` → rider roster (2025–2026)
 docs/                   source inventory and ADRs
+scripts/                survey.js (2020–2024 ingest check), lt-season.js (2025–2026 build)
 .github/workflows/      test (push/PR) and ingest (manual, poppler)
 ```
 
@@ -77,6 +86,7 @@ npm test                                   # fixtures only: no network, no poppl
 node src/build.js --event M2405            # real ingest; needs poppler
 node src/build.js --event M2405 --offline  # rebuild from cache/
 npm run survey -- --years 2020,2021        # ingest every round, report refusals
+node scripts/lt-season.js --years 2025     # 2025 LiveTime season + roster
 ```
 
 `PDFTOTEXT=/path/to/pdftotext` overrides extractor resolution. Otherwise
@@ -94,8 +104,11 @@ contract, because fixtures are its output.
   implausible lap time, a `best lap` that is not in the lap list, a lap number printed twice,
   qualifying order that does not follow the times — are warnings: the dataset records what the
   sheet says and names the anomaly. There are 1,066 of them, all in the committed data.
-- **Provenance without artefacts.** `sources[]` records each PDF's URL and sha256; the PDFs
-  themselves are never committed.
+- **Provenance without artefacts.** `sources[]` records each source page's URL and sha256; the
+  PDFs and mirrored HTML are never committed.
+- **Positions only where the source has them.** A lap may carry `position` (schema 2). 2025–2026
+  prints one per lap; 2020–2024 has none, and none is derived — a retro-fitted position would look
+  authoritative and be wrong.
 
 ## Not in this repository
 
