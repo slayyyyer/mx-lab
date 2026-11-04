@@ -58,10 +58,18 @@ const MONTHS = {
   july: 7, august: 8, september: 9, october: 10, november: 11, december: 12,
 };
 
-/** `May 25, 2024` -> `2024-05-25`. Parsed explicitly, because Date() would make it locale-dependent. */
+/**
+ * `May 25, 2024` -> `2024-05-25`. Parsed explicitly, because Date() would make
+ * it locale-dependent. Also accepts the archive's other two forms:
+ * `SATURDAY, MAY 29, 2021` (weekday prefix) and `MAY 29-29, 2021` (day range).
+ */
 export function parseLongDate(text) {
   if (typeof text !== 'string') return null;
-  const match = text.trim().match(/^([A-Za-z]+)\s+(\d{1,2}),\s*(\d{4})$/);
+  const cleaned = text
+    .trim()
+    .replace(/^[A-Za-z]+,\s*/, '')
+    .replace(/(\d{1,2})-\d{1,2}/, '$1');
+  const match = cleaned.match(/^([A-Za-z]+)\s+(\d{1,2}),\s*(\d{4})$/);
   if (!match) return null;
   const month = MONTHS[match[1].toLowerCase()];
   if (!month) return null;
@@ -72,6 +80,13 @@ export function parseManifest(xml) {
   const eventMatch = xml.match(/<B\b([^>]*)>/);
   if (!eventMatch) throw new Error('manifest: no <B> event element');
   const attrs = parseAttrs(eventMatch[1]);
+
+  // Manifests for 2020–2022 carry no SANC attribute; every session repeats the
+  // event id in EID, which is the same value the newer manifests put in SANC.
+  const sessionIdMatch = xml.match(/<F\b[^>]*\bEID="([^"]+)"/);
+  // The first <C D="…"> is the weekday-explicit date (e.g. `SATURDAY, MAY 29,
+  // 2021`), which is more precise than the <B> date range (`MAY 29-29, 2021`).
+  const dayMatch = xml.match(/<C\b[^>]*\bD="([^"]+)"/);
 
   const sessions = [];
   // A session is <F ...> with <R/> children, or a self-closing <F ... />.
@@ -98,12 +113,12 @@ export function parseManifest(xml) {
   }
 
   return {
-    id: attrs.SANC ?? null,
+    id: attrs.SANC ?? sessionIdMatch?.[1] ?? null,
     name: attrs.E ?? null,
     track: attrs.T ?? null,
     location: attrs.L ?? null,
     dateText: attrs.D ?? null,
-    date: parseLongDate(attrs.D),
+    date: parseLongDate(dayMatch?.[1]) ?? parseLongDate(attrs.D),
     sessions,
   };
 }

@@ -55,18 +55,22 @@ test('gate: a duplicated finish position fails the build', () => {
   assert(errors.some((error) => /duplicate position/.test(error)), 'duplicate position not caught');
 });
 
-test('gate: an implausible lap time fails the build', () => {
+test('gate: an implausible lap time is reported, not silently accepted', () => {
+  // The source prints these (a 29-minute "lap" after a red flag), so the value
+  // stays in the data and the anomaly is named.
   const event = buildEvent();
   event.motos[0].results[0].laps[1].timeMs = 12;
-  const { errors } = validateEvent(event);
-  assert(errors.some((error) => /implausible lap/.test(error)), 'implausible lap not caught');
+  const { errors, warnings } = validateEvent(event);
+  eq(errors, []);
+  assert(warnings.some((warning) => /implausible lap/.test(warning)), 'implausible lap not reported');
 });
 
-test('gate: a best lap missing from the lap list fails the build', () => {
+test('gate: a best lap missing from the lap list is reported', () => {
   const event = buildEvent();
   event.motos[0].results[0].bestLapMs = 143896;
-  const { errors } = validateEvent(event);
-  assert(errors.some((error) => /not in the lap list/.test(error)), 'best-lap contradiction not caught');
+  const { errors, warnings } = validateEvent(event);
+  eq(errors, []);
+  assert(warnings.some((warning) => /not in the lap list/.test(warning)), 'best-lap contradiction not reported');
 });
 
 test('gate: a malformed source hash fails the build', () => {

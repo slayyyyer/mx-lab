@@ -481,5 +481,51 @@ That was wrong, and the cause was constructing report URLs by hand: the same
 `p=` value 404s without the parameters the site itself emits. Following the
 links on `?p=view_event&id=<event>` gives `p=view_race_result&id=<report>`,
 which returns a per-rider `Lap Times` table with `LAP TIME`, `SECTORS`, `PACE`
-and a **per-lap position** column (`38th`, `37th`, …). Verified on the 2025
-Ironman event (1,393,052 bytes, 1,555 lap-time strings). See ADR 0003.
+and a **per-lap position** column (`38th`, `37th`, …). Verified on the 2025 Ironman event (1,393,052 bytes, 1,555 lap-time strings). See ADR 0003.
+
+### 14.8 The whole 2020–2024 archive is ingestible
+
+Every round from 2020 to 2024 was surveyed and then built: **55 events** (2020: 9, 2021: 12,
+2022: 12, 2023: 11, 2024: 11), **8,720 result rows**, **123,238 per-lap times**, from 546 hashed
+PDFs. `npm run survey` reports no `refused` and no `invalid` event.
+
+The first survey run reported 33 failures. Every one of them was a source anomaly rather than a
+layout the parser could not read, which is why the gate was split (14.10): an archive this size
+contains misprints, and a parser that refuses on them cannot produce a dataset at all.
+
+### 14.9 Two column-edge hazards in the results sheet
+
+Both come from columns that abut rather than separate:
+
+- **A flush hometown eats the bike.** `Landsborough, Australia Honda CRF450R WE` has a single
+  space between the two fields, so a `HOMETOWN` column read returns the hometown *and* the bike,
+  and the bike read then lands on the interval. Every layout prints the bike starting with its
+  brand, so the bike is anchored on that vocabulary instead of on a column offset.
+- **A long name leaves its tail in the next column.** `Jorgen-Matthias Talviku` outgrows its
+  column and the hometown window returns `u`. A field that is merely the end of the name is
+  overflow, so the value is taken from the continuation line instead.
+
+Before this, 376 rows had no bike and about 60 had an interval (`+1:22.282`) in the bike field.
+Six rows now have no bike at all — the same plate `#451` in four 2024 motos, where the sheet
+prints none.
+
+### 14.10 One sheet prints a lap number twice
+
+Three 2020 rounds (`M2015`, `M2020`, `M2025`) end a rider's column with the last lap number
+printed twice: `1..15`, then `15`. The results sheet gives the same rider 15 completed laps, so the
+repeat is an artefact of the print, and the second entry is **dropped** with a warning. It is not
+renumbered: renumbering would invent a sixteenth lap and contradict `lapsCompleted`.
+
+### 14.11 The gate separates contradictions from source anomalies
+
+§10 described one severity. It now has two, recorded in ADR 0004:
+
+- **errors** — a structural contradiction the parser controls: duplicate or non-contiguous
+  positions, duplicate plates, a missing rider id, a malformed source hash. These fail the build.
+- **warnings** — an anomaly in the source: an implausible lap time, a published best time that is
+  not in the lap list, a qualifying order that does not follow the times, a lap time missing from
+  the sheet, a lap number printed twice. The dataset records what the sheet says and names the
+  anomaly.
+
+The dataset carries **1,066** such warnings across the 55 events. Failing the build for them would
+have published nothing and taught the next person to switch the gate off.

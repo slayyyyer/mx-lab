@@ -10,6 +10,7 @@
   },
   "scripts": {
     "test": "node tests/run.js",
-    "build:event": "node src/build.js"
+    "build:event": "node src/build.js",
+    "survey": "node scripts/survey.js"
   }
 }

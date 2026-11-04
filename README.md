@@ -6,8 +6,8 @@ One clean, validated dataset of AMA Pro Motocross results, and six analyses publ
 Motocross, or any series, team or rider. Series names appear in plain text only; no logos or marks
 are used. Results are attributed to their timing and scoring providers.
 
-> **Status: pipeline built; one round ingested end to end** (2024 round 1, Fox Raceway / Pala).
-> The 2020–2024 PDF archive is parsed for results, per-lap times and qualifying. The 2025–2026
+> **Status: the whole 2020–2024 PDF archive is ingested.** 55 events, 8,720 result rows and
+> 123,238 per-lap times, from 546 hashed source PDFs; no event is refused by the gate. The 2025–2026
 > adapter is designed and its data verified, but not yet written (ADR 0003). The six analyses and
 > the site are not started.
 
@@ -39,6 +39,19 @@ All four are recorded with evidence in `docs/sources.md` §14 and the ADRs:
 4. **Qualifying is the whole entry list, not the moto field** — 71 entrants against 40 starters,
    printed in two parts split by `TOP 36 RIDERS QUALIFY`.
 
+## Coverage
+
+| Season | Events | Result rows |
+|---|---|---|
+| 2020 | 9 | 1,400 |
+| 2021 | 12 | 1,920 |
+| 2022 | 12 | 1,880 |
+| 2023 | 11 | 1,760 |
+| 2024 | 11 | 1,760 |
+
+Every event in the archive's own `M<YY><NN>` numbering from 2020 to 2024 parses; `npm run survey`
+is how that claim is checked, per season.
+
 ## Layout
 
 ```
@@ -63,6 +76,7 @@ docs/                   source inventory and ADRs
 npm test                                   # fixtures only: no network, no poppler
 node src/build.js --event M2405            # real ingest; needs poppler
 node src/build.js --event M2405 --offline  # rebuild from cache/
+npm run survey -- --years 2020,2021        # ingest every round, report refusals
 ```
 
 `PDFTOTEXT=/path/to/pdftotext` overrides extractor resolution. Otherwise
@@ -74,9 +88,12 @@ contract, because fixtures are its output.
 
 - **Byte-identical rebuilds.** Keys are sorted at every level, no timestamps are stored, and
   non-finite numbers throw. Building `M2405` twice and comparing with `cmp` produces no diff.
-- **The gate is a gate.** Contradictions (duplicate positions, a `best lap` that is not in the lap
-  list, implausible lap times, a malformed source hash) fail the build. Source gaps are warnings and
-  are carried in the dataset.
+- **The gate is a gate, and it separates two kinds of finding** (ADR 0004). Structural
+  contradictions the parser controls — duplicate or non-contiguous positions, duplicate plates, a
+  missing rider id, a malformed source hash — fail the build. Anomalies in the source itself — an
+  implausible lap time, a `best lap` that is not in the lap list, a lap number printed twice,
+  qualifying order that does not follow the times — are warnings: the dataset records what the
+  sheet says and names the anomaly. There are 1,066 of them, all in the committed data.
 - **Provenance without artefacts.** `sources[]` records each PDF's URL and sha256; the PDFs
   themselves are never committed.
 

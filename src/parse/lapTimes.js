@@ -19,11 +19,51 @@
 //   - Names here are abbreviated (`J. Lawrence`) and must be joined to the
 //     results sheet by plate, not by name.
 
-import { DASH_TIME, boundsFromHeaders, isTime, parseTime, sliceColumns } from '../lib/text.js';
+import { DASH_TIME, boundsFromHeaders, parseTime, sliceColumns } from '../lib/text.js';
 
 export const LAP_TIMES_PARSER_ID = 'ama/lap-times/layout-2024';
 
-const SUMMARY_RE = /^(MIN|MAX|AVG)$/;
+// Numeric columns are right-aligned, so a wide value (`12:05.101`) starts left of
+// its header offset and drags the previous column's last digit into this cell.
+// The lap number is therefore read from the last `<lap> <time>` pair in the cell,
+// never from the first two tokens.
+const TIME_PATTERN = `(?:\\d+:)?\\d+\\.\\d{3}`;
+const DASH_PATTERN = DASH_TIME.replace(/\./g, '\\.');
+const SUMMARY_PATTERN = new RegExp(`\\b(MIN|MAX|AVG)\\s+(${TIME_PATTERN}|${DASH_PATTERN})`, 'g');
+const LAP_PATTERN = new RegExp(`(\\d{1,2})\\s+(${TIME_PATTERN}|${DASH_PATTERN})`, 'g');
+
+function lastPair(cell, pattern) {
+  pattern.lastIndex = 0;
+  let found = null;
+  for (let match = pattern.exec(cell); match; match = pattern.exec(cell)) found = match;
+  return found;
+}
+
+// Some sheets print one extra entry at the end of a rider's column, repeating the
+// lap number already printed (2020 Ironman #139: `1..15`, then `15` again). The
+// results sheet gives the same rider 15 completed laps, so the repeated entry is
+// an artefact: the first entry for a lap number is kept and the later repeat is
+// dropped with a warning. A hole, or any other out-of-order number, is refused.
+function normalizeLaps(entry) {
+  const laps = [];
+  const dropped = [];
+  let last = 0;
+
+  for (const row of entry.rows) {
+    if (row.printed === last + 1) {
+      laps.push({ lap: row.printed, timeMs: row.timeMs });
+      last = row.printed;
+      continue;
+    }
+    // A skipped number is a hole in the record; never invent a lap for it.
+    if (row.printed > last + 1) return null;
+    // Only a repeat of the lap just printed is a known artefact.
+    if (row.printed !== last) return null;
+    dropped.push({ lap: row.printed, timeMs: row.timeMs });
+  }
+
+  return { laps, dropped };
+}
 
 export function parseLapTimes(text) {
   const pages = text.split('\f');
@@ -49,7 +89,7 @@ export function parseLapTimes(text) {
       plate,
       name: (names[index] ?? '').trim(),
       bike: (bikes[index] ?? '').trim(),
-      laps: new Map(),
+      rows: [],
       min: null,
       max: null,
       avg: null,
@@ -65,20 +105,15 @@ export function parseLapTimes(text) {
         if (!cell) return;
         const entry = entries[index];
         if (!entry) return;
-        const tokens = cell.split(/\s+/);
-        const [first, second] = tokens;
-
-        if (/^\d+$/.test(first) && (isTime(second) || second === DASH_TIME)) {
-          const lap = Number(first);
-          if (entry.laps.has(lap)) {
-            throw new Error(`lap times: duplicate lap ${lap} for #${entry.plate} on page ${pageIndex + 1}`);
-          }
-          entry.laps.set(lap, parseTime(second));
+        const summary = lastPair(cell, SUMMARY_PATTERN);
+        if (summary) {
+          entry[summary[1].toLowerCase()] = parseTime(summary[2]);
           return;
         }
 
-        if (SUMMARY_RE.test(first) && (isTime(second) || second === DASH_TIME)) {
-          entry[first.toLowerCase()] = parseTime(second);
+        const lap = lastPair(cell, LAP_PATTERN);
+        if (lap) {
+          entry.rows.push({ printed: Number(lap[1]), timeMs: parseTime(lap[2]) });
           return;
         }
 
@@ -87,7 +122,19 @@ export function parseLapTimes(text) {
     }
 
     for (const entry of entries) {
-      if (entry.laps.size === 0) continue;
+      if (entry.rows.length === 0) continue;
+      const normalized = normalizeLaps(entry);
+      if (!normalized) {
+        throw new Error(
+          `lap times: lap numbers for #${entry.plate} on page ${pageIndex + 1} are not a contiguous sequence`,
+        );
+      }
+      const { laps, dropped } = normalized;
+      for (const repeat of dropped) {
+        warnings.push(
+          `#${entry.plate} page ${pageIndex + 1}: lap ${repeat.lap} printed twice, the second entry (${repeat.timeMs}ms) was dropped`,
+        );
+      }
       riders.push({
         plate: entry.plate,
         name: entry.name,
@@ -95,9 +142,7 @@ export function parseLapTimes(text) {
         minMs: entry.min,
         maxMs: entry.max,
         avgMs: entry.avg,
-        laps: [...entry.laps.entries()]
-          .sort((a, b) => a[0] - b[0])
-          .map(([lap, timeMs]) => ({ lap, timeMs })),
+        laps,
       });
     }
   });

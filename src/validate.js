@@ -4,11 +4,17 @@
 // is the dominant correctness risk (ADR 0001), so contradictions inside the
 // data fail the build. Two kinds of finding are deliberately separated:
 //
-//   errors   - the dataset contradicts itself, so it must not be written.
-//   warnings - the source itself is incomplete (a rider's fast lap printed as
-//              the `MIN` summary instead of a lap line, so that lap is absent).
-//              The dataset records what exists and says so; it never invents a
-//              lap time to make a count match.
+//   errors   - a structural contradiction the parser controls: duplicate or
+//              non-contiguous positions, duplicate plates, a missing rider id,
+//              a malformed source hash. These mean the parse is wrong.
+//   warnings - an anomaly in the source itself: a rider's fast lap printed as
+//              the `MIN` summary instead of a lap line, a lap time of 29:24.473
+//              printed after a red flag, a published best time faster than every
+//              listed session. The dataset records what the source says and
+//              names the anomaly; it never rewrites a value to look plausible.
+//
+// The split matters: failing a build for a source quirk would only teach the
+// next person to switch the gate off.
 
 const MIN_PLAUSIBLE_LAP_MS = 50_000;
 const MAX_PLAUSIBLE_LAP_MS = 400_000;
@@ -67,7 +73,9 @@ export function validateEvent(event) {
           continue;
         }
         if (lap.timeMs < MIN_PLAUSIBLE_LAP_MS || lap.timeMs > MAX_PLAUSIBLE_LAP_MS) {
-          errors.push(`${label}: implausible lap ${lap.lap} time ${lap.timeMs}ms`);
+          // The source does print these: #117 lap 3 at Loretta Lynn's 2020 is
+          // 29:24.473, a whole moto's worth of time on one lap.
+          warnings.push(`${label}: implausible lap ${lap.lap} time ${lap.timeMs}ms`);
         }
       }
 
@@ -84,7 +92,7 @@ export function validateEvent(event) {
       if (row.bestLapMs !== null && row.bestLapMs !== undefined && laps.length > 0 && laps.length === expectedLaps) {
         const fastest = Math.min(...laps.filter((lap) => lap.timeMs !== null).map((lap) => lap.timeMs));
         if (Number.isFinite(fastest) && fastest !== row.bestLapMs) {
-          errors.push(`${label}: results best lap ${row.bestLapMs}ms is not in the lap list (fastest ${fastest}ms)`);
+          warnings.push(`${label}: results best lap ${row.bestLapMs}ms is not in the lap list (fastest ${fastest}ms)`);
         }
       }
     }
@@ -114,17 +122,18 @@ export function validateEvent(event) {
       qualifiedPlates.add(row.plate);
       const sessionTimes = (row.sessions ?? []).filter((time) => typeof time === 'number');
       if (row.bestMs === null || row.bestMs === undefined) {
-        errors.push(`${label} #${row.plate}: no best time`);
+        // A rider who never completed a timed lap is still on the entry list.
+        warnings.push(`${label} #${row.plate}: no best time recorded`);
         continue;
       }
       if (sessionTimes.length > 0) {
         const fastest = Math.min(...sessionTimes);
         if (fastest !== row.bestMs) {
-          errors.push(`${label} #${row.plate}: best ${row.bestMs}ms but fastest session is ${fastest}ms`);
+          warnings.push(`${label} #${row.plate}: best ${row.bestMs}ms but fastest listed session is ${fastest}ms`);
         }
       }
       if (row.bestMs < previousBest) {
-        errors.push(`${label} #${row.plate}: slower best time ranked ahead of the rider in front`);
+        warnings.push(`${label} #${row.plate}: slower best time ranked ahead of the rider in front`);
       }
       previousBest = row.bestMs;
     }

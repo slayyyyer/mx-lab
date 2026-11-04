@@ -153,12 +153,11 @@ function parseArgs(argv) {
   return args;
 }
 
-async function main() {
-  const args = parseArgs(process.argv.slice(2));
-  const eventId = args.event ?? 'M2405';
-  const base = args.base ?? AMA_BASE;
-  const offline = Boolean(args.offline);
-
+/**
+ * Fetch and assemble one event, without validating or writing it. Shared by the
+ * CLI and by scripts/survey.js so a survey exercises the real ingest path.
+ */
+export async function collectEvent({ eventId, base = AMA_BASE, offline = false }) {
   const manifest = parseManifest((await fetchText(manifestUrl(eventId, base), offline)).text);
   if (!manifest.id) throw new Error('manifest: no event id');
 
@@ -201,7 +200,7 @@ async function main() {
     target.qualifyingText = combined.text;
   }
 
-  const event = assembleEvent({
+  return assembleEvent({
     event: {
       id: manifest.id,
       name: manifest.name,
@@ -215,7 +214,15 @@ async function main() {
     sources,
     overrides,
   });
+}
 
+async function main() {
+  const args = parseArgs(process.argv.slice(2));
+  const eventId = args.event ?? 'M2405';
+  const base = args.base ?? AMA_BASE;
+  const offline = Boolean(args.offline);
+
+  const event = await collectEvent({ eventId, base, offline });
   const { errors, warnings } = validateEvent(event);
   if (errors.length > 0) {
     throw new Error(`validation failed for ${eventId}:\n  ${errors.join('\n  ')}`);
