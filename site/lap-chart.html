@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lap chart — mx-lab</title>
+<meta name="description" content="Per-lap positions for every 2025–2026 AMA Pro Motocross moto.">
+<meta name="theme-color" content="#0c1117">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <h1><a href="index.html">mx-lab</a></h1>
+      <span class="tag">Unofficial</span>
+      <span class="sub">AMA Pro Motocross, 2020–2026</span>
+    </div>
+    <nav class="site">
+      <a href="index.html">Overview</a>
+      <a href="lap-chart.html" aria-current="page">Lap chart</a>
+      <a href="fade.html">Fade</a>
+      <a href="lap-one.html">Lap 1</a>
+      <a href="qualifying.html">Qualifying</a>
+      <a href="titles.html">Titles</a>
+      <a href="ratings.html">Ratings</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2>6.1 — The lap chart</h2>
+  <p class="lede">
+    Where each rider was on every lap of a moto. A line that rises is a rider losing places; a line
+    that falls is a rider moving forward.
+  </p>
+
+  <div class="note">
+    <strong>2025–2026 only.</strong> Those seasons print a position on every lap. The 2020–2024 sheets
+    print lap <em>times</em> and no position, and none is derived here — a reconstructed position would
+    look authoritative and be wrong. The other analyses on this site cover all seven seasons.
+  </div>
+
+  <div id="stats"></div>
+
+  <div class="controls">
+    <label class="field">Round
+      <select id="event-select"></select>
+    </label>
+    <div class="tabs" id="moto-tabs"></div>
+  </div>
+
+  <div class="panel" id="chart-panel"><p class="small">Loading…</p></div>
+  <div class="panel" id="table-panel"></div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>
+      <strong>Unofficial.</strong> Not affiliated with or endorsed by AMA Pro Racing, MX Sports,
+      Pro Motocross, any series, team or rider. Series names appear in plain text only; no logos or
+      marks are used.
+    </p>
+    <p class="small">
+      Per-lap positions are read from the timing system's lap table for 2025–2026
+      (<span class="mono">results.promotocross.com</span>). The chart keeps the top twenty finishers of
+      each moto; a line breaks where the source prints no position for that lap.
+      Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+    </p>
+  </div>
+</footer>
+
+<script type="module">
+import { load, num, esc, table, statBlock, fillSelect } from './assets/ui.js';
+import { lineChart } from './assets/chart.js';
+
+const data = await load('lap-chart');
+const eventSelect = document.querySelector('#event-select');
+const tabs = document.querySelector('#moto-tabs');
+const chartPanel = document.querySelector('#chart-panel');
+const tablePanel = document.querySelector('#table-panel');
+
+const races = [...data.races].sort((a, b) => b.season - a.season || (a.round ?? 0) - (b.round ?? 0));
+fillSelect(
+  eventSelect,
+  races.map((race) => ({
+    value: race.id,
+    label: `${race.season} R${race.round ?? '?'} — ${race.name}${race.track && race.track !== race.name ? ` (${race.track})` : ''}`,
+  })),
+);
+
+document.querySelector('#stats').innerHTML = statBlock([
+  { value: num(data.coverage.events), label: 'events' },
+  { value: num(data.coverage.motos), label: 'motos' },
+  { value: num(data.coverage.lapsWithPosition), label: 'laps with a position' },
+  { value: num(data.coverage.riders), label: 'charted rides' },
+]);
+
+let currentRace = races[0];
+let currentMoto = currentRace.motos[0];
+
+function drawMotoTabs() {
+  tabs.innerHTML = currentRace.motos
+    .map(
+      (moto, index) =>
+        `<button type="button" data-index="${index}" aria-pressed="${moto === currentMoto}">${esc(moto.class)} Moto ${moto.moto}</button>`,
+    )
+    .join('');
+  for (const button of tabs.querySelectorAll('button')) {
+    button.addEventListener('click', () => {
+      currentMoto = currentRace.motos[Number(button.dataset.index)];
+      render();
+    });
+  }
+}
+
+function render() {
+  if (!currentMoto || currentMoto.riders.length === 0) {
+    chartPanel.innerHTML = '<p class="small">No per-lap positions for this moto.</p>';
+    tablePanel.innerHTML = '';
+    return;
+  }
+
+  const shown = currentMoto.riders.slice(0, 10);
+  const xLabels = Array.from({ length: currentMoto.laps }, (_, index) => String(index + 1));
+  const maxPosition = Math.max(
+    1,
+    ...currentMoto.riders.flatMap((rider) => rider.positions.filter((value) => Number.isFinite(value))),
+  );
+
+  chartPanel.innerHTML =
+    `<div class="small">${esc(currentMoto.class)} Moto ${currentMoto.moto} — ${esc(currentRace.name)}, ` +
+    `${esc(currentRace.date)} · top 10 of ${currentMoto.riders.length} charted finishers shown</div>` +
+    lineChart({
+      series: shown.map((rider) => ({ label: rider.name, points: rider.positions })),
+      xLabels,
+      yMin: 1,
+      yMax: maxPosition,
+      yStep: maxPosition > 20 ? 5 : 2,
+      invertY: true,
+      yLabel: `Positions by lap, ${currentMoto.class} Moto ${currentMoto.moto}`,
+    }) +
+    `<div class="legend">Positions are printed by the timing system; the vertical axis is inverted so 1st is at the top.</div>`;
+
+  tablePanel.innerHTML = table(
+    ['Pos', 'Rider', 'Status', 'Lap positions'],
+    currentMoto.riders.map((rider) => [
+      rider.finish,
+      `<strong>${esc(rider.name)}</strong> <span class="small mono">#${esc(rider.plate)}</span>`,
+      rider.status ? esc(rider.status) : '—',
+      `<span class="mono">${rider.positions.map((value) => (Number.isFinite(value) ? value : '·')).join(' ')}</span>`,
+    ]),
+    { numeric: [0] },
+  );
+}
+
+eventSelect.addEventListener('change', () => {
+  currentRace = races.find((race) => race.id === eventSelect.value) ?? races[0];
+  currentMoto = currentRace.motos[0];
+  drawMotoTabs();
+  render();
+});
+
+drawMotoTabs();
+render();
+</script>
+</body>
+</html>

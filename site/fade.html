@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fade — mx-lab</title>
+<meta name="description" content="How much AMA Pro Motocross riders slow across a moto, season by season and track by track.">
+<meta name="theme-color" content="#0c1117">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <h1><a href="index.html">mx-lab</a></h1>
+      <span class="tag">Unofficial</span>
+      <span class="sub">AMA Pro Motocross, 2020–2026</span>
+    </div>
+    <nav class="site">
+      <a href="index.html">Overview</a>
+      <a href="lap-chart.html">Lap chart</a>
+      <a href="fade.html" aria-current="page">Fade</a>
+      <a href="lap-one.html">Lap 1</a>
+      <a href="qualifying.html">Qualifying</a>
+      <a href="titles.html">Titles</a>
+      <a href="ratings.html">Ratings</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2>6.2 — Fade</h2>
+  <p class="lede">
+    How much slower a rider is in the second half of a moto than in the first. A bigger number means
+    the pace fell away; a number near zero means it held.
+  </p>
+
+  <div id="stats"></div>
+
+  <h3>By track</h3>
+  <p class="small">
+    Median fade across every measured rider in the class's two motos. Tracks that ask more of a rider
+    late in a moto sit at the top.
+  </p>
+  <div class="controls">
+    <label class="field">Season
+      <select id="season-select"></select>
+    </label>
+  </div>
+  <div class="panel" id="track-chart"><p class="small">Loading…</p></div>
+
+  <h3>Season by season</h3>
+  <div class="panel" id="season-table"></div>
+
+  <h3>Who holds pace</h3>
+  <p class="small">
+    Riders with at least ten measured motos in the selected season, lowest median fade first. Two
+    decimals of a percent is the resolution of a stopwatch, not of a rider's fitness — read the spread,
+    not the last digit.
+  </p>
+  <div class="panel table-scroll" id="rider-table"></div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>
+      <strong>Unofficial.</strong> Not affiliated with or endorsed by AMA Pro Racing, MX Sports,
+      Pro Motocross, any series, team or rider. Series names appear in plain text only; no logos or
+      marks are used.
+    </p>
+    <p class="small">
+      Fade is the percent change in a rider's median lap time between the first and second half of a
+      moto, using laps 2 to the end. Laps slower than 1.4× that rider's own median are dropped as
+      stoppages, and a moto needs six usable laps either side of the split. Lap times come from the
+      AMA results archive (2020–2024) and the LiveTime results site (2025–2026). No lap time is
+      estimated.
+      Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+    </p>
+  </div>
+</footer>
+
+<script type="module">
+import { load, num, pct, esc, table, statBlock, fillSelect } from './assets/ui.js';
+import { hBars } from './assets/chart.js';
+
+const data = await load('fade');
+const seasonSelect = document.querySelector('#season-select');
+const seasons = data.seasons.map((row) => row.season).sort((a, b) => b - a);
+
+fillSelect(seasonSelect, seasons.map((season) => ({ value: season, label: `${season}` })));
+
+document.querySelector('#stats').innerHTML = statBlock([
+  { value: num(data.coverage.riderMotos), label: 'rider-motos measured' },
+  { value: num(data.coverage.riderMotosSkipped), label: 'motos skipped (too few laps)' },
+  { value: num(data.coverage.lapsUsed), label: 'lap times used' },
+  { value: pct(data.seasons.reduce((sum, row) => sum + row.medianFadePct, 0) / data.seasons.length), label: 'mean season median' },
+]);
+
+document.querySelector('#season-table').innerHTML = table(
+  ['Season', 'Motos', 'Rider-motos', 'Median fade'],
+  data.seasons.map((row) => [row.season, num(row.motos), num(row.riderMotos), pct(row.medianFadePct)]),
+  { numeric: [1, 2, 3] },
+);
+
+function renderTracks(season) {
+  const rows = data.tracks
+    .filter((row) => row.season === Number(season))
+    .sort((a, b) => b.medianFadePct - a.medianFadePct)
+    .map((row) => ({
+      label: `${row.round ?? '?'}. ${row.track ?? row.name}`,
+      value: row.medianFadePct,
+      detail: row.riderMotos,
+    }));
+  document.querySelector('#track-chart').innerHTML = rows.length
+    ? hBars({
+        rows,
+        rowHeight: 26,
+        labelWidth: 300,
+        format: (value) => `${value.toFixed(2)}%`,
+        ariaLabel: `Median fade by track, ${season}`,
+      })
+    : '<p class="small">No measured motos in this season.</p>';
+}
+
+function renderRiders(season) {
+  const rows = data.riders
+    .filter((row) => row.season === Number(season))
+    .sort((a, b) => a.medianFadePct - b.medianFadePct);
+  document.querySelector('#rider-table').innerHTML = table(
+    ['Rider', 'Motos', 'Median fade', 'Best', 'Worst'],
+    rows.map((row) => [
+      esc(row.name),
+      num(row.motos),
+      pct(row.medianFadePct),
+      pct(row.bestFadePct),
+      pct(row.worstFadePct),
+    ]),
+    { numeric: [1, 2, 3, 4] },
+  );
+}
+
+seasonSelect.addEventListener('change', () => {
+  renderTracks(seasonSelect.value);
+  renderRiders(seasonSelect.value);
+});
+
+renderTracks(seasonSelect.value);
+renderRiders(seasonSelect.value);
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+name: pages
+
+# Builds the six analyses from the committed dataset and publishes the static
+# site. Pages must be configured to deploy from GitHub Actions (Settings → Pages →
+# Source: GitHub Actions); this workflow does not switch that on by itself.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Test
+        run: npm test
+      # The derived files are committed. If a parser change has moved the data
+      # without regenerating them, the site would publish last week's numbers.
+      - name: Check derived files are current
+        run: npm run derive -- --check
+      - name: Stage derived data for the site
+        run: npm run site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qualifying — mx-lab</title>
+<meta name="description" content="What a fast qualifying lap is worth in AMA Pro Motocross, and who races better than they qualify.">
+<meta name="theme-color" content="#0c1117">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <h1><a href="index.html">mx-lab</a></h1>
+      <span class="tag">Unofficial</span>
+      <span class="sub">AMA Pro Motocross, 2020–2026</span>
+    </div>
+    <nav class="site">
+      <a href="index.html">Overview</a>
+      <a href="lap-chart.html">Lap chart</a>
+      <a href="fade.html">Fade</a>
+      <a href="lap-one.html">Lap 1</a>
+      <a href="qualifying.html" aria-current="page">Qualifying</a>
+      <a href="titles.html">Titles</a>
+      <a href="ratings.html">Ratings</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2>6.4 — What qualifying is worth</h2>
+  <p class="lede">
+    Qualifying sets the gate, and the gate is supposed to matter. This compares where a rider
+    qualified with where they actually finished, across both motos of the same event.
+  </p>
+
+  <div id="stats"></div>
+
+  <div class="note">
+    The qualifying sheet lists the <strong>whole entry list</strong> — around 70 riders for a 40-rider
+    moto field. Riders who did not make the motos have no race result, so they are not counted; only
+    riders who appear in both sessions are compared.
+  </div>
+
+  <div class="controls">
+    <label class="field">Season
+      <select id="season-select"></select>
+    </label>
+  </div>
+
+  <h3>Positions gained</h3>
+  <p class="small">
+    Qualifying position minus mean finishing position. Positive means the rider moved forward when it
+    counted; riders need at least three paired events to appear.
+  </p>
+  <div class="panel table-scroll" id="rider-table"><p class="small">Loading…</p></div>
+
+  <h3>Event by event</h3>
+  <div class="panel table-scroll" id="race-table"></div>
+
+  <h3>Season summary</h3>
+  <div class="panel" id="season-table"></div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>
+      <strong>Unofficial.</strong> Not affiliated with or endorsed by AMA Pro Racing, MX Sports,
+      Pro Motocross, any series, team or rider. Series names appear in plain text only; no logos or
+      marks are used.
+    </p>
+    <p class="small">
+      Qualifying times come from the combined qualifying sheet each class publishes, and finishing
+      positions from the moto results. Positions gained is qualifying position minus the mean of the
+      rider's moto finishes at that event. Correlation is Spearman rho between qualifying position and
+      mean moto finish.
+      Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+    </p>
+  </div>
+</footer>
+
+<script type="module">
+import { load, num, share, esc, table, statBlock, fillSelect } from './assets/ui.js';
+
+const data = await load('qualifying');
+const seasonSelect = document.querySelector('#season-select');
+const seasons = data.seasons.map((row) => row.season).sort((a, b) => b - a);
+fillSelect(seasonSelect, seasons.map((season) => ({ value: season, label: `${season}` })));
+
+document.querySelector('#stats').innerHTML = statBlock([
+  { value: num(data.coverage.events), label: 'paired event/classes' },
+  { value: num(data.coverage.riderEvents), label: 'rider-events compared' },
+  { value: num(data.riders.length), label: 'riders on the leaderboard' },
+  { value: data.seasons.length, label: 'seasons' },
+]);
+
+document.querySelector('#season-table').innerHTML = table(
+  ['Season', 'Events', 'Rider-events', 'Median gain', 'Median rho'],
+  data.seasons.map((row) => [
+    row.season,
+    num(row.events),
+    num(row.riders),
+    row.medianGain === null ? '—' : `${row.medianGain > 0 ? '+' : ''}${row.medianGain.toFixed(2)}`,
+    row.medianRho === null ? '—' : row.medianRho.toFixed(3),
+  ]),
+  { numeric: [1, 2, 3, 4] },
+);
+
+function renderRiders(season) {
+  const rows = data.riders
+    .filter((row) => row.season === Number(season))
+    .sort((a, b) => b.medianGain - a.medianGain);
+  document.querySelector('#rider-table').innerHTML = rows.length
+    ? table(
+        ['Rider', 'Events', 'Median gain', 'Qualifying pos', 'Finish pos'],
+        rows.map((row) => [
+          esc(row.name),
+          num(row.events),
+          `${row.medianGain > 0 ? '+' : ''}${row.medianGain.toFixed(2)}`,
+          row.medianQualifyingPos.toFixed(1),
+          row.medianFinishPos.toFixed(1),
+        ]),
+        { numeric: [1, 2, 3, 4] },
+      )
+    : '<p class="small">No rider reached three paired events in this season.</p>';
+}
+
+function renderRaces(season) {
+  const rows = data.races
+    .filter((row) => row.season === Number(season))
+    .sort((a, b) => (a.round ?? 0) - (b.round ?? 0) || a.class.localeCompare(b.class));
+  document.querySelector('#race-table').innerHTML = table(
+    ['Round', 'Class', 'Qualified', 'Raced', 'Median gain', 'rho'],
+    rows.map((row) => [
+      `${row.round ?? '?'}. ${esc(row.name)}`,
+      row.class,
+      num(row.qualified),
+      num(row.raced),
+      row.medianGain === null ? '—' : `${row.medianGain > 0 ? '+' : ''}${row.medianGain.toFixed(2)}`,
+      row.rho === null ? '—' : row.rho.toFixed(3),
+    ]),
+    { numeric: [2, 3, 4, 5] },
+  );
+}
+
+seasonSelect.addEventListener('change', () => {
+  renderRiders(seasonSelect.value);
+  renderRaces(seasonSelect.value);
+});
+
+renderRiders(seasonSelect.value);
+renderRaces(seasonSelect.value);
+</script>
+</body>
+</html>

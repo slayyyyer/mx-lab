@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ratings — mx-lab</title>
+<meta name="description" content="Elo ratings for AMA Pro Motocross riders, 2020–2026, computed from every moto finish.">
+<meta name="theme-color" content="#0c1117">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <h1><a href="index.html">mx-lab</a></h1>
+      <span class="tag">Unofficial</span>
+      <span class="sub">AMA Pro Motocross, 2020–2026</span>
+    </div>
+    <nav class="site">
+      <a href="index.html">Overview</a>
+      <a href="lap-chart.html">Lap chart</a>
+      <a href="fade.html">Fade</a>
+      <a href="lap-one.html">Lap 1</a>
+      <a href="qualifying.html">Qualifying</a>
+      <a href="titles.html">Titles</a>
+      <a href="ratings.html" aria-current="page">Ratings</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2>6.6 — Ratings</h2>
+  <p class="lede">
+    An Elo rating per class, updated after every moto. Within a moto every finisher is compared with
+    every other finisher, so beating a deep field moves a rating more than beating a thin one — which
+    is what makes riders from different seasons comparable at all.
+  </p>
+
+  <div class="note">
+    A rating is relative to the riders it met. It is not a prediction about a rider in a different
+    class, and it is not a statement about machinery, fitness or luck.
+  </div>
+
+  <div class="controls">
+    <label class="field">Class
+      <select id="class-select"></select>
+    </label>
+    <label class="field">Season
+      <select id="season-select"></select>
+    </label>
+  </div>
+
+  <div id="stats"></div>
+  <div class="panel" id="chart-panel"><p class="small">Loading…</p></div>
+
+  <h3>Season leaders</h3>
+  <div class="panel table-scroll" id="leader-table"></div>
+
+  <h3>All time</h3>
+  <p class="small">
+    The rating each rider carries now, after every moto in the dataset, among riders with at least ten
+    motos.
+  </p>
+  <div class="panel table-scroll" id="alltime-table"></div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>
+      <strong>Unofficial.</strong> Not affiliated with or endorsed by AMA Pro Racing, MX Sports,
+      Pro Motocross, any series, team or rider. Series names appear in plain text only; no logos or
+      marks are used.
+    </p>
+    <p class="small">
+      Elo with K = 32 spread across the field (K ÷ (n − 1) per pairing), starting at 1500; a rider new
+      to a class enters at that class's current median so the scale does not drift. One rating per
+      class runs across all seven seasons, so a number change does not restart it. Ratings are computed
+      from moto finishing positions; riders who did not start a moto are not compared.
+      Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+    </p>
+  </div>
+</footer>
+
+<script type="module">
+import { load, num, signed, esc, table, statBlock, fillSelect } from './assets/ui.js';
+import { lineChart } from './assets/chart.js';
+
+const data = await load('ratings');
+const classSelect = document.querySelector('#class-select');
+const seasonSelect = document.querySelector('#season-select');
+const classes = Object.keys(data.classes).sort().reverse();
+fillSelect(classSelect, classes.map((name) => ({ value: name, label: name })));
+
+function seasonsOf(className) {
+  return data.classes[className].seasons.map((row) => row.season).sort((a, b) => b - a);
+}
+
+function renderSeasonOptions() {
+  fillSelect(seasonSelect, seasonsOf(classSelect.value).map((season) => ({ value: season, label: `${season}` })));
+}
+
+function render() {
+  const className = classSelect.value;
+  const bundle = data.classes[className];
+  const season = bundle.seasons.find((row) => row.season === Number(seasonSelect.value)) ?? bundle.seasons[0];
+
+  document.querySelector('#stats').innerHTML = statBlock([
+    { value: season.leaders[0] ? esc(season.leaders[0].name) : '—', label: 'top rated' },
+    { value: season.leaders[0] ? num(season.leaders[0].rating) : '—', label: 'rating' },
+    { value: num(season.riders.length), label: 'rated riders' },
+    { value: season.rounds.length, label: 'rounds' },
+  ]);
+
+  const rounds = season.rounds.map((row) => `R${row.round ?? '?'}`);
+  // The axis follows the data: a fixed 1900 ceiling clipped the top-rated seasons.
+  const rated = season.trajectory.flatMap((line) => line.ratings).filter((value) => Number.isFinite(value));
+  const yMin = rated.length > 0 ? Math.floor((Math.min(...rated) - 25) / 50) * 50 : 1400;
+  const yMax = rated.length > 0 ? Math.ceil((Math.max(...rated) + 25) / 50) * 50 : 1800;
+  document.querySelector('#chart-panel').innerHTML = season.trajectory.length
+    ? lineChart({
+        series: season.trajectory.map((line) => ({ label: line.name ?? line.riderId, points: line.ratings })),
+        xLabels: rounds,
+        yMin,
+        yMax,
+        yStep: 50,
+        yLabel: `Elo rating by round, ${className} ${season.season}`,
+      })
+    : '<p class="small">No trajectory for this season.</p>';
+
+  document.querySelector('#leader-table').innerHTML = table(
+    ['Rider', 'Rating', 'Season change', 'Peak', 'Motos'],
+    season.leaders.map((rider) => [
+      esc(rider.name),
+      num(rider.rating),
+      signed(rider.delta, 0),
+      num(rider.peak),
+      num(rider.motos),
+    ]),
+    { numeric: [1, 2, 3, 4] },
+  );
+
+  document.querySelector('#alltime-table').innerHTML = table(
+    ['Rider', 'Rating', 'Motos'],
+    bundle.allTime.map((rider) => [esc(rider.name), num(rider.rating), num(rider.motos)]),
+    { numeric: [1, 2] },
+  );
+}
+
+classSelect.addEventListener('change', () => {
+  renderSeasonOptions();
+  render();
+});
+seasonSelect.addEventListener('change', render);
+renderSeasonOptions();
+render();
+</script>
+</body>
+</html>

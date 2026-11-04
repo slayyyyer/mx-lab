@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lap 1 — mx-lab</title>
+<meta name="description" content="Whether the opening lap of an AMA Pro Motocross moto already predicts the finishing order.">
+<meta name="theme-color" content="#0c1117">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <h1><a href="index.html">mx-lab</a></h1>
+      <span class="tag">Unofficial</span>
+      <span class="sub">AMA Pro Motocross, 2020–2026</span>
+    </div>
+    <nav class="site">
+      <a href="index.html">Overview</a>
+      <a href="lap-chart.html">Lap chart</a>
+      <a href="fade.html">Fade</a>
+      <a href="lap-one.html" aria-current="page">Lap 1</a>
+      <a href="qualifying.html">Qualifying</a>
+      <a href="titles.html">Titles</a>
+      <a href="ratings.html">Ratings</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2>6.3 — What lap 1 is worth</h2>
+  <p class="lede">
+    Rank the riders in a moto by their opening lap, rank them by where they finished, and compare the
+    two orderings. A correlation near 1 means the first lap already wrote the result; near 0 means it
+    told you almost nothing.
+  </p>
+
+  <div id="stats"></div>
+
+  <h3>By season</h3>
+  <p class="small">
+    Bars are the median correlation across the season's measured motos. Coverage matters as much as
+    the number. <strong>2020 has no lap-1 times at all</strong> — the lap sheet prints
+    <span class="mono">--.---</span> for every rider — and 2021–2024 have one for part of the field, so
+    those seasons describe the riders who got a clean start rather than the whole field.
+  </p>
+  <div class="panel" id="season-chart"><p class="small">Loading…</p></div>
+  <div class="panel" id="season-table"></div>
+
+  <h3>Moto by moto</h3>
+  <div class="controls">
+    <label class="field">Season
+      <select id="season-select"></select>
+    </label>
+  </div>
+  <div class="panel table-scroll" id="race-table"></div>
+
+  <div class="note">
+    Correlation is not causation and the causality here runs the other way: a rider who starts well is
+    usually a rider who is fast. What the number measures is how much of the finishing order was
+    already visible on lap 1 — not what caused it.
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>
+      <strong>Unofficial.</strong> Not affiliated with or endorsed by AMA Pro Racing, MX Sports,
+      Pro Motocross, any series, team or rider. Series names appear in plain text only; no logos or
+      marks are used.
+    </p>
+    <p class="small">
+      Spearman rank correlation between lap-1 time and finishing position, computed per moto over the
+      riders who have a lap-1 time (at least eight). Lap times come from the AMA results archive
+      (2020–2024) and the LiveTime results site (2025–2026). A missing lap 1 is treated as missing,
+      never as a slow lap.
+      Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+    </p>
+  </div>
+</footer>
+
+<script type="module">
+import { load, num, pct, share, esc, table, statBlock, fillSelect } from './assets/ui.js';
+import { hBars } from './assets/chart.js';
+
+const data = await load('lap-one');
+const seasonSelect = document.querySelector('#season-select');
+const seasons = data.seasons.map((row) => row.season).sort((a, b) => b - a);
+fillSelect(seasonSelect, seasons.map((season) => ({ value: season, label: `${season}` })));
+
+document.querySelector('#stats').innerHTML = statBlock([
+  { value: num(data.coverage.motosMeasured), label: 'motos measured' },
+  { value: num(data.coverage.motos), label: 'motos in total' },
+  { value: share(data.coverage.lapOneCoverage), label: 'of rows have a lap-1 time' },
+  { value: num(data.coverage.rowsWithLapOne), label: 'rows with a lap-1 time' },
+]);
+
+document.querySelector('#season-chart').innerHTML = hBars({
+  rows: [...data.seasons]
+    .sort((a, b) => a.season - b.season)
+    .map((row) => ({
+      label: `${row.season} · ${share(row.lapOneCoverage)} coverage`,
+      value: row.medianRho,
+      color: row.medianRho >= 0.6 ? '#4cc2ff' : row.medianRho >= 0.4 ? '#f5a524' : '#f87171',
+    })),
+  rowHeight: 34,
+  labelWidth: 230,
+  format: (value) => value.toFixed(3),
+  ariaLabel: 'Median lap-1 correlation by season',
+});
+
+document.querySelector('#season-table').innerHTML = table(
+  ['Season', 'Motos', 'Measured', 'Median rho', 'Motos with rho ≥ 0.5', 'Lap-1 coverage'],
+  data.seasons.map((row) => [
+    row.season,
+    num(row.motos),
+    num(row.motosMeasured),
+    row.medianRho === null ? '—' : row.medianRho.toFixed(3),
+    share(row.strongShare),
+    share(row.lapOneCoverage),
+  ]),
+  { numeric: [1, 2, 3, 4, 5] },
+);
+
+function renderRaces(season) {
+  const rows = data.races
+    .filter((row) => row.season === Number(season))
+    .sort((a, b) => (a.round ?? 0) - (b.round ?? 0));
+  const cells = [];
+  for (const race of rows) {
+    for (const moto of race.motos) {
+      cells.push([
+        `${race.round ?? '?'}. ${esc(race.name)}`,
+        `${moto.class} M${moto.moto}`,
+        `${moto.ridersWithLapOne}/${moto.riders}`,
+        moto.rho === null ? '—' : moto.rho.toFixed(3),
+      ]);
+    }
+  }
+  document.querySelector('#race-table').innerHTML = table(
+    ['Round', 'Moto', 'Riders with lap 1', 'rho'],
+    cells,
+    { numeric: [2, 3] },
+  );
+}
+
+seasonSelect.addEventListener('change', () => renderRaces(seasonSelect.value));
+renderRaces(seasonSelect.value);
+</script>
+</body>
+</html>

@@ -9,7 +9,8 @@ are used. Results are attributed to their timing and scoring providers.
 > **Status: 2020–2026 is ingested — 77 events, 12,241 result rows, 174,876 per-lap times.**
 > 2020–2024 comes from the PDF archive (55 events) and 2025–2026 from the LiveTime results site
 > (22 events, ADR 0005); no event is refused by the gate. Per-lap **positions** exist only for
-> 2025–2026. The six analyses and the site are not started.
+> 2025–2026. **The six analyses and the static site are built** — `data/derived/`, `site/` and
+> `docs/analyses.md` record what each one measures and where its coverage stops.
 
 ## Sources (verified 2026-11-04)
 
@@ -72,14 +73,17 @@ src/
   lib/                  text/time, HTML tables, deterministic JSON, HTTP cache, poppler wrapper
   parse/                results, lap-times, qualifying and LiveTime report parsers
   sources/              ama.js (manifest discovery), promotocross.js (event index and hubs)
+  derive/               the six analyses: pure functions over the committed dataset
+site/                   static site: plain HTML, CSS and ES modules, no dependencies
 tests/
   harness.js, run.js    dependency-free test harness
-  *.test.js             59 tests over committed extracted-text and HTML fixtures
+  *.test.js             70 tests over committed extracted-text, HTML and dataset fixtures
 data/events/            committed dataset, one JSON file per event
 data/rosters/           per-season `class:plate` → rider roster, 2020–2026
-docs/                   source inventory and ADRs
-scripts/                survey.js (2020–2024 check), lt-season.js (2025–2026 build), roster.js
-.github/workflows/      test (push/PR) and ingest (manual, poppler)
+data/derived/           the six analysis files, rebuilt from data/events
+docs/                   source inventory, analyses and ADRs
+scripts/                survey.js, lt-season.js, roster.js, derive.js, site.js, serve.js
+.github/workflows/      test (push/PR), ingest (manual, poppler) and pages (deploy the site)
 ```
 
 ## Commands
@@ -91,6 +95,10 @@ node src/build.js --event M2405 --offline  # rebuild from cache/
 npm run survey -- --years 2020,2021        # ingest every round, report refusals
 node scripts/lt-season.js --years 2025     # 2025 LiveTime season + roster
 npm run roster                             # rebuild every season roster from committed data
+npm run derive                             # rebuild data/derived from the committed events
+npm run site                               # copy data/derived into site/data
+npm run check                              # tests + stale-derived check + site data check
+node scripts/serve.js                      # preview the site on http://127.0.0.1:8099
 ```
 
 `PDFTOTEXT=/path/to/pdftotext` overrides extractor resolution. Otherwise
@@ -98,10 +106,31 @@ npm run roster                             # rebuild every season roster from co
 Set it explicitly if a stray xpdf `pdftotext` is installed: the extractor is part of the parser
 contract, because fixtures are its output.
 
+## Analyses
+
+Six analyses are built from `data/events` by `src/derive`, committed to `data/derived`, and published
+as a static site in `site/`. `docs/analyses.md` gives each method and its coverage; ADR 0006 records
+the decisions behind them.
+
+| # | Analysis | Coverage | Notes |
+|---|---|---|---|
+| 6.1 | Lap chart | 2025–2026 only | no per-lap position exists before 2025 |
+| 6.2 | Fade | 2020–2026 | time-based, so it needs no position |
+| 6.3 | Lap 1 | 2021–2026 | 2020 prints no lap-1 time at all |
+| 6.4 | Qualifying | 2020–2026 | rider must appear in qualifying and the motos |
+| 6.5 | Titles | 2020–2026 | points computed from finishing positions |
+| 6.6 | Ratings | 2020–2026 | Elo per class, one rating across all seasons |
+
+The site is plain HTML, CSS and ES modules with no client dependency. `npm run site` copies the
+derived files into `site/data/` (git-ignored, so there is one copy of the numbers in the repository),
+and `.github/workflows/pages.yml` tests, verifies the derived files are current, and deploys `site/`
+to GitHub Pages. Pages has to be set to deploy from GitHub Actions in the repository settings.
+
 ## Guarantees
 
 - **Byte-identical rebuilds.** Keys are sorted at every level, no timestamps are stored, and
-  non-finite numbers throw. Building `M2405` twice and comparing with `cmp` produces no diff.
+  non-finite numbers throw. Building `M2405` twice and comparing with `cmp` produces no diff, and
+  `npm run derive -- --check` fails if the committed analyses no longer match the dataset.
 - **The gate is a gate, and it separates two kinds of finding** (ADR 0004). Structural
   contradictions the parser controls — duplicate or non-contiguous positions, duplicate plates, a
   missing rider id, a malformed source hash — fail the build. Anomalies in the source itself — an

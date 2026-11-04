@@ -249,6 +249,11 @@ This is the handoff's observed oddity, and it is real. It means lap-1 **time** i
 of the field while lap-1 **position** (from the lap chart) may still exist. Analysis 6.3 must state
 which of the two it uses.
 
+**2020 is the extreme case, found while building analysis 6.3: the whole season has no lap-1 time.**
+All 1,400 result rows carry `--.---` for lap 1, so the lap-1 analysis starts at 2021 and reports each
+season's coverage beside its correlation. It is not a parser failure — the same extractor recovers
+lap 1 from 2021 onward — and no value is invented to fill the gap.
+
 ### 7.6 Encoding
 
 Default extraction mangles names: `Lidk?ping` → `Lidköping` with `-enc UTF-8`. Always pass `-enc

@@ -1,0 +1,2834 @@
+{
+  "analysis": "lap-one",
+  "coverage": {
+    "lapOneCoverage": 0.369,
+    "motos": 306,
+    "motosMeasured": 115,
+    "note": "lap 1 is printed `--.---` for part of the 2020–2024 field, so coverage is reported per season",
+    "rows": 12241,
+    "rowsWithLapOne": 4522,
+    "seasons": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ]
+  },
+  "method": {
+    "metric": "Spearman rank correlation between lap-1 time and finishing position, per moto",
+    "minimumRiders": 8,
+    "reading": "a rho near 1 means the opening lap already ordered the moto; near 0 means it did not"
+  },
+  "races": [
+    {
+      "eventId": "M2005",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Loretta Lynn's National",
+      "round": 1,
+      "season": 2020
+    },
+    {
+      "eventId": "M2010",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Loretta Lynn's National II",
+      "round": 2,
+      "season": 2020
+    },
+    {
+      "eventId": "M2015",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Ironman National",
+      "round": 3,
+      "season": 2020
+    },
+    {
+      "eventId": "M2020",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "RedBud National I",
+      "round": 4,
+      "season": 2020
+    },
+    {
+      "eventId": "M2025",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "RedBud National II",
+      "round": 5,
+      "season": 2020
+    },
+    {
+      "eventId": "M2030",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Spring Creek National",
+      "round": 6,
+      "season": 2020
+    },
+    {
+      "eventId": "M2035",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "WW Ranch National",
+      "round": 7,
+      "season": 2020
+    },
+    {
+      "eventId": "M2040",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Thunder Valley National",
+      "round": 8,
+      "season": 2020
+    },
+    {
+      "eventId": "M2045",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Fox Raceway National",
+      "round": 9,
+      "season": 2020
+    },
+    {
+      "eventId": "M2105",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Fox Raceway I",
+      "round": 1,
+      "season": 2021
+    },
+    {
+      "eventId": "M2110",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Thunder Valley",
+      "round": 2,
+      "season": 2021
+    },
+    {
+      "eventId": "M2115",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "High Point",
+      "round": 3,
+      "season": 2021
+    },
+    {
+      "eventId": "M2120",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "RedBud",
+      "round": 4,
+      "season": 2021
+    },
+    {
+      "eventId": "M2125",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Southwick",
+      "round": 5,
+      "season": 2021
+    },
+    {
+      "eventId": "M2130",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Spring Creek",
+      "round": 6,
+      "season": 2021
+    },
+    {
+      "eventId": "M2135",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Washougal",
+      "round": 7,
+      "season": 2021
+    },
+    {
+      "eventId": "M2140",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.661,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.644,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.692,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.83,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        }
+      ],
+      "name": "Unadilla",
+      "round": 8,
+      "season": 2021
+    },
+    {
+      "eventId": "M2145",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.716,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.7,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.605,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.835,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        }
+      ],
+      "name": "Budds Creek",
+      "round": 9,
+      "season": 2021
+    },
+    {
+      "eventId": "M2150",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Ironman",
+      "round": 10,
+      "season": 2021
+    },
+    {
+      "eventId": "M2155",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.786,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.754,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.847,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.9,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        }
+      ],
+      "name": "Fox Raceway II",
+      "round": 11,
+      "season": 2021
+    },
+    {
+      "eventId": "M2160",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Hangtown",
+      "round": 12,
+      "season": 2021
+    },
+    {
+      "eventId": "M2205",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Fox Raceway I",
+      "round": 1,
+      "season": 2022
+    },
+    {
+      "eventId": "M2210",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Hangtown",
+      "round": 2,
+      "season": 2022
+    },
+    {
+      "eventId": "M2215",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Thunder Valley",
+      "round": 3,
+      "season": 2022
+    },
+    {
+      "eventId": "M2220",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "High Point",
+      "round": 4,
+      "season": 2022
+    },
+    {
+      "eventId": "M2225",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "RedBud",
+      "round": 5,
+      "season": 2022
+    },
+    {
+      "eventId": "M2230",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Southwick",
+      "round": 6,
+      "season": 2022
+    },
+    {
+      "eventId": "M2235",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Spring Creek",
+      "round": 7,
+      "season": 2022
+    },
+    {
+      "eventId": "M2240",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Washougal",
+      "round": 8,
+      "season": 2022
+    },
+    {
+      "eventId": "M2245",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.707,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.862,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.879,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.815,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        }
+      ],
+      "name": "Unadilla",
+      "round": 9,
+      "season": 2022
+    },
+    {
+      "eventId": "M2250",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.576,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.84,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.68,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.821,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        }
+      ],
+      "name": "Budds Creek",
+      "round": 10,
+      "season": 2022
+    },
+    {
+      "eventId": "M2255",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Ironman",
+      "round": 11,
+      "season": 2022
+    },
+    {
+      "eventId": "M2260",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Fox Raceway II",
+      "round": 12,
+      "season": 2022
+    },
+    {
+      "eventId": "M2305",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Fox Raceway",
+      "round": 1,
+      "season": 2023
+    },
+    {
+      "eventId": "M2310",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Hangtown Classic",
+      "round": 2,
+      "season": 2023
+    },
+    {
+      "eventId": "M2315",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Thunder Valley National",
+      "round": 3,
+      "season": 2023
+    },
+    {
+      "eventId": "M2320",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "High Point National",
+      "round": 4,
+      "season": 2023
+    },
+    {
+      "eventId": "M2325",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "RedBud National",
+      "round": 5,
+      "season": 2023
+    },
+    {
+      "eventId": "M2330",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "The Wick 338 National",
+      "round": 6,
+      "season": 2023
+    },
+    {
+      "eventId": "M2335",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Spring Creek National",
+      "round": 7,
+      "season": 2023
+    },
+    {
+      "eventId": "M2340",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Washougal National",
+      "round": 8,
+      "season": 2023
+    },
+    {
+      "eventId": "M2345",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.763,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.79,
+          "riders": 40,
+          "ridersWithLapOne": 37
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.721,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.797,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        }
+      ],
+      "name": "Unadilla National",
+      "round": 9,
+      "season": 2023
+    },
+    {
+      "eventId": "M2350",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.836,
+          "riders": 40,
+          "ridersWithLapOne": 11
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.751,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.736,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.861,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        }
+      ],
+      "name": "Budds Creek National",
+      "round": 10,
+      "season": 2023
+    },
+    {
+      "eventId": "M2355",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Ironman National",
+      "round": 11,
+      "season": 2023
+    },
+    {
+      "eventId": "M2405",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Fox Raceway National",
+      "round": 1,
+      "season": 2024
+    },
+    {
+      "eventId": "M2410",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Hangtown Motocross Classic",
+      "round": 2,
+      "season": 2024
+    },
+    {
+      "eventId": "M2415",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Thunder Valley National",
+      "round": 3,
+      "season": 2024
+    },
+    {
+      "eventId": "M2420",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "High Point National",
+      "round": 4,
+      "season": 2024
+    },
+    {
+      "eventId": "M2425",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Southwick National",
+      "round": 5,
+      "season": 2024
+    },
+    {
+      "eventId": "M2430",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "RedBud National",
+      "round": 6,
+      "season": 2024
+    },
+    {
+      "eventId": "M2435",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "FXR Spring Creek National",
+      "round": 7,
+      "season": 2024
+    },
+    {
+      "eventId": "M2440",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "MotoSport.com Washougal National",
+      "round": 8,
+      "season": 2024
+    },
+    {
+      "eventId": "M2445",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.627,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.694,
+          "riders": 40,
+          "ridersWithLapOne": 38
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.944,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.686,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        }
+      ],
+      "name": "Unadilla National",
+      "round": 9,
+      "season": 2024
+    },
+    {
+      "eventId": "M2450",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.679,
+          "riders": 40,
+          "ridersWithLapOne": 38
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.794,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.754,
+          "riders": 40,
+          "ridersWithLapOne": 38
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.763,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        }
+      ],
+      "name": "Budds Creek National",
+      "round": 10,
+      "season": 2024
+    },
+    {
+      "eventId": "M2455",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Ironman National",
+      "round": 11,
+      "season": 2024
+    },
+    {
+      "eventId": "LT2501",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.853,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.725,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.652,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.651,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        }
+      ],
+      "name": "Fox Raceway - Pala, CA",
+      "round": 1,
+      "season": 2025
+    },
+    {
+      "eventId": "LT2502",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.641,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.699,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.807,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.802,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        }
+      ],
+      "name": "Hangtown - Rancho Cordova, CA",
+      "round": 2,
+      "season": 2025
+    },
+    {
+      "eventId": "LT2503",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.701,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.491,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.777,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.706,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        }
+      ],
+      "name": "Thunder Valley - Lakewood, CO",
+      "round": 3,
+      "season": 2025
+    },
+    {
+      "eventId": "LT2504",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.755,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.653,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.735,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.738,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        }
+      ],
+      "name": "High Point Raceway - Mt. Morris, PA",
+      "round": 4,
+      "season": 2025
+    },
+    {
+      "eventId": "LT2505",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 1
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.75,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.543,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.834,
+          "riders": 40,
+          "ridersWithLapOne": 38
+        }
+      ],
+      "name": "The Wick 338 - Southwick, MA",
+      "round": 5,
+      "season": 2025
+    },
+    {
+      "eventId": "LT2506",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.691,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.625,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.699,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.336,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        }
+      ],
+      "name": "RedBud - Buchanan, MI",
+      "round": 6,
+      "season": 2025
+    },
+    {
+      "eventId": "LT2507",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.874,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.819,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.716,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.878,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        }
+      ],
+      "name": "Spring Creek - Millville, MN",
+      "round": 7,
+      "season": 2025
+    },
+    {
+      "eventId": "LT2508",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.674,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.83,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.798,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.837,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        }
+      ],
+      "name": "Washougal - Washougal, WA",
+      "round": 8,
+      "season": 2025
+    },
+    {
+      "eventId": "LT2509",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.545,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.733,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.789,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.709,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        }
+      ],
+      "name": "Ironman - Crawfordsville, IN",
+      "round": 9,
+      "season": 2025
+    },
+    {
+      "eventId": "LT2510",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.683,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.813,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.831,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.801,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        }
+      ],
+      "name": "Unadilla - New Berlin, NY",
+      "round": 10,
+      "season": 2025
+    },
+    {
+      "eventId": "LT2511",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.737,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.75,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.37,
+          "riders": 41,
+          "ridersWithLapOne": 41
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.787,
+          "riders": 41,
+          "ridersWithLapOne": 41
+        }
+      ],
+      "name": "Budds Creek - Mechanicsville, MD",
+      "round": 11,
+      "season": 2025
+    },
+    {
+      "eventId": "LT2601",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.775,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.667,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.812,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.805,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        }
+      ],
+      "name": "Fox Raceway National - Pala, CA",
+      "round": 1,
+      "season": 2026
+    },
+    {
+      "eventId": "LT2602",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.796,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.617,
+          "riders": 40,
+          "ridersWithLapOne": 37
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.618,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.753,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        }
+      ],
+      "name": "Hangtown Classic - Sacramento, CA",
+      "round": 2,
+      "season": 2026
+    },
+    {
+      "eventId": "LT2603",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.775,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.867,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.862,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.745,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        }
+      ],
+      "name": "Thunder Valley National - Lakewood, CO",
+      "round": 3,
+      "season": 2026
+    },
+    {
+      "eventId": "LT2604",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.753,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.692,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.691,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.532,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        }
+      ],
+      "name": "High Point National - Mount Morris, PA",
+      "round": 4,
+      "season": 2026
+    },
+    {
+      "eventId": "LT2605",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.813,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.747,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.633,
+          "riders": 40,
+          "ridersWithLapOne": 37
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.77,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        }
+      ],
+      "name": "Redbud National - Buchanan, MI",
+      "round": 5,
+      "season": 2026
+    },
+    {
+      "eventId": "LT2606",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.699,
+          "riders": 40,
+          "ridersWithLapOne": 38
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.397,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.706,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.715,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        }
+      ],
+      "name": "The Wick 338 National - Southwick, MA",
+      "round": 6,
+      "season": 2026
+    },
+    {
+      "eventId": "LT2607",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.615,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.622,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.744,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.824,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        }
+      ],
+      "name": "Spring Creek National - Millville, MN",
+      "round": 7,
+      "season": 2026
+    },
+    {
+      "eventId": "LT2608",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.758,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.802,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.523,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.799,
+          "riders": 40,
+          "ridersWithLapOne": 39
+        }
+      ],
+      "name": "Washougal National - Washougal, WA",
+      "round": 8,
+      "season": 2026
+    },
+    {
+      "eventId": "LT2609",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 39,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Unadilla National - New Berlin, NY",
+      "round": 9,
+      "season": 2026
+    },
+    {
+      "eventId": "LT2610",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": null,
+          "riders": 40,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Budds Creek National - Mechanicsville, MD",
+      "round": 10,
+      "season": 2026
+    },
+    {
+      "eventId": "LT2611",
+      "motos": [
+        {
+          "class": "250MX",
+          "moto": 1,
+          "rho": 0.64,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "250MX",
+          "moto": 2,
+          "rho": 0.722,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 1,
+          "rho": 0.58,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        },
+        {
+          "class": "450MX",
+          "moto": 2,
+          "rho": 0.782,
+          "riders": 40,
+          "ridersWithLapOne": 40
+        }
+      ],
+      "name": "Ironman National - Crawfordsville, IN",
+      "round": 11,
+      "season": 2026
+    }
+  ],
+  "seasons": [
+    {
+      "lapOneCoverage": 0.247,
+      "medianRho": 0.735,
+      "motos": 48,
+      "motosMeasured": 12,
+      "season": 2021,
+      "strongShare": 1
+    },
+    {
+      "lapOneCoverage": 0.169,
+      "medianRho": 0.818,
+      "motos": 47,
+      "motosMeasured": 8,
+      "season": 2022,
+      "strongShare": 1
+    },
+    {
+      "lapOneCoverage": 0.163,
+      "medianRho": 0.777,
+      "motos": 44,
+      "motosMeasured": 8,
+      "season": 2023,
+      "strongShare": 1
+    },
+    {
+      "lapOneCoverage": 0.177,
+      "medianRho": 0.724,
+      "motos": 44,
+      "motosMeasured": 8,
+      "season": 2024,
+      "strongShare": 1
+    },
+    {
+      "lapOneCoverage": 0.971,
+      "medianRho": 0.735,
+      "motos": 44,
+      "motosMeasured": 43,
+      "season": 2025,
+      "strongShare": 0.93
+    },
+    {
+      "lapOneCoverage": 0.808,
+      "medianRho": 0.745,
+      "motos": 44,
+      "motosMeasured": 36,
+      "season": 2026,
+      "strongShare": 0.972
+    }
+  ]
+}

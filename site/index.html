@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mx-lab — AMA Pro Motocross results, analysed</title>
+<meta name="description" content="Unofficial analyses of AMA Pro Motocross results, 2020–2026, built from one validated dataset.">
+<meta name="theme-color" content="#0c1117">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <h1><a href="index.html">mx-lab</a></h1>
+      <span class="tag">Unofficial</span>
+      <span class="sub">AMA Pro Motocross, 2020–2026</span>
+    </div>
+    <nav class="site">
+      <a href="index.html" aria-current="page">Overview</a>
+      <a href="lap-chart.html">Lap chart</a>
+      <a href="fade.html">Fade</a>
+      <a href="lap-one.html">Lap 1</a>
+      <a href="qualifying.html">Qualifying</a>
+      <a href="titles.html">Titles</a>
+      <a href="ratings.html">Ratings</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2>Six questions about one season set of motocross results</h2>
+  <p class="lede">
+    Every number on this site comes from a single committed dataset of AMA Pro Motocross results:
+    seven seasons, two classes, every moto of every round. Nothing is scraped live, nothing is typed
+    in by hand, and every figure links back to the round it came from.
+  </p>
+
+  <div id="stats"><p class="small">Loading the dataset summary…</p></div>
+
+  <h3>What is here</h3>
+  <div class="grid">
+    <a class="card" href="lap-chart.html">
+      <div class="num">6.1</div>
+      <h4>Lap chart</h4>
+      <p>Where each rider actually was, lap by lap — 2025–2026, the only seasons that print it.</p>
+    </a>
+    <a class="card" href="fade.html">
+      <div class="num">6.2</div>
+      <h4>Fade</h4>
+      <p>How much a rider slows from the first half of a moto to the second, and which tracks punish it most.</p>
+    </a>
+    <a class="card" href="lap-one.html">
+      <div class="num">6.3</div>
+      <h4>Lap 1</h4>
+      <p>Does the opening lap already decide the finishing order? Measured per moto, with its own coverage caveat.</p>
+    </a>
+    <a class="card" href="qualifying.html">
+      <div class="num">6.4</div>
+      <h4>Qualifying</h4>
+      <p>What a fast qualifying lap is worth once the gate drops, and who races better than they qualify.</p>
+    </a>
+    <a class="card" href="titles.html">
+      <div class="num">6.5</div>
+      <h4>Titles</h4>
+      <p>Championships scored from finishing positions using the standard points table, round by round.</p>
+    </a>
+    <a class="card" href="ratings.html">
+      <div class="num">6.6</div>
+      <h4>Ratings</h4>
+      <p>An Elo rating per class across all seven seasons, so a win over a deep field counts for more.</p>
+    </a>
+  </div>
+
+  <h3>Coverage</h3>
+  <p class="small">
+    Two sources, one shape. 2020–2024 is the AMA PDF archive; 2025–2026 is the LiveTime results site,
+    which also prints a position on every lap.
+  </p>
+  <div class="panel" id="coverage"><p class="small">Loading coverage…</p></div>
+
+  <h3>How this is built</h3>
+  <div class="panel">
+    <p>
+      The dataset records what the timing sheets say. Where a sheet is internally odd — a lap time of
+      29:24 on a 30-minute moto, a “best lap” that does not appear in the lap list, a final lap printed
+      as a summary — the value is kept and the anomaly is recorded as a warning. Nothing is smoothed,
+      imputed, or filled in from another source.
+    </p>
+    <p id="warning-line" class="small"></p>
+    <p class="small">
+      Rebuilds are byte-identical: keys are sorted, floats are rounded, and no timestamps are stored.
+      The gate separates parser errors (which fail the build) from source quirks (which are reported).
+    </p>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>
+      <strong>Unofficial.</strong> This project is not affiliated with or endorsed by AMA Pro Racing,
+      MX Sports, Pro Motocross, or any series, team or rider. Series names appear in plain text only;
+      no logos or marks are used. Results are attributed to their timing and scoring providers:
+      the AMA results archive (<span class="mono">americanmotocrossresults.com</span>) for 2020–2024 and
+      the LiveTime results site (<span class="mono">results.promotocross.com</span>) for 2025–2026.
+    </p>
+    <p class="small">
+      Derived statistics only: no source PDFs or mirrored pages are stored or served here. Source code
+      and the dataset live at <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+    </p>
+  </div>
+</footer>
+
+<script type="module">
+import { load, num, table, statBlock } from './assets/ui.js';
+
+const meta = await load('meta');
+const dataset = meta.dataset;
+const era = (source) => (source.startsWith('results.') ? 'LiveTime' : 'PDF archive');
+
+document.querySelector('#stats').innerHTML = statBlock([
+  { value: num(dataset.events), label: 'events' },
+  { value: num(dataset.rows), label: 'result rows' },
+  { value: num(dataset.laps), label: 'lap times' },
+  { value: num(dataset.seasons), label: 'seasons' },
+]);
+
+document.querySelector('#coverage').innerHTML = table(
+  ['Season', 'Source', 'Events', 'Motos', 'Result rows', 'Lap times'],
+  meta.seasons.map((row) => [
+    row.season,
+    era(row.source),
+    num(row.events),
+    num(row.motos),
+    num(row.rows),
+    num(row.laps),
+  ]),
+  { numeric: [2, 3, 4, 5] },
+);
+
+document.querySelector('#warning-line').textContent =
+  `${num(dataset.warnings)} source warnings are recorded in the dataset across ` +
+  `${num(dataset.qualifyingSheets)} qualifying sheets; none of them blocks a build, and each names the sheet it came from.`;
+</script>
+</body>
+</html>

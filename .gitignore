@@ -6,6 +6,9 @@ data/raw/
 # Local toolchain (poppler binaries)
 .tools/
 
+# Built site data (copied from data/derived by scripts/site.js)
+site/data/
+
 # Node
 node_modules/
 npm-debug.log*
