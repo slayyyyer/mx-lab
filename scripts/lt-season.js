@@ -14,6 +14,7 @@ import path from 'node:path';
 import { collectLtEvent } from '../src/build-lt.js';
 import { fetchText } from '../src/build.js';
 import { stableStringify } from '../src/lib/json.js';
+import { createRoster, rosterFile } from '../src/roster.js';
 import { EVENT_INDEX_URL, isChampionshipEvent, parseEventIndex } from '../src/sources/promotocross.js';
 import { validateEvent } from '../src/validate.js';
 
@@ -36,8 +37,7 @@ for (const year of years) {
     .sort((a, b) => String(a.date).localeCompare(String(b.date)));
   if (season.length === 0) throw new Error(`no championship events found for ${year}`);
 
-  const roster = new Map();
-  const conflicts = [];
+  const roster = createRoster();
 
   for (const [position, entry] of season.entries()) {
     const round = position + 1;
@@ -63,22 +63,15 @@ for (const year of years) {
 
       for (const moto of event.motos) {
         for (const row of moto.results) {
-          // A number is unique per rider **within a class**: `#1` is one rider in
-          // 450 and a different one in 250, so the roster is keyed by both.
-          const key = `${moto.class}:${row.plate}`;
-          const seen = roster.get(key);
-          if (!seen) {
-            roster.set(key, {
-              class: moto.class,
-              plate: row.plate,
-              riderId: row.riderId,
-              name: row.name,
-              events: new Set(),
-            });
-          } else if (seen.riderId !== row.riderId) {
-            conflicts.push(`${moto.class} #${row.plate}: ${seen.name} (${seen.riderId}) and ${row.name} (${row.riderId})`);
-          }
-          roster.get(key)?.events.add(event.event.id);
+          // The roster is keyed by class *and* plate: `#1` is one rider in 450
+          // and a different one in 250 (see src/roster.js).
+          roster.add({
+            className: moto.class,
+            plate: row.plate,
+            riderId: row.riderId,
+            name: row.name,
+            eventId: event.event.id,
+          });
         }
       }
     } catch (error) {
@@ -87,28 +80,14 @@ for (const year of years) {
     }
   }
 
-  const riders = [...roster.values()]
-    .map((entry) => ({
-      class: entry.class,
-      plate: entry.plate,
-      riderId: entry.riderId,
-      name: entry.name,
-      events: entry.events.size,
-    }))
-    .sort((a, b) => (a.class === b.class ? a.plate - b.plate : a.class.localeCompare(b.class)));
+  const { riders, warnings } = roster.build();
 
   await mkdir(path.resolve('data/rosters'), { recursive: true });
   await writeFile(
     path.resolve('data/rosters', `${year}.json`),
-    stableStringify({
-      season: year,
-      source: 'results.promotocross.com',
-      eventCount: season.length,
-      riders,
-      warnings: conflicts.sort(),
-    }),
+    rosterFile({ season: year, source: 'results.promotocross.com', eventCount: season.length, riders, warnings }),
   );
-  console.log(`${year}: ${riders.length} plates in the roster, ${conflicts.length} plate conflicts`);
+  console.log(`${year}: ${riders.length} plates in the roster, ${warnings.length} warnings`);
 }
 
 console.log(`\n${written} event(s) written, ${failed} failed`);

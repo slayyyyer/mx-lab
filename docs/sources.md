@@ -593,3 +593,35 @@ would now be visible. Roster: `data/rosters/<year>.json`, built by `scripts/lt-s
 Per-lap **positions** exist for 2025–2026 and for nothing earlier (§14.1). Analyses that need
 them — lap chart, position fade — are 2025–2026 only unless they are redefined in time terms for
 2020–2024. That split has to be stated on the site, not papered over.
+
+---
+
+## 16. Rider identity, and the name column that spills (built 2026-11-04)
+
+Every 2020–2024 result row carries a plate, a name and an id, so a roster needs no extra source.
+What it does need is a way to survive the results sheet's layout: **2020–2024 print a long name past
+its column**, into the hometown column, so the same rider is read twice:
+
+```
+#124  Lane Shaw         Alv          -> lane-shaw-alv   (1 row)
+#124  Lane Shaw                      -> lane-shaw       (9 rows)
+```
+
+**204 plates across 2020–2024** are affected this way, from 1–2 rows each. They are folded, not
+repaired: `data/rosters/<year>.json` maps `class:plate` to one rider and lists the other spellings as
+`aliases`, so an analysis built on a row's own id can still join the rider.
+
+Folding requires the two printed names to be the same name with a tail of at most five characters
+(`Lane Shaw Alv`, `Gerhard Matamoros Hon`, `Jorgen-Matthias Talviku Esto`). Anything else is kept as
+a separate rider and reported as a warning, because it is a genuinely different rider on the same
+number — e.g. `450MX #280` in 2020 is both Cade Clason and William Clason. That entry keeps both ids
+in `otherRiders`, so a shared number is visible in the data and not only in prose; silently merging
+them would be inventing a rider.
+
+The roster is built from committed events only (`npm run roster`, or `scripts/lt-season.js` as part
+of ingest), so it is offline, deterministic, and its diffs are reviewable.
+
+Two consequences for later work: the dataset's own `riderId` is *not* canonical in 2020–2024 (use the
+roster's `riderId`/`aliases`), and a fix at the source is a parse change — the name column is read
+with the row's header offsets, and an overflowing name can still bleed a few characters — which
+needs a rebuild of the affected events rather than an edit of the committed JSON.

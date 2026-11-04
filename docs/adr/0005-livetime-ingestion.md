@@ -34,7 +34,9 @@ Surveying the actual pages added facts that shape the ingest:
    2020–2024 dataset stays valid and unchanged apart from the version number.
    Where a rider retired and the source prints no position, the value is `null`;
    it is never interpolated.
-4. **A season roster per year** (`data/rosters/<year>.json`): plate → rider. A
+4. **A season roster per year** (`data/rosters/<year>.json`), built for every season by
+   `scripts/roster.js` from committed events (ADR 0005 addendum: the PDF era needed it too,
+   because a name can spill into the next column; see `docs/sources.md` §16): plate → rider. A
    number is unique **per class**, not per season (`#1` is one rider in 450 and a
    different one in 250), so roster keys are `class:plate`. The roster is what
    lets a rider be identified across events when a sheet lists a number without a

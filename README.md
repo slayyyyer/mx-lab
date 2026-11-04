@@ -56,7 +56,10 @@ numbering, and `node scripts/lt-season.js` rebuilds a 2025/2026 season plus its 
 
 A plate number is unique **per class within a season**, so `data/rosters/<year>.json` maps
 `class:plate` to a rider — that is what identifies a rider across events, and what makes a real
-number conflict visible.
+number conflict visible. Rosters exist for all seven seasons. In the PDF era a long name sometimes
+spills into the hometown column (`Lane Shaw         Alv`), so the roster folds those spellings in as
+`aliases` rather than treating one rider as two, and reports a genuinely different rider on the same
+plate as a warning.
 
 ## Layout
 
@@ -73,9 +76,9 @@ tests/
   harness.js, run.js    dependency-free test harness
   *.test.js             49 assertions over committed extracted-text and HTML fixtures
 data/events/            committed dataset, one JSON file per event
-data/rosters/           per-season `class:plate` → rider roster (2025–2026)
+data/rosters/           per-season `class:plate` → rider roster, 2020–2026
 docs/                   source inventory and ADRs
-scripts/                survey.js (2020–2024 ingest check), lt-season.js (2025–2026 build)
+scripts/                survey.js (2020–2024 check), lt-season.js (2025–2026 build), roster.js
 .github/workflows/      test (push/PR) and ingest (manual, poppler)
 ```
 
@@ -87,6 +90,7 @@ node src/build.js --event M2405            # real ingest; needs poppler
 node src/build.js --event M2405 --offline  # rebuild from cache/
 npm run survey -- --years 2020,2021        # ingest every round, report refusals
 node scripts/lt-season.js --years 2025     # 2025 LiveTime season + roster
+npm run roster                             # rebuild every season roster from committed data
 ```
 
 `PDFTOTEXT=/path/to/pdftotext` overrides extractor resolution. Otherwise
