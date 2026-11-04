@@ -74,7 +74,7 @@ src/
   sources/              ama.js (manifest discovery), promotocross.js (event index and hubs)
 tests/
   harness.js, run.js    dependency-free test harness
-  *.test.js             49 assertions over committed extracted-text and HTML fixtures
+  *.test.js             59 tests over committed extracted-text and HTML fixtures
 data/events/            committed dataset, one JSON file per event
 data/rosters/           per-season `class:plate` → rider roster, 2020–2026
 docs/                   source inventory and ADRs
@@ -107,7 +107,8 @@ contract, because fixtures are its output.
   missing rider id, a malformed source hash — fail the build. Anomalies in the source itself — an
   implausible lap time, a `best lap` that is not in the lap list, a lap number printed twice,
   qualifying order that does not follow the times — are warnings: the dataset records what the
-  sheet says and names the anomaly. There are 1,066 of them, all in the committed data.
+  sheet says and names the anomaly. There are 1,090 of them (1,066 from the PDF era, 24 from
+  LiveTime), all in the committed data.
 - **Provenance without artefacts.** `sources[]` records each source page's URL and sha256; the
   PDFs and mirrored HTML are never committed.
 - **Positions only where the source has them.** A lap may carry `position` (schema 2). 2025–2026
