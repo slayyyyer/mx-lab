@@ -56,10 +56,10 @@ numbering, and `node scripts/lt-season.js` rebuilds a 2025/2026 season plus its 
 
 A plate number is unique **per class within a season**, so `data/rosters/<year>.json` maps
 `class:plate` to a rider — that is what identifies a rider across events, and what makes a real
-number conflict visible. Rosters exist for all seven seasons. In the PDF era a long name sometimes
-spills into the hometown column (`Lane Shaw         Alv`), so the roster folds those spellings in as
-`aliases` rather than treating one rider as two, and reports a genuinely different rider on the same
-plate as a warning.
+number conflict visible. Rosters exist for all seven seasons. The PDF-era sheets print a long name
+into the hometown column (`Lane Shaw         Alv`); the parser now measures that column from each
+sheet, and the roster still folds any such spelling as an `alias`, so one rider cannot appear as two.
+A genuinely different rider on the same plate is reported as a warning instead of being merged.
 
 ## Layout
 

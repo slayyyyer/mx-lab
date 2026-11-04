@@ -88,7 +88,45 @@ export function parseResults(text) {
     return { value: `${raw}${rest.slice(0, consumed)}`.trim(), end: end + consumed };
   };
 
-  const slice = (line) => {
+  // The place column does not begin where its header label does: `HOMETOWN` is
+  // set in a wider cell than the values beneath it, so the values start a couple
+  // of characters to the left (`Joseph Crown      Metamora, MI` has its place at
+  // column 32 under a label at 34). Slicing at the label then leaves the place's
+  // first letters on the name (`Joseph Crown      Me` + `tamora, MI`).
+  //
+  // The boundary is measured from the sheet instead of assumed. A place is
+  // printed after the name column, so the leftmost start of a place that any row
+  // shows is the column edge: a longer place begins right at it (`Metamora, MI`
+  // starts at 32) while a shorter one sits a couple of characters further right
+  // (`Hudson, FL` at 34), and the leading spaces are trimmed either way.
+  const calibratePlaceStart = (entries) => {
+    let start = null;
+    for (const entry of entries) {
+      const limit = Math.min(bounds.bike, entry.line.length);
+      if (limit <= bounds.rider) continue;
+      const region = entry.line.slice(bounds.rider, limit);
+      const gap = region.match(/\s{2,}\S/);
+      if (!gap) continue;
+      const candidate = bounds.rider + gap.index + gap[0].length - 1;
+      if (candidate < bounds.rider + 8 || candidate > bounds.hometown + 8 || candidate >= limit - 2) continue;
+      if (start === null || candidate < start) start = candidate;
+    }
+    return start ?? bounds.hometown;
+  };
+  let placeStart = bounds.hometown;
+
+  // A row can still land mid-word, a character or two left of where the column
+  // was measured (`Matamoros Hon` + `duras`). A place never starts lower-case, so
+  // that is the tell: step back to the start of the word and use it for this row.
+  const placeStartFor = (line, start) => {
+    const first = readField(line, start, bounds.bike);
+    if (!first.value || /^[A-Z0-9]/.test(first.value)) return start;
+    let back = start;
+    while (back > bounds.rider + 2 && line[back - 1] !== ' ' && start - back < 8) back -= 1;
+    return back < start && /[A-Z]/.test(line[back]) ? back : start;
+  };
+
+  const slice = (line, complete) => {
     // A name that outgrows its column can be followed straight away by the rest of
     // the row (`#108 Jorgen-Matthias Talviku` then a continuation line), so the
     // field is allowed to run on. But when a hometown is printed on this same line
@@ -99,14 +137,18 @@ export function parseResults(text) {
     // interval (even `DNF`) means the row is complete on this line, and anything
     // after the interval column is enough to tell.
     const rowEndsHere = line.slice(bounds.interval ?? bounds.bike).trim() !== '';
-    const nameField = readField(line, bounds.rider, bounds.hometown);
+    // Only a row that ends on its own line can be judged this way: on a wrapped
+    // row the field after the boundary is the rest of the name (`Talviku`), not a
+    // place, and stepping back would hand the surname to the hometown.
+    const start = complete ? placeStartFor(line, placeStart) : placeStart;
+    const nameField = readField(line, bounds.rider, start);
     const name = rowEndsHere
-      ? line.slice(bounds.rider, bounds.hometown).trim() || nameField.value
+      ? line.slice(bounds.rider, start).trim() || nameField.value
       : nameField.value;
 
-    const hometown = readField(line, bounds.hometown, bounds.bike);
+    const hometown = readField(line, start, bounds.bike);
     const bike = readField(line, Math.max(bounds.bike, hometown.end), bounds.interval);
-    return { name, hometown: hometown.value, bike: bike.value };
+    return { name, hometown: hometown.value, bike: bike.value, start };
   };
 
   // Group physical lines into logical rows: a row starts at `pos plate` and
@@ -132,8 +174,12 @@ export function parseResults(text) {
   }
   if (current) logical.push(current);
 
+  // Measured once the rows are known, since it is the rows that say where the
+  // column really starts.
+  placeStart = calibratePlaceStart(logical);
+
   const rows = logical.map((entry) => {
-    const primary = slice(entry.line);
+    const primary = slice(entry.line, entry.continuations.length === 0);
 
     // A continuation line is not laid out on the row's columns: when a name
     // overflows, the rest of the row starts in the name's own column. So its
@@ -173,7 +219,7 @@ export function parseResults(text) {
     // the bike and the bike read then lands on the interval. Anchor the bike on its
     // brand instead; a tail with a comma is a hometown, not a bike.
     if (entry.continuations.length === 0) {
-      const head = entry.line.slice(bounds.hometown, bounds.bike + intervalMatch.index);
+      const head = entry.line.slice(primary.start, bounds.bike + intervalMatch.index);
       const brand = [...head.matchAll(BIKE_HEAD_RE)].at(-1);
       if (brand) {
         const tail = head.slice(brand.index).trim().replace(/\s+/g, ' ');

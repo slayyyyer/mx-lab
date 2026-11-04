@@ -621,7 +621,25 @@ them would be inventing a rider.
 The roster is built from committed events only (`npm run roster`, or `scripts/lt-season.js` as part
 of ingest), so it is offline, deterministic, and its diffs are reviewable.
 
-Two consequences for later work: the dataset's own `riderId` is *not* canonical in 2020–2024 (use the
-roster's `riderId`/`aliases`), and a fix at the source is a parse change — the name column is read
-with the row's header offsets, and an overflowing name can still bleed a few characters — which
-needs a rebuild of the affected events rather than an edit of the committed JSON.
+### 16.1 The spill is fixed at the parser, not folded away
+
+Folding was the wrong end of the problem, so the boundary is now measured instead of assumed. Two
+things make it measurable:
+
+- **The place column does not start where its label does.** `HOMETOWN` is set at column 34 while its
+  values can begin at 32 (`Joseph Crown      Metamora, MI`), so the leftmost place start that any row
+  on the sheet shows is the column edge. A shorter place sitting a couple of characters further
+  right costs nothing — the leading spaces are trimmed.
+- **A place never starts lower-case.** When a row still lands mid-word (`Matamoros Hon` + `duras`),
+  the field is stepped back to the start of that word. On a wrapped row this is skipped: the field
+  after the boundary there is the rest of the *name* (`Talviku`), not a place, and stepping back
+  would hand the surname to the hometown.
+
+All 55 PDF-era events were rebuilt from the cached source PDFs. Every field other than `name`,
+`hometown` and the `riderId` derived from them is byte-identical to before the fix, which is how the
+rebuild was checked. The roster now folds nothing in any season — `aliases` is empty everywhere — and
+the one remaining shared number is real: `450MX #280` in 2020 is both Cade and William Clason.
+
+The RID sheets are untouched by any of this: they carry plates, and the results sheet is the only
+place names are read from. A future layout change is caught by the scanning test that refuses a
+committed row with a column gap left in its name or a place that does not start upper-case.
