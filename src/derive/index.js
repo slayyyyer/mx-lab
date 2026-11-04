@@ -2,6 +2,7 @@
 // nothing else. `deriveAll` is pure — the CLI reads the event files, hands them
 // here, and writes the result — so the tests run the same code the site shows.
 
+import { buildBacktests } from '../analysis/backtest.js';
 import { buildFade } from './fade.js';
 import { buildLapChart } from './lapChart.js';
 import { buildLapOne } from './lapOne.js';
@@ -75,6 +76,7 @@ export function deriveAll(events) {
     qualifying: buildQualifying(events),
     titles: buildTitles(events),
     ratings: buildRatings(events),
+    backtests: buildBacktests(events),
   };
 }
 
@@ -87,4 +89,5 @@ export const DERIVED_FILES = [
   ['qualifying', 'qualifying.json'],
   ['titles', 'titles.json'],
   ['ratings', 'ratings.json'],
+  ['backtests', 'backtests.json'],
 ];
