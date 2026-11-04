@@ -1,0 +1,15 @@
+# Raw artifacts are never committed — only derived data and manifests.
+cache/
+data/raw/
+*.pdf
+
+# Local toolchain (poppler binaries)
+.tools/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db

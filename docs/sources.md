@@ -1,0 +1,398 @@
+# Sources
+
+Status: **verified 2026-11-04**, first pass. Every claim below was checked against the live
+site on that date with a descriptive `User-Agent`; where a claim in the handoff turned out to be
+wrong or incomplete, it is marked **CORRECTION**.
+
+Scope: AMA Pro Motocross (outdoor), 450MX and 250MX. Supercross out of scope for v1.
+
+---
+
+## 1. Decisions (summary)
+
+| Question | Decision |
+|---|---|
+| Structured results data? | **No.** The XML next to the PDFs is a *file manifest*, not result values (see §4). Results must be parsed from PDF. |
+| Primary base URL | `https://americanmotocrossresults.com` — canonical string to store in the manifest. |
+| Mirror | `https://live.amaproracing.com` serves **byte-identical** files (§2). Fetch from one host only; never both. |
+| Extraction tool | `pdftotext -layout -enc UTF-8`. Coordinate output (`-bbox-layout`) is needed for the lap chart (§7.2) and must be validated in CI — see the toolchain caveat below. |
+| Seasons in v1 | **2020–2024** (55 events, all verified reachable). 2025 and 2026 are **not in this archive** (see §9 — CORRECTION). |
+| Raw PDFs | Never committed. Cache in Actions; commit manifest (URL, fetched_at, sha256, parser_id, ETag). |
+
+---
+
+## 2. Hosts, and how many of them there really are
+
+The archive is one IIS 10 backend reachable under several names:
+
+| Host | Role | Evidence |
+|---|---|---|
+| `americanmotocrossresults.com` | Serves the full PDF archive | `GET /xml/MX/events/M2405SchedRes.xml` → 200, 11 557 B |
+| `live.amaproracing.com` | Same tree under `/live/archives/mx/` | Same URL path → 200, 11 557 B, **identical sha256** `92e820be…87ea0` |
+| `results.amaproracing.com` | Navigation portal only, links out; **no files** | Index HTML has no `/xml/` or `/pdf/` links |
+| `americanmotocrosslive.com` | Legacy live-timing front end | Linked from archive pages; robots.txt 404 |
+
+**Practical consequence:** treat `americanmotocrossresults.com` as the single origin. Because the
+two hosts are the same bytes, a "changed file" check against the mirror would be a false signal;
+pick one and keep it in the manifest.
+
+---
+
+## 3. Discovery: how to enumerate events
+
+There is **no XML/JSON event index** (`/xml/MX/events.xml` and `/xml/MX/2024/events.xml` both 404).
+Event IDs must be read out of HTML.
+
+Two generations of index page exist:
+
+**(a) Legacy listing — server-rendered, 2004–2020**
+
+```
+https://americanmotocrossresults.com/events.html            # 108 events
+→ /live/archives/mx/<year>/<round>-<track>/index.shtml
+```
+
+- Years present: 2004–2013, 2015–2020. **2014 is absent** from the listing.
+- This is the only index that is plain server-rendered HTML, so it is the reliable crawl root
+  for the old seasons.
+
+**(b) Modern listing — 2021–2024**
+
+```
+https://americanmotocrossresults.com/<year>/index.html?EventID=<EID>
+```
+
+- e.g. `…/2024/index.html?EventID=M2405`.
+- The page renders client-side: `/javascript/web/results/a.js` reads the `EventID` query param and
+  fetches `<series>/events/<EID>SchedRes.xml`.
+- `/live/archives/mx/2021/` … `/2023/` return 200 but contain no event links; the event list for
+  these years is **not published as static HTML anywhere we found**.
+
+**Event ID format:** `M<YY><NN>`, where `YY` is the season (e.g. `24`) and `NN` increments by
+**5** per round starting at `05` (`M2405` = 2024 round 1). Verified rounds:
+
+| Season | Event IDs | Rounds |
+|---|---|---|
+| 2020 | `M2005` … `M2045` | 9 |
+| 2021 | `M2105` … `M2160` | 12 |
+| 2022 | `M2205` … `M2260` | 12 |
+| 2023 | `M2305` … `M2355` | 11 |
+| 2024 | `M2405` … `M2455` | 11 |
+
+**Consequence for the scraper:** stride-5 probing is a *workaround*, not a contract. The ingest job
+must (i) probe the range for the season, (ii) take the round number and date from the `SchedRes.xml`
+metadata, not from the ID, and (iii) treat a gap in the sequence as a hard error rather than
+silently shortening the season. Round numbering must come from the archive, never from the ID.
+
+---
+
+## 4. The "structured XML": what it actually contains
+
+`/xml/MX/events/<EID>SchedRes.xml` (≈11.5 KB) is the manifest the results pages render from.
+
+Structure:
+
+```xml
+<A>
+  <B E="Fox Raceway National" T="Fox Raceway at Pala" L="Pala, CA"
+     SANC="M2405" D="May 25, 2024" TLW="…svg" SCHD="1" SUPP="0" TMAP="1" TLOG="1">
+    <C D="Saturday, May 25, 2024">
+      <F T="1:01PM" S="250 Class Sight Lap/ Top 5 Rider Introduction" CLS="ZZ" … />
+      <F T="2:05PM" S="450MX Moto 1" CLS="MX1" L="/xml/MX/events/M2405/M1F1RES.pdf" … />
+    </C>
+  </B>
+</A>
+```
+
+- `<B>`: event name `E`, track `T`, location `L`, sanction/event id `SANC`, date `D`.
+- `<C>`: a day, with `D` = date string.
+- `<F>`: a session, with `T` start time, `S` session name, `CLS` class code, and — once a sheet is
+  published — `L` = path to the PDF.
+
+**It contains links and schedule only. There are no lap times, positions or points anywhere in the
+XML.** The handoff's hope that `xml/…` meant structured results is therefore **not** borne out: the
+`xml/` prefix is a directory name holding PDFs. Result values still require PDF parsing.
+
+What it *is* good for, and why it still matters:
+
+1. Authoritative event metadata (name, track, location, date, round day list).
+2. Authoritative **which sheets exist** for an event — i.e. the ingest work list, instead of
+   guessing filenames.
+3. Publication detection: an `L` attribute appearing for a session is a clean "results are up" signal.
+
+---
+
+## 5. File inventory (verified sheet types)
+
+All under `/xml/MX/events/<EID>/<FILE>.pdf`. Every file type below was opened and extracted on
+2026-11-04. `M1F1…` naming: the segment before `F` selects the session block, the `F`/`Q`/`L`
+letter the session kind — **do not rely on the letter meaning; read the sheet's own title line**
+(see §7.1).
+
+| Code | Sheet title (from PDF) | Fields observed | Used for |
+|---|---|---|---|
+| `M1F1RES` | `PROVISIONAL RESULTS - 450MX MOTO #1 (30 MINUTES + 2 LAPS)` | POS, #, RIDER, HOMETOWN, BIKE, INTERVAL, BEST TIME, TEAM/SPONSORS, `15 Laps` | `moto_results` |
+| `M1F1IND` | `INDIVIDUAL SEGMENT TIMES - 450MX MOTO #1` | per lap: LAP, SEG1–SEG5, SPEED, LAPTIME; `AVG` and `IDEAL` rows; **two riders per page in side-by-side blocks**, so a page must be split by x before rows are read | `laps` |
+| `M1F1LAP` | `LAP CHART - 450MX MOTO #1` | grid of **position per lap** per rider; legend `Indicates Lapped Rider` | `laps.position`, lap chart |
+| `M1Q1OVR` | `BEST LAP TIMES - 450MX GROUP A QUALIFYING 1` | POS, BEST TIME, IN LAP, 2nd BEST, IN LAP | `qualifying` |
+| `M1Q1IND` / `M1Q1SEG` / `M1Q1RID` | per-lap / segment / rider detail for that qualifying session | as above | cross-checks |
+| `M1F1SEG` | segment (sector) times | sector splits | optional |
+| `M1F1LINEUP` | starting lineup | grid order | optional |
+| `M1F2POINTS`, `M1F2POINTSPOSITION` | championship points after the moto | points, position | standings cross-check |
+| `M0F2MANUFACTURERPOINTS` | manufacturer points | make, points | out of scope |
+| `M1F1PRESS`, `M1F1RID` | press/notes, rider notes | prose | out of scope |
+| `X1F2SMXPOINTS`, `X2F2SMXPOINTS` | SuperMotocross combined points | points | out of scope (SMX ≠ outdoor MX) |
+
+Notes:
+
+- **`PROVISIONAL RESULTS`** — the results sheets are labelled provisional. We record the sheet's
+  own wording; there is no separate "official" file in the archive to wait for. If a file is
+  replaced later (it happens), `Last-Modified` + sha256 catch it and the event is re-parsed.
+- Qualifying is split by **group** (A/B) and session number, so a rider appears in several
+  `Q*OVR` sheets. The `qualifying` table must key on `(event, class, rider, session)`, and any
+  "best qualifying lap" must be a min over that rider's sessions, with the session recorded.
+- `M1`/`M2` blocks contain sheets for **both** classes (`F1`, `F2`); the class of a sheet comes
+  from its title, not from the code.
+
+---
+
+## 6. Coverage and update timing
+
+- Coverage: **2020-05-… through 2024-08-24** (final 2024 round, Ironman, `M2455`). 55 events.
+- `Last-Modified` and `ETag` are served (IIS). Example: `M1F1RES.pdf` for `M2405` →
+  `Last-Modified: Sat, 25 May 2024 21:55:39 GMT` (≈4 h after the moto). No `Cache-Control`.
+- **Update timing:** sheets appear during/after each moto on race day; the 2024 round-1 result sheet
+  was stamped 21:55 UTC on the race date. Ingest therefore runs *the day after* a race, and a
+  same-day poll is not needed. A second, later re-check is worth doing once (T+2 days) to catch
+  corrected sheets; that is what the manifest hash comparison is for.
+- Conditional requests are supported and must be used (`If-None-Match` with the stored `ETag`).
+
+---
+
+## 7. Format and parsing hazards (all observed, not theoretical)
+
+### 7.1 Sheet codes do not reliably denote class
+
+`M1F1RES` is 450MX Moto 1 and `M1F2RES` is 250MX Moto 1 for `M2405`, but the same letters are
+reused across blocks. Parse the **title line** (`<CLASS> MOTO #<N>` / `<CLASS> GROUP <G>
+QUALIFYING <N>`) and assert it matches the requested sheet. A parser that trusts the filename
+will mislabel a whole moto, which is exactly the kind of error the validation gate exists to catch.
+
+### 7.2 Lap charts do not survive `pdftotext -layout` naively
+
+Real output (2024 `M1F1LAP`):
+
+```
+#7 - A. Plessinger     2      7  7      7  7  7   7  7   7  96 96 233 60 87 103 416
+#12 - S. McElrath      3 96 96 96 96 96 96 96 96            7 332 171 96 96 96 296
+```
+
+Position values above the field size (`96`, `233`, `416` — those are *plate numbers*) leak into the
+same visual row. The grid is being flattened and columns bleed. Consequences:
+
+- **Do not** tokenise these lines by whitespace and assume token *k* is lap *k*.
+- **Different extraction modes disagree with each other**, which proves plain text cannot resolve
+  the grid. For the same page, `-table` puts the run of `7`s on **C. Sexton**:
+
+  ```
+  #4 - C. Sexton      2  7  7  7  7  7  7  7  7  96  96  233  60  87  103  416
+  #7 - A. Plessinger  3  96 96 96 96 96 96 96 96  7   332 171   96  96   96  296
+  ```
+
+  while `-layout` puts the same run of `7`s on **A. Plessinger** and leaves `C. Sexton` empty.
+  One of them is wrong, and neither mode tells you which. Row assignment is genuinely ambiguous in
+  flattened text: the name rows and the digit rows are offset from each other.
+- The header is also split — `1 … 15` sits in the left column group and `16 17 18 19 20` far to the
+  right — so there is at least one unused column group on the page whose role is *not yet
+  explained*. Do not assume a 15-lap chart has 20 usable columns.
+- Parse by **x coordinate**, not token order: assign each cell to a lap column by its x position,
+  then to a rider row by its y position. This needs per-word boxes, which Poppler's
+  `pdftotext -bbox-layout` provides.
+- **Toolchain caveat (verified locally, 2026-11-04):** the `pdftotext` on this machine is
+  **xpdf 4.06**, not Poppler, and it *rejects* `-bbox-layout` (it offers `-layout`, `-table`,
+  `-simple`, `-lineprinter` and no coordinate output). So coordinate parsing cannot be proven
+  locally as-is: install Poppler locally, or confirm `-bbox-layout` in CI before writing the
+  lap-chart parser. Until then the coordinate path is a design decision, not a tested one.
+- **Status of each sheet type:** `RES` and `IND` extract cleanly enough from `-layout` (verified);
+  `LAP` does not, and is the one sheet whose parser is genuinely unresolved. Because `IND` has no
+  position column at all (§7.7), this is the critical path for analyses 6.1, 6.2 and 6.3.
+- Lapped riders are marked graphically (legend: `Indicates Lapped Rider`), so "position" for a
+  lapped rider is not comparable to a rider on the lead lap. This is a real modelling decision, not
+  a parsing detail — see §7.5.
+
+### 7.3 Layout drifts across years
+
+2020 lap chart (`M2005`) uses wider column spacing and leaves cells blank; 2022/2024 are tighter and
+fill more cells. 2020 header reads `LAP CHART - 450MX MOTO 1`, 2024 reads `LAP CHART - 450MX MOTO #1
+(30 MINUTES + 2 LAPS)`. Different layout ⇒ different parser version, selected by a layout
+fingerprint (title line + column geometry), with unknown layouts **refused**, per the handoff.
+
+### 7.4 Results rows wrap, so the name column is not always populated
+
+2022 `M1F1RES` extraction:
+
+```
+  1   23 Chase Sexton      La Moille, IL         HON CRF450R WE    16 Laps    2:16.306
+  2                                              HON CRF450R WE    +15.877    2:17.019
+  3   94 Ken Roczen        Germany               YAM YZ 450F       +31.206    2:17.960
+  4                                              KAW KX450SR       +38.211    2:18.177
+```
+
+Rows 2 and 4 have no name/plate: long "TEAM/SPONSORS" strings push the name onto a wrapped line.
+A row-wise parser must reassemble by y-coordinate and by carrying the POS column, not by regex on
+"looks like a name". This is the single most likely source of a silently wrong rider identity.
+
+### 7.5 Lap 1 has no time for some riders
+
+Confirmed, e.g. `M2405` `M1F1IND`, rider #11 K. Chisholm: lap 1 = `--.---`, laps 2… = real times.
+This is the handoff's observed oddity, and it is real. It means lap-1 **time** is missing for part
+of the field while lap-1 **position** (from the lap chart) may still exist. Analysis 6.3 must state
+which of the two it uses.
+
+### 7.6 Encoding
+
+Default extraction mangles names: `Lidk?ping` → `Lidköping` with `-enc UTF-8`. Always pass `-enc
+UTF-8`; store UTF-8 NFC.
+
+### 7.7 Positions are in the lap chart, not in the lap-times sheet
+
+`M1F1IND` has no position column at all — its header is `LAP SEG1 SEG2 SEG3 SEG4 SEG5 SPEED
+LAPTIME`. So the handoff's "derive positions from cumulative elapsed time" is a **fallback** for
+events whose lap chart is missing or unparseable, plus an independent check. The primary source of
+per-lap position is `M1F1LAP`, and the two must agree before an event is accepted. (The 2024
+sample did not "lack a position column" — it lacked one in the *wrong sheet*.)
+
+---
+
+## 8. robots.txt and terms
+
+| Host | `robots.txt` | Result |
+|---|---|---|
+| `americanmotocrossresults.com` | 404 | no rules declared |
+| `live.amaproracing.com` | 404 | no rules declared |
+| `results.amaproracing.com` | 404 | no rules declared |
+| `americanmotocrosslive.com` | 404 | no rules declared |
+| `www.amaproracing.com` | 404 | no rules declared |
+| `promotocross.com` | 200 | rules exist; not a v1 source |
+
+- `results.amaproracing.com` links only to `https://www.amaproracing.com/about/` and
+  `…/competitors/contact`. **There is no terms-of-use or data-licence page on the results hosts.**
+- So: **no explicit prohibition, and no explicit permission.** That is a weaker footing than a
+  permissive licence. The plan below is deliberately conservative and stays inside "public facts,
+  derived statistics, link back":
+  - no raw PDFs in the repo or on the site;
+  - no logo, no site mirroring, no bulk crawl beyond the sheets actually used;
+  - attribute the timing and scoring provider and link to the source page for every event;
+  - publish derived statistics only.
+- **Open item for Justin:** if a licence/prohibition surfaces (e.g. in the series rulebook or in a
+  reply to a contact enquiry), stop and re-assess rather than working around it.
+
+---
+
+## 9. What is *not* available (CORRECTIONS to the handoff)
+
+1. **No 2025 or 2026 data in this archive.** `/live/archives/mx/2025/` and `/2026/` → 404;
+   `M2505`, `M2501`, `M2601` → 404. The last event is `M2455` (Ironman, 2024-08-23/24).
+   The handoff's premise that "the 2026 season appears complete, so the first run ingests all of
+   it" is **false for this source**. The AMA site also states that its legacy PDF archive "will no
+   longer update". Consequence: v1 covers **2020–2024 (5 full seasons, 55 events)**, which exceeds
+   the "at least three full seasons" acceptance bar. Adding 2025–2026 requires a different source
+   (promotocross.com's results database) and a separate ADR — not a silent extension.
+2. **No structured result values.** See §4.
+3. **No round number in the XML metadata.** Round must be derived from the season's ordered event
+   list (or the `ROUND n OF m` line on the RES sheet, which does carry it — e.g.
+   `ROUND 1 OF 11 - MAY 25, 2024`). Prefer the sheet's own line, and cross-check against position
+   in the season list.
+4. **No 2014 in the legacy index**, and 2004–2019 formats are older still (out of v1 scope).
+
+---
+
+## 10. Client behaviour rules (binding on the scraper)
+
+- `User-Agent`: `mx-lab/<version> (+https://github.com/slayyyyer/mx-lab; contact: TBD)` — the
+  contact is an open item for Justin (§11).
+- Conditional GETs with stored `ETag`/`Last-Modified`; a 304 is a success and must not rewrite the
+  manifest.
+- One fetch per file per run; no re-fetch of an unchanged event.
+- Exponential backoff with jitter on 5xx/timeouts; honour `Retry-After`; cap total requests per run.
+- Never parallel-hammer: a small concurrency limit (≤2) against a single IIS origin.
+- Raw PDFs cached only in the Actions cache / local `cache/` (git-ignored).
+
+---
+
+## 11. Open questions for Justin
+
+1. Contact string for the `User-Agent` (email or GitHub handle only?).
+2. Confirm v1 = 2020–2024, with 2025–2026 as a separate follow-up against promotocross.com.
+3. This machine has **no Node** installed, so nothing can be run locally yet. A `pdftotext` *is*
+   present at `/ucrt64/bin/pdftotext`, but it is **xpdf 4.06**, not Poppler, and lacks
+   `-bbox-layout` (§7.2). Install Node 20 for the build/test harness, and decide whether to also
+   install Poppler locally (recommended: keeps the local and CI extractors identical, which is
+   worth a lot for a parser whose fixtures come from extraction output).
+4. Create/push the public `slayyyyer/mx-lab` repo now, or keep everything local until the pipeline
+   works?
+
+**Answered 2026-11-04:** (1) UA carries the repo URL only, no email. (2) Scope is **2020–2026**: the
+AMA PDF archive for 2020–2024 plus promotocross for 2025–2026 (§12). (3) Node and Poppler are
+installed locally (§13). (4) Repo to be initialised and pushed.
+
+---
+
+## 12. Second source for 2025–2026: `results.promotocross.com`
+
+Needed because the AMA PDF archive stops at 2024 (§9).
+
+**What it is:** a separate, older application — `Pro Motocross Championship :: Archived Results` —
+built on the **LiveTime Scoring Engine**. Its own config reports `trackInfo.account_id = 7478`,
+`software_edition = "MX"`, `domain = livemx.com`, `public_email = support@livetimescoring.com`,
+`last_sync_time = 2026-10-23 18:27:12`, `last_sync_event_id = 518988`. So it is the timing
+provider's own product, not a third-party scraper site.
+
+**URL pattern:**
+
+```
+https://results.promotocross.com/results/?p=<report>&id=<event_id>[&class_id=<id>][&race_id=<id>][&rt=<n>]
+https://results.promotocross.com/events/            # years 2022–2026 present
+```
+
+**Report types that actually exist** (enumerated from the pages, not guessed):
+
+| `p=` | Report | Notes |
+|---|---|---|
+| `view_event` | event hub | links every report for the event |
+| `box_score_report` | `250/450 BOX SCORE REPORT — OVERALL RESULTS` | **server-rendered HTML**; columns `POS, #, BIKE, RIDER, QUAL, M1, M2, LAPS LED, FINISH, POINTS` |
+| `view_race_result` | single race result | needs `id` + `race_id` |
+| `view_heat_sheet` | qualifying/race lineup sheet | needs `id` + `race_id`; text-only, no times found |
+| `view_combined_round_ranking` | overall for the round | needs `class_id` + `rt` |
+| `view_entry_list` | entry list | |
+| `view_series_points` | points standings | |
+| `view_multi_main_result` | multi-moto results | |
+
+- Every report has an **HTML and a PDF form** (`&export=pdf`), and the HTML is server-rendered, so
+  this source needs no PDF parsing at all for results.
+- **robots.txt is permissive for our paths:** it disallows only `/account/reset-password`,
+  `/content-send/*`, `/comments/*`, `/cdn-cgi*`. Results and events pages are allowed.
+- Parameters are **mandatory and easy to get wrong**: the same `p=` value returns 404 without the
+  right `id`/`class_id`/`race_id`, so discovery must read links out of `view_event` rather than
+  construct URLs.
+
+**Open question — per-lap data.** No lap-time strings were found in the box score or heat sheet, and
+this source appears to carry **results and points only**. That matters: analyses 6.1 (lap chart),
+6.2 (fade) and 6.3 (lap-1 value) need per-lap times and per-lap positions, which the 2025–2026
+source may not provide. If it does not, those three analyses cover 2020–2024 only, and 2025–2026
+contribute to 6.4 (qualifying), 6.5 (title maths) and 6.6 (ratings). That split must be stated on
+the site rather than papered over.
+
+---
+
+## 13. Local toolchain (installed 2026-11-04, per Justin's approval)
+
+| Tool | Where | Version | Note |
+|---|---|---|---|
+| Node | `…/WinGet/Packages/OpenJS.NodeJS.LTS_…/node-v24.20.0-win-x64/` | **24.20.0** (npm 11.19.0) | winget's LTS channel now ships 24. CI **pins Node 20**; code must stay 20-compatible. Not on `PATH` in this shell — invoke by absolute path or a project wrapper. |
+| Poppler | `.tools/poppler-26.09.0/Library/bin/pdftotext.exe` | 26.09.0 | Has `-bbox-layout`. Git-ignored. |
+| xpdf `pdftotext` | `/ucrt64/bin/pdftotext` | 4.06 | Pre-existing. **No `-bbox-layout`.** Never use for the lap chart. |
+
+The extraction step must use an explicit Poppler path. Two `pdftotext` binaries now exist on this
+machine, and silently picking the xpdf one would change parser input — and therefore fixtures —
+without any error.

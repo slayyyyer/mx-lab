@@ -1,0 +1,6 @@
+# Normalize line endings: derived data and fixtures must be byte-identical across machines.
+* text=auto eol=lf
+
+# Binary artifacts
+*.pdf binary
+*.png binary
