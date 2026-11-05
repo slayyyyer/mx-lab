@@ -9,7 +9,7 @@
 // finish. Ties are broken the way a standings sheet does it: more wins, then a
 // better best finish, then rider id so the order is stable.
 
-import { POINTS_TABLE, cmp, pointsFor, round, seasonOf, sortedEvents, sortedMotos } from './common.js';
+import { POINTS_TABLE, cmp, isChampionshipClass, pointsFor, round, seasonOf, sortedEvents, sortedMotos } from './common.js';
 
 const SCORING_POSITIONS = POINTS_TABLE.length;
 const POINTS_PER_ROUND = POINTS_TABLE[0] * 2;
@@ -25,6 +25,7 @@ export function buildTitles(events) {
 
     const round = event.event.round ?? null;
     for (const moto of sortedMotos(event)) {
+      if (!isChampionshipClass(moto.class)) continue;
       if (!seasonState.classes.has(moto.class)) {
         seasonState.classes.set(moto.class, {
           class: moto.class,

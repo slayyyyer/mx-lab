@@ -37,11 +37,11 @@ export function sheetKind(filePath) {
   return 'unknown';
 }
 
-export function manifestUrl(eventId, base = AMA_BASE) {
-  return `${base}/xml/MX/events/${eventId}SchedRes.xml`;
+export function manifestUrl(eventId, base = AMA_BASE, series = 'MX') {
+  return `${base}/xml/${series}/events/${eventId}SchedRes.xml`;
 }
 
-export function sheetUrl(eventId, sessionId, kind, base = AMA_BASE) {
+export function sheetUrl(eventId, sessionId, kind, base = AMA_BASE, series = 'MX') {
   const suffix = {
     results: 'RES',
     'lap-times': 'RID',
@@ -50,7 +50,7 @@ export function sheetUrl(eventId, sessionId, kind, base = AMA_BASE) {
     'qualifying-best-laps': 'OVR',
   }[kind];
   if (!suffix) throw new Error(`no URL suffix known for sheet kind ${kind}`);
-  return `${base}/xml/MX/events/${eventId}/${sessionId}${suffix}.pdf`;
+  return `${base}/xml/${series}/events/${eventId}/${sessionId}${suffix}.pdf`;
 }
 
 const MONTHS = {
@@ -123,14 +123,45 @@ export function parseManifest(xml) {
   };
 }
 
+/**
+ * 250SX runs two championships at once. The sheets print only `250SX`, but the
+ * manifest lists the round's points sheet as `2EF1POINTS` or `2WF1POINTS`, which
+ * names the coast racing that night. Both appear at an East/West showdown, and
+ * then the coast of an individual rider is not in the data at all.
+ */
+export function coastFromManifest(manifest) {
+  const paths = manifest.sessions.flatMap((session) => session.sheets.map((sheet) => sheet.path));
+  const west = paths.some((path) => /2WF1POINTS\.pdf$/i.test(path));
+  const east = paths.some((path) => /2EF1POINTS\.pdf$/i.test(path));
+  if (west && east) return 'Showdown';
+  if (west) return 'West';
+  if (east) return 'East';
+  return null;
+}
+
+const MX_CLASSES = { M1: '450MX', M2: '250MX' };
+
 /** Sessions we treat as championship motos, keyed by the archive's own class code. */
-export function motoSessions(manifest) {
+export function motoSessions(manifest, series = 'MX') {
+  if (series === 'SX') {
+    const coast = coastFromManifest(manifest);
+    return manifest.sessions
+      .filter((session) => session.type === 'F' && /^S[12]F1$/.test(session.id))
+      .map((session) => ({
+        id: session.id,
+        className:
+          session.classCode === 'S1' ? '450SX' : coast ? `250SX ${coast}` : '250SX',
+        moto: 1,
+        classCode: session.classCode,
+      }));
+  }
   return manifest.sessions
     .filter((session) => session.type === 'F' && /^M[12]F\d$/.test(session.id))
     .map((session) => ({
       id: session.id,
       className: session.classCode === 'M1' ? '450MX' : '250MX',
       moto: Number(session.id.slice(3)),
+      classCode: session.classCode,
     }));
 }
 
@@ -138,14 +169,22 @@ export function motoSessions(manifest) {
 // listed on the last qualifying session of the class (M1Q4 / M2Q4) and its
 // filename carries the class. So it is discovered from the sheet list, not from
 // a session id.
-export function qualifyingSessions(manifest) {
+export function qualifyingSessions(manifest, series = 'MX') {
+  const coast = series === 'SX' ? coastFromManifest(manifest) : null;
+  const classes = series === 'SX' ? { S1: '450SX', S2: coast ? `250SX ${coast}` : '250SX' } : MX_CLASSES;
   const found = new Map();
   for (const session of manifest.sessions) {
-    const className = session.classCode === 'M1' ? '450MX' : session.classCode === 'M2' ? '250MX' : null;
+    const className = classes[session.classCode];
     if (!className) continue;
     for (const sheet of session.sheets) {
       if (sheet.kind === 'qualifying-best-laps' && /QCOVR\.pdf$/i.test(sheet.path)) {
-        found.set(className, { className, path: sheet.path, declaredBy: session.id });
+        found.set(className, {
+          className,
+          classCode: session.classCode,
+          session: sheet.path.split('/').pop().replace(/\.pdf$/i, ''),
+          path: sheet.path,
+          declaredBy: session.id,
+        });
       }
     }
   }

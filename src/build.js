@@ -68,7 +68,9 @@ export function assembleEvent({ event, motos, sources = [], overrides = {} }) {
 
   for (const moto of motos) {
     const parsedResults = parseResults(moto.resultsText);
-    if (parsedResults.class !== moto.class) {
+    // A Supercross 250 class carries its coast in the class name (`250SX West`)
+    // while the sheet prints only `250SX`, so the comparison is on the base class.
+    if (!moto.class.startsWith(parsedResults.class)) {
       throw new Error(`moto ${moto.session}: title says ${parsedResults.class}, manifest says ${moto.class}`);
     }
     if (parsedResults.moto !== moto.moto) {
@@ -112,11 +114,12 @@ export function assembleEvent({ event, motos, sources = [], overrides = {} }) {
 
     if (moto.qualifyingText) {
       const parsed = parseQualifying(moto.qualifyingText);
-      const key = `${parsed.class}/${moto.session.replace(/F\d$/, 'QCOVR')}`;
+      const session = moto.qualifyingSession ?? moto.session.replace(/F\d$/, 'QCOVR');
+      const key = `${moto.class}/${session}`;
       if (!qualifyingByKey.has(key)) {
         qualifyingByKey.set(key, {
-          class: parsed.class ?? moto.class,
-          session: `${moto.class.replace('MX', '')}QCOVR`,
+          class: moto.class,
+          session,
           rows: parsed.rows.map((row) => ({
             pos: row.pos,
             plate: row.plate,
@@ -170,25 +173,25 @@ function parseArgs(argv) {
  * Fetch and assemble one event, without validating or writing it. Shared by the
  * CLI and by scripts/survey.js so a survey exercises the real ingest path.
  */
-export async function collectEvent({ eventId, base = AMA_BASE, offline = false }) {
-  const manifest = parseManifest((await fetchText(manifestUrl(eventId, base), offline)).text);
+export async function collectEvent({ eventId, base = AMA_BASE, series = 'MX', offline = false }) {
+  const manifest = parseManifest((await fetchText(manifestUrl(eventId, base, series), offline)).text);
   if (!manifest.id) throw new Error('manifest: no event id');
 
   const overrides = await loadOverrides();
   const sources = [];
   const motos = [];
 
-  for (const session of motoSessions(manifest)) {
+  for (const session of motoSessions(manifest, series)) {
     const has = (kind) => manifest.sessions.find((s) => s.id === session.id)?.sheets.some((sheet) => sheet.kind === kind);
     if (!has('results')) throw new Error(`${session.id}: manifest lists no results sheet`);
 
-    const resultsUrl = `${base}/xml/MX/events/${eventId}/${session.id}RES.pdf`;
+    const resultsUrl = `${base}/xml/${series}/events/${eventId}/${session.id}RES.pdf`;
     const results = await fetchSheetText(resultsUrl, offline);
     sources.push({ url: resultsUrl, sha256: results.meta.sha256 });
 
     let lapTimesText = null;
     if (has('lap-times')) {
-      const lapUrl = `${base}/xml/MX/events/${eventId}/${session.id}RID.pdf`;
+      const lapUrl = `${base}/xml/${series}/events/${eventId}/${session.id}RID.pdf`;
       const lapTimes = await fetchSheetText(lapUrl, offline);
       lapTimesText = lapTimes.text;
       sources.push({ url: lapUrl, sha256: lapTimes.meta.sha256 });
@@ -204,18 +207,22 @@ export async function collectEvent({ eventId, base = AMA_BASE, offline = false }
   }
 
   // Qualifying: attach each class's combined sheet to that class's first moto.
-  for (const session of qualifyingSessions(manifest)) {
+  for (const session of qualifyingSessions(manifest, series)) {
     const url = `${base}${session.path}`;
     const combined = await fetchSheetText(url, offline);
     sources.push({ url, sha256: combined.meta.sha256 });
-    const target = motos.find((moto) => moto.class === session.className);
+    // The 250 SX qualifying sheet says `250SX`; attach it to the coast's moto.
+    const baseClass = session.className.split(' ')[0];
+    const target = motos.find((moto) => moto.class.split(' ')[0] === baseClass);
     if (!target) throw new Error(`${session.path}: no moto found for class ${session.className}`);
     target.qualifyingText = combined.text;
+    target.qualifyingSession = session.session;
   }
 
   return assembleEvent({
     event: {
-      id: manifest.id,
+      id: manifest.id ?? eventId,
+      series: series === 'SX' ? 'AMA Supercross' : 'AMA Pro Motocross',
       name: manifest.name,
       track: manifest.track,
       location: manifest.location,
@@ -232,10 +239,11 @@ export async function collectEvent({ eventId, base = AMA_BASE, offline = false }
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const eventId = args.event ?? 'M2405';
+  const series = args.series === 'SX' ? 'SX' : 'MX';
   const base = args.base ?? AMA_BASE;
   const offline = Boolean(args.offline);
 
-  const event = await collectEvent({ eventId, base, offline });
+  const event = await collectEvent({ eventId, base, series, offline });
   const { errors, warnings } = validateEvent(event);
   if (errors.length > 0) {
     throw new Error(`validation failed for ${eventId}:\n  ${errors.join('\n  ')}`);

@@ -27,7 +27,7 @@ export const LAP_TIMES_PARSER_ID = 'ama/lap-times/layout-2024';
 // its header offset and drags the previous column's last digit into this cell.
 // The lap number is therefore read from the last `<lap> <time>` pair in the cell,
 // never from the first two tokens.
-const TIME_PATTERN = `(?:\\d+:)?\\d+\\.\\d{3}`;
+const TIME_PATTERN = `(?:\\d{1,2}:)?\\d{1,3}\\.\\d{1,3}`;
 const DASH_PATTERN = DASH_TIME.replace(/\./g, '\\.');
 const SUMMARY_PATTERN = new RegExp(`\\b(MIN|MAX|AVG)\\s+(${TIME_PATTERN}|${DASH_PATTERN})`, 'g');
 const LAP_PATTERN = new RegExp(`(\\d{1,2})\\s+(${TIME_PATTERN}|${DASH_PATTERN})`, 'g');

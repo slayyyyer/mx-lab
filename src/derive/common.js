@@ -16,6 +16,16 @@ export const POINTS_TABLE = [
   25, 22, 20, 18, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1,
 ];
 
+/**
+ * Classes that carry a championship. A 250SX East/West showdown mixes two
+ * championships into one moto, and a coast-less `250SX` names no championship
+ * at all, so both are recorded in the dataset but never scored as a title.
+ */
+export function isChampionshipClass(className) {
+  const name = String(className ?? '');
+  return !/Showdown\b/i.test(name) && name !== '250SX';
+}
+
 /** Points for a finishing position. Anything outside 1–20 scores nothing. */
 export function pointsFor(pos) {
   if (!Number.isInteger(pos) || pos < 1 || pos > POINTS_TABLE.length) return 0;

@@ -4,17 +4,21 @@
 // `+m:ss.mmm`. Missing values are printed `--.---` and must become null, never 0:
 // a missing lap time and a zero-second lap are different facts.
 
-export const TIME_RE = /^\d{1,2}:\d{2}\.\d{3}$/;
+// Supercross prints a lap under a minute as `58.708` (no minutes), and rounded
+// qualifying times with two decimals (`1:02.49`), so minutes are optional and
+// the fraction is one to three digits. A missing fraction is still a time.
+export const TIME_RE = /^(?:\d{1,2}:)?\d{1,3}\.\d{1,3}$/;
 export const DASH_TIME = '--.---';
 
-/** `2:23.895` -> 143895 (ms). null for anything that is not a time, incl. `--.---`. */
+/** `2:23.895` -> 143895 (ms), `56.17` -> 56170. null for `--.---` and non-times. */
 export function parseTime(value) {
   if (typeof value !== 'string') return null;
   const text = value.trim();
-  if (!TIME_RE.test(text)) return null;
-  const [minutes, rest] = text.split(':');
-  const [seconds, millis] = rest.split('.');
-  return Number(minutes) * 60000 + Number(seconds) * 1000 + Number(millis);
+  if (text === DASH_TIME || !TIME_RE.test(text)) return null;
+  const parts = text.split(':');
+  const [seconds, fraction] = parts.pop().split('.');
+  const minutes = parts.length > 0 ? Number(parts[0]) : 0;
+  return minutes * 60000 + Number(seconds) * 1000 + Number(fraction.padEnd(3, '0'));
 }
 
 /** `+05.058` -> 5058, `+1:05.109` -> 65109. null when not a gap. */

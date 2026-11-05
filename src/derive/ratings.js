@@ -16,7 +16,7 @@
 //     applied together. Processing pairs one at a time would make the result
 //     depend on pair order inside a moto.
 
-import { cmp, median, round, seasonOf, sortedEvents, sortedMotos } from './common.js';
+import { cmp, isChampionshipClass, median, round, seasonOf, sortedEvents, sortedMotos } from './common.js';
 
 const K = 32;
 const START = 1500;
@@ -46,6 +46,7 @@ export function buildRatings(events) {
   for (const event of sortedEvents(events)) {
     const season = seasonOf(event);
     for (const moto of sortedMotos(event)) {
+      if (!isChampionshipClass(moto.class)) continue;
       if (!classes.has(moto.class)) {
         classes.set(moto.class, {
           class: moto.class,
