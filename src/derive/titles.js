@@ -12,7 +12,19 @@
 import { POINTS_TABLE, cmp, isChampionshipClass, pointsFor, round, seasonOf, sortedEvents, sortedMotos } from './common.js';
 
 const SCORING_POSITIONS = POINTS_TABLE.length;
-const POINTS_PER_ROUND = POINTS_TABLE[0] * 2;
+
+/**
+ * AMA countback: most wins, then most second places, then third, and so on.
+ * Used where two riders finish level on points.
+ */
+export function countback(a, b) {
+  const length = Math.max(a.counts?.length ?? 0, b.counts?.length ?? 0);
+  for (let i = 0; i < length; i += 1) {
+    const diff = (b.counts?.[i] ?? 0) - (a.counts?.[i] ?? 0);
+    if (diff !== 0) return diff;
+  }
+  return 0;
+}
 
 export function buildTitles(events) {
   const seasons = new Map();
@@ -52,6 +64,7 @@ export function buildTitles(events) {
             name: row.name,
             points: 0,
             motos: 0,
+            counts: [],
             wins: 0,
             podiums: 0,
             top10: 0,
@@ -69,6 +82,7 @@ export function buildTitles(events) {
         } else {
           rider.finishSum += row.pos;
           rider.finishCount += 1;
+          rider.counts[row.pos - 1] = (rider.counts[row.pos - 1] ?? 0) + 1;
           if (row.pos === 1) rider.wins += 1;
         }
         if (row.status !== 'DNF' && row.pos <= 3) rider.podiums += 1;
@@ -95,7 +109,7 @@ export function buildTitles(events) {
     for (const [className, state] of [...seasonState.classes.entries()].sort((a, b) => cmp(a[0], b[0]))) {
       const rounds = [...state.rounds].sort((a, b) => a - b);
       const standings = [...state.riders.values()].sort(
-        (a, b) => b.points - a.points || b.wins - a.wins || (a.best ?? 999) - (b.best ?? 999) || cmp(a.riderId, b.riderId),
+        (a, b) => b.points - a.points || countback(a, b) || cmp(a.riderId, b.riderId),
       );
 
       // Round winners: the best two-moto total in that class at that round.
@@ -126,9 +140,20 @@ export function buildTitles(events) {
       });
 
       const champion = standings[0] ?? null;
+      // What one round of this class can pay: 50 for a two-moto Motocross round,
+      // 25 for a single Supercross main, 26 at a Triple Crown overall.
+      let maxRoundPoints = 0;
+      for (const points of state.roundPoints.values()) {
+        for (const scored of points.values()) maxRoundPoints = Math.max(maxRoundPoints, scored);
+      }
+
+      const winsThrough = (riderId, upto) =>
+        rounds.filter((round) => round <= upto && state.roundLastPos.get(round)?.get(riderId) === 1).length;
+
       let clinchedRound = null;
+      let clinchProof = null;
       if (champion) {
-        for (const round of rounds) {
+        for (const [roundIndex, round] of rounds.entries()) {
           const cumulative = new Map();
           for (const rider of standings) {
             let total = 0;
@@ -138,11 +163,28 @@ export function buildTitles(events) {
             }
             cumulative.set(rider.riderId, total);
           }
-          const ordered = [...cumulative.entries()].sort((a, b) => b[1] - a[1]);
+          const ordered = [...cumulative.entries()]
+            .map(([riderId, total]) => ({ riderId, total, rider: state.riders.get(riderId) }))
+            .sort(
+              (a, b) => b.total - a.total || countback(a.rider, b.rider) || cmp(a.riderId, b.riderId),
+            );
           if (ordered.length < 2) continue;
-          const remaining = (seasonState.ofRounds ?? rounds.length) - round;
-          if (ordered[0][1] - ordered[1][1] > remaining * POINTS_PER_ROUND) {
+
+          // Rounds still to run for this class, not for the season: a Motocross
+          // class has 11 rounds in a year whose Supercross calendar runs 17, and
+          // a 250SX coast only races its own share.
+          const remaining = rounds.length - roundIndex - 1;
+          const available = remaining * maxRoundPoints;
+          const [leader, rival] = ordered;
+          const gap = leader.total - rival.total;
+          // A rival can only draw level by taking every remaining point while the
+          // leader takes none, so an exact tie is safe only if the countback holds.
+          const tieBreakHolds =
+            winsThrough(leader.riderId, round) > winsThrough(rival.riderId, round) + remaining;
+
+          if (gap > available || (gap === available && tieBreakHolds)) {
             clinchedRound = round;
+            clinchProof = { gap, available, rivalId: rival.riderId, tieBreakHolds };
             break;
           }
         }
@@ -158,6 +200,7 @@ export function buildTitles(events) {
               name: champion.name,
               points: champion.points,
               clinchedRound,
+              clinchProof,
             }
           : null,
         standings: standings.map((rider) => ({
@@ -183,8 +226,9 @@ export function buildTitles(events) {
     method: {
       pointsTable: POINTS_TABLE,
       scoring: 'both motos score; a DNF scores 0 and still counts as a moto started',
-      tiebreak: 'points, then wins, then best finish, then rider id',
-      clinch: 'the leader clinches when the gap exceeds the points still available at 50 per round',
+      tiebreak: 'points, then countback (most wins, then most seconds, and so on), then rider id',
+      clinch:
+        'the leader clinches when no rival can reach their total, counting the points the class can still score per round; a rival who can only tie must also beat the countback',
       computed: true,
     },
     coverage: {

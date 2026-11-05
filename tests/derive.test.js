@@ -7,7 +7,7 @@ import { buildLapChart } from '../src/derive/lapChart.js';
 import { buildLapOne } from '../src/derive/lapOne.js';
 import { buildQualifying } from '../src/derive/qualifying.js';
 import { buildRatings, eloMoto } from '../src/derive/ratings.js';
-import { buildTitles } from '../src/derive/titles.js';
+import { buildTitles, countback } from '../src/derive/titles.js';
 import { deriveAll } from '../src/derive/index.js';
 
 const event = ({ id, date, round, ofRounds, motos, qualifying = [] }) => ({
@@ -177,6 +177,60 @@ test('derive: standings score both motos, DNF scores nothing, and a clinch needs
   // 56 points clear with 0 points left after round 2.
   eq(table.champion.clinchedRound, 2);
   eq(table.trajectory[0].points, [50, 100]);
+});
+
+test('derive: countback orders by wins, then seconds, before anything else', () => {
+  const a = { riderId: 'a', counts: [2, 0, 1] };
+  const b = { riderId: 'b', counts: [2, 1, 0] };
+  // Same wins; b has the extra second place, so b sorts first.
+  assert(countback(a, b) > 0, 'the rider with more seconds should rank ahead');
+  assert(countback(b, a) < 0, 'and the comparison should be antisymmetric');
+  eq(countback(a, a), 0);
+  eq(countback({ riderId: 'x' }, { riderId: 'y' }), 0);
+});
+
+test('derive: a Supercross clinch uses the one-moto maximum, not a two-moto round', () => {
+  const main = (aPos, bStatus) => ({
+    class: '450SX',
+    moto: 1,
+    results: [row({ pos: aPos, riderId: 'a', name: 'A' }), row({ pos: 2, riderId: 'b', name: 'B', status: bStatus })],
+  });
+  // Round 1: a 25, b 22. Round 2: a 25, b DNF. Round 3 remains, worth 25.
+  // After round 2 the gap is 28 with 25 available, so the title is already sealed;
+  // the old 50-per-round rule would have waited until round 3.
+  const built = buildTitles([
+    event({ id: 'S1', date: '2024-01-06', round: 1, ofRounds: 3, motos: [main(1, null)] }),
+    event({ id: 'S2', date: '2024-01-13', round: 2, ofRounds: 3, motos: [main(1, 'DNF')] }),
+    event({ id: 'S3', date: '2024-01-20', round: 3, ofRounds: 3, motos: [main(1, null)] }),
+  ]);
+  const table = built.seasons[0].classes['450SX'];
+  eq(table.champion.clinchedRound, 2);
+  eq(table.champion.clinchProof.available, 25);
+  eq(table.champion.clinchProof.gap, 28);
+});
+
+test('derive: a Motocross class clinches on its own rounds, not the longer Supercross calendar', () => {
+  const mxMoto = (moto) => ({
+    class: '450MX',
+    moto,
+    results: [row({ pos: 1, riderId: 'a', name: 'A' }), row({ pos: 6, riderId: 'b', name: 'B' })],
+  });
+  const sxMain = () => ({
+    class: '450SX',
+    moto: 1,
+    results: [row({ pos: 1, riderId: 'a', name: 'A' }), row({ pos: 2, riderId: 'b', name: 'B' })],
+  });
+  // Supercross runs four rounds; Motocross shares the first two and is then done.
+  // The season-wide ofRounds is 4, so a Motocross class must not be told two of
+  // its rounds are still to come.
+  const built = buildTitles([
+    event({ id: 'E1', date: '2024-05-25', round: 1, ofRounds: 4, motos: [mxMoto(1), mxMoto(2), sxMain()] }),
+    event({ id: 'E2', date: '2024-06-01', round: 2, ofRounds: 4, motos: [mxMoto(1), mxMoto(2), sxMain()] }),
+    event({ id: 'E3', date: '2024-06-08', round: 3, ofRounds: 4, motos: [sxMain()] }),
+    event({ id: 'E4', date: '2024-06-15', round: 4, ofRounds: 4, motos: [sxMain()] }),
+  ]);
+  eq(built.seasons[0].classes['450MX'].champion.clinchedRound, 2);
+  eq(built.seasons[0].classes['450SX'].champion.clinchedRound, 4);
 });
 
 test('derive: elo compares every finisher, sums to roughly zero, and rewards the better result', () => {
