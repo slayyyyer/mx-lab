@@ -27752,7 +27752,7 @@
       "classes": {
         "250MX": {
           "champion": {
-            "clinchedRound": 11,
+            "clinchedRound": null,
             "name": "Haiden Deegan",
             "points": 506,
             "riderId": "haiden-deegan"
@@ -29097,9 +29097,1327 @@
             }
           ]
         },
+        "250SX East": {
+          "champion": {
+            "clinchedRound": null,
+            "name": "Tom Vialle",
+            "points": 121,
+            "riderId": "tom-vialle"
+          },
+          "roundWinners": [
+            {
+              "points": 25,
+              "riderId": "max-anstie",
+              "round": 5
+            },
+            {
+              "points": 25,
+              "riderId": "levi-kitchen",
+              "round": 6
+            },
+            {
+              "points": 25,
+              "riderId": "r-j-hampshire",
+              "round": 8
+            },
+            {
+              "points": 25,
+              "riderId": "nate-thrasher",
+              "round": 10
+            },
+            {
+              "points": 25,
+              "riderId": "chance-hymas",
+              "round": 12
+            },
+            {
+              "points": 25,
+              "riderId": "seth-hammaker",
+              "round": 14
+            },
+            {
+              "points": 25,
+              "riderId": "tom-vialle",
+              "round": 15
+            }
+          ],
+          "rounds": 7,
+          "scoringPositions": 20,
+          "standings": [
+            {
+              "averageFinish": 5.7,
+              "best": 1,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Tom Vialle",
+              "podiums": 4,
+              "points": 121,
+              "riderId": "tom-vialle",
+              "top10": 6,
+              "wins": 1
+            },
+            {
+              "averageFinish": 6.3,
+              "best": 1,
+              "dnf": 0,
+              "motos": 7,
+              "name": "R.J. Hampshire",
+              "podiums": 4,
+              "points": 117,
+              "riderId": "r-j-hampshire",
+              "top10": 5,
+              "wins": 1
+            },
+            {
+              "averageFinish": 6.1,
+              "best": 1,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Seth Hammaker",
+              "podiums": 2,
+              "points": 113,
+              "riderId": "seth-hammaker",
+              "top10": 6,
+              "wins": 1
+            },
+            {
+              "averageFinish": 6.9,
+              "best": 1,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Nate Thrasher",
+              "podiums": 2,
+              "points": 107,
+              "riderId": "nate-thrasher",
+              "top10": 6,
+              "wins": 1
+            },
+            {
+              "averageFinish": 6.9,
+              "best": 2,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Cullin Park",
+              "podiums": 1,
+              "points": 103,
+              "riderId": "cullin-park",
+              "top10": 6,
+              "wins": 0
+            },
+            {
+              "averageFinish": 7.4,
+              "best": 1,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Chance Hymas",
+              "podiums": 1,
+              "points": 102,
+              "riderId": "chance-hymas",
+              "top10": 6,
+              "wins": 1
+            },
+            {
+              "averageFinish": 9.7,
+              "best": 3,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Max Vohland",
+              "podiums": 1,
+              "points": 81,
+              "riderId": "max-vohland",
+              "top10": 5,
+              "wins": 0
+            },
+            {
+              "averageFinish": 10.6,
+              "best": 8,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Henry Miller",
+              "podiums": 0,
+              "points": 73,
+              "riderId": "henry-miller",
+              "top10": 3,
+              "wins": 0
+            },
+            {
+              "averageFinish": 4.8,
+              "best": 2,
+              "dnf": 0,
+              "motos": 4,
+              "name": "Daxton Bennick",
+              "podiums": 1,
+              "points": 68,
+              "riderId": "daxton-bennick",
+              "top10": 4,
+              "wins": 0
+            },
+            {
+              "averageFinish": 3,
+              "best": 1,
+              "dnf": 0,
+              "motos": 3,
+              "name": "Max Anstie",
+              "podiums": 2,
+              "points": 62,
+              "riderId": "max-anstie",
+              "top10": 3,
+              "wins": 1
+            },
+            {
+              "averageFinish": 12.2,
+              "best": 7,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Austin Forkner",
+              "podiums": 0,
+              "points": 53,
+              "riderId": "austin-forkner",
+              "top10": 3,
+              "wins": 0
+            },
+            {
+              "averageFinish": 14.7,
+              "best": 11,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Trevor Colip",
+              "podiums": 0,
+              "points": 45,
+              "riderId": "trevor-colip",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 10,
+              "best": 8,
+              "dnf": 0,
+              "motos": 4,
+              "name": "Carson Mumford",
+              "podiums": 0,
+              "points": 44,
+              "riderId": "carson-mumford",
+              "top10": 2,
+              "wins": 0
+            },
+            {
+              "averageFinish": 12.2,
+              "best": 9,
+              "dnf": 0,
+              "motos": 5,
+              "name": "Hardy Munoz",
+              "podiums": 0,
+              "points": 44,
+              "riderId": "hardy-munoz",
+              "top10": 2,
+              "wins": 0
+            },
+            {
+              "averageFinish": 14.2,
+              "best": 7,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Jack Chambers",
+              "podiums": 0,
+              "points": 41,
+              "riderId": "jack-chambers",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 13.8,
+              "best": 3,
+              "dnf": 0,
+              "motos": 5,
+              "name": "Gage Linville",
+              "podiums": 1,
+              "points": 38,
+              "riderId": "gage-linville",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 13.4,
+              "best": 6,
+              "dnf": 0,
+              "motos": 5,
+              "name": "Lance Kobusch",
+              "podiums": 0,
+              "points": 38,
+              "riderId": "lance-kobusch",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 10.3,
+              "best": 1,
+              "dnf": 0,
+              "motos": 3,
+              "name": "Levi Kitchen",
+              "podiums": 1,
+              "points": 37,
+              "riderId": "levi-kitchen",
+              "top10": 2,
+              "wins": 1
+            },
+            {
+              "averageFinish": 10.7,
+              "best": 4,
+              "dnf": 0,
+              "motos": 3,
+              "name": "Justin Rodbell",
+              "podiums": 0,
+              "points": 32,
+              "riderId": "justin-rodbell",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 14.8,
+              "best": 11,
+              "dnf": 0,
+              "motos": 4,
+              "name": "Izaih Clark",
+              "podiums": 0,
+              "points": 25,
+              "riderId": "izaih-clark",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 9,
+              "best": 9,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Devin Simonson",
+              "podiums": 0,
+              "points": 24,
+              "riderId": "devin-simonson",
+              "top10": 2,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15.8,
+              "best": 10,
+              "dnf": 0,
+              "motos": 4,
+              "name": "Luke Neese",
+              "podiums": 0,
+              "points": 22,
+              "riderId": "luke-neese",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 12.5,
+              "best": 3,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Cameron Mcadoo",
+              "podiums": 1,
+              "points": 20,
+              "riderId": "cameron-mcadoo",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 12,
+              "best": 10,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Bryce Shelly",
+              "podiums": 0,
+              "points": 18,
+              "riderId": "bryce-shelly",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15.3,
+              "best": 8,
+              "dnf": 0,
+              "motos": 3,
+              "name": "Mark Fineis",
+              "podiums": 0,
+              "points": 17,
+              "riderId": "mark-fineis",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15,
+              "best": 14,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Lorenzo Locurcio",
+              "podiums": 0,
+              "points": 12,
+              "riderId": "lorenzo-locurcio",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 10,
+              "best": 10,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Preston Taylor",
+              "podiums": 0,
+              "points": 11,
+              "riderId": "preston-taylor",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 17.7,
+              "best": 12,
+              "dnf": 0,
+              "motos": 3,
+              "name": "Ayden Shive",
+              "podiums": 0,
+              "points": 10,
+              "riderId": "ayden-shive",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 17.7,
+              "best": 13,
+              "dnf": 0,
+              "motos": 3,
+              "name": "Michael Hicks",
+              "podiums": 0,
+              "points": 10,
+              "riderId": "michael-hicks",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 12,
+              "best": 12,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Ricci Randanella",
+              "podiums": 0,
+              "points": 9,
+              "riderId": "ricci-randanella",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 16.5,
+              "best": 14,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Chandler Baker",
+              "podiums": 0,
+              "points": 9,
+              "riderId": "chandler-baker",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 17,
+              "best": 16,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Crockett Myers",
+              "podiums": 0,
+              "points": 8,
+              "riderId": "crockett-myers",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 17.5,
+              "best": 15,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Vinny Luhovey",
+              "podiums": 0,
+              "points": 7,
+              "riderId": "vinny-luhovey",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 18.5,
+              "best": 17,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Hamden Hudson",
+              "podiums": 0,
+              "points": 5,
+              "riderId": "hamden-hudson",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 18.5,
+              "best": 18,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Jack Rogers",
+              "podiums": 0,
+              "points": 5,
+              "riderId": "jack-rogers",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 17,
+              "best": 17,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Dayton Briggs",
+              "podiums": 0,
+              "points": 4,
+              "riderId": "dayton-briggs",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 19,
+              "best": 17,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Lane Shaw",
+              "podiums": 0,
+              "points": 4,
+              "riderId": "lane-shaw",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 18,
+              "best": 18,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Chase Marquier",
+              "podiums": 0,
+              "points": 3,
+              "riderId": "chase-marquier",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 19,
+              "best": 19,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Nicholas Romano",
+              "podiums": 0,
+              "points": 2,
+              "riderId": "nicholas-romano",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 20.5,
+              "best": 19,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Preston Boespflug",
+              "podiums": 0,
+              "points": 2,
+              "riderId": "preston-boespflug",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 20,
+              "best": 20,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Pierce Brown",
+              "podiums": 0,
+              "points": 1,
+              "riderId": "pierce-brown",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 21,
+              "best": 21,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Matti Jorgensen",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "matti-jorgensen",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 22,
+              "best": 22,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Cameron Mcadoo Dns",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "cameron-mcadoo-dns",
+              "top10": 0,
+              "wins": 0
+            }
+          ],
+          "trajectory": [
+            {
+              "name": "Tom Vialle",
+              "points": [
+                16,
+                34,
+                56,
+                76,
+                76,
+                96,
+                121
+              ],
+              "riderId": "tom-vialle"
+            },
+            {
+              "name": "R.J. Hampshire",
+              "points": [
+                3,
+                23,
+                48,
+                70,
+                77,
+                99,
+                117
+              ],
+              "riderId": "r-j-hampshire"
+            },
+            {
+              "name": "Seth Hammaker",
+              "points": [
+                18,
+                22,
+                42,
+                60,
+                72,
+                97,
+                113
+              ],
+              "riderId": "seth-hammaker"
+            },
+            {
+              "name": "Nate Thrasher",
+              "points": [
+                13,
+                29,
+                42,
+                67,
+                69,
+                85,
+                107
+              ],
+              "riderId": "nate-thrasher"
+            },
+            {
+              "name": "Cullin Park",
+              "points": [
+                14,
+                24,
+                36,
+                49,
+                71,
+                89,
+                103
+              ],
+              "riderId": "cullin-park"
+            },
+            {
+              "name": "Chance Hymas",
+              "points": [
+                15,
+                30,
+                48,
+                62,
+                87,
+                87,
+                102
+              ],
+              "riderId": "chance-hymas"
+            },
+            {
+              "name": "Max Vohland",
+              "points": [
+                0,
+                12,
+                28,
+                43,
+                46,
+                61,
+                81
+              ],
+              "riderId": "max-vohland"
+            },
+            {
+              "name": "Henry Miller",
+              "points": [
+                10,
+                21,
+                30,
+                39,
+                47,
+                60,
+                73
+              ],
+              "riderId": "henry-miller"
+            }
+          ]
+        },
+        "250SX West": {
+          "champion": {
+            "clinchedRound": null,
+            "name": "Haiden Deegan",
+            "points": 153,
+            "riderId": "haiden-deegan"
+          },
+          "roundWinners": [
+            {
+              "points": 25,
+              "riderId": "jo-shimoda",
+              "round": 1
+            },
+            {
+              "points": 25,
+              "riderId": "julien-beaumer",
+              "round": 2
+            },
+            {
+              "points": 25,
+              "riderId": "haiden-deegan",
+              "round": 3
+            },
+            {
+              "points": 25,
+              "riderId": "jordon-smith",
+              "round": 4
+            },
+            {
+              "points": 25,
+              "riderId": "haiden-deegan",
+              "round": 7
+            },
+            {
+              "points": 25,
+              "riderId": "cole-davies",
+              "round": 11
+            },
+            {
+              "points": 25,
+              "riderId": "haiden-deegan",
+              "round": 16
+            }
+          ],
+          "rounds": 7,
+          "scoringPositions": 20,
+          "standings": [
+            {
+              "averageFinish": 2.3,
+              "best": 1,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Haiden Deegan",
+              "podiums": 6,
+              "points": 153,
+              "riderId": "haiden-deegan",
+              "top10": 7,
+              "wins": 3
+            },
+            {
+              "averageFinish": 3,
+              "best": 1,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Julien Beaumer",
+              "podiums": 4,
+              "points": 142,
+              "riderId": "julien-beaumer",
+              "top10": 7,
+              "wins": 1
+            },
+            {
+              "averageFinish": 4.4,
+              "best": 1,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Cole Davies",
+              "podiums": 3,
+              "points": 126,
+              "riderId": "cole-davies",
+              "top10": 7,
+              "wins": 1
+            },
+            {
+              "averageFinish": 6.9,
+              "best": 1,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Jordon Smith",
+              "podiums": 3,
+              "points": 112,
+              "riderId": "jordon-smith",
+              "top10": 5,
+              "wins": 1
+            },
+            {
+              "averageFinish": 6,
+              "best": 1,
+              "dnf": 0,
+              "motos": 7,
+              "name": "JO Shimoda",
+              "podiums": 1,
+              "points": 111,
+              "riderId": "jo-shimoda",
+              "top10": 7,
+              "wins": 1
+            },
+            {
+              "averageFinish": 5.9,
+              "best": 2,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Coty Schock",
+              "podiums": 1,
+              "points": 109,
+              "riderId": "coty-schock",
+              "top10": 7,
+              "wins": 0
+            },
+            {
+              "averageFinish": 5.5,
+              "best": 2,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Garrett Marchbanks",
+              "podiums": 2,
+              "points": 98,
+              "riderId": "garrett-marchbanks",
+              "top10": 6,
+              "wins": 0
+            },
+            {
+              "averageFinish": 7.4,
+              "best": 3,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Michael Mosiman",
+              "podiums": 1,
+              "points": 97,
+              "riderId": "michael-mosiman",
+              "top10": 6,
+              "wins": 0
+            },
+            {
+              "averageFinish": 12.6,
+              "best": 10,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Hunter Yoder",
+              "podiums": 0,
+              "points": 59,
+              "riderId": "hunter-yoder",
+              "top10": 2,
+              "wins": 0
+            },
+            {
+              "averageFinish": 13.6,
+              "best": 9,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Lux Turner",
+              "podiums": 0,
+              "points": 53,
+              "riderId": "lux-turner",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 12.3,
+              "best": 9,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Cole Thompson",
+              "podiums": 0,
+              "points": 52,
+              "riderId": "cole-thompson",
+              "top10": 2,
+              "wins": 0
+            },
+            {
+              "averageFinish": 8.5,
+              "best": 7,
+              "dnf": 0,
+              "motos": 4,
+              "name": "Anthony Bourdon",
+              "podiums": 0,
+              "points": 50,
+              "riderId": "anthony-bourdon",
+              "top10": 3,
+              "wins": 0
+            },
+            {
+              "averageFinish": 13.9,
+              "best": 9,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Parker Ross",
+              "podiums": 0,
+              "points": 50,
+              "riderId": "parker-ross",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 10.5,
+              "best": 7,
+              "dnf": 0,
+              "motos": 4,
+              "name": "Enzo Lopes",
+              "podiums": 0,
+              "points": 42,
+              "riderId": "enzo-lopes",
+              "top10": 3,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15.2,
+              "best": 12,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Dylan Walsh",
+              "podiums": 0,
+              "points": 35,
+              "riderId": "dylan-walsh",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 4.5,
+              "best": 4,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Ryder Difrancesco",
+              "podiums": 0,
+              "points": 34,
+              "riderId": "ryder-difrancesco",
+              "top10": 2,
+              "wins": 0
+            },
+            {
+              "averageFinish": 16.4,
+              "best": 10,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Gavin Towers",
+              "podiums": 0,
+              "points": 33,
+              "riderId": "gavin-towers",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15.2,
+              "best": 10,
+              "dnf": 0,
+              "motos": 5,
+              "name": "Jett Reynolds",
+              "podiums": 0,
+              "points": 30,
+              "riderId": "jett-reynolds",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 16,
+              "best": 12,
+              "dnf": 0,
+              "motos": 6,
+              "name": "TJ Albright",
+              "podiums": 0,
+              "points": 30,
+              "riderId": "tj-albright",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 8,
+              "best": 8,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Drew Adams",
+              "podiums": 0,
+              "points": 26,
+              "riderId": "drew-adams",
+              "top10": 2,
+              "wins": 0
+            },
+            {
+              "averageFinish": 14.8,
+              "best": 12,
+              "dnf": 0,
+              "motos": 4,
+              "name": "Avery Long",
+              "podiums": 0,
+              "points": 25,
+              "riderId": "avery-long",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 17.8,
+              "best": 14,
+              "dnf": 0,
+              "motos": 4,
+              "name": "Brad West",
+              "podiums": 0,
+              "points": 13,
+              "riderId": "brad-west",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 16,
+              "best": 16,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Dominique Thury",
+              "podiums": 0,
+              "points": 10,
+              "riderId": "dominique-thury",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 17.7,
+              "best": 17,
+              "dnf": 0,
+              "motos": 3,
+              "name": "Derek Kelley",
+              "podiums": 0,
+              "points": 10,
+              "riderId": "derek-kelley",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 19.2,
+              "best": 16,
+              "dnf": 0,
+              "motos": 5,
+              "name": "Joshua Varize",
+              "podiums": 0,
+              "points": 9,
+              "riderId": "joshua-varize",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 13,
+              "best": 13,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Marshal Weltin",
+              "podiums": 0,
+              "points": 8,
+              "riderId": "marshal-weltin",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15,
+              "best": 15,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Dilan Schwartz",
+              "podiums": 0,
+              "points": 6,
+              "riderId": "dilan-schwartz",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15,
+              "best": 15,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Robbie Wageman",
+              "podiums": 0,
+              "points": 6,
+              "riderId": "robbie-wageman",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 18,
+              "best": 16,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Max Miller",
+              "podiums": 0,
+              "points": 6,
+              "riderId": "max-miller",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 17,
+              "best": 17,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Nico Koch",
+              "podiums": 0,
+              "points": 4,
+              "riderId": "nico-koch",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 18,
+              "best": 18,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Noah Viney",
+              "podiums": 0,
+              "points": 3,
+              "riderId": "noah-viney",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 18,
+              "best": 18,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Stav Orland",
+              "podiums": 0,
+              "points": 3,
+              "riderId": "stav-orland",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 20,
+              "best": 20,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Collin Jurin",
+              "podiums": 0,
+              "points": 1,
+              "riderId": "collin-jurin",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 20,
+              "best": 20,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Stilez Robertson",
+              "podiums": 0,
+              "points": 1,
+              "riderId": "stilez-robertson",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 21,
+              "best": 21,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Anton Nordström",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "anton-nordstrom",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 21,
+              "best": 21,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Billy Laninovich",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "billy-laninovich",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 21,
+              "best": 21,
+              "dnf": 0,
+              "motos": 1,
+              "name": "CJ Benard",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "cj-benard",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 21,
+              "best": 21,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Preston Masciangelo",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "preston-masciangelo",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 21,
+              "best": 21,
+              "dnf": 0,
+              "motos": 1,
+              "name": "TY Masterpool",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "ty-masterpool",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 22,
+              "best": 22,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Brandon Ray",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "brandon-ray",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 22,
+              "best": 22,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Max Sanford",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "max-sanford",
+              "top10": 0,
+              "wins": 0
+            }
+          ],
+          "trajectory": [
+            {
+              "name": "Haiden Deegan",
+              "points": [
+                16,
+                36,
+                61,
+                83,
+                108,
+                128,
+                153
+              ],
+              "riderId": "haiden-deegan"
+            },
+            {
+              "name": "Julien Beaumer",
+              "points": [
+                22,
+                47,
+                69,
+                87,
+                102,
+                120,
+                142
+              ],
+              "riderId": "julien-beaumer"
+            },
+            {
+              "name": "Cole Davies",
+              "points": [
+                13,
+                31,
+                51,
+                71,
+                85,
+                110,
+                126
+              ],
+              "riderId": "cole-davies"
+            },
+            {
+              "name": "Jordon Smith",
+              "points": [
+                20,
+                42,
+                60,
+                85,
+                85,
+                94,
+                112
+              ],
+              "riderId": "jordon-smith"
+            },
+            {
+              "name": "JO Shimoda",
+              "points": [
+                25,
+                39,
+                54,
+                65,
+                83,
+                99,
+                111
+              ],
+              "riderId": "jo-shimoda"
+            },
+            {
+              "name": "Coty Schock",
+              "points": [
+                15,
+                30,
+                46,
+                59,
+                81,
+                94,
+                109
+              ],
+              "riderId": "coty-schock"
+            },
+            {
+              "name": "Garrett Marchbanks",
+              "points": [
+                12,
+                25,
+                25,
+                40,
+                56,
+                78,
+                98
+              ],
+              "riderId": "garrett-marchbanks"
+            },
+            {
+              "name": "Michael Mosiman",
+              "points": [
+                6,
+                18,
+                32,
+                48,
+                68,
+                83,
+                97
+              ],
+              "riderId": "michael-mosiman"
+            }
+          ]
+        },
         "450MX": {
           "champion": {
-            "clinchedRound": 10,
+            "clinchedRound": null,
             "name": "Jett Lawrence",
             "points": 508,
             "riderId": "jett-lawrence"
@@ -30515,16 +31833,781 @@
               "riderId": "aaron-plessinger"
             }
           ]
+        },
+        "450SX": {
+          "champion": {
+            "clinchedRound": 17,
+            "name": "Cooper Webb",
+            "points": 364,
+            "riderId": "cooper-webb"
+          },
+          "roundWinners": [
+            {
+              "points": 25,
+              "riderId": "chase-sexton",
+              "round": 1
+            },
+            {
+              "points": 25,
+              "riderId": "eli-tomac",
+              "round": 2
+            },
+            {
+              "points": 25,
+              "riderId": "jett-lawrence",
+              "round": 3
+            },
+            {
+              "points": 25,
+              "riderId": "chase-sexton",
+              "round": 4
+            },
+            {
+              "points": 25,
+              "riderId": "malcolm-stewart",
+              "round": 5
+            },
+            {
+              "points": 25,
+              "riderId": "cooper-webb",
+              "round": 6
+            },
+            {
+              "points": 25,
+              "riderId": "cooper-webb",
+              "round": 7
+            },
+            {
+              "points": 25,
+              "riderId": "ken-roczen",
+              "round": 8
+            },
+            {
+              "points": 25,
+              "riderId": "cooper-webb",
+              "round": 9
+            },
+            {
+              "points": 25,
+              "riderId": "chase-sexton",
+              "round": 10
+            },
+            {
+              "points": 25,
+              "riderId": "cooper-webb",
+              "round": 11
+            },
+            {
+              "points": 25,
+              "riderId": "aaron-plessinger",
+              "round": 12
+            },
+            {
+              "points": 25,
+              "riderId": "chase-sexton",
+              "round": 13
+            },
+            {
+              "points": 25,
+              "riderId": "chase-sexton",
+              "round": 14
+            },
+            {
+              "points": 25,
+              "riderId": "cooper-webb",
+              "round": 15
+            },
+            {
+              "points": 25,
+              "riderId": "chase-sexton",
+              "round": 16
+            },
+            {
+              "points": 25,
+              "riderId": "chase-sexton",
+              "round": 17
+            }
+          ],
+          "rounds": 17,
+          "scoringPositions": 20,
+          "standings": [
+            {
+              "averageFinish": 2.5,
+              "best": 1,
+              "dnf": 0,
+              "motos": 17,
+              "name": "Cooper Webb",
+              "podiums": 13,
+              "points": 364,
+              "riderId": "cooper-webb",
+              "top10": 17,
+              "wins": 5
+            },
+            {
+              "averageFinish": 2.7,
+              "best": 1,
+              "dnf": 0,
+              "motos": 17,
+              "name": "Chase Sexton",
+              "podiums": 12,
+              "points": 359,
+              "riderId": "chase-sexton",
+              "top10": 17,
+              "wins": 7
+            },
+            {
+              "averageFinish": 5.8,
+              "best": 2,
+              "dnf": 0,
+              "motos": 17,
+              "name": "Justin Cooper",
+              "podiums": 4,
+              "points": 272,
+              "riderId": "justin-cooper",
+              "top10": 14,
+              "wins": 0
+            },
+            {
+              "averageFinish": 4.9,
+              "best": 1,
+              "dnf": 0,
+              "motos": 15,
+              "name": "Ken Roczen",
+              "podiums": 7,
+              "points": 266,
+              "riderId": "ken-roczen",
+              "top10": 14,
+              "wins": 1
+            },
+            {
+              "averageFinish": 6.2,
+              "best": 1,
+              "dnf": 0,
+              "motos": 17,
+              "name": "Malcolm Stewart",
+              "podiums": 3,
+              "points": 266,
+              "riderId": "malcolm-stewart",
+              "top10": 16,
+              "wins": 1
+            },
+            {
+              "averageFinish": 7.5,
+              "best": 1,
+              "dnf": 0,
+              "motos": 17,
+              "name": "Aaron Plessinger",
+              "podiums": 5,
+              "points": 246,
+              "riderId": "aaron-plessinger",
+              "top10": 15,
+              "wins": 1
+            },
+            {
+              "averageFinish": 9.1,
+              "best": 5,
+              "dnf": 0,
+              "motos": 15,
+              "name": "Dylan Ferrandis",
+              "podiums": 0,
+              "points": 179,
+              "riderId": "dylan-ferrandis",
+              "top10": 11,
+              "wins": 0
+            },
+            {
+              "averageFinish": 9.9,
+              "best": 5,
+              "dnf": 0,
+              "motos": 16,
+              "name": "Justin Hill",
+              "podiums": 0,
+              "points": 178,
+              "riderId": "justin-hill",
+              "top10": 11,
+              "wins": 0
+            },
+            {
+              "averageFinish": 10.8,
+              "best": 2,
+              "dnf": 0,
+              "motos": 17,
+              "name": "Shane Mcelrath",
+              "podiums": 1,
+              "points": 176,
+              "riderId": "shane-mcelrath",
+              "top10": 8,
+              "wins": 0
+            },
+            {
+              "averageFinish": 8.8,
+              "best": 4,
+              "dnf": 0,
+              "motos": 14,
+              "name": "Justin Barcia",
+              "podiums": 0,
+              "points": 172,
+              "riderId": "justin-barcia",
+              "top10": 11,
+              "wins": 0
+            },
+            {
+              "averageFinish": 7.2,
+              "best": 3,
+              "dnf": 0,
+              "motos": 10,
+              "name": "Jason Anderson",
+              "podiums": 3,
+              "points": 144,
+              "riderId": "jason-anderson",
+              "top10": 7,
+              "wins": 0
+            },
+            {
+              "averageFinish": 11.1,
+              "best": 5,
+              "dnf": 0,
+              "motos": 14,
+              "name": "Joey Savatgy",
+              "podiums": 0,
+              "points": 140,
+              "riderId": "joey-savatgy",
+              "top10": 8,
+              "wins": 0
+            },
+            {
+              "averageFinish": 13.6,
+              "best": 8,
+              "dnf": 0,
+              "motos": 16,
+              "name": "Colt Nichols",
+              "podiums": 0,
+              "points": 119,
+              "riderId": "colt-nichols",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 13.6,
+              "best": 9,
+              "dnf": 0,
+              "motos": 16,
+              "name": "Mitchell Oldenburg",
+              "podiums": 0,
+              "points": 118,
+              "riderId": "mitchell-oldenburg",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15.4,
+              "best": 7,
+              "dnf": 0,
+              "motos": 17,
+              "name": "Benny Bloss",
+              "podiums": 0,
+              "points": 100,
+              "riderId": "benny-bloss",
+              "top10": 4,
+              "wins": 0
+            },
+            {
+              "averageFinish": 6.8,
+              "best": 1,
+              "dnf": 0,
+              "motos": 5,
+              "name": "Eli Tomac",
+              "podiums": 1,
+              "points": 77,
+              "riderId": "eli-tomac",
+              "top10": 4,
+              "wins": 1
+            },
+            {
+              "averageFinish": 5.8,
+              "best": 1,
+              "dnf": 0,
+              "motos": 4,
+              "name": "Jett Lawrence",
+              "podiums": 2,
+              "points": 69,
+              "riderId": "jett-lawrence",
+              "top10": 3,
+              "wins": 1
+            },
+            {
+              "averageFinish": 17.1,
+              "best": 13,
+              "dnf": 0,
+              "motos": 16,
+              "name": "Kyle Chisholm",
+              "podiums": 0,
+              "points": 62,
+              "riderId": "kyle-chisholm",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 13.4,
+              "best": 11,
+              "dnf": 0,
+              "motos": 8,
+              "name": "Christian Craig",
+              "podiums": 0,
+              "points": 61,
+              "riderId": "christian-craig",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 6.5,
+              "best": 5,
+              "dnf": 0,
+              "motos": 4,
+              "name": "Hunter Lawrence",
+              "podiums": 0,
+              "points": 58,
+              "riderId": "hunter-lawrence",
+              "top10": 3,
+              "wins": 0
+            },
+            {
+              "averageFinish": 17,
+              "best": 14,
+              "dnf": 0,
+              "motos": 13,
+              "name": "Mitchell Harrison",
+              "podiums": 0,
+              "points": 53,
+              "riderId": "mitchell-harrison",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 10.6,
+              "best": 7,
+              "dnf": 0,
+              "motos": 5,
+              "name": "Dean Wilson",
+              "podiums": 0,
+              "points": 52,
+              "riderId": "dean-wilson",
+              "top10": 4,
+              "wins": 0
+            },
+            {
+              "averageFinish": 17.7,
+              "best": 13,
+              "dnf": 0,
+              "motos": 10,
+              "name": "Freddie Noren",
+              "podiums": 0,
+              "points": 34,
+              "riderId": "freddie-noren",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 16.4,
+              "best": 14,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Jerry Robin",
+              "podiums": 0,
+              "points": 32,
+              "riderId": "jerry-robin",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 18.8,
+              "best": 15,
+              "dnf": 0,
+              "motos": 13,
+              "name": "Kevin Moranz",
+              "podiums": 0,
+              "points": 29,
+              "riderId": "kevin-moranz",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 13,
+              "best": 12,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Jorge Prado",
+              "podiums": 0,
+              "points": 16,
+              "riderId": "jorge-prado",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 19.3,
+              "best": 17,
+              "dnf": 0,
+              "motos": 8,
+              "name": "Grant Harlan",
+              "podiums": 0,
+              "points": 15,
+              "riderId": "grant-harlan",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 18.8,
+              "best": 12,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Tristan Lane",
+              "podiums": 0,
+              "points": 14,
+              "riderId": "tristan-lane",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 19.6,
+              "best": 14,
+              "dnf": 0,
+              "motos": 9,
+              "name": "Justin Starling",
+              "podiums": 0,
+              "points": 14,
+              "riderId": "justin-starling",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 9,
+              "best": 9,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Logan Leitzel",
+              "podiums": 0,
+              "points": 12,
+              "riderId": "logan-leitzel",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 19.4,
+              "best": 14,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Anthony Rodriguez",
+              "podiums": 0,
+              "points": 12,
+              "riderId": "anthony-rodriguez",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 19.6,
+              "best": 15,
+              "dnf": 0,
+              "motos": 8,
+              "name": "Jeremy Hand",
+              "podiums": 0,
+              "points": 12,
+              "riderId": "jeremy-hand",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15,
+              "best": 15,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Vince Friese",
+              "podiums": 0,
+              "points": 12,
+              "riderId": "vince-friese",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 19,
+              "best": 16,
+              "dnf": 0,
+              "motos": 5,
+              "name": "Cade Clason",
+              "podiums": 0,
+              "points": 10,
+              "riderId": "cade-clason",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 14,
+              "best": 14,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Coty Schock",
+              "podiums": 0,
+              "points": 7,
+              "riderId": "coty-schock",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 16,
+              "best": 16,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Bubba Pauli",
+              "podiums": 0,
+              "points": 5,
+              "riderId": "bubba-pauli",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 19,
+              "best": 19,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Ryan Breece",
+              "podiums": 0,
+              "points": 2,
+              "riderId": "ryan-breece",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 22,
+              "best": 22,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Hunter Schlosser",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "hunter-schlosser",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 22,
+              "best": 22,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Michael Hicks",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "michael-hicks",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 22,
+              "best": 22,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Scott Meshey",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "scott-meshey",
+              "top10": 0,
+              "wins": 0
+            }
+          ],
+          "trajectory": [
+            {
+              "name": "Cooper Webb",
+              "points": [
+                18,
+                38,
+                51,
+                73,
+                95,
+                120,
+                145,
+                167,
+                192,
+                210,
+                235,
+                255,
+                277,
+                299,
+                324,
+                346,
+                364
+              ],
+              "riderId": "cooper-webb"
+            },
+            {
+              "name": "Chase Sexton",
+              "points": [
+                25,
+                40,
+                58,
+                83,
+                99,
+                119,
+                139,
+                155,
+                175,
+                200,
+                222,
+                237,
+                262,
+                287,
+                309,
+                334,
+                359
+              ],
+              "riderId": "chase-sexton"
+            },
+            {
+              "name": "Justin Cooper",
+              "points": [
+                14,
+                24,
+                39,
+                47,
+                65,
+                81,
+                99,
+                117,
+                139,
+                154,
+                169,
+                179,
+                194,
+                212,
+                232,
+                252,
+                272
+              ],
+              "riderId": "justin-cooper"
+            },
+            {
+              "name": "Ken Roczen",
+              "points": [
+                22,
+                40,
+                62,
+                82,
+                82,
+                104,
+                126,
+                151,
+                165,
+                181,
+                199,
+                217,
+                237,
+                251,
+                266,
+                266,
+                266
+              ],
+              "riderId": "ken-roczen"
+            },
+            {
+              "name": "Malcolm Stewart",
+              "points": [
+                11,
+                25,
+                37,
+                48,
+                73,
+                91,
+                103,
+                118,
+                133,
+                155,
+                169,
+                177,
+                195,
+                210,
+                226,
+                244,
+                266
+              ],
+              "riderId": "malcolm-stewart"
+            },
+            {
+              "name": "Aaron Plessinger",
+              "points": [
+                12,
+                12,
+                12,
+                24,
+                37,
+                49,
+                63,
+                83,
+                99,
+                119,
+                139,
+                164,
+                177,
+                197,
+                215,
+                231,
+                246
+              ],
+              "riderId": "aaron-plessinger"
+            },
+            {
+              "name": "Dylan Ferrandis",
+              "points": [
+                0,
+                12,
+                17,
+                27,
+                27,
+                40,
+                53,
+                62,
+                75,
+                83,
+                99,
+                110,
+                124,
+                140,
+                154,
+                168,
+                179
+              ],
+              "riderId": "dylan-ferrandis"
+            },
+            {
+              "name": "Justin Hill",
+              "points": [
+                13,
+                20,
+                26,
+                41,
+                52,
+                63,
+                79,
+                93,
+                105,
+                115,
+                126,
+                126,
+                137,
+                148,
+                156,
+                165,
+                178
+              ],
+              "riderId": "justin-hill"
+            }
+          ]
         }
       },
-      "ofRounds": 11,
+      "ofRounds": 17,
       "season": 2025
     },
     {
       "classes": {
         "250MX": {
           "champion": {
-            "clinchedRound": 11,
+            "clinchedRound": null,
             "name": "Cole Davies",
             "points": 400,
             "riderId": "cole-davies"
@@ -32013,9 +34096,1243 @@
             }
           ]
         },
+        "250SX East": {
+          "champion": {
+            "clinchedRound": null,
+            "name": "Cole Davies",
+            "points": 158,
+            "riderId": "cole-davies"
+          },
+          "roundWinners": [
+            {
+              "points": 25,
+              "riderId": "pierce-brown",
+              "round": 7
+            },
+            {
+              "points": 25,
+              "riderId": "seth-hammaker",
+              "round": 8
+            },
+            {
+              "points": 25,
+              "riderId": "cole-davies",
+              "round": 9
+            },
+            {
+              "points": 25,
+              "riderId": "cole-davies",
+              "round": 11
+            },
+            {
+              "points": 25,
+              "riderId": "cole-davies",
+              "round": 13
+            },
+            {
+              "points": 25,
+              "riderId": "nate-thrasher",
+              "round": 14
+            },
+            {
+              "points": 25,
+              "riderId": "cole-davies",
+              "round": 15
+            }
+          ],
+          "rounds": 7,
+          "scoringPositions": 20,
+          "standings": [
+            {
+              "averageFinish": 2,
+              "best": 1,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Cole Davies",
+              "podiums": 6,
+              "points": 158,
+              "riderId": "cole-davies",
+              "top10": 7,
+              "wins": 4
+            },
+            {
+              "averageFinish": 3.1,
+              "best": 1,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Seth Hammaker",
+              "podiums": 4,
+              "points": 139,
+              "riderId": "seth-hammaker",
+              "top10": 7,
+              "wins": 1
+            },
+            {
+              "averageFinish": 4.1,
+              "best": 2,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Daxton Bennick",
+              "podiums": 2,
+              "points": 125,
+              "riderId": "daxton-bennick",
+              "top10": 7,
+              "wins": 0
+            },
+            {
+              "averageFinish": 5.9,
+              "best": 4,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Coty Schock",
+              "podiums": 0,
+              "points": 108,
+              "riderId": "coty-schock",
+              "top10": 7,
+              "wins": 0
+            },
+            {
+              "averageFinish": 8.1,
+              "best": 1,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Nate Thrasher",
+              "podiums": 2,
+              "points": 98,
+              "riderId": "nate-thrasher",
+              "top10": 5,
+              "wins": 1
+            },
+            {
+              "averageFinish": 8.3,
+              "best": 3,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Devin Simonson",
+              "podiums": 1,
+              "points": 91,
+              "riderId": "devin-simonson",
+              "top10": 6,
+              "wins": 0
+            },
+            {
+              "averageFinish": 2.8,
+              "best": 2,
+              "dnf": 0,
+              "motos": 4,
+              "name": "JO Shimoda",
+              "podiums": 3,
+              "points": 82,
+              "riderId": "jo-shimoda",
+              "top10": 4,
+              "wins": 0
+            },
+            {
+              "averageFinish": 9.2,
+              "best": 5,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Henry Miller",
+              "podiums": 0,
+              "points": 71,
+              "riderId": "henry-miller",
+              "top10": 4,
+              "wins": 0
+            },
+            {
+              "averageFinish": 12,
+              "best": 8,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Derek Kelley",
+              "podiums": 0,
+              "points": 63,
+              "riderId": "derek-kelley",
+              "top10": 3,
+              "wins": 0
+            },
+            {
+              "averageFinish": 3,
+              "best": 1,
+              "dnf": 0,
+              "motos": 3,
+              "name": "Pierce Brown",
+              "podiums": 2,
+              "points": 61,
+              "riderId": "pierce-brown",
+              "top10": 3,
+              "wins": 1
+            },
+            {
+              "averageFinish": 14.4,
+              "best": 9,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Marshal Weltin",
+              "podiums": 0,
+              "points": 47,
+              "riderId": "marshal-weltin",
+              "top10": 2,
+              "wins": 0
+            },
+            {
+              "averageFinish": 11.8,
+              "best": 8,
+              "dnf": 0,
+              "motos": 5,
+              "name": "Kyle Peters",
+              "podiums": 0,
+              "points": 46,
+              "riderId": "kyle-peters",
+              "top10": 2,
+              "wins": 0
+            },
+            {
+              "averageFinish": 10,
+              "best": 7,
+              "dnf": 0,
+              "motos": 4,
+              "name": "Nicholas Romano",
+              "podiums": 0,
+              "points": 44,
+              "riderId": "nicholas-romano",
+              "top10": 2,
+              "wins": 0
+            },
+            {
+              "averageFinish": 14.2,
+              "best": 10,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Luke Neese",
+              "podiums": 0,
+              "points": 41,
+              "riderId": "luke-neese",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 8.7,
+              "best": 8,
+              "dnf": 0,
+              "motos": 3,
+              "name": "Cullin Park",
+              "podiums": 0,
+              "points": 37,
+              "riderId": "cullin-park",
+              "top10": 3,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15.2,
+              "best": 9,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Gavin Towers",
+              "podiums": 0,
+              "points": 35,
+              "riderId": "gavin-towers",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 14.2,
+              "best": 13,
+              "dnf": 0,
+              "motos": 5,
+              "name": "Luke Clout",
+              "podiums": 0,
+              "points": 34,
+              "riderId": "luke-clout",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 16.2,
+              "best": 11,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Jeremy Hand",
+              "podiums": 0,
+              "points": 29,
+              "riderId": "jeremy-hand",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15.6,
+              "best": 10,
+              "dnf": 0,
+              "motos": 5,
+              "name": "Izaih Clark",
+              "podiums": 0,
+              "points": 28,
+              "riderId": "izaih-clark",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 14.5,
+              "best": 6,
+              "dnf": 0,
+              "motos": 4,
+              "name": "Drew Adams",
+              "podiums": 0,
+              "points": 27,
+              "riderId": "drew-adams",
+              "top10": 2,
+              "wins": 0
+            },
+            {
+              "averageFinish": 14.8,
+              "best": 11,
+              "dnf": 0,
+              "motos": 4,
+              "name": "Caden Dudney",
+              "podiums": 0,
+              "points": 25,
+              "riderId": "caden-dudney",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 13,
+              "best": 8,
+              "dnf": 0,
+              "motos": 3,
+              "name": "Jalek Swoll",
+              "podiums": 0,
+              "points": 24,
+              "riderId": "jalek-swoll",
+              "top10": 2,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15.5,
+              "best": 11,
+              "dnf": 0,
+              "motos": 4,
+              "name": "Landon Hartz",
+              "podiums": 0,
+              "points": 23,
+              "riderId": "landon-hartz",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15,
+              "best": 2,
+              "dnf": 0,
+              "motos": 3,
+              "name": "Landen Gordon",
+              "podiums": 1,
+              "points": 22,
+              "riderId": "landen-gordon",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 17.3,
+              "best": 11,
+              "dnf": 0,
+              "motos": 3,
+              "name": "Evan Ferry",
+              "podiums": 0,
+              "points": 11,
+              "riderId": "evan-ferry",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15.5,
+              "best": 12,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Bryton Carroll",
+              "podiums": 0,
+              "points": 11,
+              "riderId": "bryton-carroll",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 16,
+              "best": 14,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Marcus Phelps",
+              "podiums": 0,
+              "points": 10,
+              "riderId": "marcus-phelps",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 17.7,
+              "best": 16,
+              "dnf": 0,
+              "motos": 3,
+              "name": "John Short",
+              "podiums": 0,
+              "points": 10,
+              "riderId": "john-short",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 16.5,
+              "best": 16,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Ryder Floyd",
+              "podiums": 0,
+              "points": 9,
+              "riderId": "ryder-floyd",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 18,
+              "best": 14,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Valentin Guillod",
+              "podiums": 0,
+              "points": 7,
+              "riderId": "valentin-guillod",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 19,
+              "best": 16,
+              "dnf": 0,
+              "motos": 3,
+              "name": "Luca Marsalisi",
+              "podiums": 0,
+              "points": 7,
+              "riderId": "luca-marsalisi",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15,
+              "best": 15,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Leum Oehlhof",
+              "podiums": 0,
+              "points": 6,
+              "riderId": "leum-oehlhof",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 16,
+              "best": 16,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Hamden Hudson",
+              "podiums": 0,
+              "points": 5,
+              "riderId": "hamden-hudson",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 19.7,
+              "best": 17,
+              "dnf": 0,
+              "motos": 3,
+              "name": "CJ Benard",
+              "podiums": 0,
+              "points": 4,
+              "riderId": "cj-benard",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 18,
+              "best": 18,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Jace Kessler",
+              "podiums": 0,
+              "points": 3,
+              "riderId": "jace-kessler",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 18,
+              "best": 18,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Russell Buccheri",
+              "podiums": 0,
+              "points": 3,
+              "riderId": "russell-buccheri",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 20,
+              "best": 20,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Bryce Shelly",
+              "podiums": 0,
+              "points": 1,
+              "riderId": "bryce-shelly",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 20,
+              "best": 20,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Casey Cochran",
+              "podiums": 0,
+              "points": 1,
+              "riderId": "casey-cochran",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 20,
+              "best": 20,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Jonathan Getz",
+              "podiums": 0,
+              "points": 1,
+              "riderId": "jonathan-getz",
+              "top10": 0,
+              "wins": 0
+            }
+          ],
+          "trajectory": [
+            {
+              "name": "Cole Davies",
+              "points": [
+                16,
+                38,
+                63,
+                88,
+                113,
+                133,
+                158
+              ],
+              "riderId": "cole-davies"
+            },
+            {
+              "name": "Seth Hammaker",
+              "points": [
+                18,
+                43,
+                63,
+                85,
+                101,
+                119,
+                139
+              ],
+              "riderId": "seth-hammaker"
+            },
+            {
+              "name": "Daxton Bennick",
+              "points": [
+                20,
+                36,
+                54,
+                69,
+                87,
+                103,
+                125
+              ],
+              "riderId": "daxton-bennick"
+            },
+            {
+              "name": "Coty Schock",
+              "points": [
+                14,
+                29,
+                43,
+                61,
+                75,
+                90,
+                108
+              ],
+              "riderId": "coty-schock"
+            },
+            {
+              "name": "Nate Thrasher",
+              "points": [
+                10,
+                24,
+                35,
+                35,
+                57,
+                82,
+                98
+              ],
+              "riderId": "nate-thrasher"
+            },
+            {
+              "name": "Devin Simonson",
+              "points": [
+                13,
+                25,
+                40,
+                42,
+                62,
+                76,
+                91
+              ],
+              "riderId": "devin-simonson"
+            },
+            {
+              "name": "JO Shimoda",
+              "points": [
+                22,
+                40,
+                62,
+                82,
+                82,
+                82,
+                82
+              ],
+              "riderId": "jo-shimoda"
+            },
+            {
+              "name": "Henry Miller",
+              "points": [
+                6,
+                14,
+                14,
+                30,
+                45,
+                57,
+                71
+              ],
+              "riderId": "henry-miller"
+            }
+          ]
+        },
+        "250SX West": {
+          "champion": {
+            "clinchedRound": null,
+            "name": "Haiden Deegan",
+            "points": 168,
+            "riderId": "haiden-deegan"
+          },
+          "roundWinners": [
+            {
+              "points": 25,
+              "riderId": "max-anstie",
+              "round": 1
+            },
+            {
+              "points": 25,
+              "riderId": "haiden-deegan",
+              "round": 2
+            },
+            {
+              "points": 25,
+              "riderId": "haiden-deegan",
+              "round": 3
+            },
+            {
+              "points": 25,
+              "riderId": "haiden-deegan",
+              "round": 4
+            },
+            {
+              "points": 25,
+              "riderId": "haiden-deegan",
+              "round": 5
+            },
+            {
+              "points": 25,
+              "riderId": "haiden-deegan",
+              "round": 6
+            },
+            {
+              "points": 25,
+              "riderId": "haiden-deegan",
+              "round": 16
+            }
+          ],
+          "rounds": 7,
+          "scoringPositions": 20,
+          "standings": [
+            {
+              "averageFinish": 1.4,
+              "best": 1,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Haiden Deegan",
+              "podiums": 6,
+              "points": 168,
+              "riderId": "haiden-deegan",
+              "top10": 7,
+              "wins": 6
+            },
+            {
+              "averageFinish": 4.3,
+              "best": 3,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Ryder Difrancesco",
+              "podiums": 3,
+              "points": 124,
+              "riderId": "ryder-difrancesco",
+              "top10": 7,
+              "wins": 0
+            },
+            {
+              "averageFinish": 4.7,
+              "best": 1,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Max Anstie",
+              "podiums": 2,
+              "points": 122,
+              "riderId": "max-anstie",
+              "top10": 7,
+              "wins": 1
+            },
+            {
+              "averageFinish": 3,
+              "best": 2,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Levi Kitchen",
+              "podiums": 4,
+              "points": 121,
+              "riderId": "levi-kitchen",
+              "top10": 6,
+              "wins": 0
+            },
+            {
+              "averageFinish": 7.4,
+              "best": 2,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Cameron Mcadoo",
+              "podiums": 3,
+              "points": 104,
+              "riderId": "cameron-mcadoo",
+              "top10": 5,
+              "wins": 0
+            },
+            {
+              "averageFinish": 4.7,
+              "best": 2,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Michael Mosiman",
+              "podiums": 2,
+              "points": 104,
+              "riderId": "michael-mosiman",
+              "top10": 6,
+              "wins": 0
+            },
+            {
+              "averageFinish": 6.7,
+              "best": 4,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Max Vohland",
+              "podiums": 0,
+              "points": 101,
+              "riderId": "max-vohland",
+              "top10": 7,
+              "wins": 0
+            },
+            {
+              "averageFinish": 9.3,
+              "best": 7,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Hunter Yoder",
+              "podiums": 0,
+              "points": 82,
+              "riderId": "hunter-yoder",
+              "top10": 6,
+              "wins": 0
+            },
+            {
+              "averageFinish": 10.9,
+              "best": 9,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Parker Ross",
+              "podiums": 0,
+              "points": 71,
+              "riderId": "parker-ross",
+              "top10": 4,
+              "wins": 0
+            },
+            {
+              "averageFinish": 12,
+              "best": 8,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Carson Mumford",
+              "podiums": 0,
+              "points": 63,
+              "riderId": "carson-mumford",
+              "top10": 3,
+              "wins": 0
+            },
+            {
+              "averageFinish": 12.1,
+              "best": 9,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Joshua Varize",
+              "podiums": 0,
+              "points": 62,
+              "riderId": "joshua-varize",
+              "top10": 2,
+              "wins": 0
+            },
+            {
+              "averageFinish": 12.7,
+              "best": 6,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Lux Turner",
+              "podiums": 0,
+              "points": 58,
+              "riderId": "lux-turner",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 12.3,
+              "best": 9,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Avery Long",
+              "podiums": 0,
+              "points": 52,
+              "riderId": "avery-long",
+              "top10": 2,
+              "wins": 0
+            },
+            {
+              "averageFinish": 4,
+              "best": 2,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Chance Hymas",
+              "podiums": 1,
+              "points": 37,
+              "riderId": "chance-hymas",
+              "top10": 2,
+              "wins": 0
+            },
+            {
+              "averageFinish": 14.2,
+              "best": 8,
+              "dnf": 0,
+              "motos": 5,
+              "name": "Robbie Wageman",
+              "podiums": 0,
+              "points": 35,
+              "riderId": "robbie-wageman",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 10,
+              "best": 9,
+              "dnf": 0,
+              "motos": 3,
+              "name": "Dilan Schwartz",
+              "podiums": 0,
+              "points": 33,
+              "riderId": "dilan-schwartz",
+              "top10": 2,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15.8,
+              "best": 13,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Crockett Myers",
+              "podiums": 0,
+              "points": 31,
+              "riderId": "crockett-myers",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 12.7,
+              "best": 10,
+              "dnf": 0,
+              "motos": 3,
+              "name": "Anthony Bourdon",
+              "podiums": 0,
+              "points": 25,
+              "riderId": "anthony-bourdon",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 17.2,
+              "best": 14,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Justin Rodbell",
+              "podiums": 0,
+              "points": 24,
+              "riderId": "justin-rodbell",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15.5,
+              "best": 12,
+              "dnf": 0,
+              "motos": 4,
+              "name": "Matti Jorgensen",
+              "podiums": 0,
+              "points": 22,
+              "riderId": "matti-jorgensen",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 18.3,
+              "best": 15,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Hunter Schlosser",
+              "podiums": 0,
+              "points": 17,
+              "riderId": "hunter-schlosser",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 5,
+              "best": 5,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Kayden Minear",
+              "podiums": 0,
+              "points": 16,
+              "riderId": "kayden-minear",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 18.4,
+              "best": 15,
+              "dnf": 0,
+              "motos": 5,
+              "name": "Ayden Shive",
+              "podiums": 0,
+              "points": 13,
+              "riderId": "ayden-shive",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15,
+              "best": 15,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Dominique Thury",
+              "podiums": 0,
+              "points": 12,
+              "riderId": "dominique-thury",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15.5,
+              "best": 15,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Cole Thompson",
+              "podiums": 0,
+              "points": 11,
+              "riderId": "cole-thompson",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 11,
+              "best": 11,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Gage Linville",
+              "podiums": 0,
+              "points": 10,
+              "riderId": "gage-linville",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 19,
+              "best": 18,
+              "dnf": 0,
+              "motos": 4,
+              "name": "Preston Masciangelo",
+              "podiums": 0,
+              "points": 8,
+              "riderId": "preston-masciangelo",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 19,
+              "best": 16,
+              "dnf": 0,
+              "motos": 3,
+              "name": "Lorenzo Camporese",
+              "podiums": 0,
+              "points": 6,
+              "riderId": "lorenzo-camporese",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 18.5,
+              "best": 17,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Brandon Ray",
+              "podiums": 0,
+              "points": 5,
+              "riderId": "brandon-ray",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 17,
+              "best": 17,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Nico Koch",
+              "podiums": 0,
+              "points": 4,
+              "riderId": "nico-koch",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 19.5,
+              "best": 18,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Keegan Rowley",
+              "podiums": 0,
+              "points": 3,
+              "riderId": "keegan-rowley",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 20,
+              "best": 20,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Reven Gordon",
+              "podiums": 0,
+              "points": 2,
+              "riderId": "reven-gordon",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 20,
+              "best": 20,
+              "dnf": 0,
+              "motos": 1,
+              "name": "TY Freehill",
+              "podiums": 0,
+              "points": 1,
+              "riderId": "ty-freehill",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 21,
+              "best": 21,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Levi Kitchen Dns",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "levi-kitchen-dns",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 21,
+              "best": 21,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Logan Leitzel",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "logan-leitzel",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 22,
+              "best": 22,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Chance Hymas Dns",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "chance-hymas-dns",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 22,
+              "best": 22,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Colby Copp",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "colby-copp",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 22,
+              "best": 22,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Slade Varola",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "slade-varola",
+              "top10": 0,
+              "wins": 0
+            }
+          ],
+          "trajectory": [
+            {
+              "name": "Haiden Deegan",
+              "points": [
+                18,
+                43,
+                68,
+                93,
+                118,
+                143,
+                168
+              ],
+              "riderId": "haiden-deegan"
+            },
+            {
+              "name": "Ryder Difrancesco",
+              "points": [
+                20,
+                34,
+                54,
+                70,
+                86,
+                104,
+                124
+              ],
+              "riderId": "ryder-difrancesco"
+            },
+            {
+              "name": "Max Anstie",
+              "points": [
+                25,
+                41,
+                56,
+                71,
+                84,
+                104,
+                122
+              ],
+              "riderId": "max-anstie"
+            },
+            {
+              "name": "Levi Kitchen",
+              "points": [
+                15,
+                33,
+                33,
+                55,
+                77,
+                99,
+                121
+              ],
+              "riderId": "levi-kitchen"
+            },
+            {
+              "name": "Cameron Mcadoo",
+              "points": [
+                0,
+                22,
+                40,
+                60,
+                80,
+                96,
+                104
+              ],
+              "riderId": "cameron-mcadoo"
+            },
+            {
+              "name": "Michael Mosiman",
+              "points": [
+                16,
+                36,
+                58,
+                71,
+                89,
+                104,
+                104
+              ],
+              "riderId": "michael-mosiman"
+            },
+            {
+              "name": "Max Vohland",
+              "points": [
+                14,
+                27,
+                43,
+                61,
+                76,
+                90,
+                101
+              ],
+              "riderId": "max-vohland"
+            },
+            {
+              "name": "Hunter Yoder",
+              "points": [
+                13,
+                13,
+                27,
+                41,
+                55,
+                68,
+                82
+              ],
+              "riderId": "hunter-yoder"
+            }
+          ]
+        },
         "450MX": {
           "champion": {
-            "clinchedRound": 11,
+            "clinchedRound": null,
             "name": "Hunter Lawrence",
             "points": 473,
             "riderId": "hunter-lawrence"
@@ -33359,9 +36676,786 @@
               "riderId": "cooper-webb"
             }
           ]
+        },
+        "450SX": {
+          "champion": {
+            "clinchedRound": 17,
+            "name": "Ken Roczen",
+            "points": 345,
+            "riderId": "ken-roczen"
+          },
+          "roundWinners": [
+            {
+              "points": 25,
+              "riderId": "eli-tomac",
+              "round": 1
+            },
+            {
+              "points": 25,
+              "riderId": "eli-tomac",
+              "round": 2
+            },
+            {
+              "points": 25,
+              "riderId": "chase-sexton",
+              "round": 3
+            },
+            {
+              "points": 25,
+              "riderId": "cooper-webb",
+              "round": 4
+            },
+            {
+              "points": 25,
+              "riderId": "ken-roczen",
+              "round": 5
+            },
+            {
+              "points": 25,
+              "riderId": "eli-tomac",
+              "round": 6
+            },
+            {
+              "points": 25,
+              "riderId": "hunter-lawrence",
+              "round": 7
+            },
+            {
+              "points": 25,
+              "riderId": "eli-tomac",
+              "round": 8
+            },
+            {
+              "points": 25,
+              "riderId": "hunter-lawrence",
+              "round": 9
+            },
+            {
+              "points": 25,
+              "riderId": "hunter-lawrence",
+              "round": 10
+            },
+            {
+              "points": 25,
+              "riderId": "ken-roczen",
+              "round": 11
+            },
+            {
+              "points": 25,
+              "riderId": "ken-roczen",
+              "round": 12
+            },
+            {
+              "points": 25,
+              "riderId": "hunter-lawrence",
+              "round": 13
+            },
+            {
+              "points": 25,
+              "riderId": "ken-roczen",
+              "round": 14
+            },
+            {
+              "points": 25,
+              "riderId": "ken-roczen",
+              "round": 15
+            },
+            {
+              "points": 25,
+              "riderId": "hunter-lawrence",
+              "round": 16
+            },
+            {
+              "points": 25,
+              "riderId": "chase-sexton",
+              "round": 17
+            }
+          ],
+          "rounds": 17,
+          "scoringPositions": 20,
+          "standings": [
+            {
+              "averageFinish": 3.2,
+              "best": 1,
+              "dnf": 0,
+              "motos": 17,
+              "name": "Ken Roczen",
+              "podiums": 12,
+              "points": 345,
+              "riderId": "ken-roczen",
+              "top10": 17,
+              "wins": 5
+            },
+            {
+              "averageFinish": 3.5,
+              "best": 1,
+              "dnf": 0,
+              "motos": 17,
+              "name": "Hunter Lawrence",
+              "podiums": 12,
+              "points": 343,
+              "riderId": "hunter-lawrence",
+              "top10": 16,
+              "wins": 5
+            },
+            {
+              "averageFinish": 4.4,
+              "best": 1,
+              "dnf": 0,
+              "motos": 17,
+              "name": "Cooper Webb",
+              "podiums": 8,
+              "points": 308,
+              "riderId": "cooper-webb",
+              "top10": 16,
+              "wins": 1
+            },
+            {
+              "averageFinish": 4,
+              "best": 1,
+              "dnf": 0,
+              "motos": 14,
+              "name": "Eli Tomac",
+              "podiums": 9,
+              "points": 271,
+              "riderId": "eli-tomac",
+              "top10": 12,
+              "wins": 4
+            },
+            {
+              "averageFinish": 6.3,
+              "best": 2,
+              "dnf": 0,
+              "motos": 17,
+              "name": "Justin Cooper",
+              "podiums": 4,
+              "points": 264,
+              "riderId": "justin-cooper",
+              "top10": 14,
+              "wins": 0
+            },
+            {
+              "averageFinish": 5.8,
+              "best": 1,
+              "dnf": 0,
+              "motos": 14,
+              "name": "Chase Sexton",
+              "podiums": 3,
+              "points": 230,
+              "riderId": "chase-sexton",
+              "top10": 13,
+              "wins": 2
+            },
+            {
+              "averageFinish": 10.1,
+              "best": 3,
+              "dnf": 0,
+              "motos": 17,
+              "name": "Malcolm Stewart",
+              "podiums": 1,
+              "points": 191,
+              "riderId": "malcolm-stewart",
+              "top10": 12,
+              "wins": 0
+            },
+            {
+              "averageFinish": 8.4,
+              "best": 3,
+              "dnf": 0,
+              "motos": 14,
+              "name": "Jorge Prado",
+              "podiums": 2,
+              "points": 181,
+              "riderId": "jorge-prado",
+              "top10": 9,
+              "wins": 0
+            },
+            {
+              "averageFinish": 8.1,
+              "best": 4,
+              "dnf": 0,
+              "motos": 14,
+              "name": "Joey Savatgy",
+              "podiums": 0,
+              "points": 181,
+              "riderId": "joey-savatgy",
+              "top10": 11,
+              "wins": 0
+            },
+            {
+              "averageFinish": 10.9,
+              "best": 5,
+              "dnf": 0,
+              "motos": 17,
+              "name": "Justin Hill",
+              "podiums": 0,
+              "points": 171,
+              "riderId": "justin-hill",
+              "top10": 7,
+              "wins": 0
+            },
+            {
+              "averageFinish": 10.3,
+              "best": 6,
+              "dnf": 0,
+              "motos": 15,
+              "name": "Dylan Ferrandis",
+              "podiums": 0,
+              "points": 162,
+              "riderId": "dylan-ferrandis",
+              "top10": 11,
+              "wins": 0
+            },
+            {
+              "averageFinish": 12.4,
+              "best": 8,
+              "dnf": 0,
+              "motos": 16,
+              "name": "Christian Craig",
+              "podiums": 0,
+              "points": 138,
+              "riderId": "christian-craig",
+              "top10": 3,
+              "wins": 0
+            },
+            {
+              "averageFinish": 12.2,
+              "best": 7,
+              "dnf": 0,
+              "motos": 15,
+              "name": "Garrett Marchbanks",
+              "podiums": 0,
+              "points": 134,
+              "riderId": "garrett-marchbanks",
+              "top10": 7,
+              "wins": 0
+            },
+            {
+              "averageFinish": 13.2,
+              "best": 6,
+              "dnf": 0,
+              "motos": 17,
+              "name": "Shane Mcelrath",
+              "podiums": 0,
+              "points": 133,
+              "riderId": "shane-mcelrath",
+              "top10": 5,
+              "wins": 0
+            },
+            {
+              "averageFinish": 13.9,
+              "best": 8,
+              "dnf": 0,
+              "motos": 15,
+              "name": "Colt Nichols",
+              "podiums": 0,
+              "points": 106,
+              "riderId": "colt-nichols",
+              "top10": 2,
+              "wins": 0
+            },
+            {
+              "averageFinish": 12.1,
+              "best": 6,
+              "dnf": 0,
+              "motos": 10,
+              "name": "Aaron Plessinger",
+              "podiums": 0,
+              "points": 90,
+              "riderId": "aaron-plessinger",
+              "top10": 6,
+              "wins": 0
+            },
+            {
+              "averageFinish": 10,
+              "best": 4,
+              "dnf": 0,
+              "motos": 7,
+              "name": "Jason Anderson",
+              "podiums": 0,
+              "points": 78,
+              "riderId": "jason-anderson",
+              "top10": 3,
+              "wins": 0
+            },
+            {
+              "averageFinish": 16.9,
+              "best": 13,
+              "dnf": 0,
+              "motos": 16,
+              "name": "Vince Friese",
+              "podiums": 0,
+              "points": 65,
+              "riderId": "vince-friese",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 15.8,
+              "best": 9,
+              "dnf": 0,
+              "motos": 11,
+              "name": "Jordon Smith",
+              "podiums": 0,
+              "points": 59,
+              "riderId": "jordon-smith",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 17.4,
+              "best": 14,
+              "dnf": 0,
+              "motos": 16,
+              "name": "Mitchell Harrison",
+              "podiums": 0,
+              "points": 57,
+              "riderId": "mitchell-harrison",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 10,
+              "best": 8,
+              "dnf": 0,
+              "motos": 5,
+              "name": "Dean Wilson",
+              "podiums": 0,
+              "points": 55,
+              "riderId": "dean-wilson",
+              "top10": 3,
+              "wins": 0
+            },
+            {
+              "averageFinish": 17.6,
+              "best": 14,
+              "dnf": 0,
+              "motos": 11,
+              "name": "Grant Harlan",
+              "podiums": 0,
+              "points": 37,
+              "riderId": "grant-harlan",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 12.5,
+              "best": 9,
+              "dnf": 0,
+              "motos": 4,
+              "name": "R.J. Hampshire",
+              "podiums": 0,
+              "points": 34,
+              "riderId": "r-j-hampshire",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 13.8,
+              "best": 8,
+              "dnf": 0,
+              "motos": 4,
+              "name": "Justin Barcia",
+              "podiums": 0,
+              "points": 29,
+              "riderId": "justin-barcia",
+              "top10": 1,
+              "wins": 0
+            },
+            {
+              "averageFinish": 18.1,
+              "best": 15,
+              "dnf": 0,
+              "motos": 9,
+              "name": "Kevin Moranz",
+              "podiums": 0,
+              "points": 26,
+              "riderId": "kevin-moranz",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 18.7,
+              "best": 16,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Freddie Noren",
+              "podiums": 0,
+              "points": 14,
+              "riderId": "freddie-noren",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 19.3,
+              "best": 16,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Cole Thompson",
+              "podiums": 0,
+              "points": 11,
+              "riderId": "cole-thompson",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 16,
+              "best": 15,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Austin Forkner",
+              "podiums": 0,
+              "points": 10,
+              "riderId": "austin-forkner",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 19.7,
+              "best": 17,
+              "dnf": 0,
+              "motos": 6,
+              "name": "Cade Clason",
+              "podiums": 0,
+              "points": 10,
+              "riderId": "cade-clason",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 20.2,
+              "best": 18,
+              "dnf": 0,
+              "motos": 10,
+              "name": "Tristan Lane",
+              "podiums": 0,
+              "points": 10,
+              "riderId": "tristan-lane",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 16,
+              "best": 16,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Mitchell Oldenburg",
+              "podiums": 0,
+              "points": 5,
+              "riderId": "mitchell-oldenburg",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 19.5,
+              "best": 18,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Justin Bogle",
+              "podiums": 0,
+              "points": 3,
+              "riderId": "justin-bogle",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 18,
+              "best": 18,
+              "dnf": 0,
+              "motos": 1,
+              "name": "TY Masterpool",
+              "podiums": 0,
+              "points": 3,
+              "riderId": "ty-masterpool",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 20,
+              "best": 20,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Jeremy Hand",
+              "podiums": 0,
+              "points": 1,
+              "riderId": "jeremy-hand",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 20.7,
+              "best": 20,
+              "dnf": 0,
+              "motos": 3,
+              "name": "Joshua Cartwright",
+              "podiums": 0,
+              "points": 1,
+              "riderId": "joshua-cartwright",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 20,
+              "best": 20,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Zack Williams",
+              "podiums": 0,
+              "points": 1,
+              "riderId": "zack-williams",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 21,
+              "best": 21,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Ryan Breece",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "ryan-breece",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 21,
+              "best": 21,
+              "dnf": 0,
+              "motos": 2,
+              "name": "Scott Meshey",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "scott-meshey",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 22,
+              "best": 22,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Kyle Chisholm",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "kyle-chisholm",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 22,
+              "best": 22,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Max Miller",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "max-miller",
+              "top10": 0,
+              "wins": 0
+            },
+            {
+              "averageFinish": 22,
+              "best": 22,
+              "dnf": 0,
+              "motos": 1,
+              "name": "Vinny Luhovey",
+              "podiums": 0,
+              "points": 0,
+              "riderId": "vinny-luhovey",
+              "top10": 0,
+              "wins": 0
+            }
+          ],
+          "trajectory": [
+            {
+              "name": "Ken Roczen",
+              "points": [
+                22,
+                42,
+                55,
+                75,
+                100,
+                111,
+                129,
+                149,
+                165,
+                187,
+                212,
+                237,
+                257,
+                282,
+                307,
+                329,
+                345
+              ],
+              "riderId": "ken-roczen"
+            },
+            {
+              "name": "Hunter Lawrence",
+              "points": [
+                18,
+                40,
+                62,
+                84,
+                106,
+                124,
+                149,
+                171,
+                196,
+                221,
+                224,
+                244,
+                269,
+                284,
+                304,
+                329,
+                343
+              ],
+              "riderId": "hunter-lawrence"
+            },
+            {
+              "name": "Cooper Webb",
+              "points": [
+                14,
+                27,
+                43,
+                68,
+                88,
+                110,
+                130,
+                148,
+                168,
+                183,
+                198,
+                214,
+                236,
+                258,
+                280,
+                290,
+                308
+              ],
+              "riderId": "cooper-webb"
+            },
+            {
+              "name": "Eli Tomac",
+              "points": [
+                25,
+                50,
+                70,
+                88,
+                97,
+                122,
+                144,
+                169,
+                191,
+                211,
+                227,
+                242,
+                251,
+                251,
+                251,
+                271,
+                271
+              ],
+              "riderId": "eli-tomac"
+            },
+            {
+              "name": "Justin Cooper",
+              "points": [
+                15,
+                30,
+                41,
+                53,
+                71,
+                91,
+                107,
+                116,
+                134,
+                152,
+                170,
+                192,
+                206,
+                226,
+                234,
+                242,
+                264
+              ],
+              "riderId": "justin-cooper"
+            },
+            {
+              "name": "Chase Sexton",
+              "points": [
+                13,
+                31,
+                56,
+                72,
+                86,
+                102,
+                117,
+                117,
+                117,
+                117,
+                139,
+                139,
+                157,
+                175,
+                189,
+                205,
+                230
+              ],
+              "riderId": "chase-sexton"
+            },
+            {
+              "name": "Malcolm Stewart",
+              "points": [
+                0,
+                11,
+                20,
+                33,
+                33,
+                48,
+                58,
+                69,
+                83,
+                99,
+                119,
+                132,
+                135,
+                149,
+                160,
+                178,
+                191
+              ],
+              "riderId": "malcolm-stewart"
+            },
+            {
+              "name": "Jorge Prado",
+              "points": [
+                20,
+                28,
+                42,
+                56,
+                72,
+                72,
+                72,
+                72,
+                87,
+                101,
+                109,
+                127,
+                135,
+                141,
+                146,
+                161,
+                181
+              ],
+              "riderId": "jorge-prado"
+            }
+          ]
         }
       },
-      "ofRounds": 11,
+      "ofRounds": 17,
       "season": 2026
     }
   ]

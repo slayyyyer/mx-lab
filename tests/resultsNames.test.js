@@ -40,7 +40,9 @@ test('results: no committed row carries a truncated rider or place', async () =>
       for (const row of moto.results) {
         // A place cut mid-word is a fragment (`duras`), not a lowercase place: the
         // 2023 sheets print `murrieta, CA` exactly as it was entered.
-        const fragment = /^[a-z]{1,8}$/.test(row.hometown);
+        // A LiveTime row has no hometown at all; only a lowercase *string* of a
+        // few characters is a place cut mid-word.
+        const fragment = typeof row.hometown === 'string' && /^[a-z]{1,8}$/.test(row.hometown);
         if (/\s{2,}/.test(row.name) || fragment) {
           bad.push(`${event.event.id} ${moto.class} #${row.plate}: ${JSON.stringify([row.name, row.hometown])}`);
         }

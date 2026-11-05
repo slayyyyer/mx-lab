@@ -4,7 +4,7 @@ Status: **verified 2026-11-04**, first pass. Every claim below was checked again
 site on that date with a descriptive `User-Agent`; where a claim in the handoff turned out to be
 wrong or incomplete, it is marked **CORRECTION**.
 
-Scope: AMA Pro Motocross (outdoor), 450MX and 250MX, 2020–2026; and AMA Supercross, 450SX and 250SX East/West, 2020–2024 (§17). The 2025–2026 Supercross seasons are not adapted yet.
+Scope: AMA Pro Motocross (outdoor), 450MX and 250MX, 2020–2026; and AMA Supercross, 450SX and 250SX East/West, 2020–2026 (§17).
 
 ---
 
@@ -651,11 +651,12 @@ committed row with a column gap left in its name or a place that is a cut fragme
 
 ---
 
-## 17. Supercross, 2020–2024 (built 2026-11-05)
+## 17. Supercross, 2020–2026 (built 2026-11-05)
 
-The same archive serves Supercross under `/xml/SX/events/S<YY><NN>/`, with the same manifest and the
-same `RES`/`RID`/`QCOVR` sheet kinds. 84 events are committed: 2020 17, 2021 17, 2022 17, 2023 16,
-2024 17. Event ids step by 5 like Motocross, but the sequence is not a contract: 2023 publishes no
+The PDF archive serves Supercross under `/xml/SX/events/S<YY><NN>/`, with the same manifest and the
+same `RES`/`RID`/`QCOVR` sheet kinds. 84 events are committed from it: 2020 17, 2021 17, 2022 17,
+2023 16, 2024 17. The 2025 and 2026 seasons come from a second LiveTime application and add 34 more
+(§17.4). Event ids step by 5 like Motocross, but the sequence is not a contract: 2023 publishes no
 round at `S2310`, so the season has 16 rounds and the manifest is probed rather than constructed.
 
 ### 17.1 A 250 class is two championships
@@ -704,7 +705,14 @@ Three further archive quirks are handled rather than papered over:
 
 - **No per-lap positions.** The `LAP` sheet is a matrix of **plates by position**, not positions; it
   is not inverted here, so 2020–2024 Supercross contributes lap times but no lap chart.
-- **No 2025–2026.** The LiveTime source that carries those seasons is a different application
-  (`results.supercrosslive.com`) and has not been adapted.
+- **2025–2026 is a second source.** `results.supercrosslive.com` is the same engine under a different
+  host and labels: 17 rounds each, with `450 Main Event` and `250 Main Event`, `250 Combined
+  Qualifying Results`, and `Overall Results` for Triple Crown rounds. Its hub does not name the 250
+  coast on ordinary rounds, so the coast comes from the published season schedule round by round;
+  hub heat labels (`250 East Heat` / `250 West Heat`) still win where they exist.
+- **Triple Crown rounds on the live source** link an `Overall Results` report
+  (`view_multi_main_result`) with `POS | # | BIKE | RIDER | MOTO 1–3 | TOTAL POINTS`, where
+  `TOTAL POINTS` is the Olympic sum of the three places, not a championship award. The classification
+  is stored and the derived table scores it; those rounds carry no lap times.
 - **Two-rider `RID` pages can misalign**, which drops that round's lap times with a warning while
   keeping its finishing order.

@@ -212,6 +212,56 @@ export function parseMotoReport(html, meta = {}) {
   };
 }
 
+/**
+ * Triple Crown `Overall Results` (`view_multi_main_result`):
+ *
+ *   POS | # | BIKE | RIDER | MOTO 1 | MOTO 2 | MOTO 3 | TOTAL POINTS
+ *    1  | 41|      | NATE THRASHER | 3 | 3 | 2 | 8
+ *
+ * `TOTAL POINTS` is the Olympic sum of the three finishing positions, not a
+ * championship award, so it is not stored as `points`. The classification is the
+ * round's finishing order and the derived table scores it; the page prints no lap
+ * times, so those rounds carry none.
+ */
+export function parseOverallReport(html, meta = {}) {
+  const table = splitTables(html).find((candidate) => {
+    const header = tableRows(candidate)[0] ?? [];
+    return columnIndex(header, ['RIDER']) >= 0 && columnIndex(header, ['TOTAL POINTS']) >= 0;
+  });
+  if (!table) throw new Error('lt: no overall results table');
+  const header = tableRows(table)[0];
+  const cols = columnsFor(header);
+
+  const riders = [];
+  for (const row of tableRows(table).slice(1)) {
+    const pos = parsePosition(row[cols.pos]?.text);
+    const plate = Number(String(row[cols.plate]?.text ?? '').replace(/\D+/g, ''));
+    if (!Number.isInteger(pos) || pos < 1 || !Number.isInteger(plate) || plate < 1) continue;
+    riders.push({
+      pos,
+      plate,
+      name: row[cols.rider]?.text ?? '',
+      bike: brandFromCell(row[cols.bike]),
+      hometown: null,
+      team: null,
+      status: null,
+      gapMs: null,
+      lapsCompleted: null,
+      bestLapMs: null,
+      laps: [],
+    });
+  }
+
+  if (riders.length === 0) throw new Error('lt: overall table had no rows');
+  return {
+    parser: LT_PARSER_ID,
+    class: meta.className ?? null,
+    moto: 1,
+    riders,
+    warnings: ['overall results: no per-lap times printed'],
+  };
+}
+
 /** Combined qualifying ranking: `POS | # | BIKE | RIDER | BEST LAP | GAP | DIFF | …` */
 export function parseQualifyingReport(html, meta = {}) {
   const table = splitTables(html).find((candidate) => {

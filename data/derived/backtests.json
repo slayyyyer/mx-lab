@@ -23,13 +23,13 @@
         },
         "lapOne": {
           "brier": {
-            "podium": 0.0657,
-            "top10": 0.1627,
-            "win": 0.0241
+            "podium": 0.0652,
+            "top10": 0.1621,
+            "win": 0.024
           },
           "logLoss": {
-            "podium": 0.2387,
-            "top10": 0.4896,
+            "podium": 0.238,
+            "top10": 0.488,
             "win": 0.1083
           },
           "mae": 14.477,
@@ -45,9 +45,9 @@
             "win": 0.0215
           },
           "logLoss": {
-            "podium": 0.163,
-            "top10": 0.3422,
-            "win": 0.0842
+            "podium": 0.1629,
+            "top10": 0.3423,
+            "win": 0.084
           },
           "mae": 6.469,
           "medianRho": 0.697,
@@ -57,14 +57,14 @@
         },
         "qualifying": {
           "brier": {
-            "podium": 0.0501,
-            "top10": 0.098,
-            "win": 0.021
+            "podium": 0.0502,
+            "top10": 0.0981,
+            "win": 0.0213
           },
           "logLoss": {
-            "podium": 0.1617,
+            "podium": 0.1619,
             "top10": 0.304,
-            "win": 0.0774
+            "win": 0.0781
           },
           "mae": 6.094,
           "medianRho": 0.737,
@@ -75,12 +75,12 @@
         "rating": {
           "brier": {
             "podium": 0.0451,
-            "top10": 0.1035,
+            "top10": 0.1036,
             "win": 0.0208
           },
           "logLoss": {
-            "podium": 0.1549,
-            "top10": 0.3251,
+            "podium": 0.1547,
+            "top10": 0.3253,
             "win": 0.0792
           },
           "mae": 6.62,
@@ -191,92 +191,92 @@
       "models": {
         "field": {
           "brier": {
-            "podium": 0.1176,
+            "podium": 0.1177,
             "top10": 0.2479,
-            "win": 0.0433
+            "win": 0.0434
           },
           "logLoss": {
-            "podium": 0.398,
+            "podium": 0.3981,
             "top10": 0.6889,
-            "win": 0.1847
+            "win": 0.1848
           },
-          "mae": 5.507,
+          "mae": 5.505,
           "medianRho": null,
-          "motos": 35,
-          "rows": 771,
+          "motos": 49,
+          "rows": 1079,
           "strongShare": null,
           "sufficient": false
         },
         "lapOne": {
           "brier": {
-            "podium": 0.1104,
-            "top10": 0.2259,
+            "podium": 0.1148,
+            "top10": 0.2379,
             "win": 0.0433
           },
           "logLoss": {
-            "podium": 0.3648,
-            "top10": 0.6363,
-            "win": 0.1797
+            "podium": 0.3876,
+            "top10": 0.6661,
+            "win": 0.1815
           },
-          "mae": 7.87,
-          "medianRho": 0.808,
-          "motos": 35,
-          "rows": 771,
-          "strongShare": 1,
+          "mae": 8.171,
+          "medianRho": 0.716,
+          "motos": 49,
+          "rows": 1079,
+          "strongShare": 0.722,
           "sufficient": false
         },
         "points": {
           "brier": {
-            "podium": 0.1014,
-            "top10": 0.1769,
-            "win": 0.0407
+            "podium": 0.1029,
+            "top10": 0.1766,
+            "win": 0.0415
           },
           "logLoss": {
-            "podium": 0.3336,
-            "top10": 0.5315,
-            "win": 0.161
+            "podium": 0.3426,
+            "top10": 0.5324,
+            "win": 0.1678
           },
-          "mae": 3.813,
-          "medianRho": 0.753,
-          "motos": 35,
-          "rows": 771,
-          "strongShare": 0.8,
+          "mae": 4.069,
+          "medianRho": 0.678,
+          "motos": 49,
+          "rows": 1079,
+          "strongShare": 0.735,
           "sufficient": false
         },
         "qualifying": {
           "brier": {
-            "podium": 0.0631,
-            "top10": 0.129,
-            "win": 0.0353
+            "podium": 0.0946,
+            "top10": 0.1709,
+            "win": 0.0428
           },
           "logLoss": {
-            "podium": 0.2049,
-            "top10": 0.4106,
-            "win": 0.1237
+            "podium": 0.2877,
+            "top10": 0.5169,
+            "win": 0.1532
           },
-          "mae": 2.857,
-          "medianRho": 0.83,
-          "motos": 35,
-          "rows": 771,
-          "strongShare": 0.971,
+          "mae": 4.164,
+          "medianRho": 0.804,
+          "motos": 49,
+          "rows": 1079,
+          "strongShare": 0.907,
           "sufficient": false
         },
         "rating": {
           "brier": {
-            "podium": 0.0947,
-            "top10": 0.1634,
-            "win": 0.0396
+            "podium": 0.0957,
+            "top10": 0.1633,
+            "win": 0.0409
           },
           "logLoss": {
-            "podium": 0.3005,
-            "top10": 0.5071,
-            "win": 0.1454
+            "podium": 0.3084,
+            "top10": 0.5068,
+            "win": 0.1528
           },
-          "mae": 4.514,
+          "mae": 4.536,
           "medianRho": 0.588,
-          "motos": 35,
-          "rows": 771,
-          "strongShare": 0.743,
+          "motos": 49,
+          "rows": 1079,
+          "strongShare": 0.714,
           "sufficient": false
         }
       }
@@ -297,81 +297,81 @@
           },
           "mae": 5.5,
           "medianRho": null,
-          "motos": 8,
-          "rows": 176,
+          "motos": 14,
+          "rows": 308,
           "strongShare": null,
           "sufficient": false
         },
         "lapOne": {
           "brier": {
-            "podium": 0.1016,
-            "top10": 0.2202,
-            "win": 0.039
+            "podium": 0.1153,
+            "top10": 0.2481,
+            "win": 0.0414
           },
           "logLoss": {
-            "podium": 0.3411,
-            "top10": 0.631,
-            "win": 0.1478
+            "podium": 0.3906,
+            "top10": 0.6918,
+            "win": 0.1732
           },
-          "mae": 7.108,
-          "medianRho": 0.674,
-          "motos": 8,
-          "rows": 176,
-          "strongShare": 1,
+          "mae": 8.253,
+          "medianRho": 0.578,
+          "motos": 14,
+          "rows": 308,
+          "strongShare": 0.667,
           "sufficient": false
         },
         "points": {
           "brier": {
-            "podium": 0.1109,
-            "top10": 0.213,
-            "win": 0.0429
+            "podium": 0.109,
+            "top10": 0.2148,
+            "win": 0.0432
           },
           "logLoss": {
-            "podium": 0.3815,
-            "top10": 0.6225,
-            "win": 0.1695
+            "podium": 0.3724,
+            "top10": 0.6259,
+            "win": 0.1832
           },
-          "mae": 4.636,
-          "medianRho": 0.574,
-          "motos": 8,
-          "rows": 176,
+          "mae": 4.831,
+          "medianRho": 0.489,
+          "motos": 14,
+          "rows": 308,
           "strongShare": 0.5,
           "sufficient": false
         },
         "qualifying": {
           "brier": {
-            "podium": 0.1054,
-            "top10": 0.2366,
-            "win": 0.042
+            "podium": 0.1439,
+            "top10": 0.2611,
+            "win": 0.0567
           },
           "logLoss": {
-            "podium": 0.3763,
-            "top10": 0.663,
-            "win": 0.1818
+            "podium": 0.4466,
+            "top10": 0.7414,
+            "win": 0.2261
           },
-          "mae": 5.227,
-          "medianRho": 0.456,
-          "motos": 8,
-          "rows": 176,
-          "strongShare": 0.25,
+          "mae": 6.179,
+          "medianRho": 0.445,
+          "motos": 14,
+          "rows": 308,
+          "strongShare": 0.273,
           "sufficient": false
         },
         "rating": {
           "brier": {
-            "podium": 0.1012,
-            "top10": 0.2272,
-            "win": 0.0419
+            "podium": 0.099,
+            "top10": 0.2237,
+            "win": 0.0417
           },
           "logLoss": {
-            "podium": 0.3453,
-            "top10": 0.6605,
-            "win": 0.1605
+            "podium": 0.3298,
+            "top10": 0.6534,
+            "win": 0.1609
           },
-          "mae": 5.568,
+          "mae": 5.519,
           "medianRho": 0.464,
-          "motos": 8,
-          "rows": 176,
-          "strongShare": 0.375,
+          "motos": 14,
+          "rows": 308,
+          "strongShare": 0.429,
           "sufficient": false
         }
       }
@@ -392,82 +392,77 @@
           },
           "mae": 5.5,
           "medianRho": null,
-          "motos": 36,
-          "rows": 792,
-          "strongShare": null,
-          "sufficient": false
+          "motos": 50,
+          "rows": 1100,
+          "strongShare": null
         },
         "lapOne": {
           "brier": {
-            "podium": 0.1142,
-            "top10": 0.2461,
-            "win": 0.044
+            "podium": 0.1205,
+            "top10": 0.2554,
+            "win": 0.0443
           },
           "logLoss": {
-            "podium": 0.3817,
-            "top10": 0.6836,
-            "win": 0.1872
+            "podium": 0.3997,
+            "top10": 0.7076,
+            "win": 0.1883
           },
-          "mae": 8.686,
-          "medianRho": 0.71,
-          "motos": 36,
-          "rows": 792,
-          "strongShare": 0.8,
-          "sufficient": false
+          "mae": 8.984,
+          "medianRho": 0.545,
+          "motos": 50,
+          "rows": 1100,
+          "strongShare": 0.533
         },
         "points": {
           "brier": {
-            "podium": 0.097,
-            "top10": 0.1755,
-            "win": 0.0432
+            "podium": 0.1019,
+            "top10": 0.1786,
+            "win": 0.0441
           },
           "logLoss": {
-            "podium": 0.3186,
-            "top10": 0.527,
-            "win": 0.1708
+            "podium": 0.3341,
+            "top10": 0.5353,
+            "win": 0.1771
           },
-          "mae": 3.735,
-          "medianRho": 0.723,
-          "motos": 36,
-          "rows": 792,
-          "strongShare": 0.861,
-          "sufficient": false
+          "mae": 3.962,
+          "medianRho": 0.658,
+          "motos": 50,
+          "rows": 1100,
+          "strongShare": 0.76
         },
         "qualifying": {
           "brier": {
-            "podium": 0.0794,
-            "top10": 0.1453,
-            "win": 0.038
+            "podium": 0.1036,
+            "top10": 0.1736,
+            "win": 0.0463
           },
           "logLoss": {
-            "podium": 0.2558,
-            "top10": 0.4497,
-            "win": 0.1402
+            "podium": 0.318,
+            "top10": 0.5159,
+            "win": 0.1715
           },
-          "mae": 2.861,
-          "medianRho": 0.813,
-          "motos": 36,
-          "rows": 792,
-          "strongShare": 0.972,
-          "sufficient": false
+          "mae": 4.124,
+          "medianRho": 0.801,
+          "motos": 50,
+          "rows": 1100,
+          "strongShare": 0.976
         },
         "rating": {
           "brier": {
-            "podium": 0.0836,
-            "top10": 0.1691,
-            "win": 0.0404
+            "podium": 0.089,
+            "top10": 0.162,
+            "win": 0.0416
           },
           "logLoss": {
-            "podium": 0.2771,
-            "top10": 0.5142,
-            "win": 0.1575
+            "podium": 0.2873,
+            "top10": 0.4974,
+            "win": 0.1608
           },
-          "mae": 4.227,
-          "medianRho": 0.685,
-          "motos": 36,
-          "rows": 792,
-          "strongShare": 0.75,
-          "sufficient": false
+          "mae": 4.242,
+          "medianRho": 0.661,
+          "motos": 50,
+          "rows": 1100,
+          "strongShare": 0.8
         }
       }
     },
@@ -493,14 +488,14 @@
         },
         "lapOne": {
           "brier": {
-            "podium": 0.0628,
-            "top10": 0.1532,
+            "podium": 0.0634,
+            "top10": 0.1538,
             "win": 0.0239
           },
           "logLoss": {
-            "podium": 0.229,
-            "top10": 0.4677,
-            "win": 0.1072
+            "podium": 0.2308,
+            "top10": 0.4694,
+            "win": 0.1074
           },
           "mae": 14.247,
           "medianRho": 0.771,
@@ -510,14 +505,14 @@
         },
         "points": {
           "brier": {
-            "podium": 0.0527,
+            "podium": 0.0526,
             "top10": 0.0957,
             "win": 0.0222
           },
           "logLoss": {
-            "podium": 0.1805,
+            "podium": 0.1801,
             "top10": 0.3172,
-            "win": 0.0877
+            "win": 0.0876
           },
           "mae": 6.796,
           "medianRho": 0.688,
@@ -527,14 +522,14 @@
         },
         "qualifying": {
           "brier": {
-            "podium": 0.0401,
-            "top10": 0.0724,
-            "win": 0.0182
+            "podium": 0.0406,
+            "top10": 0.0728,
+            "win": 0.0184
           },
           "logLoss": {
-            "podium": 0.1296,
-            "top10": 0.2379,
-            "win": 0.0637
+            "podium": 0.1305,
+            "top10": 0.239,
+            "win": 0.0643
           },
           "mae": 5.899,
           "medianRho": 0.758,
@@ -544,14 +539,14 @@
         },
         "rating": {
           "brier": {
-            "podium": 0.0482,
-            "top10": 0.0869,
-            "win": 0.0214
+            "podium": 0.0483,
+            "top10": 0.0868,
+            "win": 0.0215
           },
           "logLoss": {
-            "podium": 0.1655,
-            "top10": 0.2899,
-            "win": 0.083
+            "podium": 0.1654,
+            "top10": 0.2898,
+            "win": 0.0831
           },
           "mae": 6.425,
           "medianRho": 0.718,
@@ -577,77 +572,77 @@
           },
           "mae": 5.5,
           "medianRho": null,
-          "motos": 84,
-          "rows": 1848,
+          "motos": 118,
+          "rows": 2596,
           "strongShare": null
         },
         "lapOne": {
           "brier": {
-            "podium": 0.1123,
-            "top10": 0.234,
-            "win": 0.0429
+            "podium": 0.1164,
+            "top10": 0.2439,
+            "win": 0.0433
           },
           "logLoss": {
-            "podium": 0.3747,
-            "top10": 0.6551,
-            "win": 0.1774
+            "podium": 0.3917,
+            "top10": 0.6789,
+            "win": 0.182
           },
-          "mae": 8.469,
-          "medianRho": 0.81,
-          "motos": 84,
-          "rows": 1848,
-          "strongShare": 1
+          "mae": 8.767,
+          "medianRho": 0.726,
+          "motos": 118,
+          "rows": 2596,
+          "strongShare": 0.735
         },
         "points": {
           "brier": {
-            "podium": 0.0908,
-            "top10": 0.1425,
-            "win": 0.0388
+            "podium": 0.0906,
+            "top10": 0.1442,
+            "win": 0.039
           },
           "logLoss": {
-            "podium": 0.3004,
-            "top10": 0.4498,
+            "podium": 0.3,
+            "top10": 0.4532,
             "win": 0.1503
           },
-          "mae": 3.079,
-          "medianRho": 0.81,
-          "motos": 84,
-          "rows": 1848,
-          "strongShare": 0.976
+          "mae": 3.256,
+          "medianRho": 0.796,
+          "motos": 118,
+          "rows": 2596,
+          "strongShare": 0.949
         },
         "qualifying": {
           "brier": {
-            "podium": 0.0928,
-            "top10": 0.1193,
-            "win": 0.038
+            "podium": 0.0917,
+            "top10": 0.1206,
+            "win": 0.0381
           },
           "logLoss": {
-            "podium": 0.2942,
-            "top10": 0.3846,
-            "win": 0.1392
+            "podium": 0.288,
+            "top10": 0.3862,
+            "win": 0.1372
           },
-          "mae": 2.637,
-          "medianRho": 0.844,
-          "motos": 84,
-          "rows": 1848,
+          "mae": 2.776,
+          "medianRho": 0.842,
+          "motos": 118,
+          "rows": 2596,
           "strongShare": 1
         },
         "rating": {
           "brier": {
-            "podium": 0.0872,
-            "top10": 0.1261,
-            "win": 0.038
+            "podium": 0.0863,
+            "top10": 0.1257,
+            "win": 0.0381
           },
           "logLoss": {
-            "podium": 0.2814,
-            "top10": 0.4104,
-            "win": 0.141
+            "podium": 0.2767,
+            "top10": 0.4078,
+            "win": 0.1398
           },
-          "mae": 3.483,
-          "medianRho": 0.784,
-          "motos": 84,
-          "rows": 1848,
-          "strongShare": 0.952
+          "mae": 3.347,
+          "medianRho": 0.788,
+          "motos": 118,
+          "rows": 2596,
+          "strongShare": 0.958
         }
       }
     }
@@ -1107,93 +1102,88 @@
       "models": {
         "field": {
           "brier": {
-            "podium": 0.0693,
-            "top10": 0.1874,
-            "win": 0.0243
+            "podium": 0.0837,
+            "top10": 0.2054,
+            "win": 0.03
           },
           "logLoss": {
-            "podium": 0.2662,
-            "top10": 0.562,
-            "win": 0.1168
+            "podium": 0.3055,
+            "top10": 0.5999,
+            "win": 0.1371
           },
-          "mae": 10.011,
+          "mae": 8.667,
           "medianRho": null,
-          "motos": 44,
-          "rows": 1762,
-          "strongShare": null,
-          "sufficient": false
+          "motos": 78,
+          "rows": 2510,
+          "strongShare": null
         },
         "lapOne": {
           "brier": {
-            "podium": 0.0556,
-            "top10": 0.1092,
-            "win": 0.0233
+            "podium": 0.0782,
+            "top10": 0.1577,
+            "win": 0.0296
           },
           "logLoss": {
-            "podium": 0.1766,
-            "top10": 0.3401,
-            "win": 0.0906
+            "podium": 0.2578,
+            "top10": 0.4607,
+            "win": 0.123
           },
-          "mae": 6.297,
-          "medianRho": 0.741,
-          "motos": 44,
-          "rows": 1762,
-          "strongShare": 0.909,
-          "sufficient": false
+          "mae": 7.153,
+          "medianRho": 0.706,
+          "motos": 78,
+          "rows": 2510,
+          "strongShare": 0.729
         },
         "points": {
           "brier": {
-            "podium": 0.0463,
-            "top10": 0.1091,
-            "win": 0.022
+            "podium": 0.063,
+            "top10": 0.1249,
+            "win": 0.0279
           },
           "logLoss": {
-            "podium": 0.1516,
-            "top10": 0.3499,
-            "win": 0.0818
+            "podium": 0.2071,
+            "top10": 0.3939,
+            "win": 0.1082
           },
-          "mae": 6.863,
-          "medianRho": 0.678,
-          "motos": 44,
-          "rows": 1762,
-          "strongShare": 0.886,
-          "sufficient": false
+          "mae": 6.053,
+          "medianRho": 0.658,
+          "motos": 78,
+          "rows": 2510,
+          "strongShare": 0.808
         },
         "qualifying": {
           "brier": {
-            "podium": 0.0466,
-            "top10": 0.0961,
-            "win": 0.0185
+            "podium": 0.0751,
+            "top10": 0.1248,
+            "win": 0.03
           },
           "logLoss": {
-            "podium": 0.1491,
-            "top10": 0.3019,
-            "win": 0.0649
+            "podium": 0.2261,
+            "top10": 0.382,
+            "win": 0.1038
           },
-          "mae": 6.267,
-          "medianRho": 0.709,
-          "motos": 44,
-          "rows": 1762,
-          "strongShare": 0.932,
-          "sufficient": false
+          "mae": 5.917,
+          "medianRho": 0.753,
+          "motos": 78,
+          "rows": 2510,
+          "strongShare": 0.942
         },
         "rating": {
           "brier": {
-            "podium": 0.0397,
-            "top10": 0.0983,
-            "win": 0.0202
+            "podium": 0.0561,
+            "top10": 0.1101,
+            "win": 0.0262
           },
           "logLoss": {
-            "podium": 0.1312,
-            "top10": 0.3119,
-            "win": 0.0712
+            "podium": 0.1822,
+            "top10": 0.3498,
+            "win": 0.0953
           },
-          "mae": 6.364,
-          "medianRho": 0.72,
-          "motos": 44,
-          "rows": 1762,
-          "strongShare": 0.977,
-          "sufficient": false
+          "mae": 5.56,
+          "medianRho": 0.718,
+          "motos": 78,
+          "rows": 2510,
+          "strongShare": 0.923
         }
       },
       "season": 2025
@@ -1202,93 +1192,88 @@
       "models": {
         "field": {
           "brier": {
-            "podium": 0.0694,
-            "top10": 0.1876,
-            "win": 0.0244
+            "podium": 0.0838,
+            "top10": 0.2056,
+            "win": 0.0301
           },
           "logLoss": {
-            "podium": 0.2665,
-            "top10": 0.5625,
-            "win": 0.117
+            "podium": 0.3058,
+            "top10": 0.6002,
+            "win": 0.1372
           },
-          "mae": 9.994,
+          "mae": 8.653,
           "medianRho": null,
-          "motos": 44,
-          "rows": 1759,
-          "strongShare": null,
-          "sufficient": false
+          "motos": 78,
+          "rows": 2507,
+          "strongShare": null
         },
         "lapOne": {
           "brier": {
-            "podium": 0.0572,
-            "top10": 0.111,
-            "win": 0.0234
+            "podium": 0.0783,
+            "top10": 0.1593,
+            "win": 0.0294
           },
           "logLoss": {
-            "podium": 0.1866,
-            "top10": 0.3515,
-            "win": 0.0934
+            "podium": 0.2624,
+            "top10": 0.4714,
+            "win": 0.1214
           },
-          "mae": 8.389,
-          "medianRho": 0.746,
-          "motos": 44,
-          "rows": 1759,
-          "strongShare": 0.972,
-          "sufficient": false
+          "mae": 8.795,
+          "medianRho": 0.715,
+          "motos": 78,
+          "rows": 2507,
+          "strongShare": 0.778
         },
         "points": {
           "brier": {
-            "podium": 0.0656,
-            "top10": 0.1232,
-            "win": 0.0243
+            "podium": 0.075,
+            "top10": 0.1384,
+            "win": 0.0296
           },
           "logLoss": {
-            "podium": 0.2279,
-            "top10": 0.3881,
-            "win": 0.1047
+            "podium": 0.257,
+            "top10": 0.4289,
+            "win": 0.1238
           },
-          "mae": 7.406,
+          "mae": 6.466,
           "medianRho": 0.633,
-          "motos": 44,
-          "rows": 1759,
-          "strongShare": 0.864,
-          "sufficient": false
+          "motos": 78,
+          "rows": 2507,
+          "strongShare": 0.795
         },
         "qualifying": {
           "brier": {
-            "podium": 0.0427,
-            "top10": 0.1014,
-            "win": 0.0186
+            "podium": 0.0675,
+            "top10": 0.1312,
+            "win": 0.0288
           },
           "logLoss": {
-            "podium": 0.1374,
-            "top10": 0.3124,
-            "win": 0.0649
+            "podium": 0.2071,
+            "top10": 0.3932,
+            "win": 0.1037
           },
-          "mae": 6.215,
-          "medianRho": 0.716,
-          "motos": 44,
-          "rows": 1759,
-          "strongShare": 0.977,
-          "sufficient": false
+          "mae": 5.983,
+          "medianRho": 0.737,
+          "motos": 78,
+          "rows": 2507,
+          "strongShare": 0.928
         },
         "rating": {
           "brier": {
-            "podium": 0.0553,
-            "top10": 0.107,
-            "win": 0.0213
+            "podium": 0.0653,
+            "top10": 0.1205,
+            "win": 0.0276
           },
           "logLoss": {
-            "podium": 0.1971,
-            "top10": 0.3437,
-            "win": 0.0882
+            "podium": 0.2217,
+            "top10": 0.3821,
+            "win": 0.1081
           },
-          "mae": 7.054,
+          "mae": 6.132,
           "medianRho": 0.666,
-          "motos": 44,
-          "rows": 1759,
-          "strongShare": 0.932,
-          "sufficient": false
+          "motos": 78,
+          "rows": 2507,
+          "strongShare": 0.897
         }
       },
       "season": 2026
@@ -1308,7 +1293,7 @@
         {
           "hi": 0.2,
           "lo": 0.1,
-          "n": 3697,
+          "n": 5193,
           "observed": 0.1363,
           "predicted": 0.1363,
           "thin": false
@@ -1414,9 +1399,9 @@
         {
           "hi": 0.5,
           "lo": 0.4,
-          "n": 3697,
-          "observed": 0.4544,
-          "predicted": 0.4544,
+          "n": 5193,
+          "observed": 0.4545,
+          "predicted": 0.4545,
           "thin": false
         },
         {
@@ -1464,9 +1449,9 @@
         {
           "hi": 0.1,
           "lo": 0,
-          "n": 15938,
-          "observed": 0.0297,
-          "predicted": 0.0297,
+          "n": 17434,
+          "observed": 0.0311,
+          "predicted": 0.0311,
           "thin": false
         },
         {
@@ -1548,41 +1533,41 @@
         {
           "hi": 0.1,
           "lo": 0,
-          "n": 10774,
-          "observed": 0.063,
-          "predicted": 0.0637,
+          "n": 11397,
+          "observed": 0.0652,
+          "predicted": 0.0651,
           "thin": false
         },
         {
           "hi": 0.2,
           "lo": 0.1,
-          "n": 4415,
-          "observed": 0.1053,
-          "predicted": 0.1133,
+          "n": 4999,
+          "observed": 0.112,
+          "predicted": 0.1124,
           "thin": false
         },
         {
           "hi": 0.3,
           "lo": 0.2,
-          "n": 237,
-          "observed": 0.2574,
-          "predicted": 0.2317,
+          "n": 289,
+          "observed": 0.2768,
+          "predicted": 0.2413,
           "thin": false
         },
         {
           "hi": 0.4,
           "lo": 0.3,
-          "n": 137,
-          "observed": 0.4088,
-          "predicted": 0.3625,
+          "n": 496,
+          "observed": 0.3105,
+          "predicted": 0.3463,
           "thin": false
         },
         {
           "hi": 0.5,
           "lo": 0.4,
-          "n": 375,
-          "observed": 0.4293,
-          "predicted": 0.4352,
+          "n": 253,
+          "observed": 0.3518,
+          "predicted": 0.427,
           "thin": false
         },
         {
@@ -1630,73 +1615,73 @@
         {
           "hi": 0.1,
           "lo": 0,
-          "n": 2657,
-          "observed": 0.0279,
-          "predicted": 0.0322,
+          "n": 2671,
+          "observed": 0.0311,
+          "predicted": 0.0331,
           "thin": false
         },
         {
           "hi": 0.2,
           "lo": 0.1,
-          "n": 657,
-          "observed": 0.1065,
-          "predicted": 0.1445,
+          "n": 719,
+          "observed": 0.1113,
+          "predicted": 0.1465,
           "thin": false
         },
         {
           "hi": 0.3,
           "lo": 0.2,
-          "n": 162,
-          "observed": 0.179,
-          "predicted": 0.2543,
+          "n": 158,
+          "observed": 0.1835,
+          "predicted": 0.2556,
           "thin": false
         },
         {
           "hi": 0.4,
           "lo": 0.3,
-          "n": 9863,
-          "observed": 0.3046,
+          "n": 10864,
+          "observed": 0.3183,
           "predicted": 0.3221,
           "thin": false
         },
         {
           "hi": 0.5,
           "lo": 0.4,
-          "n": 1114,
-          "observed": 0.4138,
-          "predicted": 0.4511,
+          "n": 1164,
+          "observed": 0.4184,
+          "predicted": 0.4538,
           "thin": false
         },
         {
           "hi": 0.6,
           "lo": 0.5,
-          "n": 378,
-          "observed": 0.6032,
-          "predicted": 0.5459,
+          "n": 458,
+          "observed": 0.607,
+          "predicted": 0.5503,
           "thin": false
         },
         {
           "hi": 0.7,
           "lo": 0.6,
-          "n": 310,
-          "observed": 0.7581,
-          "predicted": 0.6637,
+          "n": 554,
+          "observed": 0.6462,
+          "predicted": 0.6511,
           "thin": false
         },
         {
           "hi": 0.8,
           "lo": 0.7,
-          "n": 386,
-          "observed": 0.7953,
-          "predicted": 0.7438,
+          "n": 574,
+          "observed": 0.7404,
+          "predicted": 0.7528,
           "thin": false
         },
         {
           "hi": 0.9,
           "lo": 0.8,
-          "n": 400,
-          "observed": 0.8075,
-          "predicted": 0.8382,
+          "n": 261,
+          "observed": 0.8161,
+          "predicted": 0.8337,
           "thin": false
         },
         {
@@ -1712,17 +1697,17 @@
         {
           "hi": 0.1,
           "lo": 0,
-          "n": 15571,
-          "observed": 0.0275,
-          "predicted": 0.0268,
+          "n": 16973,
+          "observed": 0.0293,
+          "predicted": 0.028,
           "thin": false
         },
         {
           "hi": 0.2,
           "lo": 0.1,
-          "n": 367,
-          "observed": 0.1253,
-          "predicted": 0.1387,
+          "n": 461,
+          "observed": 0.0954,
+          "predicted": 0.1292,
           "thin": false
         },
         {
@@ -1796,57 +1781,57 @@
         {
           "hi": 0.1,
           "lo": 0,
-          "n": 12273,
-          "observed": 0.0244,
-          "predicted": 0.025,
+          "n": 13225,
+          "observed": 0.0266,
+          "predicted": 0.0261,
           "thin": false
         },
         {
           "hi": 0.2,
           "lo": 0.1,
-          "n": 1326,
-          "observed": 0.1516,
-          "predicted": 0.1424,
+          "n": 1530,
+          "observed": 0.1503,
+          "predicted": 0.1431,
           "thin": false
         },
         {
           "hi": 0.3,
           "lo": 0.2,
-          "n": 881,
-          "observed": 0.2497,
-          "predicted": 0.2512,
+          "n": 1017,
+          "observed": 0.2458,
+          "predicted": 0.2508,
           "thin": false
         },
         {
           "hi": 0.4,
           "lo": 0.3,
-          "n": 525,
-          "observed": 0.36,
-          "predicted": 0.3606,
+          "n": 593,
+          "observed": 0.3659,
+          "predicted": 0.3611,
           "thin": false
         },
         {
           "hi": 0.5,
           "lo": 0.4,
-          "n": 77,
-          "observed": 0.5065,
-          "predicted": 0.4606,
+          "n": 112,
+          "observed": 0.5,
+          "predicted": 0.4715,
           "thin": false
         },
         {
           "hi": 0.6,
           "lo": 0.5,
-          "n": 571,
-          "observed": 0.5342,
-          "predicted": 0.5438,
+          "n": 631,
+          "observed": 0.5198,
+          "predicted": 0.5434,
           "thin": false
         },
         {
           "hi": 0.7,
           "lo": 0.6,
-          "n": 285,
-          "observed": 0.593,
-          "predicted": 0.6291,
+          "n": 326,
+          "observed": 0.592,
+          "predicted": 0.6261,
           "thin": false
         },
         {
@@ -1878,81 +1863,81 @@
         {
           "hi": 0.1,
           "lo": 0,
-          "n": 6572,
-          "observed": 0.033,
-          "predicted": 0.0342,
+          "n": 6776,
+          "observed": 0.035,
+          "predicted": 0.0355,
           "thin": false
         },
         {
           "hi": 0.2,
           "lo": 0.1,
-          "n": 2092,
-          "observed": 0.1463,
-          "predicted": 0.1418,
+          "n": 2364,
+          "observed": 0.1451,
+          "predicted": 0.1429,
           "thin": false
         },
         {
           "hi": 0.3,
           "lo": 0.2,
-          "n": 816,
-          "observed": 0.2463,
-          "predicted": 0.2499,
+          "n": 884,
+          "observed": 0.2455,
+          "predicted": 0.249,
           "thin": false
         },
         {
           "hi": 0.4,
           "lo": 0.3,
-          "n": 1262,
-          "observed": 0.3296,
-          "predicted": 0.3486,
+          "n": 1537,
+          "observed": 0.3383,
+          "predicted": 0.3497,
           "thin": false
         },
         {
           "hi": 0.5,
           "lo": 0.4,
-          "n": 784,
-          "observed": 0.4196,
-          "predicted": 0.4563,
+          "n": 849,
+          "observed": 0.4299,
+          "predicted": 0.458,
           "thin": false
         },
         {
           "hi": 0.6,
           "lo": 0.5,
-          "n": 987,
-          "observed": 0.542,
-          "predicted": 0.5513,
+          "n": 1123,
+          "observed": 0.5539,
+          "predicted": 0.5534,
           "thin": false
         },
         {
           "hi": 0.7,
           "lo": 0.6,
-          "n": 676,
-          "observed": 0.6509,
-          "predicted": 0.6598,
+          "n": 744,
+          "observed": 0.6559,
+          "predicted": 0.6597,
           "thin": false
         },
         {
           "hi": 0.8,
           "lo": 0.7,
-          "n": 729,
-          "observed": 0.7709,
-          "predicted": 0.7412,
+          "n": 863,
+          "observed": 0.7683,
+          "predicted": 0.7462,
           "thin": false
         },
         {
           "hi": 0.9,
           "lo": 0.8,
-          "n": 1766,
-          "observed": 0.8494,
-          "predicted": 0.8506,
+          "n": 1972,
+          "observed": 0.8453,
+          "predicted": 0.8508,
           "thin": false
         },
         {
           "hi": 1,
           "lo": 0.9,
-          "n": 254,
-          "observed": 0.9213,
-          "predicted": 0.9186,
+          "n": 322,
+          "observed": 0.9255,
+          "predicted": 0.9207,
           "thin": false
         }
       ],
@@ -1960,25 +1945,25 @@
         {
           "hi": 0.1,
           "lo": 0,
-          "n": 14508,
-          "observed": 0.0152,
-          "predicted": 0.0132,
+          "n": 15800,
+          "observed": 0.0164,
+          "predicted": 0.0141,
           "thin": false
         },
         {
           "hi": 0.2,
           "lo": 0.1,
-          "n": 703,
-          "observed": 0.1337,
-          "predicted": 0.1433,
+          "n": 839,
+          "observed": 0.1359,
+          "predicted": 0.1443,
           "thin": false
         },
         {
           "hi": 0.3,
           "lo": 0.2,
-          "n": 682,
-          "observed": 0.2214,
-          "predicted": 0.2492,
+          "n": 750,
+          "observed": 0.2133,
+          "predicted": 0.248,
           "thin": false
         },
         {
@@ -2044,57 +2029,57 @@
         {
           "hi": 0.1,
           "lo": 0,
-          "n": 12110,
-          "observed": 0.0118,
-          "predicted": 0.0149,
+          "n": 12796,
+          "observed": 0.0122,
+          "predicted": 0.0152,
           "thin": false
         },
         {
           "hi": 0.2,
           "lo": 0.1,
-          "n": 1420,
-          "observed": 0.1401,
-          "predicted": 0.1422,
+          "n": 1567,
+          "observed": 0.1398,
+          "predicted": 0.1426,
           "thin": false
         },
         {
           "hi": 0.3,
           "lo": 0.2,
-          "n": 579,
-          "observed": 0.2763,
-          "predicted": 0.2418,
+          "n": 628,
+          "observed": 0.2755,
+          "predicted": 0.2445,
           "thin": false
         },
         {
           "hi": 0.4,
           "lo": 0.3,
-          "n": 431,
-          "observed": 0.3898,
-          "predicted": 0.3639,
+          "n": 479,
+          "observed": 0.3904,
+          "predicted": 0.3646,
           "thin": false
         },
         {
           "hi": 0.5,
           "lo": 0.4,
-          "n": 430,
-          "observed": 0.4093,
-          "predicted": 0.4335,
+          "n": 838,
+          "observed": 0.3735,
+          "predicted": 0.4414,
           "thin": false
         },
         {
           "hi": 0.6,
           "lo": 0.5,
-          "n": 682,
-          "observed": 0.566,
-          "predicted": 0.5454,
+          "n": 867,
+          "observed": 0.4971,
+          "predicted": 0.5444,
           "thin": false
         },
         {
           "hi": 0.7,
           "lo": 0.6,
-          "n": 286,
-          "observed": 0.6643,
-          "predicted": 0.6395,
+          "n": 259,
+          "observed": 0.5676,
+          "predicted": 0.6354,
           "thin": false
         },
         {
@@ -2126,81 +2111,81 @@
         {
           "hi": 0.1,
           "lo": 0,
-          "n": 7645,
-          "observed": 0.0181,
-          "predicted": 0.0209,
+          "n": 8008,
+          "observed": 0.019,
+          "predicted": 0.0227,
           "thin": false
         },
         {
           "hi": 0.2,
           "lo": 0.1,
-          "n": 1299,
-          "observed": 0.1355,
-          "predicted": 0.1471,
+          "n": 1327,
+          "observed": 0.1394,
+          "predicted": 0.1503,
           "thin": false
         },
         {
           "hi": 0.3,
           "lo": 0.2,
-          "n": 736,
-          "observed": 0.2391,
-          "predicted": 0.2559,
+          "n": 786,
+          "observed": 0.2379,
+          "predicted": 0.255,
           "thin": false
         },
         {
           "hi": 0.4,
           "lo": 0.3,
-          "n": 839,
-          "observed": 0.3492,
-          "predicted": 0.352,
+          "n": 937,
+          "observed": 0.3458,
+          "predicted": 0.3508,
           "thin": false
         },
         {
           "hi": 0.5,
           "lo": 0.4,
-          "n": 529,
-          "observed": 0.4026,
-          "predicted": 0.4437,
+          "n": 578,
+          "observed": 0.4221,
+          "predicted": 0.4455,
           "thin": false
         },
         {
           "hi": 0.6,
           "lo": 0.5,
-          "n": 898,
-          "observed": 0.5735,
-          "predicted": 0.5567,
+          "n": 947,
+          "observed": 0.5787,
+          "predicted": 0.5583,
           "thin": false
         },
         {
           "hi": 0.7,
           "lo": 0.6,
-          "n": 967,
-          "observed": 0.6618,
-          "predicted": 0.6442,
+          "n": 1065,
+          "observed": 0.6657,
+          "predicted": 0.6459,
           "thin": false
         },
         {
           "hi": 0.8,
           "lo": 0.7,
-          "n": 701,
-          "observed": 0.796,
-          "predicted": 0.7586,
+          "n": 1183,
+          "observed": 0.7287,
+          "predicted": 0.7558,
           "thin": false
         },
         {
           "hi": 0.9,
           "lo": 0.8,
-          "n": 1781,
-          "observed": 0.8669,
-          "predicted": 0.8563,
+          "n": 2117,
+          "observed": 0.8394,
+          "predicted": 0.8585,
           "thin": false
         },
         {
           "hi": 1,
           "lo": 0.9,
-          "n": 543,
-          "observed": 0.8969,
-          "predicted": 0.9144,
+          "n": 486,
+          "observed": 0.8889,
+          "predicted": 0.9152,
           "thin": false
         }
       ],
@@ -2208,33 +2193,33 @@
         {
           "hi": 0.1,
           "lo": 0,
-          "n": 14090,
-          "observed": 0.0073,
+          "n": 14972,
+          "observed": 0.0072,
           "predicted": 0.0091,
           "thin": false
         },
         {
           "hi": 0.2,
           "lo": 0.1,
-          "n": 1377,
-          "observed": 0.1416,
-          "predicted": 0.1467,
+          "n": 1545,
+          "observed": 0.1463,
+          "predicted": 0.1477,
           "thin": false
         },
         {
           "hi": 0.3,
           "lo": 0.2,
-          "n": 186,
-          "observed": 0.3172,
-          "predicted": 0.2453,
+          "n": 613,
+          "observed": 0.199,
+          "predicted": 0.2491,
           "thin": false
         },
         {
           "hi": 0.4,
           "lo": 0.3,
-          "n": 285,
-          "observed": 0.4105,
-          "predicted": 0.3438,
+          "n": 304,
+          "observed": 0.2829,
+          "predicted": 0.3329,
           "thin": false
         },
         {
@@ -2292,57 +2277,57 @@
         {
           "hi": 0.1,
           "lo": 0,
-          "n": 12345,
-          "observed": 0.0183,
-          "predicted": 0.0218,
+          "n": 13297,
+          "observed": 0.0192,
+          "predicted": 0.0223,
           "thin": false
         },
         {
           "hi": 0.2,
           "lo": 0.1,
-          "n": 1164,
-          "observed": 0.1649,
+          "n": 1368,
+          "observed": 0.1645,
           "predicted": 0.1613,
           "thin": false
         },
         {
           "hi": 0.3,
           "lo": 0.2,
-          "n": 1027,
-          "observed": 0.2425,
-          "predicted": 0.2474,
+          "n": 1109,
+          "observed": 0.2543,
+          "predicted": 0.2473,
           "thin": false
         },
         {
           "hi": 0.4,
           "lo": 0.3,
-          "n": 295,
-          "observed": 0.4169,
-          "predicted": 0.375,
+          "n": 377,
+          "observed": 0.4005,
+          "predicted": 0.3668,
           "thin": false
         },
         {
           "hi": 0.5,
           "lo": 0.4,
-          "n": 213,
-          "observed": 0.4038,
-          "predicted": 0.4145,
+          "n": 253,
+          "observed": 0.3953,
+          "predicted": 0.4124,
           "thin": false
         },
         {
           "hi": 0.6,
           "lo": 0.5,
-          "n": 594,
-          "observed": 0.5993,
-          "predicted": 0.5602,
+          "n": 662,
+          "observed": 0.5891,
+          "predicted": 0.5605,
           "thin": false
         },
         {
           "hi": 0.7,
           "lo": 0.6,
-          "n": 300,
-          "observed": 0.6333,
-          "predicted": 0.6283,
+          "n": 368,
+          "observed": 0.606,
+          "predicted": 0.6222,
           "thin": false
         },
         {
@@ -2374,81 +2359,81 @@
         {
           "hi": 0.1,
           "lo": 0,
-          "n": 5978,
-          "observed": 0.0229,
-          "predicted": 0.0298,
+          "n": 6114,
+          "observed": 0.0237,
+          "predicted": 0.0308,
           "thin": false
         },
         {
           "hi": 0.2,
           "lo": 0.1,
-          "n": 3001,
-          "observed": 0.1353,
-          "predicted": 0.1444,
+          "n": 3381,
+          "observed": 0.1337,
+          "predicted": 0.1429,
           "thin": false
         },
         {
           "hi": 0.3,
           "lo": 0.2,
-          "n": 944,
-          "observed": 0.2362,
-          "predicted": 0.2486,
+          "n": 1131,
+          "observed": 0.2343,
+          "predicted": 0.2504,
           "thin": false
         },
         {
           "hi": 0.4,
           "lo": 0.3,
-          "n": 729,
-          "observed": 0.2853,
-          "predicted": 0.3332,
+          "n": 774,
+          "observed": 0.2933,
+          "predicted": 0.3336,
           "thin": false
         },
         {
           "hi": 0.5,
           "lo": 0.4,
-          "n": 944,
-          "observed": 0.428,
-          "predicted": 0.4527,
+          "n": 1080,
+          "observed": 0.4352,
+          "predicted": 0.4526,
           "thin": false
         },
         {
           "hi": 0.6,
           "lo": 0.5,
-          "n": 914,
-          "observed": 0.5864,
-          "predicted": 0.563,
+          "n": 902,
+          "observed": 0.5942,
+          "predicted": 0.5638,
           "thin": false
         },
         {
           "hi": 0.7,
           "lo": 0.6,
-          "n": 658,
-          "observed": 0.6839,
-          "predicted": 0.6536,
+          "n": 840,
+          "observed": 0.6845,
+          "predicted": 0.6475,
           "thin": false
         },
         {
           "hi": 0.8,
           "lo": 0.7,
-          "n": 737,
-          "observed": 0.7761,
-          "predicted": 0.7473,
+          "n": 839,
+          "observed": 0.7771,
+          "predicted": 0.7468,
           "thin": false
         },
         {
           "hi": 0.9,
           "lo": 0.8,
-          "n": 1493,
-          "observed": 0.866,
-          "predicted": 0.8544,
+          "n": 1695,
+          "observed": 0.8625,
+          "predicted": 0.8542,
           "thin": false
         },
         {
           "hi": 1,
           "lo": 0.9,
-          "n": 540,
-          "observed": 0.9463,
-          "predicted": 0.9232,
+          "n": 678,
+          "observed": 0.9381,
+          "predicted": 0.9234,
           "thin": false
         }
       ],
@@ -2456,25 +2441,25 @@
         {
           "hi": 0.1,
           "lo": 0,
-          "n": 14546,
-          "observed": 0.0126,
-          "predicted": 0.0127,
+          "n": 15838,
+          "observed": 0.0138,
+          "predicted": 0.0133,
           "thin": false
         },
         {
           "hi": 0.2,
           "lo": 0.1,
-          "n": 538,
-          "observed": 0.1506,
-          "predicted": 0.1447,
+          "n": 611,
+          "observed": 0.1588,
+          "predicted": 0.1459,
           "thin": false
         },
         {
           "hi": 0.3,
           "lo": 0.2,
-          "n": 769,
-          "observed": 0.2445,
-          "predicted": 0.2432,
+          "n": 900,
+          "observed": 0.2278,
+          "predicted": 0.2401,
           "thin": false
         },
         {
@@ -2546,10 +2531,10 @@
       "450MX",
       "450SX"
     ],
-    "motos": 474,
-    "motosWithLapOne": 165,
-    "motosWithQualifying": 474,
-    "rows": 15938,
+    "motos": 542,
+    "motosWithLapOne": 189,
+    "motosWithQualifying": 524,
+    "rows": 17434,
     "seasons": [
       2020,
       2021,
@@ -2571,69 +2556,69 @@
   "intervals": {
     "lapOne": {
       "podiumVsField": {
-        "hi": 0.0808,
-        "lo": 0.0493,
+        "hi": 0.0586,
+        "lo": 0.0319,
         "reps": 1000
       },
       "top10VsField": {
-        "hi": 0.153,
-        "lo": 0.1032,
+        "hi": 0.1275,
+        "lo": 0.0817,
         "reps": 1000
       },
       "winVsField": {
-        "hi": 0.0197,
-        "lo": 0.0071,
+        "hi": 0.0143,
+        "lo": 0.0046,
         "reps": 1000
       }
     },
     "points": {
       "podiumVsField": {
-        "hi": 0.2676,
-        "lo": 0.2226,
+        "hi": 0.2551,
+        "lo": 0.2134,
         "reps": 1000
       },
       "top10VsField": {
-        "hi": 0.4395,
-        "lo": 0.4036,
+        "hi": 0.4292,
+        "lo": 0.3942,
         "reps": 1000
       },
       "winVsField": {
-        "hi": 0.1072,
-        "lo": 0.0727,
+        "hi": 0.0991,
+        "lo": 0.0665,
         "reps": 1000
       }
     },
     "qualifying": {
       "podiumVsField": {
-        "hi": 0.3507,
-        "lo": 0.307,
+        "hi": 0.3026,
+        "lo": 0.2426,
         "reps": 1000
       },
       "top10VsField": {
-        "hi": 0.5383,
-        "lo": 0.5031,
+        "hi": 0.5082,
+        "lo": 0.4673,
         "reps": 1000
       },
       "winVsField": {
-        "hi": 0.1971,
-        "lo": 0.1545,
+        "hi": 0.1475,
+        "lo": 0.0968,
         "reps": 1000
       }
     },
     "rating": {
       "podiumVsField": {
-        "hi": 0.3185,
-        "lo": 0.2753,
+        "hi": 0.3086,
+        "lo": 0.2666,
         "reps": 1000
       },
       "top10VsField": {
-        "hi": 0.4805,
-        "lo": 0.4443,
+        "hi": 0.4754,
+        "lo": 0.4395,
         "reps": 1000
       },
       "winVsField": {
-        "hi": 0.1362,
-        "lo": 0.1023,
+        "hi": 0.1276,
+        "lo": 0.0943,
         "reps": 1000
       }
     }
@@ -2663,19 +2648,19 @@
   "overall": {
     "field": {
       "brier": {
-        "podium": 0.0806,
-        "top10": 0.2015,
-        "win": 0.0288
+        "podium": 0.0838,
+        "top10": 0.2055,
+        "win": 0.03
       },
       "logLoss": {
-        "podium": 0.297,
-        "top10": 0.5917,
-        "win": 0.1327
+        "podium": 0.3057,
+        "top10": 0.6,
+        "win": 0.1371
       },
-      "mae": 8.957,
+      "mae": 8.66,
       "medianRho": null,
-      "motos": 474,
-      "rows": 15938,
+      "motos": 542,
+      "rows": 17434,
       "skillVsField": {
         "podium": 0,
         "top10": 0,
@@ -2685,91 +2670,91 @@
     },
     "lapOne": {
       "brier": {
-        "podium": 0.0753,
-        "top10": 0.1758,
-        "win": 0.0284
+        "podium": 0.08,
+        "top10": 0.1841,
+        "win": 0.0298
       },
       "logLoss": {
-        "podium": 0.2662,
-        "top10": 0.5201,
-        "win": 0.1242
+        "podium": 0.2815,
+        "top10": 0.5398,
+        "win": 0.1302
       },
-      "mae": 12.975,
-      "medianRho": 0.755,
-      "motos": 474,
-      "rows": 15938,
+      "mae": 12.673,
+      "medianRho": 0.727,
+      "motos": 542,
+      "rows": 17434,
       "skillVsField": {
-        "podium": 0.0658,
-        "top10": 0.1275,
-        "win": 0.0139
+        "podium": 0.0453,
+        "top10": 0.1041,
+        "win": 0.0067
       },
-      "strongShare": 0.952
+      "strongShare": 0.847
     },
     "points": {
       "brier": {
-        "podium": 0.0607,
-        "top10": 0.1164,
-        "win": 0.0262
+        "podium": 0.0641,
+        "top10": 0.1209,
+        "win": 0.0275
       },
       "logLoss": {
-        "podium": 0.2056,
-        "top10": 0.3687,
-        "win": 0.1031
+        "podium": 0.2164,
+        "top10": 0.3809,
+        "win": 0.1087
       },
-      "mae": 5.911,
-      "medianRho": 0.714,
-      "motos": 474,
-      "rows": 15938,
+      "mae": 5.764,
+      "medianRho": 0.708,
+      "motos": 542,
+      "rows": 17434,
       "skillVsField": {
-        "podium": 0.2469,
-        "top10": 0.4223,
-        "win": 0.0903
+        "podium": 0.2351,
+        "top10": 0.4117,
+        "win": 0.0833
       },
-      "strongShare": 0.895
+      "strongShare": 0.871
     },
     "qualifying": {
       "brier": {
-        "podium": 0.054,
-        "top10": 0.0965,
-        "win": 0.0237
+        "podium": 0.0609,
+        "top10": 0.1051,
+        "win": 0.0264
       },
       "logLoss": {
-        "podium": 0.1742,
-        "top10": 0.3057,
-        "win": 0.086
+        "podium": 0.1927,
+        "top10": 0.3289,
+        "win": 0.0954
       },
-      "mae": 5.275,
+      "mae": 5.274,
       "medianRho": 0.768,
-      "motos": 474,
-      "rows": 15938,
+      "motos": 542,
+      "rows": 17434,
       "skillVsField": {
-        "podium": 0.33,
-        "top10": 0.5211,
-        "win": 0.1771
+        "podium": 0.2733,
+        "top10": 0.4886,
+        "win": 0.12
       },
-      "strongShare": 0.96
+      "strongShare": 0.954
     },
     "rating": {
       "brier": {
-        "podium": 0.0566,
-        "top10": 0.1082,
-        "win": 0.0253
+        "podium": 0.0596,
+        "top10": 0.1114,
+        "win": 0.0267
       },
       "logLoss": {
-        "podium": 0.1904,
-        "top10": 0.346,
-        "win": 0.0967
+        "podium": 0.199,
+        "top10": 0.3554,
+        "win": 0.1015
       },
-      "mae": 5.945,
-      "medianRho": 0.704,
-      "motos": 474,
-      "rows": 15938,
+      "mae": 5.762,
+      "medianRho": 0.702,
+      "motos": 542,
+      "rows": 17434,
       "skillVsField": {
-        "podium": 0.2978,
-        "top10": 0.463,
-        "win": 0.1215
+        "podium": 0.2888,
+        "top10": 0.4579,
+        "win": 0.11
       },
-      "strongShare": 0.911
+      "strongShare": 0.904
     }
   }
 }

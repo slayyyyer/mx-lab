@@ -221,14 +221,14 @@ test('derive: the committed dataset produces all six analyses deterministically'
   const second = deriveAll(events);
   eq(JSON.stringify(first), JSON.stringify(second));
 
-  // 77 Motocross events from 2020–2026 plus 84 Supercross events from 2020–2024.
-  eq(first.meta.dataset.events, 161);
-  eq(first.meta.dataset.rows, 15938);
-  eq(first.meta.dataset.laps, 227758);
+  // 77 Motocross events plus 118 Supercross events (84 archive, 34 LiveTime).
+  eq(first.meta.dataset.events, 195);
+  eq(first.meta.dataset.rows, 17434);
+  eq(first.meta.dataset.laps, 250699);
   eq(first.meta.seasons.length, 7);
 
   eq(first.lapChart.coverage.seasons, [2025, 2026]);
-  eq(first.lapChart.coverage.motos, 88);
+  eq(first.lapChart.coverage.motos, 144);
   // The chart keeps the top twenty finishers, so it counts fewer laps than the 51,432
   // the dataset holds for 2025-2026.
   assert(first.lapChart.coverage.lapsWithPosition > 25000, 'lap chart is thinner than the top-20 field');
@@ -262,11 +262,11 @@ test('derive: the committed dataset produces all six analyses deterministically'
   assert(first.qualifying.riders.length > 100, 'qualifying leaderboard is empty');
 
   eq(first.titles.seasons.length, 7);
-  // Supercross stops at 2024 in the archive; its 250 title is scored per coast.
+  // Every season now carries both series; a Supercross 250 title is scored per coast.
   const MX_CLASSES = ['250MX', '450MX'];
   const SX_CLASSES = ['250SX East', '250SX West', '450SX'];
   for (const season of first.titles.seasons) {
-    const classes = season.season <= 2024 ? [...MX_CLASSES, ...SX_CLASSES].sort() : MX_CLASSES;
+    const classes = [...MX_CLASSES, ...SX_CLASSES].sort();
     eq(Object.keys(season.classes).sort(), classes);
     for (const className of classes) {
       const table = season.classes[className];

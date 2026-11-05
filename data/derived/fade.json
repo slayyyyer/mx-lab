@@ -1,10 +1,10 @@
 {
   "analysis": "fade",
   "coverage": {
-    "lapsUsed": 209876,
+    "lapsUsed": 216073,
     "periods": "all seven seasons: lap times exist on both sources",
-    "riderMotos": 14008,
-    "riderMotosSkipped": 1930,
+    "riderMotos": 14468,
+    "riderMotosSkipped": 2966,
     "seasons": [
       2020,
       2021,
@@ -24,13 +24,13 @@
   },
   "riders": [
     {
-      "bestFadePct": -3.68,
-      "medianFadePct": 0.33,
-      "motos": 20,
-      "name": "Marshal Weltin",
-      "riderId": "marshal-weltin",
+      "bestFadePct": -1.88,
+      "medianFadePct": 0.01,
+      "motos": 11,
+      "name": "Henry Miller",
+      "riderId": "henry-miller",
       "season": 2026,
-      "worstFadePct": 2
+      "worstFadePct": 6.55
     },
     {
       "bestFadePct": -0.8,
@@ -51,40 +51,22 @@
       "worstFadePct": 4.48
     },
     {
-      "bestFadePct": -1.26,
-      "medianFadePct": 0.49,
-      "motos": 19,
-      "name": "Grant Harlan",
-      "riderId": "grant-harlan",
-      "season": 2026,
-      "worstFadePct": 3.54
-    },
-    {
-      "bestFadePct": -0.76,
-      "medianFadePct": 0.49,
-      "motos": 22,
+      "bestFadePct": -3.19,
+      "medianFadePct": 0.52,
+      "motos": 30,
       "name": "Mitchell Harrison",
       "riderId": "mitchell-harrison",
       "season": 2026,
-      "worstFadePct": 2.61
+      "worstFadePct": 6.08
     },
     {
-      "bestFadePct": -1.18,
-      "medianFadePct": 0.54,
-      "motos": 16,
-      "name": "Freddie Noren",
-      "riderId": "freddie-noren",
+      "bestFadePct": -3.68,
+      "medianFadePct": 0.53,
+      "motos": 22,
+      "name": "Marshal Weltin",
+      "riderId": "marshal-weltin",
       "season": 2026,
-      "worstFadePct": 3.49
-    },
-    {
-      "bestFadePct": -3.83,
-      "medianFadePct": 0.55,
-      "motos": 18,
-      "name": "Drew Adams",
-      "riderId": "drew-adams",
-      "season": 2026,
-      "worstFadePct": 2.38
+      "worstFadePct": 2.9
     },
     {
       "bestFadePct": -2.04,
@@ -114,15 +96,6 @@
       "worstFadePct": 4
     },
     {
-      "bestFadePct": -0.78,
-      "medianFadePct": 0.59,
-      "motos": 13,
-      "name": "Christian Craig",
-      "riderId": "christian-craig",
-      "season": 2026,
-      "worstFadePct": 3.6
-    },
-    {
       "bestFadePct": -1.52,
       "medianFadePct": 0.62,
       "motos": 14,
@@ -141,6 +114,15 @@
       "worstFadePct": 12.48
     },
     {
+      "bestFadePct": -1.18,
+      "medianFadePct": 0.7,
+      "motos": 18,
+      "name": "Freddie Noren",
+      "riderId": "freddie-noren",
+      "season": 2026,
+      "worstFadePct": 3.49
+    },
+    {
       "bestFadePct": -0.93,
       "medianFadePct": 0.7,
       "motos": 20,
@@ -150,13 +132,22 @@
       "worstFadePct": 7.76
     },
     {
-      "bestFadePct": -1.7,
-      "medianFadePct": 0.73,
-      "motos": 19,
-      "name": "LUX Turner",
-      "riderId": "lux-turner",
+      "bestFadePct": -2.47,
+      "medianFadePct": 0.7,
+      "motos": 10,
+      "name": "Seth Hammaker",
+      "riderId": "seth-hammaker",
       "season": 2026,
-      "worstFadePct": 5.92
+      "worstFadePct": 3.35
+    },
+    {
+      "bestFadePct": -3.83,
+      "medianFadePct": 0.71,
+      "motos": 19,
+      "name": "Drew Adams",
+      "riderId": "drew-adams",
+      "season": 2026,
+      "worstFadePct": 2.38
     },
     {
       "bestFadePct": -0.76,
@@ -177,13 +168,13 @@
       "worstFadePct": 16.84
     },
     {
-      "bestFadePct": -0.29,
+      "bestFadePct": -1.7,
       "medianFadePct": 0.77,
-      "motos": 21,
-      "name": "Michael Mosiman",
-      "riderId": "michael-mosiman",
+      "motos": 23,
+      "name": "Lux Turner",
+      "riderId": "lux-turner",
       "season": 2026,
-      "worstFadePct": 4.39
+      "worstFadePct": 7.59
     },
     {
       "bestFadePct": -4.89,
@@ -231,6 +222,15 @@
       "worstFadePct": 4.84
     },
     {
+      "bestFadePct": -7.52,
+      "medianFadePct": 0.81,
+      "motos": 25,
+      "name": "Grant Harlan",
+      "riderId": "grant-harlan",
+      "season": 2026,
+      "worstFadePct": 5.4
+    },
+    {
       "bestFadePct": -0.19,
       "medianFadePct": 0.81,
       "motos": 12,
@@ -250,21 +250,12 @@
     },
     {
       "bestFadePct": -0.73,
-      "medianFadePct": 0.86,
-      "motos": 21,
+      "medianFadePct": 0.85,
+      "motos": 22,
       "name": "Nate Thrasher",
       "riderId": "nate-thrasher",
       "season": 2025,
       "worstFadePct": 4.99
-    },
-    {
-      "bestFadePct": -1.79,
-      "medianFadePct": 0.87,
-      "motos": 21,
-      "name": "Hamden Hudson",
-      "riderId": "hamden-hudson",
-      "season": 2026,
-      "worstFadePct": 3.41
     },
     {
       "bestFadePct": -1.57,
@@ -312,15 +303,6 @@
       "worstFadePct": 4.2
     },
     {
-      "bestFadePct": -0.61,
-      "medianFadePct": 0.92,
-      "motos": 20,
-      "name": "Parker Ross",
-      "riderId": "parker-ross",
-      "season": 2025,
-      "worstFadePct": 4.9
-    },
-    {
       "bestFadePct": -2.18,
       "medianFadePct": 0.93,
       "motos": 22,
@@ -346,6 +328,15 @@
       "riderId": "justin-cooper",
       "season": 2023,
       "worstFadePct": 4.91
+    },
+    {
+      "bestFadePct": -3.47,
+      "medianFadePct": 0.95,
+      "motos": 25,
+      "name": "Mitchell Harrison",
+      "riderId": "mitchell-harrison",
+      "season": 2025,
+      "worstFadePct": 8.82
     },
     {
       "bestFadePct": -0.08,
@@ -429,13 +420,31 @@
       "worstFadePct": 6.84
     },
     {
+      "bestFadePct": -1.79,
+      "medianFadePct": 1,
+      "motos": 22,
+      "name": "Hamden Hudson",
+      "riderId": "hamden-hudson",
+      "season": 2026,
+      "worstFadePct": 3.41
+    },
+    {
+      "bestFadePct": 0.15,
+      "medianFadePct": 1.01,
+      "motos": 13,
+      "name": "Colt Nichols",
+      "riderId": "colt-nichols",
+      "season": 2026,
+      "worstFadePct": 5.43
+    },
+    {
       "bestFadePct": -0.72,
       "medianFadePct": 1.01,
-      "motos": 14,
+      "motos": 18,
       "name": "Justin Barcia",
       "riderId": "justin-barcia",
       "season": 2025,
-      "worstFadePct": 3.51
+      "worstFadePct": 26.53
     },
     {
       "bestFadePct": -0.31,
@@ -456,15 +465,6 @@
       "worstFadePct": 5.36
     },
     {
-      "bestFadePct": -0.76,
-      "medianFadePct": 1.02,
-      "motos": 20,
-      "name": "Gavin Towers",
-      "riderId": "gavin-towers",
-      "season": 2026,
-      "worstFadePct": 7.02
-    },
-    {
       "bestFadePct": -0.77,
       "medianFadePct": 1.02,
       "motos": 21,
@@ -472,15 +472,6 @@
       "riderId": "harri-kullas",
       "season": 2025,
       "worstFadePct": 6.19
-    },
-    {
-      "bestFadePct": -0.07,
-      "medianFadePct": 1.02,
-      "motos": 10,
-      "name": "JO Shimoda",
-      "riderId": "jo-shimoda",
-      "season": 2026,
-      "worstFadePct": 2.79
     },
     {
       "bestFadePct": -0.54,
@@ -499,15 +490,6 @@
       "riderId": "pierce-brown",
       "season": 2020,
       "worstFadePct": 15.81
-    },
-    {
-      "bestFadePct": -2.42,
-      "medianFadePct": 1.03,
-      "motos": 15,
-      "name": "Daxton Bennick",
-      "riderId": "daxton-bennick",
-      "season": 2026,
-      "worstFadePct": 9.83
     },
     {
       "bestFadePct": -0.95,
@@ -582,13 +564,22 @@
       "worstFadePct": 3.34
     },
     {
-      "bestFadePct": -1.45,
-      "medianFadePct": 1.07,
-      "motos": 21,
-      "name": "Austin Forkner",
-      "riderId": "austin-forkner",
-      "season": 2025,
-      "worstFadePct": 3.06
+      "bestFadePct": -0.07,
+      "medianFadePct": 1.06,
+      "motos": 11,
+      "name": "JO Shimoda",
+      "riderId": "jo-shimoda",
+      "season": 2026,
+      "worstFadePct": 2.79
+    },
+    {
+      "bestFadePct": -0.29,
+      "medianFadePct": 1.06,
+      "motos": 24,
+      "name": "Michael Mosiman",
+      "riderId": "michael-mosiman",
+      "season": 2026,
+      "worstFadePct": 5.74
     },
     {
       "bestFadePct": -4.32,
@@ -618,6 +609,15 @@
       "worstFadePct": 5.76
     },
     {
+      "bestFadePct": -0.96,
+      "medianFadePct": 1.09,
+      "motos": 15,
+      "name": "Aaron Plessinger",
+      "riderId": "aaron-plessinger",
+      "season": 2026,
+      "worstFadePct": 6.74
+    },
+    {
       "bestFadePct": -1.81,
       "medianFadePct": 1.1,
       "motos": 25,
@@ -645,6 +645,15 @@
       "worstFadePct": 4.7
     },
     {
+      "bestFadePct": -0.61,
+      "medianFadePct": 1.1,
+      "motos": 22,
+      "name": "Parker Ross",
+      "riderId": "parker-ross",
+      "season": 2025,
+      "worstFadePct": 10.12
+    },
+    {
       "bestFadePct": -0.25,
       "medianFadePct": 1.11,
       "motos": 16,
@@ -654,15 +663,6 @@
       "worstFadePct": 5.28
     },
     {
-      "bestFadePct": -0.96,
-      "medianFadePct": 1.12,
-      "motos": 12,
-      "name": "Aaron Plessinger",
-      "riderId": "aaron-plessinger",
-      "season": 2026,
-      "worstFadePct": 4.82
-    },
-    {
       "bestFadePct": 0.22,
       "medianFadePct": 1.12,
       "motos": 10,
@@ -670,15 +670,6 @@
       "riderId": "derek-kelley",
       "season": 2025,
       "worstFadePct": 3.53
-    },
-    {
-      "bestFadePct": -1,
-      "medianFadePct": 1.12,
-      "motos": 11,
-      "name": "Jeremy Hand",
-      "riderId": "jeremy-hand",
-      "season": 2026,
-      "worstFadePct": 3.1
     },
     {
       "bestFadePct": -0.68,
@@ -718,8 +709,8 @@
     },
     {
       "bestFadePct": -4.12,
-      "medianFadePct": 1.15,
-      "motos": 19,
+      "medianFadePct": 1.14,
+      "motos": 20,
       "name": "Russell Buccheri",
       "riderId": "russell-buccheri",
       "season": 2026,
@@ -789,15 +780,6 @@
       "worstFadePct": 9.13
     },
     {
-      "bestFadePct": -1.67,
-      "medianFadePct": 1.18,
-      "motos": 20,
-      "name": "Levi Kitchen",
-      "riderId": "levi-kitchen",
-      "season": 2026,
-      "worstFadePct": 3.16
-    },
-    {
       "bestFadePct": -0.92,
       "medianFadePct": 1.18,
       "motos": 13,
@@ -818,7 +800,7 @@
     {
       "bestFadePct": -1.25,
       "medianFadePct": 1.19,
-      "motos": 19,
+      "motos": 21,
       "name": "Dilan Schwartz",
       "riderId": "dilan-schwartz",
       "season": 2026,
@@ -861,15 +843,6 @@
       "worstFadePct": 6.72
     },
     {
-      "bestFadePct": -1.31,
-      "medianFadePct": 1.2,
-      "motos": 21,
-      "name": "Mitchell Harrison",
-      "riderId": "mitchell-harrison",
-      "season": 2025,
-      "worstFadePct": 8.82
-    },
-    {
       "bestFadePct": -1.05,
       "medianFadePct": 1.21,
       "motos": 25,
@@ -906,13 +879,22 @@
       "worstFadePct": 4.02
     },
     {
-      "bestFadePct": -0.76,
+      "bestFadePct": -13.45,
       "medianFadePct": 1.23,
-      "motos": 20,
-      "name": "Dylan Ferrandis",
-      "riderId": "dylan-ferrandis",
+      "motos": 25,
+      "name": "Jordon Smith",
+      "riderId": "jordon-smith",
       "season": 2026,
-      "worstFadePct": 5.19
+      "worstFadePct": 4.37
+    },
+    {
+      "bestFadePct": -1.67,
+      "medianFadePct": 1.23,
+      "motos": 22,
+      "name": "Levi Kitchen",
+      "riderId": "levi-kitchen",
+      "season": 2026,
+      "worstFadePct": 4.37
     },
     {
       "bestFadePct": 0.12,
@@ -933,6 +915,15 @@
       "worstFadePct": 3.48
     },
     {
+      "bestFadePct": -0.59,
+      "medianFadePct": 1.24,
+      "motos": 10,
+      "name": "Derek Kelley",
+      "riderId": "derek-kelley",
+      "season": 2026,
+      "worstFadePct": 2.91
+    },
+    {
       "bestFadePct": -3.69,
       "medianFadePct": 1.25,
       "motos": 24,
@@ -949,6 +940,15 @@
       "riderId": "coty-schock",
       "season": 2024,
       "worstFadePct": 5.95
+    },
+    {
+      "bestFadePct": -0.01,
+      "medianFadePct": 1.25,
+      "motos": 11,
+      "name": "Henry Miller",
+      "riderId": "henry-miller",
+      "season": 2025,
+      "worstFadePct": 2.98
     },
     {
       "bestFadePct": -0.96,
@@ -978,15 +978,6 @@
       "worstFadePct": 3.89
     },
     {
-      "bestFadePct": -1.32,
-      "medianFadePct": 1.26,
-      "motos": 19,
-      "name": "Malcolm Stewart",
-      "riderId": "malcolm-stewart",
-      "season": 2025,
-      "worstFadePct": 3.26
-    },
-    {
       "bestFadePct": -0.56,
       "medianFadePct": 1.26,
       "motos": 19,
@@ -994,6 +985,33 @@
       "riderId": "ty-masterpool",
       "season": 2023,
       "worstFadePct": 8
+    },
+    {
+      "bestFadePct": -1.45,
+      "medianFadePct": 1.27,
+      "motos": 22,
+      "name": "Austin Forkner",
+      "riderId": "austin-forkner",
+      "season": 2025,
+      "worstFadePct": 3.06
+    },
+    {
+      "bestFadePct": -1.21,
+      "medianFadePct": 1.28,
+      "motos": 19,
+      "name": "Christian Craig",
+      "riderId": "christian-craig",
+      "season": 2026,
+      "worstFadePct": 4.13
+    },
+    {
+      "bestFadePct": -1.32,
+      "medianFadePct": 1.28,
+      "motos": 22,
+      "name": "Malcolm Stewart",
+      "riderId": "malcolm-stewart",
+      "season": 2025,
+      "worstFadePct": 3.26
     },
     {
       "bestFadePct": -0.51,
@@ -1023,15 +1041,6 @@
       "worstFadePct": 3.67
     },
     {
-      "bestFadePct": -0.69,
-      "medianFadePct": 1.29,
-      "motos": 12,
-      "name": "Preston Masciangelo",
-      "riderId": "preston-masciangelo",
-      "season": 2026,
-      "worstFadePct": 5.7
-    },
-    {
       "bestFadePct": -1.35,
       "medianFadePct": 1.29,
       "motos": 17,
@@ -1059,6 +1068,15 @@
       "worstFadePct": 4.46
     },
     {
+      "bestFadePct": -0.97,
+      "medianFadePct": 1.31,
+      "motos": 26,
+      "name": "Cooper Webb",
+      "riderId": "cooper-webb",
+      "season": 2026,
+      "worstFadePct": 5.01
+    },
+    {
       "bestFadePct": -1.57,
       "medianFadePct": 1.32,
       "motos": 22,
@@ -1066,15 +1084,6 @@
       "riderId": "grant-harlan",
       "season": 2022,
       "worstFadePct": 6.79
-    },
-    {
-      "bestFadePct": -1.14,
-      "medianFadePct": 1.32,
-      "motos": 21,
-      "name": "Jordon Smith",
-      "riderId": "jordon-smith",
-      "season": 2026,
-      "worstFadePct": 4.37
     },
     {
       "bestFadePct": -1.33,
@@ -1088,8 +1097,8 @@
     {
       "bestFadePct": -2.45,
       "medianFadePct": 1.32,
-      "motos": 22,
-      "name": "R.j. Hampshire",
+      "motos": 24,
+      "name": "R.J. Hampshire",
       "riderId": "r-j-hampshire",
       "season": 2026,
       "worstFadePct": 3.66
@@ -1104,13 +1113,13 @@
       "worstFadePct": 3.86
     },
     {
-      "bestFadePct": -0.19,
+      "bestFadePct": -0.5,
       "medianFadePct": 1.33,
-      "motos": 20,
-      "name": "Coty Schock",
-      "riderId": "coty-schock",
+      "motos": 14,
+      "name": "Joey Savatgy",
+      "riderId": "joey-savatgy",
       "season": 2025,
-      "worstFadePct": 9.58
+      "worstFadePct": 9.25
     },
     {
       "bestFadePct": -1.31,
@@ -1131,18 +1140,9 @@
       "worstFadePct": 8.5
     },
     {
-      "bestFadePct": -0.52,
-      "medianFadePct": 1.34,
-      "motos": 21,
-      "name": "Cooper Webb",
-      "riderId": "cooper-webb",
-      "season": 2026,
-      "worstFadePct": 5.01
-    },
-    {
       "bestFadePct": -1.63,
       "medianFadePct": 1.34,
-      "motos": 22,
+      "motos": 24,
       "name": "Haiden Deegan",
       "riderId": "haiden-deegan",
       "season": 2026,
@@ -1194,15 +1194,6 @@
       "worstFadePct": 4.54
     },
     {
-      "bestFadePct": -1.43,
-      "medianFadePct": 1.38,
-      "motos": 19,
-      "name": "Parker Ross",
-      "riderId": "parker-ross",
-      "season": 2026,
-      "worstFadePct": 4.87
-    },
-    {
       "bestFadePct": -0.11,
       "medianFadePct": 1.38,
       "motos": 16,
@@ -1230,15 +1221,6 @@
       "worstFadePct": 3.65
     },
     {
-      "bestFadePct": -0.01,
-      "medianFadePct": 1.39,
-      "motos": 10,
-      "name": "Henry Miller",
-      "riderId": "henry-miller",
-      "season": 2025,
-      "worstFadePct": 2.98
-    },
-    {
       "bestFadePct": -0.06,
       "medianFadePct": 1.39,
       "motos": 15,
@@ -1255,6 +1237,15 @@
       "riderId": "malcolm-stewart",
       "season": 2020,
       "worstFadePct": 5.68
+    },
+    {
+      "bestFadePct": -3.28,
+      "medianFadePct": 1.39,
+      "motos": 10,
+      "name": "Malcolm Stewart",
+      "riderId": "malcolm-stewart",
+      "season": 2026,
+      "worstFadePct": 4.25
     },
     {
       "bestFadePct": -0.08,
@@ -1284,6 +1275,24 @@
       "worstFadePct": 4.51
     },
     {
+      "bestFadePct": -0.48,
+      "medianFadePct": 1.4,
+      "motos": 12,
+      "name": "Izaih Clark",
+      "riderId": "izaih-clark",
+      "season": 2025,
+      "worstFadePct": 4.88
+    },
+    {
+      "bestFadePct": -1.96,
+      "medianFadePct": 1.4,
+      "motos": 14,
+      "name": "Jeremy Hand",
+      "riderId": "jeremy-hand",
+      "season": 2026,
+      "worstFadePct": 13.79
+    },
+    {
       "bestFadePct": -0.47,
       "medianFadePct": 1.4,
       "motos": 22,
@@ -1291,15 +1300,6 @@
       "riderId": "nathanael-thrasher",
       "season": 2022,
       "worstFadePct": 3.27
-    },
-    {
-      "bestFadePct": -3.05,
-      "medianFadePct": 1.41,
-      "motos": 22,
-      "name": "Avery Long",
-      "riderId": "avery-long",
-      "season": 2026,
-      "worstFadePct": 6.46
     },
     {
       "bestFadePct": -0.84,
@@ -1311,6 +1311,15 @@
       "worstFadePct": 4.78
     },
     {
+      "bestFadePct": -4.78,
+      "medianFadePct": 1.41,
+      "motos": 19,
+      "name": "Nate Thrasher",
+      "riderId": "nate-thrasher",
+      "season": 2026,
+      "worstFadePct": 3.38
+    },
+    {
       "bestFadePct": 0.3,
       "medianFadePct": 1.41,
       "motos": 18,
@@ -1318,6 +1327,15 @@
       "riderId": "preston-kilroy",
       "season": 2022,
       "worstFadePct": 4.14
+    },
+    {
+      "bestFadePct": -0.69,
+      "medianFadePct": 1.41,
+      "motos": 16,
+      "name": "Preston Masciangelo",
+      "riderId": "preston-masciangelo",
+      "season": 2026,
+      "worstFadePct": 5.7
     },
     {
       "bestFadePct": -1.19,
@@ -1329,15 +1347,6 @@
       "worstFadePct": 8.32
     },
     {
-      "bestFadePct": -0.48,
-      "medianFadePct": 1.42,
-      "motos": 10,
-      "name": "Izaih Clark",
-      "riderId": "izaih-clark",
-      "season": 2025,
-      "worstFadePct": 4.88
-    },
-    {
       "bestFadePct": -0.4,
       "medianFadePct": 1.42,
       "motos": 25,
@@ -1347,13 +1356,31 @@
       "worstFadePct": 4.48
     },
     {
-      "bestFadePct": -0.85,
+      "bestFadePct": -3.24,
       "medianFadePct": 1.42,
-      "motos": 12,
-      "name": "Vince Friese",
-      "riderId": "vince-friese",
+      "motos": 23,
+      "name": "Valentin Guillod",
+      "riderId": "valentin-guillod",
       "season": 2026,
-      "worstFadePct": 4.75
+      "worstFadePct": 7.45
+    },
+    {
+      "bestFadePct": -21.45,
+      "medianFadePct": 1.43,
+      "motos": 10,
+      "name": "Benny Bloss",
+      "riderId": "benny-bloss",
+      "season": 2025,
+      "worstFadePct": 12.17
+    },
+    {
+      "bestFadePct": -0.76,
+      "medianFadePct": 1.43,
+      "motos": 24,
+      "name": "Dylan Ferrandis",
+      "riderId": "dylan-ferrandis",
+      "season": 2026,
+      "worstFadePct": 5.19
     },
     {
       "bestFadePct": -1.28,
@@ -1365,6 +1392,15 @@
       "worstFadePct": 5.41
     },
     {
+      "bestFadePct": -1.81,
+      "medianFadePct": 1.43,
+      "motos": 26,
+      "name": "Jorge Prado",
+      "riderId": "jorge-prado",
+      "season": 2026,
+      "worstFadePct": 6.13
+    },
+    {
       "bestFadePct": -0.83,
       "medianFadePct": 1.43,
       "motos": 31,
@@ -1372,6 +1408,15 @@
       "riderId": "max-anstie",
       "season": 2021,
       "worstFadePct": 8.27
+    },
+    {
+      "bestFadePct": -3.05,
+      "medianFadePct": 1.44,
+      "motos": 25,
+      "name": "Avery Long",
+      "riderId": "avery-long",
+      "season": 2026,
+      "worstFadePct": 6.46
     },
     {
       "bestFadePct": -0.6,
@@ -1390,15 +1435,6 @@
       "riderId": "chase-sexton",
       "season": 2021,
       "worstFadePct": 5.07
-    },
-    {
-      "bestFadePct": -1.48,
-      "medianFadePct": 1.45,
-      "motos": 20,
-      "name": "Garrett Marchbanks",
-      "riderId": "garrett-marchbanks",
-      "season": 2026,
-      "worstFadePct": 3.15
     },
     {
       "bestFadePct": -3.48,
@@ -1446,6 +1482,15 @@
       "worstFadePct": 3.27
     },
     {
+      "bestFadePct": -2.42,
+      "medianFadePct": 1.47,
+      "motos": 17,
+      "name": "Daxton Bennick",
+      "riderId": "daxton-bennick",
+      "season": 2026,
+      "worstFadePct": 9.83
+    },
+    {
       "bestFadePct": -1,
       "medianFadePct": 1.48,
       "motos": 23,
@@ -1464,22 +1509,13 @@
       "worstFadePct": 6.5
     },
     {
-      "bestFadePct": -0.2,
+      "bestFadePct": 0.27,
       "medianFadePct": 1.49,
-      "motos": 12,
-      "name": "MAX Miller",
-      "riderId": "max-miller",
-      "season": 2025,
-      "worstFadePct": 10.04
-    },
-    {
-      "bestFadePct": -2.3,
-      "medianFadePct": 1.49,
-      "motos": 16,
-      "name": "Nate Thrasher",
-      "riderId": "nate-thrasher",
+      "motos": 11,
+      "name": "Max Vohland",
+      "riderId": "max-vohland",
       "season": 2026,
-      "worstFadePct": 3.38
+      "worstFadePct": 3.19
     },
     {
       "bestFadePct": 0.18,
@@ -1509,6 +1545,15 @@
       "worstFadePct": 5.83
     },
     {
+      "bestFadePct": -1.43,
+      "medianFadePct": 1.51,
+      "motos": 23,
+      "name": "Parker Ross",
+      "riderId": "parker-ross",
+      "season": 2026,
+      "worstFadePct": 6.64
+    },
+    {
       "bestFadePct": -0.62,
       "medianFadePct": 1.51,
       "motos": 22,
@@ -1516,15 +1561,6 @@
       "riderId": "shane-mcelrath",
       "season": 2020,
       "worstFadePct": 17.53
-    },
-    {
-      "bestFadePct": -3.24,
-      "medianFadePct": 1.51,
-      "motos": 22,
-      "name": "Valentin Guillod",
-      "riderId": "valentin-guillod",
-      "season": 2026,
-      "worstFadePct": 7.45
     },
     {
       "bestFadePct": -1.01,
@@ -1646,7 +1682,7 @@
     {
       "bestFadePct": -0.18,
       "medianFadePct": 1.54,
-      "motos": 21,
+      "motos": 23,
       "name": "Jordon Smith",
       "riderId": "jordon-smith",
       "season": 2025,
@@ -1698,13 +1734,22 @@
       "worstFadePct": 5.75
     },
     {
-      "bestFadePct": -0.78,
+      "bestFadePct": 0.12,
       "medianFadePct": 1.56,
-      "motos": 10,
-      "name": "ELI Tomac",
-      "riderId": "eli-tomac",
-      "season": 2026,
-      "worstFadePct": 3.86
+      "motos": 13,
+      "name": "Jason Anderson",
+      "riderId": "jason-anderson",
+      "season": 2025,
+      "worstFadePct": 10.92
+    },
+    {
+      "bestFadePct": 0.09,
+      "medianFadePct": 1.57,
+      "motos": 11,
+      "name": "Chase Sexton",
+      "riderId": "chase-sexton",
+      "season": 2025,
+      "worstFadePct": 37.52
     },
     {
       "bestFadePct": -0.34,
@@ -1734,13 +1779,13 @@
       "worstFadePct": 8.87
     },
     {
-      "bestFadePct": -0.64,
+      "bestFadePct": -1.49,
       "medianFadePct": 1.58,
-      "motos": 12,
+      "motos": 16,
       "name": "Colt Nichols",
       "riderId": "colt-nichols",
       "season": 2025,
-      "worstFadePct": 8.85
+      "worstFadePct": 18.09
     },
     {
       "bestFadePct": 0.26,
@@ -1750,15 +1795,6 @@
       "riderId": "jace-kessler",
       "season": 2022,
       "worstFadePct": 8.31
-    },
-    {
-      "bestFadePct": -0.85,
-      "medianFadePct": 1.59,
-      "motos": 20,
-      "name": "Drew Adams",
-      "riderId": "drew-adams",
-      "season": 2025,
-      "worstFadePct": 8.93
     },
     {
       "bestFadePct": 0.87,
@@ -1795,6 +1831,24 @@
       "riderId": "cameron-mcadoo",
       "season": 2021,
       "worstFadePct": 2.67
+    },
+    {
+      "bestFadePct": -0.85,
+      "medianFadePct": 1.6,
+      "motos": 21,
+      "name": "Drew Adams",
+      "riderId": "drew-adams",
+      "season": 2025,
+      "worstFadePct": 8.93
+    },
+    {
+      "bestFadePct": -0.76,
+      "medianFadePct": 1.6,
+      "motos": 23,
+      "name": "Gavin Towers",
+      "riderId": "gavin-towers",
+      "season": 2026,
+      "worstFadePct": 7.02
     },
     {
       "bestFadePct": 0.73,
@@ -1878,6 +1932,15 @@
       "worstFadePct": 8.68
     },
     {
+      "bestFadePct": -1.77,
+      "medianFadePct": 1.62,
+      "motos": 12,
+      "name": "Freddie Noren",
+      "riderId": "freddie-noren",
+      "season": 2025,
+      "worstFadePct": 8.96
+    },
+    {
       "bestFadePct": -0.23,
       "medianFadePct": 1.62,
       "motos": 15,
@@ -1932,6 +1995,24 @@
       "worstFadePct": 6.16
     },
     {
+      "bestFadePct": -0.2,
+      "medianFadePct": 1.64,
+      "motos": 13,
+      "name": "Max Miller",
+      "riderId": "max-miller",
+      "season": 2025,
+      "worstFadePct": 10.04
+    },
+    {
+      "bestFadePct": -1.82,
+      "medianFadePct": 1.65,
+      "motos": 26,
+      "name": "Hunter Lawrence",
+      "riderId": "hunter-lawrence",
+      "season": 2026,
+      "worstFadePct": 10.04
+    },
+    {
       "bestFadePct": -1.71,
       "medianFadePct": 1.65,
       "motos": 36,
@@ -1939,15 +2020,6 @@
       "riderId": "jason-anderson",
       "season": 2022,
       "worstFadePct": 7.68
-    },
-    {
-      "bestFadePct": 0.12,
-      "medianFadePct": 1.65,
-      "motos": 10,
-      "name": "Jason Anderson",
-      "riderId": "jason-anderson",
-      "season": 2025,
-      "worstFadePct": 10.92
     },
     {
       "bestFadePct": 0.3,
@@ -1977,6 +2049,15 @@
       "worstFadePct": 24.71
     },
     {
+      "bestFadePct": -0.19,
+      "medianFadePct": 1.66,
+      "motos": 23,
+      "name": "Coty Schock",
+      "riderId": "coty-schock",
+      "season": 2025,
+      "worstFadePct": 9.58
+    },
+    {
       "bestFadePct": -0.13,
       "medianFadePct": 1.66,
       "motos": 22,
@@ -2004,13 +2085,22 @@
       "worstFadePct": 9.38
     },
     {
-      "bestFadePct": -0.86,
+      "bestFadePct": -1.63,
       "medianFadePct": 1.67,
-      "motos": 18,
-      "name": "Carson Mumford",
-      "riderId": "carson-mumford",
+      "motos": 23,
+      "name": "Chance Hymas",
+      "riderId": "chance-hymas",
       "season": 2026,
-      "worstFadePct": 2.99
+      "worstFadePct": 3.86
+    },
+    {
+      "bestFadePct": -6.3,
+      "medianFadePct": 1.67,
+      "motos": 26,
+      "name": "Garrett Marchbanks",
+      "riderId": "garrett-marchbanks",
+      "season": 2026,
+      "worstFadePct": 3.76
     },
     {
       "bestFadePct": -0.2,
@@ -2056,6 +2146,15 @@
       "riderId": "rj-hampshire",
       "season": 2020,
       "worstFadePct": 11.45
+    },
+    {
+      "bestFadePct": -1.2,
+      "medianFadePct": 1.67,
+      "motos": 10,
+      "name": "Shane Mcelrath",
+      "riderId": "shane-mcelrath",
+      "season": 2025,
+      "worstFadePct": 7.47
     },
     {
       "bestFadePct": -0.86,
@@ -2132,7 +2231,7 @@
     {
       "bestFadePct": -0.12,
       "medianFadePct": 1.7,
-      "motos": 22,
+      "motos": 24,
       "name": "Hunter Lawrence",
       "riderId": "hunter-lawrence",
       "season": 2025,
@@ -2157,6 +2256,15 @@
       "worstFadePct": 10.5
     },
     {
+      "bestFadePct": -0.64,
+      "medianFadePct": 1.71,
+      "motos": 21,
+      "name": "Avery Long",
+      "riderId": "avery-long",
+      "season": 2025,
+      "worstFadePct": 4.65
+    },
+    {
       "bestFadePct": -2.92,
       "medianFadePct": 1.71,
       "motos": 12,
@@ -2173,15 +2281,6 @@
       "riderId": "levi-kitchen",
       "season": 2021,
       "worstFadePct": 9.02
-    },
-    {
-      "bestFadePct": -1.63,
-      "medianFadePct": 1.72,
-      "motos": 22,
-      "name": "Chance Hymas",
-      "riderId": "chance-hymas",
-      "season": 2026,
-      "worstFadePct": 3.86
     },
     {
       "bestFadePct": -6.19,
@@ -2238,15 +2337,6 @@
       "worstFadePct": 5.34
     },
     {
-      "bestFadePct": -0.55,
-      "medianFadePct": 1.74,
-      "motos": 22,
-      "name": "Hunter Lawrence",
-      "riderId": "hunter-lawrence",
-      "season": 2026,
-      "worstFadePct": 10.04
-    },
-    {
       "bestFadePct": -0.27,
       "medianFadePct": 1.74,
       "motos": 11,
@@ -2283,15 +2373,6 @@
       "worstFadePct": 6.08
     },
     {
-      "bestFadePct": -1.05,
-      "medianFadePct": 1.75,
-      "motos": 17,
-      "name": "Jace Kessler",
-      "riderId": "jace-kessler",
-      "season": 2026,
-      "worstFadePct": 15.22
-    },
-    {
       "bestFadePct": -0.91,
       "medianFadePct": 1.75,
       "motos": 29,
@@ -2299,15 +2380,6 @@
       "riderId": "jett-lawrence",
       "season": 2021,
       "worstFadePct": 3.94
-    },
-    {
-      "bestFadePct": -0.49,
-      "medianFadePct": 1.75,
-      "motos": 19,
-      "name": "Justin Barcia",
-      "riderId": "justin-barcia",
-      "season": 2026,
-      "worstFadePct": 4.32
     },
     {
       "bestFadePct": -4.52,
@@ -2328,13 +2400,13 @@
       "worstFadePct": 7.56
     },
     {
-      "bestFadePct": -0.8,
+      "bestFadePct": -0.49,
       "medianFadePct": 1.76,
-      "motos": 22,
-      "name": "Garrett Marchbanks",
-      "riderId": "garrett-marchbanks",
-      "season": 2025,
-      "worstFadePct": 4.03
+      "motos": 20,
+      "name": "Justin Barcia",
+      "riderId": "justin-barcia",
+      "season": 2026,
+      "worstFadePct": 4.32
     },
     {
       "bestFadePct": -3.98,
@@ -2362,6 +2434,15 @@
       "riderId": "jeremy-smith",
       "season": 2020,
       "worstFadePct": 9.16
+    },
+    {
+      "bestFadePct": -1.04,
+      "medianFadePct": 1.77,
+      "motos": 26,
+      "name": "Ryder Difrancesco",
+      "riderId": "ryder-difrancesco",
+      "season": 2026,
+      "worstFadePct": 4.18
     },
     {
       "bestFadePct": -0.88,
@@ -2400,15 +2481,6 @@
       "worstFadePct": 4.39
     },
     {
-      "bestFadePct": -1.41,
-      "medianFadePct": 1.79,
-      "motos": 22,
-      "name": "Jorge Prado",
-      "riderId": "jorge-prado",
-      "season": 2026,
-      "worstFadePct": 6.13
-    },
-    {
       "bestFadePct": 0.42,
       "medianFadePct": 1.79,
       "motos": 18,
@@ -2416,15 +2488,6 @@
       "riderId": "mikkel-haarup",
       "season": 2025,
       "worstFadePct": 3.95
-    },
-    {
-      "bestFadePct": -0.64,
-      "medianFadePct": 1.8,
-      "motos": 20,
-      "name": "Avery Long",
-      "riderId": "avery-long",
-      "season": 2025,
-      "worstFadePct": 4.65
     },
     {
       "bestFadePct": -2.07,
@@ -2472,6 +2535,15 @@
       "worstFadePct": 4.52
     },
     {
+      "bestFadePct": -0.78,
+      "medianFadePct": 1.82,
+      "motos": 19,
+      "name": "CJ Benard",
+      "riderId": "cj-benard",
+      "season": 2025,
+      "worstFadePct": 5.77
+    },
+    {
       "bestFadePct": -0.25,
       "medianFadePct": 1.82,
       "motos": 26,
@@ -2479,6 +2551,24 @@
       "riderId": "garrett-marchbanks",
       "season": 2021,
       "worstFadePct": 16.07
+    },
+    {
+      "bestFadePct": -0.8,
+      "medianFadePct": 1.82,
+      "motos": 23,
+      "name": "Garrett Marchbanks",
+      "riderId": "garrett-marchbanks",
+      "season": 2025,
+      "worstFadePct": 4.97
+    },
+    {
+      "bestFadePct": -1.05,
+      "medianFadePct": 1.82,
+      "motos": 18,
+      "name": "Jace Kessler",
+      "riderId": "jace-kessler",
+      "season": 2026,
+      "worstFadePct": 15.22
     },
     {
       "bestFadePct": 0.02,
@@ -2553,6 +2643,15 @@
       "worstFadePct": 3.66
     },
     {
+      "bestFadePct": -0.86,
+      "medianFadePct": 1.86,
+      "motos": 21,
+      "name": "Carson Mumford",
+      "riderId": "carson-mumford",
+      "season": 2026,
+      "worstFadePct": 5.04
+    },
+    {
       "bestFadePct": -0.11,
       "medianFadePct": 1.86,
       "motos": 25,
@@ -2562,15 +2661,6 @@
       "worstFadePct": 8.23
     },
     {
-      "bestFadePct": 0.65,
-      "medianFadePct": 1.86,
-      "motos": 15,
-      "name": "Hunter Yoder",
-      "riderId": "hunter-yoder",
-      "season": 2026,
-      "worstFadePct": 5.16
-    },
-    {
       "bestFadePct": -0.84,
       "medianFadePct": 1.87,
       "motos": 28,
@@ -2578,6 +2668,15 @@
       "riderId": "jalek-swoll",
       "season": 2024,
       "worstFadePct": 5.59
+    },
+    {
+      "bestFadePct": -0.78,
+      "medianFadePct": 1.88,
+      "motos": 14,
+      "name": "Eli Tomac",
+      "riderId": "eli-tomac",
+      "season": 2026,
+      "worstFadePct": 3.86
     },
     {
       "bestFadePct": -0.64,
@@ -2616,15 +2715,6 @@
       "worstFadePct": 8.82
     },
     {
-      "bestFadePct": -1.04,
-      "medianFadePct": 1.88,
-      "motos": 22,
-      "name": "Ryder Difrancesco",
-      "riderId": "ryder-difrancesco",
-      "season": 2026,
-      "worstFadePct": 4.18
-    },
-    {
       "bestFadePct": -0.5,
       "medianFadePct": 1.89,
       "motos": 11,
@@ -2632,15 +2722,6 @@
       "riderId": "slade-smith",
       "season": 2022,
       "worstFadePct": 4.36
-    },
-    {
-      "bestFadePct": -1.33,
-      "medianFadePct": 1.9,
-      "motos": 21,
-      "name": "LUX Turner",
-      "riderId": "lux-turner",
-      "season": 2025,
-      "worstFadePct": 5.66
     },
     {
       "bestFadePct": -0.77,
@@ -2688,15 +2769,6 @@
       "worstFadePct": 4.53
     },
     {
-      "bestFadePct": -0.25,
-      "medianFadePct": 1.92,
-      "motos": 18,
-      "name": "CJ Benard",
-      "riderId": "cj-benard",
-      "season": 2025,
-      "worstFadePct": 5.77
-    },
-    {
       "bestFadePct": -1.89,
       "medianFadePct": 1.92,
       "motos": 12,
@@ -2704,6 +2776,15 @@
       "riderId": "james-harrington",
       "season": 2021,
       "worstFadePct": 16.92
+    },
+    {
+      "bestFadePct": -0.24,
+      "medianFadePct": 1.93,
+      "motos": 11,
+      "name": "Brandon Ray",
+      "riderId": "brandon-ray",
+      "season": 2026,
+      "worstFadePct": 15.39
     },
     {
       "bestFadePct": -1.49,
@@ -2787,6 +2868,15 @@
       "worstFadePct": 6.55
     },
     {
+      "bestFadePct": -1.33,
+      "medianFadePct": 1.98,
+      "motos": 23,
+      "name": "Lux Turner",
+      "riderId": "lux-turner",
+      "season": 2025,
+      "worstFadePct": 5.66
+    },
+    {
       "bestFadePct": -0.33,
       "medianFadePct": 1.98,
       "motos": 16,
@@ -2821,6 +2911,15 @@
       "riderId": "coty-schock",
       "season": 2020,
       "worstFadePct": 2.94
+    },
+    {
+      "bestFadePct": 0.85,
+      "medianFadePct": 1.99,
+      "motos": 11,
+      "name": "Kevin Moranz",
+      "riderId": "kevin-moranz",
+      "season": 2025,
+      "worstFadePct": 4.06
     },
     {
       "bestFadePct": -1.83,
@@ -2888,11 +2987,11 @@
     {
       "bestFadePct": -0.48,
       "medianFadePct": 2.01,
-      "motos": 22,
+      "motos": 24,
       "name": "JO Shimoda",
       "riderId": "jo-shimoda",
       "season": 2025,
-      "worstFadePct": 4.02
+      "worstFadePct": 4.54
     },
     {
       "bestFadePct": -0.41,
@@ -2902,6 +3001,15 @@
       "riderId": "justin-hill",
       "season": 2020,
       "worstFadePct": 4.6
+    },
+    {
+      "bestFadePct": -0.1,
+      "medianFadePct": 2.02,
+      "motos": 19,
+      "name": "Seth Hammaker",
+      "riderId": "seth-hammaker",
+      "season": 2025,
+      "worstFadePct": 5.66
     },
     {
       "bestFadePct": -0.21,
@@ -2994,6 +3102,24 @@
       "worstFadePct": 4.23
     },
     {
+      "bestFadePct": 0.65,
+      "medianFadePct": 2.05,
+      "motos": 19,
+      "name": "Hunter Yoder",
+      "riderId": "hunter-yoder",
+      "season": 2026,
+      "worstFadePct": 8.8
+    },
+    {
+      "bestFadePct": -1.29,
+      "medianFadePct": 2.05,
+      "motos": 26,
+      "name": "Justin Cooper",
+      "riderId": "justin-cooper",
+      "season": 2025,
+      "worstFadePct": 18.75
+    },
+    {
       "bestFadePct": -0.22,
       "medianFadePct": 2.05,
       "motos": 16,
@@ -3048,13 +3174,13 @@
       "worstFadePct": 5.86
     },
     {
-      "bestFadePct": -0.3,
+      "bestFadePct": 0.01,
       "medianFadePct": 2.07,
-      "motos": 16,
-      "name": "Julien Beaumer",
-      "riderId": "julien-beaumer",
+      "motos": 24,
+      "name": "Jett Lawrence",
+      "riderId": "jett-lawrence",
       "season": 2025,
-      "worstFadePct": 6.63
+      "worstFadePct": 5.87
     },
     {
       "bestFadePct": -0.04,
@@ -3084,15 +3210,6 @@
       "worstFadePct": 7.02
     },
     {
-      "bestFadePct": 0.01,
-      "medianFadePct": 2.09,
-      "motos": 22,
-      "name": "Jett Lawrence",
-      "riderId": "jett-lawrence",
-      "season": 2025,
-      "worstFadePct": 5.87
-    },
-    {
       "bestFadePct": -5.16,
       "medianFadePct": 2.1,
       "motos": 12,
@@ -3109,6 +3226,15 @@
       "riderId": "jacob-runkles",
       "season": 2022,
       "worstFadePct": 5.98
+    },
+    {
+      "bestFadePct": -0.3,
+      "medianFadePct": 2.1,
+      "motos": 18,
+      "name": "Julien Beaumer",
+      "riderId": "julien-beaumer",
+      "season": 2025,
+      "worstFadePct": 6.63
     },
     {
       "bestFadePct": -0.4,
@@ -3165,13 +3291,22 @@
       "worstFadePct": 4.98
     },
     {
-      "bestFadePct": -0.1,
-      "medianFadePct": 2.14,
-      "motos": 18,
-      "name": "Seth Hammaker",
-      "riderId": "seth-hammaker",
+      "bestFadePct": 0.27,
+      "medianFadePct": 2.13,
+      "motos": 23,
+      "name": "Ryder Difrancesco",
+      "riderId": "ryder-difrancesco",
       "season": 2025,
-      "worstFadePct": 5.66
+      "worstFadePct": 6.84
+    },
+    {
+      "bestFadePct": -0.8,
+      "medianFadePct": 2.15,
+      "motos": 25,
+      "name": "Eli Tomac",
+      "riderId": "eli-tomac",
+      "season": 2025,
+      "worstFadePct": 9.37
     },
     {
       "bestFadePct": -0.4,
@@ -3219,13 +3354,13 @@
       "worstFadePct": 7.79
     },
     {
-      "bestFadePct": 0.27,
+      "bestFadePct": -0.97,
       "medianFadePct": 2.17,
-      "motos": 22,
-      "name": "Ryder Difrancesco",
-      "riderId": "ryder-difrancesco",
+      "motos": 23,
+      "name": "Max Vohland",
+      "riderId": "max-vohland",
       "season": 2025,
-      "worstFadePct": 6.84
+      "worstFadePct": 4.6
     },
     {
       "bestFadePct": -0.81,
@@ -3345,15 +3480,6 @@
       "worstFadePct": 4.8
     },
     {
-      "bestFadePct": -0.32,
-      "medianFadePct": 2.2,
-      "motos": 22,
-      "name": "Justin Cooper",
-      "riderId": "justin-cooper",
-      "season": 2025,
-      "worstFadePct": 7.28
-    },
-    {
       "bestFadePct": 0.06,
       "medianFadePct": 2.21,
       "motos": 15,
@@ -3361,6 +3487,15 @@
       "riderId": "ben-lamay",
       "season": 2020,
       "worstFadePct": 13.9
+    },
+    {
+      "bestFadePct": -1.18,
+      "medianFadePct": 2.21,
+      "motos": 13,
+      "name": "Devin Simonson",
+      "riderId": "devin-simonson",
+      "season": 2026,
+      "worstFadePct": 3.73
     },
     {
       "bestFadePct": -1.57,
@@ -3435,6 +3570,15 @@
       "worstFadePct": 6.44
     },
     {
+      "bestFadePct": -0.85,
+      "medianFadePct": 2.23,
+      "motos": 19,
+      "name": "Vince Friese",
+      "riderId": "vince-friese",
+      "season": 2026,
+      "worstFadePct": 10.58
+    },
+    {
       "bestFadePct": -2.52,
       "medianFadePct": 2.25,
       "motos": 22,
@@ -3442,15 +3586,6 @@
       "riderId": "adam-enticknap",
       "season": 2020,
       "worstFadePct": 9.47
-    },
-    {
-      "bestFadePct": -0.46,
-      "medianFadePct": 2.25,
-      "motos": 14,
-      "name": "Jeremy Hand",
-      "riderId": "jeremy-hand",
-      "season": 2025,
-      "worstFadePct": 14.07
     },
     {
       "bestFadePct": -0.11,
@@ -3471,6 +3606,15 @@
       "worstFadePct": 8.65
     },
     {
+      "bestFadePct": -1.7,
+      "medianFadePct": 2.26,
+      "motos": 17,
+      "name": "Jeremy Hand",
+      "riderId": "jeremy-hand",
+      "season": 2025,
+      "worstFadePct": 14.81
+    },
+    {
       "bestFadePct": 0.26,
       "medianFadePct": 2.26,
       "motos": 16,
@@ -3480,15 +3624,6 @@
       "worstFadePct": 7.71
     },
     {
-      "bestFadePct": -0.37,
-      "medianFadePct": 2.27,
-      "motos": 22,
-      "name": "ELI Tomac",
-      "riderId": "eli-tomac",
-      "season": 2025,
-      "worstFadePct": 9.37
-    },
-    {
       "bestFadePct": 0.12,
       "medianFadePct": 2.27,
       "motos": 19,
@@ -3496,6 +3631,15 @@
       "riderId": "jalek-swoll",
       "season": 2023,
       "worstFadePct": 4.47
+    },
+    {
+      "bestFadePct": -0.12,
+      "medianFadePct": 2.27,
+      "motos": 17,
+      "name": "Michael Mosiman",
+      "riderId": "michael-mosiman",
+      "season": 2025,
+      "worstFadePct": 4.9
     },
     {
       "bestFadePct": -1.66,
@@ -3543,10 +3687,19 @@
       "worstFadePct": 5.25
     },
     {
+      "bestFadePct": -2.86,
+      "medianFadePct": 2.29,
+      "motos": 17,
+      "name": "Jack Chambers",
+      "riderId": "jack-chambers",
+      "season": 2025,
+      "worstFadePct": 6.89
+    },
+    {
       "bestFadePct": 0.64,
       "medianFadePct": 2.29,
-      "motos": 22,
-      "name": "R.j. Hampshire",
+      "motos": 23,
+      "name": "R.J. Hampshire",
       "riderId": "r-j-hampshire",
       "season": 2025,
       "worstFadePct": 7.83
@@ -3597,31 +3750,13 @@
       "worstFadePct": 8.65
     },
     {
-      "bestFadePct": 0.19,
-      "medianFadePct": 2.31,
-      "motos": 22,
-      "name": "MAX Vohland",
-      "riderId": "max-vohland",
-      "season": 2025,
-      "worstFadePct": 4.6
-    },
-    {
-      "bestFadePct": -0.12,
-      "medianFadePct": 2.31,
-      "motos": 15,
-      "name": "Michael Mosiman",
-      "riderId": "michael-mosiman",
-      "season": 2025,
-      "worstFadePct": 4.9
-    },
-    {
-      "bestFadePct": -0.5,
+      "bestFadePct": -0.46,
       "medianFadePct": 2.32,
-      "motos": 11,
-      "name": "Joey Savatgy",
-      "riderId": "joey-savatgy",
-      "season": 2025,
-      "worstFadePct": 9.25
+      "motos": 17,
+      "name": "Mitchell Oldenburg",
+      "riderId": "mitchell-oldenburg",
+      "season": 2026,
+      "worstFadePct": 4.88
     },
     {
       "bestFadePct": 0.81,
@@ -3687,9 +3822,9 @@
       "worstFadePct": 4.71
     },
     {
-      "bestFadePct": -0.76,
+      "bestFadePct": -1.37,
       "medianFadePct": 2.37,
-      "motos": 12,
+      "motos": 14,
       "name": "Lance Kobusch",
       "riderId": "lance-kobusch",
       "season": 2025,
@@ -3759,6 +3894,15 @@
       "worstFadePct": 5.43
     },
     {
+      "bestFadePct": -0.26,
+      "medianFadePct": 2.42,
+      "motos": 16,
+      "name": "Cooper Webb",
+      "riderId": "cooper-webb",
+      "season": 2025,
+      "worstFadePct": 7.22
+    },
+    {
       "bestFadePct": -0.46,
       "medianFadePct": 2.42,
       "motos": 12,
@@ -3777,31 +3921,22 @@
       "worstFadePct": 4.38
     },
     {
-      "bestFadePct": -0.17,
+      "bestFadePct": -0.64,
       "medianFadePct": 2.44,
-      "motos": 21,
-      "name": "Justin Rodbell",
-      "riderId": "justin-rodbell",
+      "motos": 23,
+      "name": "Cole Davies",
+      "riderId": "cole-davies",
       "season": 2026,
-      "worstFadePct": 8.41
+      "worstFadePct": 7.77
     },
     {
-      "bestFadePct": -1.45,
-      "medianFadePct": 2.45,
-      "motos": 17,
-      "name": "Caden Dudney",
-      "riderId": "caden-dudney",
-      "season": 2026,
-      "worstFadePct": 4.4
-    },
-    {
-      "bestFadePct": -0.45,
-      "medianFadePct": 2.45,
-      "motos": 14,
-      "name": "Jack Chambers",
-      "riderId": "jack-chambers",
+      "bestFadePct": -0.34,
+      "medianFadePct": 2.44,
+      "motos": 22,
+      "name": "Jorge Prado",
+      "riderId": "jorge-prado",
       "season": 2025,
-      "worstFadePct": 6.89
+      "worstFadePct": 7.01
     },
     {
       "bestFadePct": 0.35,
@@ -3811,6 +3946,15 @@
       "riderId": "marcus-phelps",
       "season": 2024,
       "worstFadePct": 8.27
+    },
+    {
+      "bestFadePct": -0.1,
+      "medianFadePct": 2.45,
+      "motos": 18,
+      "name": "Tom Vialle",
+      "riderId": "tom-vialle",
+      "season": 2025,
+      "worstFadePct": 5.37
     },
     {
       "bestFadePct": 0.74,
@@ -3849,15 +3993,6 @@
       "worstFadePct": 3.95
     },
     {
-      "bestFadePct": 0.05,
-      "medianFadePct": 2.46,
-      "motos": 17,
-      "name": "TOM Vialle",
-      "riderId": "tom-vialle",
-      "season": 2025,
-      "worstFadePct": 5.37
-    },
-    {
       "bestFadePct": 0.58,
       "medianFadePct": 2.47,
       "motos": 15,
@@ -3894,9 +4029,9 @@
       "worstFadePct": 12.37
     },
     {
-      "bestFadePct": 0.39,
+      "bestFadePct": 0.1,
       "medianFadePct": 2.49,
-      "motos": 22,
+      "motos": 24,
       "name": "Haiden Deegan",
       "riderId": "haiden-deegan",
       "season": 2025,
@@ -3912,13 +4047,13 @@
       "worstFadePct": 4.08
     },
     {
-      "bestFadePct": 0.25,
-      "medianFadePct": 2.55,
-      "motos": 10,
-      "name": "Devin Simonson",
-      "riderId": "devin-simonson",
+      "bestFadePct": -18.86,
+      "medianFadePct": 2.52,
+      "motos": 20,
+      "name": "Caden Dudney",
+      "riderId": "caden-dudney",
       "season": 2026,
-      "worstFadePct": 3.73
+      "worstFadePct": 4.4
     },
     {
       "bestFadePct": -1.16,
@@ -3930,15 +4065,6 @@
       "worstFadePct": 8.85
     },
     {
-      "bestFadePct": -0.64,
-      "medianFadePct": 2.57,
-      "motos": 21,
-      "name": "Cole Davies",
-      "riderId": "cole-davies",
-      "season": 2026,
-      "worstFadePct": 7.77
-    },
-    {
       "bestFadePct": -2.3,
       "medianFadePct": 2.57,
       "motos": 10,
@@ -3946,6 +4072,15 @@
       "riderId": "wade-brommel",
       "season": 2021,
       "worstFadePct": 8.71
+    },
+    {
+      "bestFadePct": -0.17,
+      "medianFadePct": 2.58,
+      "motos": 25,
+      "name": "Justin Rodbell",
+      "riderId": "justin-rodbell",
+      "season": 2026,
+      "worstFadePct": 8.41
     },
     {
       "bestFadePct": -0.41,
@@ -3957,9 +4092,9 @@
       "worstFadePct": 4.58
     },
     {
-      "bestFadePct": 1.01,
+      "bestFadePct": -5.95,
       "medianFadePct": 2.6,
-      "motos": 10,
+      "motos": 12,
       "name": "Nicholas Romano",
       "riderId": "nicholas-romano",
       "season": 2026,
@@ -4009,15 +4144,6 @@
       "riderId": "ayden-shive",
       "season": 2024,
       "worstFadePct": 11.16
-    },
-    {
-      "bestFadePct": -0.46,
-      "medianFadePct": 2.62,
-      "motos": 16,
-      "name": "Mitchell Oldenburg",
-      "riderId": "mitchell-oldenburg",
-      "season": 2026,
-      "worstFadePct": 4.88
     },
     {
       "bestFadePct": 0.3,
@@ -4128,15 +4254,6 @@
       "worstFadePct": 6.51
     },
     {
-      "bestFadePct": 0.03,
-      "medianFadePct": 2.77,
-      "motos": 12,
-      "name": "Cooper Webb",
-      "riderId": "cooper-webb",
-      "season": 2025,
-      "worstFadePct": 7.22
-    },
-    {
       "bestFadePct": 0.65,
       "medianFadePct": 2.78,
       "motos": 18,
@@ -4173,6 +4290,15 @@
       "worstFadePct": 6.95
     },
     {
+      "bestFadePct": 0.35,
+      "medianFadePct": 2.82,
+      "motos": 15,
+      "name": "Aaron Plessinger",
+      "riderId": "aaron-plessinger",
+      "season": 2025,
+      "worstFadePct": 16.57
+    },
+    {
       "bestFadePct": 0.34,
       "medianFadePct": 2.82,
       "motos": 25,
@@ -4180,15 +4306,6 @@
       "riderId": "derek-drake",
       "season": 2022,
       "worstFadePct": 10.12
-    },
-    {
-      "bestFadePct": -0.34,
-      "medianFadePct": 2.82,
-      "motos": 21,
-      "name": "Jorge Prado",
-      "riderId": "jorge-prado",
-      "season": 2025,
-      "worstFadePct": 7.01
     },
     {
       "bestFadePct": -5.15,
@@ -4254,6 +4371,15 @@
       "worstFadePct": 5.81
     },
     {
+      "bestFadePct": 0.7,
+      "medianFadePct": 2.92,
+      "motos": 10,
+      "name": "Luca Marsalisi",
+      "riderId": "luca-marsalisi",
+      "season": 2026,
+      "worstFadePct": 4.34
+    },
+    {
       "bestFadePct": 1.54,
       "medianFadePct": 2.92,
       "motos": 10,
@@ -4281,6 +4407,15 @@
       "worstFadePct": 6.51
     },
     {
+      "bestFadePct": -1.95,
+      "medianFadePct": 2.96,
+      "motos": 14,
+      "name": "Bryton Carroll",
+      "riderId": "bryton-carroll",
+      "season": 2026,
+      "worstFadePct": 11.28
+    },
+    {
       "bestFadePct": 0.39,
       "medianFadePct": 2.97,
       "motos": 13,
@@ -4288,15 +4423,6 @@
       "riderId": "austin-root",
       "season": 2020,
       "worstFadePct": 13.38
-    },
-    {
-      "bestFadePct": -0.47,
-      "medianFadePct": 2.97,
-      "motos": 13,
-      "name": "Bryton Carroll",
-      "riderId": "bryton-carroll",
-      "season": 2026,
-      "worstFadePct": 11.28
     },
     {
       "bestFadePct": -1.32,
@@ -4315,15 +4441,6 @@
       "riderId": "vince-friese",
       "season": 2021,
       "worstFadePct": 7.27
-    },
-    {
-      "bestFadePct": 0.54,
-      "medianFadePct": 3,
-      "motos": 12,
-      "name": "Aaron Plessinger",
-      "riderId": "aaron-plessinger",
-      "season": 2025,
-      "worstFadePct": 8.96
     },
     {
       "bestFadePct": -0.06,
@@ -4353,15 +4470,6 @@
       "worstFadePct": 7.31
     },
     {
-      "bestFadePct": 0.42,
-      "medianFadePct": 3.06,
-      "motos": 11,
-      "name": "Logan Leitzel",
-      "riderId": "logan-leitzel",
-      "season": 2025,
-      "worstFadePct": 8.98
-    },
-    {
       "bestFadePct": -1.58,
       "medianFadePct": 3.07,
       "motos": 10,
@@ -4369,15 +4477,6 @@
       "riderId": "bryce-hansen",
       "season": 2022,
       "worstFadePct": 5.55
-    },
-    {
-      "bestFadePct": 0.6,
-      "medianFadePct": 3.09,
-      "motos": 20,
-      "name": "Bryce Shelly",
-      "riderId": "bryce-shelly",
-      "season": 2025,
-      "worstFadePct": 12.71
     },
     {
       "bestFadePct": 0.57,
@@ -4405,6 +4504,15 @@
       "riderId": "jared-lesher",
       "season": 2020,
       "worstFadePct": 5.99
+    },
+    {
+      "bestFadePct": 0.6,
+      "medianFadePct": 3.14,
+      "motos": 21,
+      "name": "Bryce Shelly",
+      "riderId": "bryce-shelly",
+      "season": 2025,
+      "worstFadePct": 12.71
     },
     {
       "bestFadePct": 1.42,
@@ -4549,6 +4657,15 @@
       "riderId": "evan-ferry",
       "season": 2024,
       "worstFadePct": 14.56
+    },
+    {
+      "bestFadePct": 0.42,
+      "medianFadePct": 3.4,
+      "motos": 12,
+      "name": "Logan Leitzel",
+      "riderId": "logan-leitzel",
+      "season": 2025,
+      "worstFadePct": 30.56
     },
     {
       "bestFadePct": -0.38,
@@ -4880,15 +4997,15 @@
       "season": 2024
     },
     {
-      "medianFadePct": 1.98,
-      "motos": 44,
-      "riderMotos": 1634,
+      "medianFadePct": 1.96,
+      "motos": 61,
+      "riderMotos": 1819,
       "season": 2025
     },
     {
-      "medianFadePct": 1.51,
-      "motos": 44,
-      "riderMotos": 1652,
+      "medianFadePct": 1.52,
+      "motos": 68,
+      "riderMotos": 1927,
       "season": 2026
     }
   ],
@@ -6164,6 +6281,16 @@
       "track": "Fox Raceway"
     },
     {
+      "date": "2025-01-11",
+      "eventId": "SL2501",
+      "medianFadePct": 1.49,
+      "name": "Anaheim 1",
+      "riderMotos": 44,
+      "round": 1,
+      "season": 2025,
+      "track": "Anaheim 1"
+    },
+    {
       "date": "2025-05-31",
       "eventId": "LT2502",
       "medianFadePct": 2.74,
@@ -6174,6 +6301,16 @@
       "track": "Hangtown"
     },
     {
+      "date": "2025-01-18",
+      "eventId": "SL2502",
+      "medianFadePct": -3.36,
+      "name": "San Diego",
+      "riderMotos": 3,
+      "round": 2,
+      "season": 2025,
+      "track": "San Diego"
+    },
+    {
       "date": "2025-06-07",
       "eventId": "LT2503",
       "medianFadePct": 2.79,
@@ -6182,6 +6319,16 @@
       "round": 3,
       "season": 2025,
       "track": "Thunder Valley"
+    },
+    {
+      "date": "2025-01-25",
+      "eventId": "SL2503",
+      "medianFadePct": 3.65,
+      "name": "Anaheim 2",
+      "riderMotos": 43,
+      "round": 3,
+      "season": 2025,
+      "track": "Anaheim 2"
     },
     {
       "date": "2025-06-14",
@@ -6202,6 +6349,16 @@
       "round": 5,
       "season": 2025,
       "track": "The Wick 338"
+    },
+    {
+      "date": "2025-02-08",
+      "eventId": "SL2505",
+      "medianFadePct": 0.49,
+      "name": "Tampa",
+      "riderMotos": 15,
+      "round": 5,
+      "season": 2025,
+      "track": "Tampa"
     },
     {
       "date": "2025-07-05",
@@ -6234,6 +6391,16 @@
       "track": "Washougal"
     },
     {
+      "date": "2025-03-01",
+      "eventId": "SL2508",
+      "medianFadePct": 1.26,
+      "name": "Daytona Beach",
+      "riderMotos": 42,
+      "round": 8,
+      "season": 2025,
+      "track": "Daytona Beach"
+    },
+    {
       "date": "2025-08-09",
       "eventId": "LT2509",
       "medianFadePct": 2.1,
@@ -6242,6 +6409,16 @@
       "round": 9,
       "season": 2025,
       "track": "Ironman"
+    },
+    {
+      "date": "2025-03-08",
+      "eventId": "SL2509",
+      "medianFadePct": 0.21,
+      "name": "Indianapolis",
+      "riderMotos": 4,
+      "round": 9,
+      "season": 2025,
+      "track": "Indianapolis"
     },
     {
       "date": "2025-08-16",
@@ -6264,6 +6441,46 @@
       "track": "Budds Creek"
     },
     {
+      "date": "2025-03-29",
+      "eventId": "SL2511",
+      "medianFadePct": -3.55,
+      "name": "Seattle",
+      "riderMotos": 1,
+      "round": 11,
+      "season": 2025,
+      "track": "Seattle"
+    },
+    {
+      "date": "2025-04-05",
+      "eventId": "SL2512",
+      "medianFadePct": 16.59,
+      "name": "Foxborough",
+      "riderMotos": 14,
+      "round": 12,
+      "season": 2025,
+      "track": "Foxborough"
+    },
+    {
+      "date": "2025-04-19",
+      "eventId": "SL2514",
+      "medianFadePct": 2.13,
+      "name": "East Rutherford",
+      "riderMotos": 16,
+      "round": 14,
+      "season": 2025,
+      "track": "East Rutherford"
+    },
+    {
+      "date": "2025-05-03",
+      "eventId": "SL2516",
+      "medianFadePct": 1.47,
+      "name": "Denver",
+      "riderMotos": 3,
+      "round": 16,
+      "season": 2025,
+      "track": "Denver"
+    },
+    {
       "date": "2026-05-30",
       "eventId": "LT2601",
       "medianFadePct": 1.53,
@@ -6272,6 +6489,16 @@
       "round": 1,
       "season": 2026,
       "track": "Fox Raceway National"
+    },
+    {
+      "date": "2026-01-10",
+      "eventId": "SL2601",
+      "medianFadePct": 1.68,
+      "name": "Anaheim 1",
+      "riderMotos": 42,
+      "round": 1,
+      "season": 2026,
+      "track": "Anaheim 1"
     },
     {
       "date": "2026-06-06",
@@ -6284,6 +6511,16 @@
       "track": "Hangtown Classic"
     },
     {
+      "date": "2026-01-17",
+      "eventId": "SL2602",
+      "medianFadePct": 2.17,
+      "name": "San Diego",
+      "riderMotos": 6,
+      "round": 2,
+      "season": 2026,
+      "track": "San Diego"
+    },
+    {
       "date": "2026-06-13",
       "eventId": "LT2603",
       "medianFadePct": 1.21,
@@ -6292,6 +6529,16 @@
       "round": 3,
       "season": 2026,
       "track": "Thunder Valley National"
+    },
+    {
+      "date": "2026-01-24",
+      "eventId": "SL2603",
+      "medianFadePct": 2.11,
+      "name": "Anaheim 2",
+      "riderMotos": 41,
+      "round": 3,
+      "season": 2026,
+      "track": "Anaheim 2"
     },
     {
       "date": "2026-06-20",
@@ -6314,6 +6561,16 @@
       "track": "Redbud National"
     },
     {
+      "date": "2026-02-07",
+      "eventId": "SL2605",
+      "medianFadePct": 1.74,
+      "name": "Glendale",
+      "riderMotos": 29,
+      "round": 5,
+      "season": 2026,
+      "track": "Glendale"
+    },
+    {
       "date": "2026-07-11",
       "eventId": "LT2606",
       "medianFadePct": 2.23,
@@ -6322,6 +6579,16 @@
       "round": 6,
       "season": 2026,
       "track": "The Wick 338 National"
+    },
+    {
+      "date": "2026-02-14",
+      "eventId": "SL2606",
+      "medianFadePct": 1.49,
+      "name": "Seattle",
+      "riderMotos": 11,
+      "round": 6,
+      "season": 2026,
+      "track": "Seattle"
     },
     {
       "date": "2026-07-18",
@@ -6344,6 +6611,16 @@
       "track": "Washougal National"
     },
     {
+      "date": "2026-02-28",
+      "eventId": "SL2608",
+      "medianFadePct": 1.56,
+      "name": "Daytona Beach",
+      "riderMotos": 43,
+      "round": 8,
+      "season": 2026,
+      "track": "Daytona Beach"
+    },
+    {
       "date": "2026-08-15",
       "eventId": "LT2609",
       "medianFadePct": 1.02,
@@ -6364,6 +6641,16 @@
       "track": "Budds Creek National"
     },
     {
+      "date": "2026-03-21",
+      "eventId": "SL2610",
+      "medianFadePct": 1.81,
+      "name": "Birmingham",
+      "riderMotos": 2,
+      "round": 10,
+      "season": 2026,
+      "track": "Birmingham"
+    },
+    {
       "date": "2026-08-29",
       "eventId": "LT2611",
       "medianFadePct": 1.87,
@@ -6372,6 +6659,66 @@
       "round": 11,
       "season": 2026,
       "track": "Ironman National"
+    },
+    {
+      "date": "2026-03-28",
+      "eventId": "SL2611",
+      "medianFadePct": 0.83,
+      "name": "Detroit",
+      "riderMotos": 7,
+      "round": 11,
+      "season": 2026,
+      "track": "Detroit"
+    },
+    {
+      "date": "2026-04-04",
+      "eventId": "SL2612",
+      "medianFadePct": 4.34,
+      "name": "St. Louis",
+      "riderMotos": 37,
+      "round": 12,
+      "season": 2026,
+      "track": "St. Louis"
+    },
+    {
+      "date": "2026-04-11",
+      "eventId": "SL2613",
+      "medianFadePct": -5.23,
+      "name": "Nashville",
+      "riderMotos": 4,
+      "round": 13,
+      "season": 2026,
+      "track": "Nashville"
+    },
+    {
+      "date": "2026-04-25",
+      "eventId": "SL2615",
+      "medianFadePct": -0.97,
+      "name": "Philadelphia",
+      "riderMotos": 41,
+      "round": 15,
+      "season": 2026,
+      "track": "Philadelphia"
+    },
+    {
+      "date": "2026-05-02",
+      "eventId": "SL2616",
+      "medianFadePct": 0.94,
+      "name": "Denver",
+      "riderMotos": 11,
+      "round": 16,
+      "season": 2026,
+      "track": "Denver"
+    },
+    {
+      "date": "2026-05-09",
+      "eventId": "SL2617",
+      "medianFadePct": 1.36,
+      "name": "Salt Lake City",
+      "riderMotos": 1,
+      "round": 17,
+      "season": 2026,
+      "track": "Salt Lake City"
     }
   ]
 }

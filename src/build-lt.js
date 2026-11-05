@@ -35,7 +35,9 @@ export function displayName(raw) {
     .replace(/\s+/g, ' ')
     .split(' ')
     .map((part) => {
-      if (part.length <= 3 && /^[A-Z.]+$/.test(part)) return part;
+      // `RJ` and `R.J.` are initials and stay as printed; `TOM` and `KEN` are
+      // names the site shouts, and lowering them is the correct display form.
+      if (/^[A-Z]{1,2}$/.test(part) || /^(?:[A-Z]\.)+$/.test(part)) return part;
       return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
     })
     .join(' ');

@@ -1,13 +1,13 @@
 {
   "analysis": "meta",
   "dataset": {
-    "events": 161,
-    "laps": 227758,
-    "motos": 474,
-    "qualifyingSheets": 322,
-    "rows": 15938,
+    "events": 195,
+    "laps": 250699,
+    "motos": 542,
+    "qualifyingSheets": 388,
+    "rows": 17434,
     "seasons": 7,
-    "warnings": 1639
+    "warnings": 1654
   },
   "seasons": [
     {
@@ -61,24 +61,24 @@
       "warnings": 132
     },
     {
-      "events": 11,
-      "laps": 25405,
-      "motos": 44,
-      "qualifying": 22,
-      "rows": 1762,
+      "events": 28,
+      "laps": 36892,
+      "motos": 78,
+      "qualifying": 56,
+      "rows": 2510,
       "season": 2025,
-      "source": "results.promotocross.com",
-      "warnings": 9
+      "source": "results.promotocross.com + results.supercrosslive.com",
+      "warnings": 14
     },
     {
-      "events": 11,
-      "laps": 26233,
-      "motos": 44,
-      "qualifying": 22,
-      "rows": 1759,
+      "events": 28,
+      "laps": 37687,
+      "motos": 78,
+      "qualifying": 54,
+      "rows": 2507,
       "season": 2026,
-      "source": "results.promotocross.com",
-      "warnings": 15
+      "source": "results.promotocross.com + results.supercrosslive.com",
+      "warnings": 25
     }
   ]
 }

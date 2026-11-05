@@ -20,10 +20,15 @@ export function buildMeta(events) {
 
   for (const event of sortedEvents(events)) {
     const season = seasonOf(event);
+    const source = event.event.id.startsWith('LT')
+      ? 'results.promotocross.com'
+      : event.event.id.startsWith('SL')
+        ? 'results.supercrosslive.com'
+        : 'americanmotocrossresults.com';
     if (!seasons.has(season)) {
       seasons.set(season, {
         season,
-        source: event.event.id.startsWith('LT') ? 'results.promotocross.com' : 'americanmotocrossresults.com',
+        sources: new Set(),
         events: 0,
         motos: 0,
         rows: 0,
@@ -33,6 +38,7 @@ export function buildMeta(events) {
       });
     }
     const row = seasons.get(season);
+    row.sources.add(source);
     row.events += 1;
     row.warnings += (event.warnings ?? []).length;
     row.qualifying += (event.qualifying ?? []).length;
@@ -51,7 +57,9 @@ export function buildMeta(events) {
     }
   }
 
-  const list = [...seasons.values()].sort((a, b) => a.season - b.season);
+  const list = [...seasons.values()]
+    .map(({ sources, ...season }) => ({ ...season, source: [...sources].sort().join(' + ') }))
+    .sort((a, b) => a.season - b.season);
   return {
     analysis: 'meta',
     dataset: {
