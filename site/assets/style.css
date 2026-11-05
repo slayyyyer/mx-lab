@@ -138,7 +138,7 @@ nav.site a[aria-current="page"] { color: var(--text); border-bottom-color: var(-
 
 /* ---------- type ---------- */
 
-main { padding: 44px 0 72px; }
+main.wrap { padding-top: 44px; padding-bottom: 72px; }
 
 .eyebrow {
   font: 500 12px/1.4 var(--mono);
@@ -384,7 +384,7 @@ footer.site strong { color: var(--text); }
 
 @media (max-width: 640px) {
   .wrap { padding: 0 16px; }
-  main { padding: 28px 0 56px; }
+  main.wrap { padding-top: 28px; padding-bottom: 56px; }
   header.site { padding: 10px 0; }
   .brandmark { font-size: 26px; }
   nav.site { margin: 0 -6px; }
