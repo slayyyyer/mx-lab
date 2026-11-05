@@ -15,6 +15,6 @@
     "roster": "node scripts/roster.js",
     "derive": "node scripts/derive.js",
     "site": "node scripts/site.js",
-    "check": "node tests/run.js && node scripts/derive.js --check && node scripts/site.js --check"
+    "check": "node tests/run.js && node scripts/derive.js --check && node scripts/site.js --check && node scripts/chrome.js --check"
   }
 }

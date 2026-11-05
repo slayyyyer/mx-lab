@@ -10,18 +10,18 @@
 <meta property="og:site_name" content="mx-lab">
 <meta property="og:title" content="Coverage — mx-lab">
 <meta property="og:description" content="What the mx-lab dataset and each analysis cover, and where the sources stop.">
-<meta property="og:image" content="https://slayyyyer.github.io/mx-lab/og.svg">
+<meta property="og:image" content="https://slayyyyer.github.io/mx-lab/og.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="site">
-  <div class="wrap">
-    <div class="brand">
-      <h1><a href="index.html">mx-lab</a></h1>
-      <span class="sub">AMA Pro Motocross &amp; Supercross, 2020–2026</span>
-    </div>
-    <nav class="site">
+  <div class="wrap header-inner">
+    <p class="brandmark"><a href="index.html">MX<span class="dot">·</span>LAB</a></p>
+    <nav class="site" aria-label="Sections">
       <a href="index.html">Overview</a>
       <a href="lap-chart.html">Lap chart</a>
       <a href="fade.html">Fade</a>
@@ -33,13 +33,14 @@
       <a href="tracks.html">Tracks</a>
       <a href="methods.html">Methods</a>
       <a href="backtests.html">Backtests</a>
-      <a href="coverage.html">Coverage</a>
+      <a href="coverage.html" aria-current="page">Coverage</a>
     </nav>
   </div>
 </header>
 
-<main class="wrap">
-  <h2>Coverage</h2>
+<main class="wrap" id="main">
+  <p class="eyebrow">Coverage</p>
+  <h1>What is covered, <span class="accent">and what is not.</span></h1>
   <p class="lede">
     What is in the dataset, which analysis can use it, and the places where a source simply stops.
     Nothing here is filled in from another source: a gap is recorded as a gap.
@@ -47,13 +48,13 @@
 
   <div id="stats"><p class="small">Loading…</p></div>
 
-  <h3>By season</h3>
+  <h2>By season</h2>
   <div class="panel table-scroll" id="season-table"></div>
 
-  <h3>Which analysis uses which seasons</h3>
+  <h2>Which analysis uses which seasons</h2>
   <div class="panel table-scroll" id="analysis-table"></div>
 
-  <h3>Known gaps</h3>
+  <h2>Known gaps</h2>
   <div class="panel">
     <ul class="small">
       <li>
@@ -93,16 +94,23 @@
 <footer class="site">
   <div class="wrap">
     <p>
-      <strong>Unofficial.</strong> Not affiliated with or endorsed by AMA Pro Racing, MX Sports,
-      Pro Motocross, Supercross, any series, team or rider. Series names appear in plain text only;
-      no logos or marks are used. Results are attributed to
-      <span class="mono">americanmotocrossresults.com</span>,
-      <span class="mono">results.promotocross.com</span> and
-      <span class="mono">results.supercrosslive.com</span>.
+      <strong>Unofficial.</strong> This project is not affiliated with or endorsed by AMA Pro Racing,
+      MX Sports, Pro Motocross, or any series, team or rider. Series names appear in plain text only;
+      no logos or marks are used. Results are attributed to their timing and scoring providers:
+      the AMA results archive (<span class="mono">americanmotocrossresults.com</span>) for 2020–2024 and
+      the LiveTime results sites (<span class="mono">results.promotocross.com</span> for Motocross and
+      <span class="mono">results.supercrosslive.com</span> for Supercross) for 2025–2026.
     </p>
+    <!-- chrome:method -->
+    <p class="small">Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+      Per-source detail is in <span class="mono">docs/sources.md</span>.</p>
+    <!-- /chrome:method -->
     <p class="small">
-      Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
-      Per-source detail is in <span class="mono">docs/sources.md</span>.
+      Derived statistics only: no source PDFs or mirrored pages are stored or served here. Source code
+      and the dataset live at <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+    </p>
+    <p class="small footer-links">
+      <a href="https://slayyyyer.github.io/">Portfolio</a><span>·</span><a href="https://github.com/slayyyyer/mx-lab">GitHub</a>
     </p>
   </div>
 </footer>

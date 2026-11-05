@@ -10,18 +10,18 @@
 <meta property="og:site_name" content="mx-lab">
 <meta property="og:title" content="Tracks — mx-lab">
 <meta property="og:description" content="Every track in the AMA Pro Motocross and Supercross dataset, 2020–2026: how often it appears, which classes raced there and when it last did.">
-<meta property="og:image" content="https://slayyyyer.github.io/mx-lab/og.svg">
+<meta property="og:image" content="https://slayyyyer.github.io/mx-lab/og.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="site">
-  <div class="wrap">
-    <div class="brand">
-      <h1><a href="index.html">mx-lab</a></h1>
-      <span class="sub">AMA Pro Motocross &amp; Supercross, 2020–2026</span>
-    </div>
-    <nav class="site">
+  <div class="wrap header-inner">
+    <p class="brandmark"><a href="index.html">MX<span class="dot">·</span>LAB</a></p>
+    <nav class="site" aria-label="Sections">
       <a href="index.html">Overview</a>
       <a href="lap-chart.html">Lap chart</a>
       <a href="fade.html">Fade</a>
@@ -38,8 +38,9 @@
   </div>
 </header>
 
-<main class="wrap">
-  <h2>Tracks</h2>
+<main class="wrap" id="main">
+  <p class="eyebrow">Tracks</p>
+  <h1>Every track, <span class="accent">measured.</span></h1>
   <p class="lede">
     The same venue can host a Motocross national, a Supercross round, or both in the same year. This
     groups the dataset by the printed track name, so a title sponsor changing between seasons does not
@@ -60,14 +61,24 @@
 <footer class="site">
   <div class="wrap">
     <p>
-      <strong>Unofficial.</strong> Not affiliated with or endorsed by AMA Pro Racing, MX Sports,
-      Pro Motocross, any series, team or rider. Series names appear in plain text only; no logos or
-      marks are used.
+      <strong>Unofficial.</strong> This project is not affiliated with or endorsed by AMA Pro Racing,
+      MX Sports, Pro Motocross, or any series, team or rider. Series names appear in plain text only;
+      no logos or marks are used. Results are attributed to their timing and scoring providers:
+      the AMA results archive (<span class="mono">americanmotocrossresults.com</span>) for 2020–2024 and
+      the LiveTime results sites (<span class="mono">results.promotocross.com</span> for Motocross and
+      <span class="mono">results.supercrosslive.com</span> for Supercross) for 2025–2026.
     </p>
-    <p class="small">
-      Events, motos and rows are counted from the committed dataset; riders is the number of distinct
+    <!-- chrome:method -->
+    <p class="small">Events, motos and rows are counted from the committed dataset; riders is the number of distinct
       riders who finished in the top three at that track.
-      Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+      Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.</p>
+    <!-- /chrome:method -->
+    <p class="small">
+      Derived statistics only: no source PDFs or mirrored pages are stored or served here. Source code
+      and the dataset live at <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+    </p>
+    <p class="small footer-links">
+      <a href="https://slayyyyer.github.io/">Portfolio</a><span>·</span><a href="https://github.com/slayyyyer/mx-lab">GitHub</a>
     </p>
   </div>
 </footer>

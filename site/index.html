@@ -3,25 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>mx-lab — AMA Pro Motocross results, analysed</title>
-<meta name="description" content="Unofficial analyses of AMA Pro Motocross results, 2020–2026, built from one validated dataset.">
+<title>mx-lab — AMA Pro Motocross &amp; Supercross results, analysed</title>
+<meta name="description" content="Unofficial analyses of AMA Pro Motocross and Supercross results, 2020–2026, built from one validated dataset.">
 <meta name="theme-color" content="#0c1117">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="mx-lab">
-<meta property="og:title" content="mx-lab — AMA Pro Motocross results, analysed">
-<meta property="og:description" content="Unofficial analyses of AMA Pro Motocross results, 2020–2026, built from one validated dataset.">
-<meta property="og:image" content="https://slayyyyer.github.io/mx-lab/og.svg">
+<meta property="og:title" content="mx-lab — AMA Pro Motocross &amp; Supercross results, analysed">
+<meta property="og:description" content="Unofficial analyses of AMA Pro Motocross and Supercross results, 2020–2026, built from one validated dataset.">
+<meta property="og:image" content="https://slayyyyer.github.io/mx-lab/og.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="site">
-  <div class="wrap">
-    <div class="brand">
-      <h1><a href="index.html">mx-lab</a></h1>
-      <span class="sub">AMA Pro Motocross &amp; Supercross, 2020–2026</span>
-    </div>
-    <nav class="site">
+  <div class="wrap header-inner">
+    <p class="brandmark"><a href="index.html">MX<span class="dot">·</span>LAB</a></p>
+    <nav class="site" aria-label="Sections">
       <a href="index.html" aria-current="page">Overview</a>
       <a href="lap-chart.html">Lap chart</a>
       <a href="fade.html">Fade</a>
@@ -38,74 +38,92 @@
   </div>
 </header>
 
-<main class="wrap">
-  <h2>Six questions about one season set of motocross results</h2>
-  <p class="lede">
-    Every number on this site comes from a single committed dataset of AMA Pro Motocross results:
-    seven seasons, two classes, every moto of every round. Nothing is scraped live, nothing is typed
-    in by hand, and every figure links back to the round it came from.
-  </p>
+<main class="wrap" id="main">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Unofficial · AMA Pro Motocross &amp; Supercross · 2020–2026</p>
+      <h1>Seven seasons, two series,<br><span class="accent">measured.</span></h1>
+      <p class="lede">
+        Every number on this site comes from one committed dataset: seven seasons, both series, every
+        moto of every round. Nothing is scraped live, nothing is typed in by hand, and every figure
+        links back to the round it came from.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="lap-chart.html">Open the lap chart</a>
+        <a class="btn" href="methods.html">How it is validated</a>
+      </div>
+    </div>
 
-  <div id="stats"><p class="small">Loading the dataset summary…</p></div>
+    <aside class="panel findings-card" aria-labelledby="findings-label">
+      <p class="eyebrow" id="findings-label">Headline findings · computed from the dataset</p>
+      <ul class="findings" id="findings">
+        <li><p class="note">Loading findings…</p></li>
+      </ul>
+    </aside>
+  </section>
 
-  <h3>What the data says</h3>
-  <div class="panel" id="findings"><p class="small">Loading findings…</p></div>
+  <section aria-labelledby="questions">
+    <h2 id="questions">Six questions</h2>
+    <div class="qgrid">
+      <a class="card" href="lap-chart.html">
+        <div class="num">6.1</div>
+        <h3>Lap chart</h3>
+        <p>Where each rider actually was, lap by lap — both series, from 2020, Triple Crown rounds excepted.</p>
+      </a>
+      <a class="card" href="fade.html">
+        <div class="num">6.2</div>
+        <h3>Fade</h3>
+        <p>How much a rider slows from the first half of a moto to the second, and which tracks punish it most.</p>
+      </a>
+      <a class="card" href="lap-one.html">
+        <div class="num">6.3</div>
+        <h3>Lap 1</h3>
+        <p>Does the opening lap already decide the finishing order? Measured per moto, with its own coverage caveat.</p>
+      </a>
+      <a class="card" href="qualifying.html">
+        <div class="num">6.4</div>
+        <h3>Qualifying</h3>
+        <p>What a fast qualifying lap is worth once the gate drops, and who races better than they qualify.</p>
+      </a>
+      <a class="card" href="titles.html">
+        <div class="num">6.5</div>
+        <h3>Titles</h3>
+        <p>Championships scored from finishing positions using the standard points table, round by round.</p>
+      </a>
+      <a class="card" href="ratings.html">
+        <div class="num">6.6</div>
+        <h3>Ratings</h3>
+        <p>An Elo rating per class across all seven seasons, so a win over a deep field counts for more.</p>
+      </a>
+    </div>
+  </section>
 
-  <h3>What is here</h3>
-  <div class="grid">
-    <a class="card" href="lap-chart.html">
-      <div class="num">6.1</div>
-      <h4>Lap chart</h4>
-      <p>Where each rider actually was, lap by lap — both series, from 2020, Triple Crown rounds excepted.</p>
-    </a>
-    <a class="card" href="fade.html">
-      <div class="num">6.2</div>
-      <h4>Fade</h4>
-      <p>How much a rider slows from the first half of a moto to the second, and which tracks punish it most.</p>
-    </a>
-    <a class="card" href="lap-one.html">
-      <div class="num">6.3</div>
-      <h4>Lap 1</h4>
-      <p>Does the opening lap already decide the finishing order? Measured per moto, with its own coverage caveat.</p>
-    </a>
-    <a class="card" href="qualifying.html">
-      <div class="num">6.4</div>
-      <h4>Qualifying</h4>
-      <p>What a fast qualifying lap is worth once the gate drops, and who races better than they qualify.</p>
-    </a>
-    <a class="card" href="titles.html">
-      <div class="num">6.5</div>
-      <h4>Titles</h4>
-      <p>Championships scored from finishing positions using the standard points table, round by round.</p>
-    </a>
-    <a class="card" href="ratings.html">
-      <div class="num">6.6</div>
-      <h4>Ratings</h4>
-      <p>An Elo rating per class across all seven seasons, so a win over a deep field counts for more.</p>
-    </a>
-  </div>
-
-  <h3>Coverage</h3>
-  <p class="small">
-    Two sources, one shape. 2020–2024 is the AMA PDF archive; 2025–2026 is the LiveTime results site,
-    which also prints a position on every lap.
-  </p>
-  <div class="panel" id="coverage"><p class="small">Loading coverage…</p></div>
-
-  <h3>How this is built</h3>
-  <div class="panel">
-    <p>
-      The dataset records what the timing sheets say. Where a sheet is internally odd — a lap time of
-      29:24 on a 30-minute moto, a “best lap” that does not appear in the lap list, a final lap printed
-      as a summary — the value is kept and the anomaly is recorded as a warning. Nothing is smoothed,
-      imputed, or filled in from another source.
-    </p>
-    <p id="warning-line" class="small"></p>
+  <section aria-labelledby="coverage">
+    <h2 id="coverage">Coverage</h2>
     <p class="small">
-      Rebuilds are byte-identical: keys are sorted, floats are rounded, and no timestamps are stored.
-      The gate separates parser errors (which fail the build) from source quirks (which are reported).
+      Two sources, one shape. 2020–2024 is the AMA PDF archive; 2025–2026 is the LiveTime results site,
+      which also prints a position on every lap.
     </p>
-  </div>
+    <div class="tiles" id="coverage-tiles"><p class="small">Loading coverage…</p></div>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section aria-labelledby="built">
+    <h2 id="built">How this is built</h2>
+    <div class="panel">
+      <p>
+        The dataset records what the timing sheets say. Where a sheet is internally odd — a lap time of
+        29:24 on a 30-minute moto, a “best lap” that does not appear in the lap list, a final lap printed
+        as a summary — the value is kept and the anomaly is recorded as a warning. Nothing is smoothed,
+        imputed, or filled in from another source.
+      </p>
+      <p id="warning-line" class="small"></p>
+      <p class="small">
+        Rebuilds are byte-identical: keys are sorted, floats are rounded, and no timestamps are stored.
+        The gate separates parser errors (which fail the build) from source quirks (which are reported).
+      </p>
+    </div>
+  </section>
 </main>
 
 <footer class="site">
@@ -115,58 +133,132 @@
       MX Sports, Pro Motocross, or any series, team or rider. Series names appear in plain text only;
       no logos or marks are used. Results are attributed to their timing and scoring providers:
       the AMA results archive (<span class="mono">americanmotocrossresults.com</span>) for 2020–2024 and
-      the LiveTime results sites (<span class="mono">results.promotocross.com</span> for Motocross and <span class="mono">results.supercrosslive.com</span> for Supercross) for 2025–2026.
+      the LiveTime results sites (<span class="mono">results.promotocross.com</span> for Motocross and
+      <span class="mono">results.supercrosslive.com</span> for Supercross) for 2025–2026.
     </p>
+    <!-- chrome:method -->
     <p class="small">
       Derived statistics only: no source PDFs or mirrored pages are stored or served here. Source code
       and the dataset live at <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+    </p>
+    <!-- /chrome:method -->
+    <p class="small">
+      Derived statistics only: no source PDFs or mirrored pages are stored or served here. Source code
+      and the dataset live at <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+    </p>
+    <p class="small footer-links">
+      <a href="https://slayyyyer.github.io/">Portfolio</a><span>·</span><a href="https://github.com/slayyyyer/mx-lab">GitHub</a>
     </p>
   </div>
 </footer>
 
 <script type="module">
-import { load, num, esc, table, statBlock } from './assets/ui.js';
+import { load, num, esc, statBlock } from './assets/ui.js';
 
-const meta = await load('meta');
-const dataset = meta.dataset;
-const era = (source) => (source.startsWith('results.') ? 'LiveTime' : 'PDF archive');
+const era = (source) => (source.startsWith('results.') ? 'LiveTime' : 'AMA PDF');
+const findings = document.querySelector('#findings');
 
-document.querySelector('#stats').innerHTML = statBlock([
-  { value: num(dataset.events), label: 'events' },
-  { value: num(dataset.rows), label: 'result rows' },
-  { value: num(dataset.laps), label: 'lap times' },
-  { value: num(dataset.seasons), label: 'seasons' },
-]);
+try {
+  const [meta, backtests, titles, entities] = await Promise.all([
+    load('meta'),
+    load('backtests'),
+    load('titles'),
+    load('entities'),
+  ]);
 
-document.querySelector('#coverage').innerHTML = table(
-  ['Season', 'Source', 'Events', 'Motos', 'Result rows', 'Lap times'],
-  meta.seasons.map((row) => [
-    row.season,
-    era(row.source),
-    num(row.events),
-    num(row.motos),
-    num(row.rows),
-    num(row.laps),
-  ]),
-  { numeric: [2, 3, 4, 5] },
-);
+  const dataset = meta.dataset;
+  const overall = backtests.overall;
+  const intervals = backtests.intervals;
 
-document.querySelector('#warning-line').textContent =
-  `${num(dataset.warnings)} source warnings are recorded in the dataset across ` +
-  `${num(dataset.qualifyingSheets)} qualifying sheets; none of them blocks a build, and each names the sheet it came from.`;
+  document.querySelector('#stats').innerHTML = statBlock([
+    { value: num(dataset.events), label: 'events' },
+    { value: num(dataset.rows), label: 'result rows' },
+    { value: num(dataset.laps), label: 'lap times' },
+    { value: num(dataset.seasons), label: 'seasons' },
+  ]);
 
-const [entities, titles] = await Promise.all([load('entities'), load('titles')]);
-const topRider = entities.riders[0];
-const busiestTrack = entities.tracks[0];
-const championships = titles.seasons.flatMap((season) => Object.values(season.classes)).filter((entry) => entry.champion);
-const clinched = championships.filter((entry) => entry.champion.clinchedRound != null).length;
+  document.querySelector('#coverage-tiles').innerHTML = meta.seasons
+    .map(
+      (row) => `<a class="tile" href="coverage.html">
+        <div class="year">${row.season}</div>
+        <div class="source">${esc(era(row.source))}</div>
+        <div class="count">${num(row.events)} events · ${num(row.motos)} motos</div>
+      </a>`,
+    )
+    .join('');
 
-document.querySelector('#findings').innerHTML = `<ul class="findings">
-  <li><strong>${esc(topRider.name)}</strong> has the most moto wins in the dataset (${num(topRider.wins)}), across ${topRider.classes.length} classes.</li>
-  <li><strong>${esc(busiestTrack.track)}</strong> is the most-visited track, with ${num(busiestTrack.events)} events.</li>
-  <li>${num(championships.length)} championships are scored, and ${num(clinched)} of them clinch by a round the dataset can name.</li>
-  <li>${num(entities.coverage.riders)} riders appear across ${num(dataset.events)} events; every moto result is traceable to its round.</li>
-</ul>`;
+  document.querySelector('#warning-line').textContent =
+    `${num(dataset.warnings)} source warnings are recorded in the dataset across ` +
+    `${num(dataset.qualifyingSheets)} qualifying sheets; none of them blocks a build, and each names the sheet it came from.`;
+
+  const rows = [];
+  const lapOne = overall.lapOne;
+  if (Number.isFinite(lapOne?.medianRho)) {
+    rows.push({
+      label: 'Lap 1 → finish',
+      value: `ρ ${lapOne.medianRho.toFixed(3)}`,
+      note: `Median rank correlation over ${num(lapOne.motos)} motos. 2020 publishes no lap-1 times, so its coverage is partial.`,
+    });
+  }
+
+  const qualifying = overall.qualifying;
+  if (Number.isFinite(qualifying?.skillVsField?.podium)) {
+    const band = intervals.qualifying?.podiumVsField;
+    rows.push({
+      label: 'Qualifying → podium',
+      value: `+${(qualifying.skillVsField.podium * 100).toFixed(1)}%`,
+      note: `Brier skill against the field average${band ? `, 95% CI ${(band.lo * 100).toFixed(1)}–${(band.hi * 100).toFixed(1)}` : ''} · ${num(qualifying.rows)} rows.`,
+    });
+  }
+
+  const rating = overall.rating;
+  if (Number.isFinite(rating?.skillVsField?.podium)) {
+    const band = intervals.rating?.podiumVsField;
+    rows.push({
+      label: 'Ratings → podium',
+      value: `+${(rating.skillVsField.podium * 100).toFixed(1)}%`,
+      note: `Walk-forward Brier skill against the field average${band ? `, 95% CI ${(band.lo * 100).toFixed(1)}–${(band.hi * 100).toFixed(1)}` : ''} · ${num(rating.rows)} rows.`,
+    });
+  }
+
+  const championships = titles.seasons.flatMap((season) =>
+    Object.entries(season.classes).map(([className, entry]) => ({ season: season.season, className, ...entry })),
+  );
+  const clinched = championships
+    .filter((entry) => entry.champion && entry.champion.clinchedRound != null)
+    .sort((a, b) => a.champion.clinchedRound - b.champion.clinchedRound);
+  if (clinched.length) {
+    const first = clinched[0];
+    rows.push({
+      label: 'Earliest clinch',
+      value: `Round ${first.champion.clinchedRound}`,
+      note: `${first.season} ${first.className} · ${first.champion.name}, on computed points. ${num(championships.length)} championships are scored.`,
+    });
+  }
+
+  if (!rows.length) throw new Error('the derived files expose no headline metric');
+
+  findings.innerHTML = rows
+    .slice(0, 4)
+    .map(
+      (row) => `<li>
+        <span class="what">${esc(row.label)}</span>
+        <span class="value">${esc(row.value)}</span>
+        <p class="note">${row.note}</p>
+      </li>`,
+    )
+    .join('');
+
+  // Keep the rider/track facts on the page only when the files actually carry them.
+  if (entities.riders?.[0]?.wins) {
+    const leader = entities.riders[0];
+    document.querySelector('#warning-line').textContent +=
+      ` ${leader.name} leads the dataset with ${num(leader.wins)} moto wins.`;
+  }
+} catch (error) {
+  findings.innerHTML = `<li><p class="note">The dataset summary could not be loaded (${esc(error.message)}). Every analysis page reads the same committed files, so the failure is in this page's data request, not in the dataset.</p></li>`;
+  document.querySelector('#stats').innerHTML = '';
+}
 </script>
 <script type="module" src="assets/version.js"></script>
 </body>

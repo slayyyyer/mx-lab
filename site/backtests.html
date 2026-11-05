@@ -10,18 +10,18 @@
 <meta property="og:site_name" content="mx-lab">
 <meta property="og:title" content="Backtests — mx-lab">
 <meta property="og:description" content="Walk-forward backtests of the mx-lab models, pre-registered before the results were read.">
-<meta property="og:image" content="https://slayyyyer.github.io/mx-lab/og.svg">
+<meta property="og:image" content="https://slayyyyer.github.io/mx-lab/og.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="site">
-  <div class="wrap">
-    <div class="brand">
-      <h1><a href="index.html">mx-lab</a></h1>
-      <span class="sub">AMA Pro Motocross &amp; Supercross, 2020–2026</span>
-    </div>
-    <nav class="site">
+  <div class="wrap header-inner">
+    <p class="brandmark"><a href="index.html">MX<span class="dot">·</span>LAB</a></p>
+    <nav class="site" aria-label="Sections">
       <a href="index.html">Overview</a>
       <a href="lap-chart.html">Lap chart</a>
       <a href="fade.html">Fade</a>
@@ -32,14 +32,15 @@
       <a href="riders.html">Riders</a>
       <a href="tracks.html">Tracks</a>
       <a href="methods.html">Methods</a>
-      <a href="backtests.html">Backtests</a>
+      <a href="backtests.html" aria-current="page">Backtests</a>
       <a href="coverage.html">Coverage</a>
     </nav>
   </div>
 </header>
 
-<main class="wrap">
-  <h2>Backtests</h2>
+<main class="wrap" id="main">
+  <p class="eyebrow">Backtests</p>
+  <h1>Do the models <span class="accent">beat the baseline?</span></h1>
   <p class="lede">
     Each model predicts a moto it has never seen, in chronological order, and is scored on the
     prediction rather than on a fitted value. The design was written down in
@@ -54,14 +55,14 @@
 
   <div id="stats"><p class="small">Loading…</p></div>
 
-  <h3>Overall</h3>
+  <h2>Overall</h2>
   <p class="small">
     MAE is the mean absolute finishing-position error. Brier and log loss are for the win, podium and
     top-ten probabilities. A lower number is better in every column.
   </p>
   <div class="panel table-scroll" id="overall-table"></div>
 
-  <h3>Skill over the field, with intervals</h3>
+  <h2>Skill over the field, with intervals</h2>
   <p class="small">
     The share by which each model's Brier score beats the field average, bootstrapped over motos
     (<span id="reps">—</span> resamples). An interval that spans zero means the model has not shown a
@@ -69,11 +70,11 @@
   </p>
   <div class="panel table-scroll" id="interval-table"></div>
 
-  <h3>By season</h3>
+  <h2>By season</h2>
   <p class="small">The best model in each season by MAE, and how many motos it was scored on.</p>
   <div class="panel table-scroll" id="season-table"></div>
 
-  <h3>By class</h3>
+  <h2>By class</h2>
   <p class="small">The same comparison inside each class, which is the unit the ratings are built on.</p>
   <div class="panel table-scroll" id="class-table"></div>
 
@@ -85,14 +86,24 @@
 <footer class="site">
   <div class="wrap">
     <p>
-      <strong>Unofficial.</strong> Not affiliated with or endorsed by AMA Pro Racing, MX Sports,
-      Pro Motocross, Supercross, any series, team or rider. Series names appear in plain text only;
-      no logos or marks are used.
+      <strong>Unofficial.</strong> This project is not affiliated with or endorsed by AMA Pro Racing,
+      MX Sports, Pro Motocross, or any series, team or rider. Series names appear in plain text only;
+      no logos or marks are used. Results are attributed to their timing and scoring providers:
+      the AMA results archive (<span class="mono">americanmotocrossresults.com</span>) for 2020–2024 and
+      the LiveTime results sites (<span class="mono">results.promotocross.com</span> for Motocross and
+      <span class="mono">results.supercrosslive.com</span> for Supercross) for 2025–2026.
     </p>
-    <p class="small">
-      Backtests are computed from the committed dataset by <span class="mono">src/analysis/backtest.js</span>
+    <!-- chrome:method -->
+    <p class="small">Backtests are computed from the committed dataset by <span class="mono">src/analysis/backtest.js</span>
       and written to <span class="mono">data/derived/backtests.json</span>. Dataset and code:
-      <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+      <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.</p>
+    <!-- /chrome:method -->
+    <p class="small">
+      Derived statistics only: no source PDFs or mirrored pages are stored or served here. Source code
+      and the dataset live at <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+    </p>
+    <p class="small footer-links">
+      <a href="https://slayyyyer.github.io/">Portfolio</a><span>·</span><a href="https://github.com/slayyyyer/mx-lab">GitHub</a>
     </p>
   </div>
 </footer>

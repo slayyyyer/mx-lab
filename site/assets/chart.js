@@ -9,17 +9,26 @@
 // invented point between two real ones is a claim the data does not make.
 
 export const PALETTE = [
-  '#4cc2ff',
-  '#f5a524',
-  '#4ade80',
-  '#f472b6',
-  '#a78bfa',
-  '#fb923c',
-  '#22d3ee',
-  '#e879f9',
-  '#facc15',
-  '#94a3b8',
+  '#4cc2ff', // sky
+  '#f0679e', // accent rose
+  '#86d9a5', // mint
+  '#b39dfb', // violet
+  '#dbe7f3', // ice
+  '#2dd4bf', // teal
+  '#8fa3b8', // slate
 ];
+
+/**
+ * Colour for series `index` of `count`. Small charts use the fixed palette; a
+ * lap chart with twenty riders rotates hue and lightness instead, skipping the
+ * warm band so nothing reads as the retired amber.
+ */
+export function seriesColour(index, count = PALETTE.length) {
+  if (count <= PALETTE.length) return PALETTE[index % PALETTE.length];
+  let hue = (190 + index * 137.508) % 360;
+  if (hue > 20 && hue < 68) hue = (hue + 120) % 360;
+  return `hsl(${hue.toFixed(0)} 70% ${index % 2 ? 74 : 58}%)`;
+}
 
 const esc = (value) =>
   String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
@@ -83,7 +92,7 @@ export function lineChart({
   });
 
   series.forEach((line, seriesIndex) => {
-    const colour = PALETTE[seriesIndex % PALETTE.length];
+    const colour = seriesColour(seriesIndex, series.length);
     let path = '';
     let pen = false;
     line.points.forEach((value, index) => {
@@ -112,7 +121,7 @@ export function lineChart({
   if (showLegend) {
     series.forEach((line, index) => {
       const y = pad.top + 8 + index * 18;
-      parts.push(`<rect x="${width - pad.right + 8}" y="${y - 8}" width="10" height="10" rx="2" fill="${PALETTE[index % PALETTE.length]}"/>`);
+      parts.push(`<rect x="${width - pad.right + 8}" y="${y - 8}" width="10" height="10" rx="2" fill="${seriesColour(index, series.length)}"/>`);
       parts.push(`<text x="${width - pad.right + 24}" y="${y + 1}">${esc(line.label)}</text>`);
     });
   }
@@ -147,7 +156,7 @@ export function hBars({ rows, width = 900, rowHeight = 24, labelWidth = 300, for
     const value = Number.isFinite(row.value) ? row.value : 0;
     const start = Math.min(zero, xAt(value));
     const barWidth = Math.abs(xAt(value) - zero);
-    const colour = row.color ?? (value < 0 ? '#4ade80' : '#4cc2ff');
+    const colour = row.color ?? (value < 0 ? '#4ade80' : PALETTE[0]);
     parts.push(`<text x="${pad.left - 10}" y="${(y + rowHeight / 2 + 4).toFixed(1)}" text-anchor="end">${esc(row.label)}</text>`);
     parts.push(
       `<rect x="${start.toFixed(1)}" y="${(y + 4).toFixed(1)}" width="${Math.max(1, barWidth).toFixed(1)}" height="${rowHeight - 10}" rx="2" fill="${colour}" opacity="0.85"/>`,

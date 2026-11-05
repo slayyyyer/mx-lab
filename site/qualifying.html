@@ -10,18 +10,18 @@
 <meta property="og:site_name" content="mx-lab">
 <meta property="og:title" content="Qualifying — mx-lab">
 <meta property="og:description" content="What a fast qualifying lap is worth in AMA Pro Motocross, and who races better than they qualify.">
-<meta property="og:image" content="https://slayyyyer.github.io/mx-lab/og.svg">
+<meta property="og:image" content="https://slayyyyer.github.io/mx-lab/og.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="site">
-  <div class="wrap">
-    <div class="brand">
-      <h1><a href="index.html">mx-lab</a></h1>
-      <span class="sub">AMA Pro Motocross &amp; Supercross, 2020–2026</span>
-    </div>
-    <nav class="site">
+  <div class="wrap header-inner">
+    <p class="brandmark"><a href="index.html">MX<span class="dot">·</span>LAB</a></p>
+    <nav class="site" aria-label="Sections">
       <a href="index.html">Overview</a>
       <a href="lap-chart.html">Lap chart</a>
       <a href="fade.html">Fade</a>
@@ -38,8 +38,9 @@
   </div>
 </header>
 
-<main class="wrap">
-  <h2>6.4 — What qualifying is worth</h2>
+<main class="wrap" id="main">
+  <p class="eyebrow">6.4 · Qualifying</p>
+  <h1>What qualifying <span class="accent">is worth.</span></h1>
   <p class="lede">
     Qualifying sets the gate, and the gate is supposed to matter. This compares where a rider
     qualified with where they actually finished, across both motos of the same event.
@@ -59,17 +60,17 @@
     </label>
   </div>
 
-  <h3>Positions gained</h3>
+  <h2>Positions gained</h2>
   <p class="small">
     Qualifying position minus mean finishing position. Positive means the rider moved forward when it
     counted; riders need at least three paired events to appear.
   </p>
   <div class="panel table-scroll" id="rider-table"><p class="small">Loading…</p></div>
 
-  <h3>Event by event</h3>
+  <h2>Event by event</h2>
   <div class="panel table-scroll" id="race-table"></div>
 
-  <h3>If the gate were the grid</h3>
+  <h2>If the gate were the grid</h2>
   <p class="small">
     Re-ranking the field by qualifying order and comparing it with the finishing order. “Median move”
     is the median absolute number of places between the two; “pole win rate” is how often the fastest
@@ -77,24 +78,34 @@
   </p>
   <div class="panel" id="rerank-table"></div>
 
-  <h3>Season summary</h3>
+  <h2>Season summary</h2>
   <div class="panel" id="season-table"></div>
 </main>
 
 <footer class="site">
   <div class="wrap">
     <p>
-      <strong>Unofficial.</strong> Not affiliated with or endorsed by AMA Pro Racing, MX Sports,
-      Pro Motocross, any series, team or rider. Series names appear in plain text only; no logos or
-      marks are used.
+      <strong>Unofficial.</strong> This project is not affiliated with or endorsed by AMA Pro Racing,
+      MX Sports, Pro Motocross, or any series, team or rider. Series names appear in plain text only;
+      no logos or marks are used. Results are attributed to their timing and scoring providers:
+      the AMA results archive (<span class="mono">americanmotocrossresults.com</span>) for 2020–2024 and
+      the LiveTime results sites (<span class="mono">results.promotocross.com</span> for Motocross and
+      <span class="mono">results.supercrosslive.com</span> for Supercross) for 2025–2026.
     </p>
-    <p class="small">
-      Qualifying times come from the combined qualifying sheet each class publishes, and finishing
+    <!-- chrome:method -->
+    <p class="small">Qualifying times come from the combined qualifying sheet each class publishes, and finishing
       positions from the moto results. Positions gained is qualifying position minus the mean of the
       rider's moto finishes at that event. Correlation is Spearman rho between qualifying position and
       mean moto finish; re-ranking compares the same two orders by absolute places moved and by how
       often the fastest qualifier won.
-      Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+      Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.</p>
+    <!-- /chrome:method -->
+    <p class="small">
+      Derived statistics only: no source PDFs or mirrored pages are stored or served here. Source code
+      and the dataset live at <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+    </p>
+    <p class="small footer-links">
+      <a href="https://slayyyyer.github.io/">Portfolio</a><span>·</span><a href="https://github.com/slayyyyer/mx-lab">GitHub</a>
     </p>
   </div>
 </footer>

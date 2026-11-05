@@ -10,18 +10,18 @@
 <meta property="og:site_name" content="mx-lab">
 <meta property="og:title" content="Methods — mx-lab">
 <meta property="og:description" content="The method, coverage and caveats behind each mx-lab analysis.">
-<meta property="og:image" content="https://slayyyyer.github.io/mx-lab/og.svg">
+<meta property="og:image" content="https://slayyyyer.github.io/mx-lab/og.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="site">
-  <div class="wrap">
-    <div class="brand">
-      <h1><a href="index.html">mx-lab</a></h1>
-      <span class="sub">AMA Pro Motocross &amp; Supercross, 2020–2026</span>
-    </div>
-    <nav class="site">
+  <div class="wrap header-inner">
+    <p class="brandmark"><a href="index.html">MX<span class="dot">·</span>LAB</a></p>
+    <nav class="site" aria-label="Sections">
       <a href="index.html">Overview</a>
       <a href="lap-chart.html">Lap chart</a>
       <a href="fade.html">Fade</a>
@@ -31,15 +31,16 @@
       <a href="ratings.html">Ratings</a>
       <a href="riders.html">Riders</a>
       <a href="tracks.html">Tracks</a>
-      <a href="methods.html">Methods</a>
+      <a href="methods.html" aria-current="page">Methods</a>
       <a href="backtests.html">Backtests</a>
       <a href="coverage.html">Coverage</a>
     </nav>
   </div>
 </header>
 
-<main class="wrap">
-  <h2>Methods</h2>
+<main class="wrap" id="main">
+  <p class="eyebrow">Methods</p>
+  <h1>How it is <span class="accent">measured.</span></h1>
   <p class="lede">
     Six analyses, one dataset. Each section states the question, how it is answered, what the source
     actually covers, and what the number does not mean.
@@ -51,7 +52,7 @@
     fails if they no longer match the dataset.
   </div>
 
-  <h3>6.1 — Lap chart</h3>
+  <h2>6.1 — Lap chart</h2>
   <p><strong>Question.</strong> Where was each rider on each lap?</p>
   <p>
     <strong>Method.</strong> Read the position the timing system prints on every lap row for 2025–2026,
@@ -67,7 +68,7 @@
     no single chart, so they are the only rounds without per-lap positions. No position is estimated.
   </p>
 
-  <h3>6.2 — Fade</h3>
+  <h2>6.2 — Fade</h2>
   <p><strong>Question.</strong> How much does a rider slow between the first and second half of a moto?</p>
   <p>
     <strong>Method.</strong> Take laps 2 to the end, drop laps slower than 1.4× the rider's own median
@@ -80,7 +81,7 @@
     in a season. Differences in the second decimal are stopwatch noise, not fitness.
   </p>
 
-  <h3>6.3 — Lap 1</h3>
+  <h2>6.3 — Lap 1</h2>
   <p><strong>Question.</strong> Does the opening lap already decide the finishing order?</p>
   <p>
     <strong>Method.</strong> Per moto, rank the riders who have a lap-1 time by that time and by
@@ -94,7 +95,7 @@
     riders.
   </p>
 
-  <h3>6.4 — Qualifying</h3>
+  <h2>6.4 — Qualifying</h2>
   <p><strong>Question.</strong> What is a fast qualifying lap worth once the gate drops?</p>
   <p>
     <strong>Method.</strong> Within an event and class, join the qualifying sheet to the moto results
@@ -107,7 +108,7 @@
     dominated by riders who never raced.
   </p>
 
-  <h3>6.5 — Titles</h3>
+  <h2>6.5 — Titles</h2>
   <p><strong>Question.</strong> Who won, when did they clinch, and how did the points race move?</p>
   <p>
     <strong>Method.</strong> Points are <strong>computed from finishing positions</strong> with the
@@ -126,7 +127,7 @@
     or a penalty the sheets do not show.
   </p>
 
-  <h3>6.6 — Ratings</h3>
+  <h2>6.6 — Ratings</h2>
   <p><strong>Question.</strong> How good is each rider relative to the riders they actually raced?</p>
   <p>
     <strong>Method.</strong> Elo per class over every moto: within a moto every finisher is compared
@@ -139,7 +140,7 @@
     not comparable across classes.
   </p>
 
-  <h3>Backtests</h3>
+  <h2>Backtests</h2>
   <p>
     The models behind these pages are scored walk-forward on motos they have never seen, with the
     design written down before the results were read. See the
@@ -147,7 +148,7 @@
     by-season comparison against the field average.
   </p>
 
-  <h3>What this site does not do</h3>
+  <h2>What this site does not do</h2>
   <ul class="small">
     <li>No live scraping: the pages read committed derived files.</li>
     <li>No imputation: a missing lap time, position or qualifying row stays missing.</li>
@@ -159,12 +160,22 @@
 <footer class="site">
   <div class="wrap">
     <p>
-      <strong>Unofficial.</strong> Not affiliated with or endorsed by AMA Pro Racing, MX Sports,
-      Pro Motocross, Supercross, any series, team or rider. Series names appear in plain text only;
-      no logos or marks are used.
+      <strong>Unofficial.</strong> This project is not affiliated with or endorsed by AMA Pro Racing,
+      MX Sports, Pro Motocross, or any series, team or rider. Series names appear in plain text only;
+      no logos or marks are used. Results are attributed to their timing and scoring providers:
+      the AMA results archive (<span class="mono">americanmotocrossresults.com</span>) for 2020–2024 and
+      the LiveTime results sites (<span class="mono">results.promotocross.com</span> for Motocross and
+      <span class="mono">results.supercrosslive.com</span> for Supercross) for 2025–2026.
     </p>
+    <!-- chrome:method -->
+    <p class="small">Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.</p>
+    <!-- /chrome:method -->
     <p class="small">
-      Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+      Derived statistics only: no source PDFs or mirrored pages are stored or served here. Source code
+      and the dataset live at <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+    </p>
+    <p class="small footer-links">
+      <a href="https://slayyyyer.github.io/">Portfolio</a><span>·</span><a href="https://github.com/slayyyyer/mx-lab">GitHub</a>
     </p>
   </div>
 </footer>

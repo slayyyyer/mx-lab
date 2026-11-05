@@ -10,18 +10,18 @@
 <meta property="og:site_name" content="mx-lab">
 <meta property="og:title" content="Fade — mx-lab">
 <meta property="og:description" content="How much AMA Pro Motocross riders slow across a moto, season by season and track by track.">
-<meta property="og:image" content="https://slayyyyer.github.io/mx-lab/og.svg">
+<meta property="og:image" content="https://slayyyyer.github.io/mx-lab/og.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="site">
-  <div class="wrap">
-    <div class="brand">
-      <h1><a href="index.html">mx-lab</a></h1>
-      <span class="sub">AMA Pro Motocross &amp; Supercross, 2020–2026</span>
-    </div>
-    <nav class="site">
+  <div class="wrap header-inner">
+    <p class="brandmark"><a href="index.html">MX<span class="dot">·</span>LAB</a></p>
+    <nav class="site" aria-label="Sections">
       <a href="index.html">Overview</a>
       <a href="lap-chart.html">Lap chart</a>
       <a href="fade.html" aria-current="page">Fade</a>
@@ -38,8 +38,9 @@
   </div>
 </header>
 
-<main class="wrap">
-  <h2>6.2 — Fade</h2>
+<main class="wrap" id="main">
+  <p class="eyebrow">6.2 · Fade</p>
+  <h1>Who holds pace, <span class="accent">who fades.</span></h1>
   <p class="lede">
     How much slower a rider is in the second half of a moto than in the first. A bigger number means
     the pace fell away; a number near zero means it held.
@@ -47,7 +48,7 @@
 
   <div id="stats"></div>
 
-  <h3>By track</h3>
+  <h2>By track</h2>
   <p class="small">
     Median fade across every measured rider in the class's two motos. Tracks that ask more of a rider
     late in a moto sit at the top.
@@ -59,10 +60,10 @@
   </div>
   <div class="panel" id="track-chart"><p class="small">Loading…</p></div>
 
-  <h3>Season by season</h3>
+  <h2>Season by season</h2>
   <div class="panel" id="season-table"></div>
 
-  <h3>Who holds pace</h3>
+  <h2>Who holds pace</h2>
   <p class="small">
     Riders with at least ten measured motos in the selected season, lowest median fade first. Two
     decimals of a percent is the resolution of a stopwatch, not of a rider's fitness — read the spread,
@@ -74,17 +75,27 @@
 <footer class="site">
   <div class="wrap">
     <p>
-      <strong>Unofficial.</strong> Not affiliated with or endorsed by AMA Pro Racing, MX Sports,
-      Pro Motocross, any series, team or rider. Series names appear in plain text only; no logos or
-      marks are used.
+      <strong>Unofficial.</strong> This project is not affiliated with or endorsed by AMA Pro Racing,
+      MX Sports, Pro Motocross, or any series, team or rider. Series names appear in plain text only;
+      no logos or marks are used. Results are attributed to their timing and scoring providers:
+      the AMA results archive (<span class="mono">americanmotocrossresults.com</span>) for 2020–2024 and
+      the LiveTime results sites (<span class="mono">results.promotocross.com</span> for Motocross and
+      <span class="mono">results.supercrosslive.com</span> for Supercross) for 2025–2026.
     </p>
-    <p class="small">
-      Fade is the percent change in a rider's median lap time between the first and second half of a
+    <!-- chrome:method -->
+    <p class="small">Fade is the percent change in a rider's median lap time between the first and second half of a
       moto, using laps 2 to the end. Laps slower than 1.4× that rider's own median are dropped as
       stoppages, and a moto needs six usable laps either side of the split. Lap times come from the
       AMA results archive (2020–2024) and the LiveTime results site (2025–2026). No lap time is
       estimated.
-      Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+      Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.</p>
+    <!-- /chrome:method -->
+    <p class="small">
+      Derived statistics only: no source PDFs or mirrored pages are stored or served here. Source code
+      and the dataset live at <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+    </p>
+    <p class="small footer-links">
+      <a href="https://slayyyyer.github.io/">Portfolio</a><span>·</span><a href="https://github.com/slayyyyer/mx-lab">GitHub</a>
     </p>
   </div>
 </footer>
