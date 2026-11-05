@@ -15,7 +15,7 @@ export const PALETTE = [
   '#b39dfb', // violet
   '#dbe7f3', // ice
   '#2dd4bf', // teal
-  '#8fa3b8', // slate
+  '#6b7f95', // slate
 ];
 
 /**
