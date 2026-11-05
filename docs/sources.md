@@ -716,3 +716,14 @@ Three further archive quirks are handled rather than papered over:
   is stored and the derived table scores it; those rounds carry no lap times.
 - **Two-rider `RID` pages can misalign**, which drops that round's lap times with a warning while
   keeping its finishing order.
+
+## 16. Correction — the LAP CHART sheet does carry per-lap positions (2026-11-05)
+
+Earlier sections recorded that 2020–2024 Supercross had no per-lap position because the
+`LAP` sheet is "a matrix of plates by position". The layout description is right; the
+conclusion was not. The grid's rows are finishing positions and its cells are plate
+numbers, so inverting it gives each plate's position on every lap.
+
+The dataset now does that inversion (`src/parse/lapChart.js`), and the lap chart covers
+Supercross from 2020 as well as both series in 2025–2026. Triple Crown rounds publish no
+single chart sheet and stay uncharted; Motocross before 2025 has none either.
