@@ -55,12 +55,14 @@ export function parseResults(text) {
   const lines = text.split(/\r?\n/);
 
   const titleIndex = lines.findIndex((line) =>
-    /RESULTS\s*-\s*\d{3}(?:MX\s*MOTO\s*#?\s*\d|SX\s*MAIN\s*EVENT)/i.test(line),
+    /RESULTS\s*-\s*\d{3}(?:MX\s*MOTO\s*#?\s*\d|SX\s*MAIN\s*EVENT|SX\s*(?:EAST\/WEST|E\/W)?\s*SHOWDOWN(?:\s*MAIN\s*EVENT)?)/i.test(line),
   );
   if (titleIndex < 0) throw new Error('results: no session title line');
   const motoTitle = lines[titleIndex].match(/(\d{3}MX)\s*MOTO\s*#?\s*(\d)/i);
   // Supercross runs one main event per class per round, so its moto number is 1.
-  const mainTitle = motoTitle ? null : lines[titleIndex].match(/(\d{3}SX)\s*MAIN\s*EVENT/i);
+  const mainTitle = motoTitle
+    ? null
+    : lines[titleIndex].match(/(\d{3}SX)\s*(?:MAIN\s*EVENT|(?:EAST\/WEST|E\/W)?\s*SHOWDOWN(?:\s*MAIN\s*EVENT)?)/i);
   if (!motoTitle && !mainTitle) throw new Error('results: unrecognised session title');
   const className = motoTitle ? motoTitle[1] : mainTitle[1];
   const moto = motoTitle ? Number(motoTitle[2]) : 1;

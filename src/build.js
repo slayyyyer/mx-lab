@@ -77,7 +77,17 @@ export function assembleEvent({ event, motos, sources = [], overrides = {} }) {
       throw new Error(`moto ${moto.session}: title says moto ${parsedResults.moto}, manifest says ${moto.moto}`);
     }
 
-    const parsedLaps = moto.lapTimesText ? parseLapTimes(moto.lapTimesText) : { riders: [], warnings: [] };
+    // A lap sheet that cannot be read must not discard a round's results: the
+    // finishing order is the primary record. The failure is recorded as a
+    // warning on the event, so coverage still shows the gap.
+    let parsedLaps = { riders: [], warnings: [] };
+    if (moto.lapTimesText) {
+      try {
+        parsedLaps = parseLapTimes(moto.lapTimesText);
+      } catch (error) {
+        warnings.push(`${moto.session}: lap times sheet not parsed (${error.message}); results kept without lap times`);
+      }
+    }
     warnings.push(...(parsedLaps.warnings ?? []));
     const lapsByPlate = new Map(parsedLaps.riders.map((rider) => [rider.plate, rider]));
 
@@ -214,7 +224,9 @@ export async function collectEvent({ eventId, base = AMA_BASE, series = 'MX', of
     // The 250 SX qualifying sheet says `250SX`; attach it to the coast's moto.
     const baseClass = session.className.split(' ')[0];
     const target = motos.find((moto) => moto.class.split(' ')[0] === baseClass);
-    if (!target) throw new Error(`${session.path}: no moto found for class ${session.className}`);
+    // A round whose 250 coast cannot be established still has a results sheet;
+    // the qualifying sheet is skipped rather than discarding the whole round.
+    if (!target) continue;
     target.qualifyingText = combined.text;
     target.qualifyingSession = session.session;
   }

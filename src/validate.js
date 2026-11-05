@@ -59,7 +59,15 @@ export function validateEvent(event) {
       if (positions.has(row.pos)) errors.push(`${label}: duplicate position ${row.pos}`);
       positions.add(row.pos);
       if (!Number.isInteger(row.plate) || row.plate < 1) errors.push(`${label}: bad plate`);
-      if (plates.has(row.plate)) errors.push(`${label}: duplicate plate`);
+      if (plates.has(row.plate)) {
+        // An East/West showdown races two championships at once, so the same
+        // number can legitimately appear twice (250SX #1 East and #1 West).
+        if (/Showdown/i.test(moto.class)) {
+          warnings.push(`${label}: plate shared with the other coast in a showdown`);
+        } else {
+          errors.push(`${label}: duplicate plate`);
+        }
+      }
       plates.add(row.plate);
       if (!row.riderId) errors.push(`${label}: missing riderId`);
 
