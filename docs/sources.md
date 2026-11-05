@@ -724,6 +724,7 @@ Earlier sections recorded that 2020–2024 Supercross had no per-lap position be
 conclusion was not. The grid's rows are finishing positions and its cells are plate
 numbers, so inverting it gives each plate's position on every lap.
 
-The dataset now does that inversion (`src/parse/lapChart.js`), and the lap chart covers
-Supercross from 2020 as well as both series in 2025–2026. Triple Crown rounds publish no
-single chart sheet and stay uncharted; Motocross before 2025 has none either.
+The dataset now does that inversion (`src/parse/lapChart.js`), and the lap chart covers both
+series from 2020: Motocross publishes the same sheets (`M1F1LAP`, `M1F2LAP`, …) as Supercross.
+Triple Crown rounds publish only three separate mains and no single chart, so they stay
+uncharted.

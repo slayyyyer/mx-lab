@@ -16,7 +16,7 @@ Motocross 2020–2026 and Supercross 2020–2026.
 
 | # | Analysis | File | Coverage | Needs per-lap position? |
 |---|---|---|---|---|
-| 6.1 | Lap chart | `lap-chart.json` | 2020–2026, 271 motos (Supercross 2020–2024 from the LAP CHART sheet) | yes |
+| 6.1 | Lap chart | `lap-chart.json` | 2020–2026, both series (2020–2024 from the LAP CHART sheet) | yes |
 | 6.2 | Fade | `fade.json` | 2020–2026, 14,468 rider-motos | no |
 | 6.3 | Lap 1 | `lap-one.json` | 2020–2026 (2020 Motocross absent) | no |
 | 6.4 | Qualifying | `qualifying.json` | 2020–2026, 322 sheets | no |

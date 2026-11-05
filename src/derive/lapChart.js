@@ -83,7 +83,7 @@ export function buildLapChart(events) {
       lapsWithPosition: lapCount,
       lapsWithoutPosition,
       periods:
-        '2020–2024 Supercross positions are inverted from the LAP CHART sheet; 2025–2026 from the timing system; pre-2025 Motocross and Triple Crown rounds print no chart and are not charted',
+        '2020–2024 positions are inverted from each moto\'s LAP CHART sheet; 2025–2026 come from the timing system; Triple Crown rounds print no single chart and are not charted',
     },
     races,
   };

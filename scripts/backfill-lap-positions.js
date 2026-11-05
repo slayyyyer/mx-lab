@@ -1,7 +1,9 @@
-// Backfill per-lap positions for 2020–2024 Supercross from the archive's LAP
-// CHART sheet.
+// Backfill per-lap positions for the 2020–2024 PDF era from the archive's LAP
+// CHART sheet. Both series publish one per moto: M1F1LAP … for Motocross and
+// S1F1LAP … for Supercross.
 //
 //   node scripts/backfill-lap-positions.js --years 2024 --limit 1
+//   node scripts/backfill-lap-positions.js --series MX
 //   node scripts/backfill-lap-positions.js --years 2020,2021,2022,2023,2024
 //
 // The 2020–2024 dataset was built from the results and lap-time sheets only, so
@@ -28,13 +30,15 @@ const arg = (name) => {
 };
 
 const years = (arg('years') ?? '2020,2021,2022,2023,2024').split(',').map(Number);
+const seriesFilter = arg('series');
 const limit = Number(arg('limit') ?? Infinity);
 const dryRun = process.argv.includes('--dry');
 
 const dir = path.resolve('data/events');
 const files = (await readdir(dir))
-  .filter((file) => /^S(20|21|22|23|24)\d\d\.json$/.test(file))
+  .filter((file) => /^[SM](20|21|22|23|24)\d\d\.json$/.test(file))
   .filter((file) => years.includes(2000 + Number(file.slice(1, 3))))
+  .filter((file) => !seriesFilter || (seriesFilter === 'SX' ? file.startsWith('S') : file.startsWith('M')))
   .sort()
   .slice(0, limit);
 
@@ -52,22 +56,24 @@ for (const [index, file] of files.entries()) {
   const target = path.join(dir, file);
   const event = JSON.parse(await readFile(target, 'utf8'));
   const eventId = event.event.id;
+  const series = file.startsWith('S') ? 'SX' : 'MX';
   let charted = 0;
 
   try {
-    const { bytes } = await fetchBytes(manifestUrl(eventId, AMA_BASE, 'SX'));
+    const { bytes } = await fetchBytes(manifestUrl(eventId, AMA_BASE, series));
     const manifest = parseManifest(bytes.toString('utf8'));
     const sheets = new Map();
     for (const session of manifest.sessions) {
       for (const sheet of session.sheets) {
-        const match = sheet.path.match(/(S[12])F1LAP\.pdf$/i);
+        // `M1F2LAP` / `S1F1LAP`: the session id is the key, and it is also the key
+        // the dataset stores on the moto.
+        const match = sheet.path.match(/([A-Z]\d[A-Z]\d)LAP\.pdf$/i);
         if (sheet.kind === 'lap-chart' && match) sheets.set(match[1], sheet.path);
       }
     }
 
     for (const moto of event.motos) {
-      const code = moto.class.startsWith('450') ? 'S1' : 'S2';
-      const relative = sheets.get(code);
+      const relative = sheets.get(moto.session);
       if (!relative) continue;
       const url = relative.startsWith('http') ? relative : AMA_BASE + relative;
       const { path: pdfPath, meta } = await fetchPdf(url);

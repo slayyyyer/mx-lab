@@ -61,12 +61,6 @@
         <span class="mono">S2310</span>; the season table records 16 and no round is invented.
       </li>
       <li>
-        <strong>No per-lap positions for pre-2025 Motocross.</strong> The archive's Supercross rounds
-        publish a <span class="mono">LAP CHART</span> sheet, which the dataset inverts into positions;
-        Motocross rounds publish none, so those motos carry lap <em>times</em> and no position. No
-        position is estimated.
-      </li>
-      <li>
         <strong>Triple Crown rounds have no lap chart.</strong> Their three separate mains publish no
         single <span class="mono">LAP CHART</span> sheet, and their overall classification has no lap
         times either, so eleven Supercross rounds across 2020–2024 carry results and no per-lap data.
@@ -82,8 +76,9 @@
         award.
       </li>
       <li>
-        <strong>2026 Anaheim 1 has no 250 qualifying report</strong>, so that round's 250 class
-        commits with an empty qualifying list.
+        <strong>2026 Anaheim 1 publishes no qualifying reports at all.</strong> The event hub lists
+        neither class's combined qualifying results, so that round commits with empty qualifying
+        lists — the only round in the dataset like that.
       </li>
       <li>
         <strong>Source warnings are kept.</strong> Missing final laps, red-flag lap times and printed
@@ -150,7 +145,7 @@ const lapChart = await load('lap-chart');
 const coverage = lapChart.coverage ?? {};
 
 const analyses = [
-  ['6.1', 'Lap chart', '2020–2026', 'Supercross has a chart sheet from 2020; Motocross only from 2025'],
+  ['6.1', 'Lap chart', '2020–2026', 'Both series publish a LAP CHART sheet; Triple Crown rounds do not'],
   ['6.2', 'Fade', '2020–2026', 'Needs per-lap times only'],
   ['6.3', 'Lap 1', '2020–2026', 'Motocross 2020 has no lap-1 times'],
   ['6.4', 'Qualifying', '2020–2026', 'Rider must appear in the motos'],
