@@ -4,7 +4,7 @@ Status: **verified 2026-11-04**, first pass. Every claim below was checked again
 site on that date with a descriptive `User-Agent`; where a claim in the handoff turned out to be
 wrong or incomplete, it is marked **CORRECTION**.
 
-Scope: AMA Pro Motocross (outdoor), 450MX and 250MX. Supercross out of scope for v1.
+Scope: AMA Pro Motocross (outdoor), 450MX and 250MX, 2020–2026; and AMA Supercross, 450SX and 250SX East/West, 2020–2024 (§17). The 2025–2026 Supercross seasons are not adapted yet.
 
 ---
 
@@ -647,4 +647,64 @@ the one remaining shared number is real: `450MX #280` in 2020 is both Cade and W
 
 The RID sheets are untouched by any of this: they carry plates, and the results sheet is the only
 place names are read from. A future layout change is caught by the scanning test that refuses a
-committed row with a column gap left in its name or a place that does not start upper-case.
+committed row with a column gap left in its name or a place that is a cut fragment.
+
+---
+
+## 17. Supercross, 2020–2024 (built 2026-11-05)
+
+The same archive serves Supercross under `/xml/SX/events/S<YY><NN>/`, with the same manifest and the
+same `RES`/`RID`/`QCOVR` sheet kinds. 84 events are committed: 2020 17, 2021 17, 2022 17, 2023 16,
+2024 17. Event ids step by 5 like Motocross, but the sequence is not a contract: 2023 publishes no
+round at `S2310`, so the season has 16 rounds and the manifest is probed rather than constructed.
+
+### 17.1 A 250 class is two championships
+
+Supercross splits the 250 class by coast: `250SX East` and `250SX West` run separate championships and
+meet at a showdown. The class name therefore carries the coast — `250SX East`, `250SX West` — and the
+coast is read from the manifest's points sheet (`2EF1POINTS.pdf` = East, `2WF1POINTS.pdf` = West).
+A manifest with both is a showdown and is recorded as `250SX Showdown`.
+
+- A showdown races two championships at once, so **the same plate can appear twice** (`#1` East and
+  `#1` West). The gate accepts a duplicate plate only in a showdown class; anywhere else it is still
+  an error.
+- A showdown mixes the two championship tables, so it is committed but excluded from titles and
+  ratings (`isChampionshipClass`). Scoring one table from it would invent a championship.
+- The 250 qualifying sheet prints the coast on the plate (`1W`), which is what makes the class
+  match.
+
+### 17.2 Triple Crown rounds have no single result sheet
+
+At a Triple Crown round each class runs **three mains** (`S1E1`, `S1E2`, `S1E3`) and there is no
+`S1F1RES.pdf`. The round classification is published as an **overall** sheet instead:
+
+```
+S1F1PRESS.pdf
+OVERALL RESULTS - 450SX OVERALL
+POS.  #  RIDER  HOMETOWN  BIKE  M1  M2  M3  POINTS  TEAM/SPONSORS
+ 1   23  Chase Sexton  …  1  5  1  26  Team Honda HRC
+```
+
+The `POINTS` column is the **official award** (26 for a win, not the 25 of a single moto). The dataset
+stores it with the row, and the title maths uses it where present instead of recomputing from the
+position. Only the classification is read; the three mains' individual sheets are not merged into it.
+
+Three further archive quirks are handled rather than papered over:
+
+- **Manifests that list no `F` session at all** (2020 Glendale and Arlington, 2022 Glendale): the
+  classes are inferred from the round's sessions, and the overall is fetched by convention at
+  `S1F1PRESS.pdf`.
+- **An overall whose bike column wraps** (2020): the score lands on the next line, so the overall is
+  unusable. Those rounds fall back to the first main-event result sheet (`S1E1RES.pdf`), which is
+  the round's finishing order because there were no other mains.
+- **A bike printed one space from its score** (`Husqvarna FC 250 RE 1`): the trailing number is split
+  back off the bike, otherwise a 22-rider overall parses as 21 and the contiguity check fails.
+
+### 17.3 What Supercross does not add
+
+- **No per-lap positions.** The `LAP` sheet is a matrix of **plates by position**, not positions; it
+  is not inverted here, so 2020–2024 Supercross contributes lap times but no lap chart.
+- **No 2025–2026.** The LiveTime source that carries those seasons is a different application
+  (`results.supercrosslive.com`) and has not been adapted.
+- **Two-rider `RID` pages can misalign**, which drops that round's lap times with a warning while
+  keeping its finishing order.

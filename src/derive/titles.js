@@ -39,7 +39,13 @@ export function buildTitles(events) {
       if (round !== null) state.rounds.add(round);
 
       for (const row of moto.results ?? []) {
-        const scored = row.status === 'DNF' ? 0 : pointsFor(row.pos);
+        // Triple Crown overall sheets print the official award (26 for a win);
+        // every other sheet leaves it to the derived table.
+        const scored = Number.isFinite(row.points)
+          ? row.points
+          : row.status === 'DNF'
+            ? 0
+            : pointsFor(row.pos);
         if (!state.riders.has(row.riderId)) {
           state.riders.set(row.riderId, {
             riderId: row.riderId,

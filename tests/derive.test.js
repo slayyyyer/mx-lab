@@ -221,9 +221,10 @@ test('derive: the committed dataset produces all six analyses deterministically'
   const second = deriveAll(events);
   eq(JSON.stringify(first), JSON.stringify(second));
 
-  eq(first.meta.dataset.events, 77);
-  eq(first.meta.dataset.rows, 12241);
-  eq(first.meta.dataset.laps, 174876);
+  // 77 Motocross events from 2020–2026 plus 84 Supercross events from 2020–2024.
+  eq(first.meta.dataset.events, 161);
+  eq(first.meta.dataset.rows, 15938);
+  eq(first.meta.dataset.laps, 227758);
   eq(first.meta.seasons.length, 7);
 
   eq(first.lapChart.coverage.seasons, [2025, 2026]);
@@ -237,13 +238,20 @@ test('derive: the committed dataset produces all six analyses deterministically'
   assert(first.fade.seasons.every((row) => row.medianFadePct > 0), 'the field should slow down');
 
   // 2020 prints `--.---` for lap 1 across the entire field, so lap-1 analysis starts in 2021.
-  eq(first.lapOne.seasons.map((row) => row.season), [2021, 2022, 2023, 2024, 2025, 2026]);
+  eq(first.lapOne.seasons.map((row) => row.season), [2020, 2021, 2022, 2023, 2024, 2025, 2026]);
   assert(first.lapOne.coverage.lapOneCoverage < 1, '2020-2024 is missing lap 1 for part of the field');
-  const season2020 = first.lapOne.races.filter((race) => race.season === 2020);
-  assert(season2020.length > 0, 'the 2020 races should still be listed');
+  // 2020 Motocross prints `--.---` for lap 1 across the entire field; the 2020
+  // Supercross rounds do print it, so the season is no longer empty.
+  const mx2020 = first.lapOne.races.filter((race) => race.season === 2020 && race.eventId.startsWith('M'));
+  assert(mx2020.length > 0, 'the 2020 Motocross races should still be listed');
   assert(
-    season2020.every((race) => race.motos.every((moto) => moto.ridersWithLapOne === 0)),
-    '2020 should have no lap-1 times at all',
+    mx2020.every((race) => race.motos.every((moto) => moto.ridersWithLapOne === 0)),
+    '2020 Motocross should have no lap-1 times at all',
+  );
+  const sx2020 = first.lapOne.races.filter((race) => race.season === 2020 && race.eventId.startsWith('S'));
+  assert(
+    sx2020.some((race) => race.motos.some((moto) => moto.ridersWithLapOne > 0)),
+    '2020 Supercross should print lap-1 times',
   );
   assert(
     first.lapOne.seasons.every((row) => row.lapOneCoverage > 0 && row.lapOneCoverage <= 1),
@@ -254,9 +262,13 @@ test('derive: the committed dataset produces all six analyses deterministically'
   assert(first.qualifying.riders.length > 100, 'qualifying leaderboard is empty');
 
   eq(first.titles.seasons.length, 7);
+  // Supercross stops at 2024 in the archive; its 250 title is scored per coast.
+  const MX_CLASSES = ['250MX', '450MX'];
+  const SX_CLASSES = ['250SX East', '250SX West', '450SX'];
   for (const season of first.titles.seasons) {
-    eq(Object.keys(season.classes).sort(), ['250MX', '450MX']);
-    for (const className of ['250MX', '450MX']) {
+    const classes = season.season <= 2024 ? [...MX_CLASSES, ...SX_CLASSES].sort() : MX_CLASSES;
+    eq(Object.keys(season.classes).sort(), classes);
+    for (const className of classes) {
       const table = season.classes[className];
       assert(table.champion, `${season.season} ${className} has no champion`);
       eq(table.standings[0].riderId, table.champion.riderId);
@@ -268,9 +280,9 @@ test('derive: the committed dataset produces all six analyses deterministically'
     }
   }
 
-  eq(Object.keys(first.ratings.classes).sort(), ['250MX', '450MX']);
+  eq(Object.keys(first.ratings.classes).sort(), ['250MX', '250SX East', '250SX West', '450MX', '450SX']);
   assert(first.ratings.classes['450MX'].allTime.length > 10, 'ratings all-time table is thin');
-  for (const className of ['250MX', '450MX']) {
+  for (const className of ['250MX', '250SX East', '250SX West', '450MX', '450SX']) {
     for (const season of first.ratings.classes[className].seasons) {
       assert(season.riders.length > 10, `${className} ${season.season} has no rated field`);
       assert(

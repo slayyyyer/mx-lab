@@ -1,23 +1,25 @@
 # mx-lab
 
-One clean, validated dataset of AMA Pro Motocross results, and six analyses published on top of it.
+One clean, validated dataset of AMA Pro Motocross and Supercross results, and six analyses published on top of it.
 
 **Unofficial.** This project is not affiliated with or endorsed by AMA Pro Racing, MX Sports, Pro
 Motocross, or any series, team or rider. Series names appear in plain text only; no logos or marks
 are used. Results are attributed to their timing and scoring providers.
 
-> **Status: 2020–2026 is ingested — 77 events, 12,241 result rows, 174,876 per-lap times.**
-> 2020–2024 comes from the PDF archive (55 events) and 2025–2026 from the LiveTime results site
-> (22 events, ADR 0005); no event is refused by the gate. Per-lap **positions** exist only for
-> 2025–2026. **The six analyses and the static site are built** — `data/derived/`, `site/` and
-> `docs/analyses.md` record what each one measures and where its coverage stops.
+> **Status: 2020–2026 is ingested — 161 events, 15,938 result rows, 227,758 per-lap times.**
+> Motocross runs 2020–2026 (77 events: 55 from the PDF archive, 22 from LiveTime, ADR 0005) and
+> Supercross runs 2020–2024 (84 events from the PDF archive); no event is refused by the gate.
+> Per-lap **positions** exist only for 2025–2026. **The six analyses and the static site are
+> built** — `data/derived/`, `site/` and `docs/analyses.md` record what each one measures and where
+> its coverage stops.
 
 ## Sources (verified 2026-11-04)
 
-| Seasons | Source | Format | What it provides |
-|---|---|---|---|
-| 2020–2024 | `americanmotocrossresults.com` (LiveTime PDF archive) | PDF, one file per session | Results, per-lap times, qualifying over the whole entry list |
-| 2025–2026 | `results.promotocross.com` (LiveTime Scoring Engine) | Server-rendered HTML | Results, per-lap times **and per-lap positions**, qualifying |
+| Seasons | Series | Source | Format | What it provides |
+|---|---|---|---|---|
+| 2020–2024 | Motocross | `americanmotocrossresults.com` (LiveTime PDF archive) | PDF, one file per session | Results, per-lap times, qualifying over the whole entry list |
+| 2020–2024 | Supercross | same archive, `/xml/SX/` | PDF | Results, per-lap times, qualifying; Triple Crown rounds publish an overall sheet |
+| 2025–2026 | Motocross | `results.promotocross.com` (LiveTime Scoring Engine) | Server-rendered HTML | Results, per-lap times **and per-lap positions**, qualifying |
 
 - The two PDF hosts in the archive (`americanmotocrossresults.com` and
   `live.amaproracing.com`) are the **same backend** — byte-identical files. One origin is used.
@@ -44,13 +46,17 @@ All four are recorded with evidence in `docs/sources.md` §14 and the ADRs:
 
 | Season | Events | Result rows | Per-lap times | Source |
 |---|---|---|---|---|
-| 2020 | 9 | 1,400 | 20,028 | PDF archive |
-| 2021 | 12 | 1,920 | 27,078 | PDF archive |
-| 2022 | 12 | 1,880 | 26,623 | PDF archive |
-| 2023 | 11 | 1,760 | 24,669 | PDF archive |
-| 2024 | 11 | 1,760 | 24,840 | PDF archive |
-| 2025 | 11 | 1,762 | 25,405 | LiveTime |
-| 2026 | 11 | 1,759 | 26,233 | LiveTime |
+| 2020 | 26 | 2,148 | 31,419 | PDF archive (9 MX, 17 SX) |
+| 2021 | 29 | 2,669 | 40,258 | PDF archive (12 MX, 17 SX) |
+| 2022 | 29 | 2,628 | 36,506 | PDF archive (12 MX, 17 SX) |
+| 2023 | 27 | 2,464 | 32,784 | PDF archive (11 MX, 16 SX) |
+| 2024 | 28 | 2,508 | 35,153 | PDF archive (11 MX, 17 SX) |
+| 2025 | 11 | 1,762 | 25,405 | LiveTime (MX only) |
+| 2026 | 11 | 1,759 | 26,233 | LiveTime (MX only) |
+
+Supercross stops at 2024 in the PDF archive; 2025–2026 Supercross has not been adapted yet, so the
+2025 and 2026 rows are Motocross only. 2023 Supercross has 16 rounds because the archive publishes no
+round at `S2310`.
 
 Every round parses: `npm run survey` checks 2020–2024 against the archive's own `M<YY><NN>`
 numbering, and `node scripts/lt-season.js` rebuilds a 2025/2026 season plus its roster.
@@ -77,7 +83,7 @@ src/
 site/                   static site: plain HTML, CSS and ES modules, no dependencies
 tests/
   harness.js, run.js    dependency-free test harness
-  *.test.js             70 tests over committed extracted-text, HTML and dataset fixtures
+  *.test.js             76 tests over committed extracted-text, HTML and dataset fixtures
 data/events/            committed dataset, one JSON file per event
 data/rosters/           per-season `class:plate` → rider roster, 2020–2026
 data/derived/           the six analysis files, rebuilt from data/events
@@ -118,8 +124,8 @@ the decisions behind them.
 | 6.2 | Fade | 2020–2026 | time-based, so it needs no position |
 | 6.3 | Lap 1 | 2021–2026 | 2020 prints no lap-1 time at all |
 | 6.4 | Qualifying | 2020–2026 | rider must appear in qualifying and the motos |
-| 6.5 | Titles | 2020–2026 | points computed from finishing positions |
-| 6.6 | Ratings | 2020–2026 | Elo per class, one rating across all seasons |
+| 6.5 | Titles | 2020–2026 | points computed from finishing positions; Supercross 2020–2024, scored per coast |
+| 6.6 | Ratings | 2020–2026 | Elo per class, one rating across all seasons; Supercross 2020–2024 |
 
 The site is plain HTML, CSS and ES modules with no client dependency. `npm run site` copies the
 derived files into `site/data/` (git-ignored, so there is one copy of the numbers in the repository),
@@ -136,8 +142,8 @@ to GitHub Pages. Pages has to be set to deploy from GitHub Actions in the reposi
   missing rider id, a malformed source hash — fail the build. Anomalies in the source itself — an
   implausible lap time, a `best lap` that is not in the lap list, a lap number printed twice,
   qualifying order that does not follow the times — are warnings: the dataset records what the
-  sheet says and names the anomaly. There are 1,090 of them (1,066 from the PDF era, 24 from
-  LiveTime), all in the committed data.
+  sheet says and names the anomaly. There are 1,639 of them across the committed data, most of them
+  the PDF era's missing final lap.
 - **Provenance without artefacts.** `sources[]` records each source page's URL and sha256; the
   PDFs and mirrored HTML are never committed.
 - **Positions only where the source has them.** A lap may carry `position` (schema 2). 2025–2026

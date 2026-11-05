@@ -1,13 +1,14 @@
 {
   "analysis": "lap-one",
   "coverage": {
-    "lapOneCoverage": 0.369,
-    "motos": 306,
-    "motosMeasured": 115,
+    "lapOneCoverage": 0.349,
+    "motos": 474,
+    "motosMeasured": 163,
     "note": "lap 1 is printed `--.---` for part of the 2020–2024 field, so coverage is reported per season",
-    "rows": 12241,
-    "rowsWithLapOne": 4522,
+    "rows": 15938,
+    "rowsWithLapOne": 5563,
     "seasons": [
+      2020,
       2021,
       2022,
       2023,
@@ -22,6 +23,28 @@
     "reading": "a rho near 1 means the opening lap already ordered the moto; near 0 means it did not"
   },
   "races": [
+    {
+      "eventId": "S2005",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Anaheim 1",
+      "round": 1,
+      "season": 2020
+    },
     {
       "eventId": "M2005",
       "motos": [
@@ -56,6 +79,28 @@
       ],
       "name": "Loretta Lynn's National",
       "round": 1,
+      "season": 2020
+    },
+    {
+      "eventId": "S2010",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": 0.465,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.842,
+          "riders": 22,
+          "ridersWithLapOne": 21
+        }
+      ],
+      "name": "St. Louis",
+      "round": 2,
       "season": 2020
     },
     {
@@ -95,6 +140,28 @@
       "season": 2020
     },
     {
+      "eventId": "S2015",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Anaheim 2",
+      "round": 3,
+      "season": 2020
+    },
+    {
       "eventId": "M2015",
       "motos": [
         {
@@ -131,6 +198,28 @@
       "season": 2020
     },
     {
+      "eventId": "S2020",
+      "motos": [
+        {
+          "class": "250SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Glendale",
+      "round": 4,
+      "season": 2020
+    },
+    {
       "eventId": "M2020",
       "motos": [
         {
@@ -157,6 +246,28 @@
       ],
       "name": "RedBud National I",
       "round": 4,
+      "season": 2020
+    },
+    {
+      "eventId": "S2025",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": 0.669,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.79,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        }
+      ],
+      "name": "Oakland",
+      "round": 5,
       "season": 2020
     },
     {
@@ -196,6 +307,28 @@
       "season": 2020
     },
     {
+      "eventId": "S2030",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "San Diego",
+      "round": 6,
+      "season": 2020
+    },
+    {
       "eventId": "M2030",
       "motos": [
         {
@@ -229,6 +362,28 @@
       ],
       "name": "Spring Creek National",
       "round": 6,
+      "season": 2020
+    },
+    {
+      "eventId": "S2035",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Tampa",
+      "round": 7,
       "season": 2020
     },
     {
@@ -268,6 +423,28 @@
       "season": 2020
     },
     {
+      "eventId": "S2040",
+      "motos": [
+        {
+          "class": "250SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Arlington",
+      "round": 8,
+      "season": 2020
+    },
+    {
       "eventId": "M2040",
       "motos": [
         {
@@ -301,6 +478,28 @@
       ],
       "name": "Thunder Valley National",
       "round": 8,
+      "season": 2020
+    },
+    {
+      "eventId": "S2045",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Atlanta",
+      "round": 9,
       "season": 2020
     },
     {
@@ -340,6 +539,204 @@
       "season": 2020
     },
     {
+      "eventId": "S2050",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": 0.741,
+          "riders": 22,
+          "ridersWithLapOne": 21
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.871,
+          "riders": 22,
+          "ridersWithLapOne": 21
+        }
+      ],
+      "name": "Daytona",
+      "round": 10,
+      "season": 2020
+    },
+    {
+      "eventId": "S2055",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Salt Lake City I",
+      "round": 11,
+      "season": 2020
+    },
+    {
+      "eventId": "S2060",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Salt Lake City 2",
+      "round": 12,
+      "season": 2020
+    },
+    {
+      "eventId": "S2065",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Salt Lake City 3",
+      "round": 13,
+      "season": 2020
+    },
+    {
+      "eventId": "S2070",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": 0.832,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.662,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        }
+      ],
+      "name": "Salt Lake City 4",
+      "round": 14,
+      "season": 2020
+    },
+    {
+      "eventId": "S2075",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Salt Lake City 5",
+      "round": 15,
+      "season": 2020
+    },
+    {
+      "eventId": "S2080",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Salt Lake City 6",
+      "round": 16,
+      "season": 2020
+    },
+    {
+      "eventId": "S2085",
+      "motos": [
+        {
+          "class": "250SX Showdown",
+          "moto": 1,
+          "rho": 0.519,
+          "riders": 22,
+          "ridersWithLapOne": 19
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Salt Lake City 7",
+      "round": 17,
+      "season": 2020
+    },
+    {
+      "eventId": "S2105",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": 0.802,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.823,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        }
+      ],
+      "name": "Houston 1",
+      "round": 1,
+      "season": 2021
+    },
+    {
       "eventId": "M2105",
       "motos": [
         {
@@ -373,6 +770,28 @@
       ],
       "name": "Fox Raceway I",
       "round": 1,
+      "season": 2021
+    },
+    {
+      "eventId": "S2110",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Houston 2",
+      "round": 2,
       "season": 2021
     },
     {
@@ -412,6 +831,28 @@
       "season": 2021
     },
     {
+      "eventId": "S2115",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Houston 3",
+      "round": 3,
+      "season": 2021
+    },
+    {
       "eventId": "M2115",
       "motos": [
         {
@@ -445,6 +886,28 @@
       ],
       "name": "High Point",
       "round": 3,
+      "season": 2021
+    },
+    {
+      "eventId": "S2120",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Indianapolis 1",
+      "round": 4,
       "season": 2021
     },
     {
@@ -484,6 +947,28 @@
       "season": 2021
     },
     {
+      "eventId": "S2125",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": 0.638,
+          "riders": 23,
+          "ridersWithLapOne": 21
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.53,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        }
+      ],
+      "name": "Indianapolis 2",
+      "round": 5,
+      "season": 2021
+    },
+    {
       "eventId": "M2125",
       "motos": [
         {
@@ -517,6 +1002,28 @@
       ],
       "name": "Southwick",
       "round": 5,
+      "season": 2021
+    },
+    {
+      "eventId": "S2130",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Indianapolis 3",
+      "round": 6,
       "season": 2021
     },
     {
@@ -556,6 +1063,28 @@
       "season": 2021
     },
     {
+      "eventId": "S2135",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Orlando 1",
+      "round": 7,
+      "season": 2021
+    },
+    {
       "eventId": "M2135",
       "motos": [
         {
@@ -589,6 +1118,28 @@
       ],
       "name": "Washougal",
       "round": 7,
+      "season": 2021
+    },
+    {
+      "eventId": "S2140",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 1
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Orlando 2",
+      "round": 8,
       "season": 2021
     },
     {
@@ -628,6 +1179,28 @@
       "season": 2021
     },
     {
+      "eventId": "S2145",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Daytona",
+      "round": 9,
+      "season": 2021
+    },
+    {
       "eventId": "M2145",
       "motos": [
         {
@@ -661,6 +1234,28 @@
       ],
       "name": "Budds Creek",
       "round": 9,
+      "season": 2021
+    },
+    {
+      "eventId": "S2150",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Arlington 1",
+      "round": 10,
       "season": 2021
     },
     {
@@ -700,6 +1295,28 @@
       "season": 2021
     },
     {
+      "eventId": "S2155",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": 0.635,
+          "riders": 22,
+          "ridersWithLapOne": 20
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.836,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        }
+      ],
+      "name": "Arlington 2",
+      "round": 11,
+      "season": 2021
+    },
+    {
       "eventId": "M2155",
       "motos": [
         {
@@ -733,6 +1350,28 @@
       ],
       "name": "Fox Raceway II",
       "round": 11,
+      "season": 2021
+    },
+    {
+      "eventId": "S2160",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Arlington 3",
+      "round": 12,
       "season": 2021
     },
     {
@@ -772,6 +1411,138 @@
       "season": 2021
     },
     {
+      "eventId": "S2165",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": 0.695,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.873,
+          "riders": 22,
+          "ridersWithLapOne": 21
+        }
+      ],
+      "name": "Atlanta 1",
+      "round": 13,
+      "season": 2021
+    },
+    {
+      "eventId": "S2170",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Atlanta 2",
+      "round": 14,
+      "season": 2021
+    },
+    {
+      "eventId": "S2175",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Atlanta 3",
+      "round": 15,
+      "season": 2021
+    },
+    {
+      "eventId": "S2180",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": 0.814,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.675,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        }
+      ],
+      "name": "Salt Lake City 1",
+      "round": 16,
+      "season": 2021
+    },
+    {
+      "eventId": "S2185",
+      "motos": [
+        {
+          "class": "250SX Showdown",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Salt Lake City 2",
+      "round": 17,
+      "season": 2021
+    },
+    {
+      "eventId": "S2205",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Anaheim I",
+      "round": 1,
+      "season": 2022
+    },
+    {
       "eventId": "M2205",
       "motos": [
         {
@@ -805,6 +1576,28 @@
       ],
       "name": "Fox Raceway I",
       "round": 1,
+      "season": 2022
+    },
+    {
+      "eventId": "S2210",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": 0.854,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.761,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        }
+      ],
+      "name": "Oakland",
+      "round": 2,
       "season": 2022
     },
     {
@@ -844,6 +1637,28 @@
       "season": 2022
     },
     {
+      "eventId": "S2215",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "San Diego",
+      "round": 3,
+      "season": 2022
+    },
+    {
       "eventId": "M2215",
       "motos": [
         {
@@ -877,6 +1692,28 @@
       ],
       "name": "Thunder Valley",
       "round": 3,
+      "season": 2022
+    },
+    {
+      "eventId": "S2220",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Anaheim II",
+      "round": 4,
       "season": 2022
     },
     {
@@ -916,6 +1753,28 @@
       "season": 2022
     },
     {
+      "eventId": "S2225",
+      "motos": [
+        {
+          "class": "250SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Glendale",
+      "round": 5,
+      "season": 2022
+    },
+    {
       "eventId": "M2225",
       "motos": [
         {
@@ -949,6 +1808,28 @@
       ],
       "name": "RedBud",
       "round": 5,
+      "season": 2022
+    },
+    {
+      "eventId": "S2230",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Anaheim III",
+      "round": 6,
       "season": 2022
     },
     {
@@ -988,6 +1869,28 @@
       "season": 2022
     },
     {
+      "eventId": "S2235",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Minneapolis",
+      "round": 7,
+      "season": 2022
+    },
+    {
       "eventId": "M2235",
       "motos": [
         {
@@ -1021,6 +1924,28 @@
       ],
       "name": "Spring Creek",
       "round": 7,
+      "season": 2022
+    },
+    {
+      "eventId": "S2240",
+      "motos": [
+        {
+          "class": "250SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Arlington",
+      "round": 8,
       "season": 2022
     },
     {
@@ -1060,6 +1985,28 @@
       "season": 2022
     },
     {
+      "eventId": "S2245",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Daytona",
+      "round": 9,
+      "season": 2022
+    },
+    {
       "eventId": "M2245",
       "motos": [
         {
@@ -1093,6 +2040,28 @@
       ],
       "name": "Unadilla",
       "round": 9,
+      "season": 2022
+    },
+    {
+      "eventId": "S2250",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Detroit",
+      "round": 10,
       "season": 2022
     },
     {
@@ -1132,6 +2101,28 @@
       "season": 2022
     },
     {
+      "eventId": "S2255",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": 0.86,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.84,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        }
+      ],
+      "name": "Indy",
+      "round": 11,
+      "season": 2022
+    },
+    {
       "eventId": "M2255",
       "motos": [
         {
@@ -1168,6 +2159,28 @@
       "season": 2022
     },
     {
+      "eventId": "S2260",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Seattle",
+      "round": 12,
+      "season": 2022
+    },
+    {
       "eventId": "M2260",
       "motos": [
         {
@@ -1195,6 +2208,138 @@
       "name": "Fox Raceway II",
       "round": 12,
       "season": 2022
+    },
+    {
+      "eventId": "S2265",
+      "motos": [
+        {
+          "class": "250SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "St. Louis",
+      "round": 13,
+      "season": 2022
+    },
+    {
+      "eventId": "S2270",
+      "motos": [
+        {
+          "class": "250SX Showdown",
+          "moto": 1,
+          "rho": 0.704,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.899,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        }
+      ],
+      "name": "Atlanta",
+      "round": 14,
+      "season": 2022
+    },
+    {
+      "eventId": "S2275",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Foxborough",
+      "round": 15,
+      "season": 2022
+    },
+    {
+      "eventId": "S2280",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Denver",
+      "round": 16,
+      "season": 2022
+    },
+    {
+      "eventId": "S2285",
+      "motos": [
+        {
+          "class": "250SX Showdown",
+          "moto": 1,
+          "rho": 0.704,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.82,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        }
+      ],
+      "name": "Salt Lake City",
+      "round": 17,
+      "season": 2022
+    },
+    {
+      "eventId": "S2305",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": 0.795,
+          "riders": 22,
+          "ridersWithLapOne": 21
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.659,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        }
+      ],
+      "name": "Anaheim I",
+      "round": 1,
+      "season": 2023
     },
     {
       "eventId": "M2305",
@@ -1269,6 +2414,28 @@
       "season": 2023
     },
     {
+      "eventId": "S2315",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "San Diego",
+      "round": 3,
+      "season": 2023
+    },
+    {
       "eventId": "M2315",
       "motos": [
         {
@@ -1302,6 +2469,28 @@
       ],
       "name": "Thunder Valley National",
       "round": 3,
+      "season": 2023
+    },
+    {
+      "eventId": "S2320",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Anaheim II",
+      "round": 4,
       "season": 2023
     },
     {
@@ -1341,6 +2530,28 @@
       "season": 2023
     },
     {
+      "eventId": "S2325",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": 0.634,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Houston",
+      "round": 5,
+      "season": 2023
+    },
+    {
       "eventId": "M2325",
       "motos": [
         {
@@ -1374,6 +2585,28 @@
       ],
       "name": "RedBud National",
       "round": 5,
+      "season": 2023
+    },
+    {
+      "eventId": "S2330",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Tampa",
+      "round": 6,
       "season": 2023
     },
     {
@@ -1413,6 +2646,28 @@
       "season": 2023
     },
     {
+      "eventId": "S2335",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Arlington",
+      "round": 7,
+      "season": 2023
+    },
+    {
       "eventId": "M2335",
       "motos": [
         {
@@ -1446,6 +2701,28 @@
       ],
       "name": "Spring Creek National",
       "round": 7,
+      "season": 2023
+    },
+    {
+      "eventId": "S2340",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Daytona",
+      "round": 8,
       "season": 2023
     },
     {
@@ -1485,6 +2762,28 @@
       "season": 2023
     },
     {
+      "eventId": "S2345",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Indy",
+      "round": 9,
+      "season": 2023
+    },
+    {
       "eventId": "M2345",
       "motos": [
         {
@@ -1518,6 +2817,28 @@
       ],
       "name": "Unadilla National",
       "round": 9,
+      "season": 2023
+    },
+    {
+      "eventId": "S2350",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": 0.909,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.714,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        }
+      ],
+      "name": "Detroit",
+      "round": 10,
       "season": 2023
     },
     {
@@ -1557,6 +2878,28 @@
       "season": 2023
     },
     {
+      "eventId": "S2355",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": 0.545,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.906,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        }
+      ],
+      "name": "Seattle",
+      "round": 11,
+      "season": 2023
+    },
+    {
       "eventId": "M2355",
       "motos": [
         {
@@ -1593,6 +2936,160 @@
       "season": 2023
     },
     {
+      "eventId": "S2360",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Glendale",
+      "round": 12,
+      "season": 2023
+    },
+    {
+      "eventId": "S2365",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": 0.599,
+          "riders": 22,
+          "ridersWithLapOne": 21
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.737,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        }
+      ],
+      "name": "Atlanta",
+      "round": 13,
+      "season": 2023
+    },
+    {
+      "eventId": "S2370",
+      "motos": [
+        {
+          "class": "250SX Showdown",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "East Rutherford",
+      "round": 14,
+      "season": 2023
+    },
+    {
+      "eventId": "S2375",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": 0.933,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.685,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        }
+      ],
+      "name": "Nashville",
+      "round": 15,
+      "season": 2023
+    },
+    {
+      "eventId": "S2380",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Denver",
+      "round": 16,
+      "season": 2023
+    },
+    {
+      "eventId": "S2385",
+      "motos": [
+        {
+          "class": "250SX Showdown",
+          "moto": 1,
+          "rho": 0.769,
+          "riders": 22,
+          "ridersWithLapOne": 21
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.796,
+          "riders": 22,
+          "ridersWithLapOne": 21
+        }
+      ],
+      "name": "Salt Lake City",
+      "round": 17,
+      "season": 2023
+    },
+    {
+      "eventId": "S2405",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": 0.712,
+          "riders": 22,
+          "ridersWithLapOne": 21
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.851,
+          "riders": 22,
+          "ridersWithLapOne": 21
+        }
+      ],
+      "name": "Anaheim I",
+      "round": 1,
+      "season": 2024
+    },
+    {
       "eventId": "M2405",
       "motos": [
         {
@@ -1626,6 +3123,28 @@
       ],
       "name": "Fox Raceway National",
       "round": 1,
+      "season": 2024
+    },
+    {
+      "eventId": "S2410",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "San Francisco",
+      "round": 2,
       "season": 2024
     },
     {
@@ -1665,6 +3184,28 @@
       "season": 2024
     },
     {
+      "eventId": "S2415",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "San Diego",
+      "round": 3,
+      "season": 2024
+    },
+    {
       "eventId": "M2415",
       "motos": [
         {
@@ -1698,6 +3239,28 @@
       ],
       "name": "Thunder Valley National",
       "round": 3,
+      "season": 2024
+    },
+    {
+      "eventId": "S2420",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Anaheim II",
+      "round": 4,
       "season": 2024
     },
     {
@@ -1737,6 +3300,28 @@
       "season": 2024
     },
     {
+      "eventId": "S2425",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Detroit",
+      "round": 5,
+      "season": 2024
+    },
+    {
       "eventId": "M2425",
       "motos": [
         {
@@ -1770,6 +3355,28 @@
       ],
       "name": "Southwick National",
       "round": 5,
+      "season": 2024
+    },
+    {
+      "eventId": "S2430",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Glendale",
+      "round": 6,
       "season": 2024
     },
     {
@@ -1809,6 +3416,28 @@
       "season": 2024
     },
     {
+      "eventId": "S2435",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Arlington",
+      "round": 7,
+      "season": 2024
+    },
+    {
       "eventId": "M2435",
       "motos": [
         {
@@ -1842,6 +3471,28 @@
       ],
       "name": "FXR Spring Creek National",
       "round": 7,
+      "season": 2024
+    },
+    {
+      "eventId": "S2440",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": 0.82,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.534,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        }
+      ],
+      "name": "Daytona",
+      "round": 8,
       "season": 2024
     },
     {
@@ -1881,6 +3532,28 @@
       "season": 2024
     },
     {
+      "eventId": "S2445",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": 0.869,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.81,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        }
+      ],
+      "name": "Birmingham",
+      "round": 9,
+      "season": 2024
+    },
+    {
       "eventId": "M2445",
       "motos": [
         {
@@ -1914,6 +3587,28 @@
       ],
       "name": "Unadilla National",
       "round": 9,
+      "season": 2024
+    },
+    {
+      "eventId": "S2450",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Indianapolis",
+      "round": 10,
       "season": 2024
     },
     {
@@ -1953,6 +3648,28 @@
       "season": 2024
     },
     {
+      "eventId": "S2455",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Seattle",
+      "round": 11,
+      "season": 2024
+    },
+    {
       "eventId": "M2455",
       "motos": [
         {
@@ -1986,6 +3703,138 @@
       ],
       "name": "Ironman National",
       "round": 11,
+      "season": 2024
+    },
+    {
+      "eventId": "S2460",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "St. Louis",
+      "round": 12,
+      "season": 2024
+    },
+    {
+      "eventId": "S2465",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": 0.699,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": 0.775,
+          "riders": 22,
+          "ridersWithLapOne": 22
+        }
+      ],
+      "name": "Foxborough",
+      "round": 13,
+      "season": 2024
+    },
+    {
+      "eventId": "S2470",
+      "motos": [
+        {
+          "class": "250SX Showdown",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Nashville",
+      "round": 14,
+      "season": 2024
+    },
+    {
+      "eventId": "S2475",
+      "motos": [
+        {
+          "class": "250SX East",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Philadelphia",
+      "round": 15,
+      "season": 2024
+    },
+    {
+      "eventId": "S2480",
+      "motos": [
+        {
+          "class": "250SX West",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Denver",
+      "round": 16,
+      "season": 2024
+    },
+    {
+      "eventId": "S2485",
+      "motos": [
+        {
+          "class": "250SX Showdown",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        },
+        {
+          "class": "450SX",
+          "moto": 1,
+          "rho": null,
+          "riders": 22,
+          "ridersWithLapOne": 0
+        }
+      ],
+      "name": "Salt Lake City",
+      "round": 17,
       "season": 2024
     },
     {
@@ -2783,34 +4632,42 @@
   ],
   "seasons": [
     {
-      "lapOneCoverage": 0.247,
+      "lapOneCoverage": 0.089,
+      "medianRho": 0.741,
+      "motos": 69,
+      "motosMeasured": 9,
+      "season": 2020,
+      "strongShare": 0.889
+    },
+    {
+      "lapOneCoverage": 0.259,
       "medianRho": 0.735,
-      "motos": 48,
-      "motosMeasured": 12,
+      "motos": 82,
+      "motosMeasured": 22,
       "season": 2021,
       "strongShare": 1
     },
     {
-      "lapOneCoverage": 0.169,
-      "medianRho": 0.818,
-      "motos": 47,
-      "motosMeasured": 8,
+      "lapOneCoverage": 0.188,
+      "medianRho": 0.821,
+      "motos": 81,
+      "motosMeasured": 16,
       "season": 2022,
       "strongShare": 1
     },
     {
-      "lapOneCoverage": 0.163,
-      "medianRho": 0.777,
-      "motos": 44,
-      "motosMeasured": 8,
+      "lapOneCoverage": 0.231,
+      "medianRho": 0.763,
+      "motos": 76,
+      "motosMeasured": 21,
       "season": 2023,
       "strongShare": 1
     },
     {
-      "lapOneCoverage": 0.177,
-      "medianRho": 0.724,
-      "motos": 44,
-      "motosMeasured": 8,
+      "lapOneCoverage": 0.194,
+      "medianRho": 0.758,
+      "motos": 78,
+      "motosMeasured": 16,
       "season": 2024,
       "strongShare": 1
     },

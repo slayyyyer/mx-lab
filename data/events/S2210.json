@@ -1,0 +1,5310 @@
+{
+  "event": {
+    "date": "2022-01-14",
+    "id": "S2210",
+    "location": "Oakland, CA",
+    "name": "Oakland",
+    "ofRounds": 17,
+    "round": 2,
+    "series": "AMA Supercross",
+    "track": "RingCentral Coliseum"
+  },
+  "motos": [
+    {
+      "class": "250SX West",
+      "moto": 1,
+      "results": [
+        {
+          "bestLapMs": 59990,
+          "bike": "Yamaha YZ250F",
+          "gapMs": null,
+          "hometown": "Temecula, CA",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 60376
+            },
+            {
+              "lap": 2,
+              "timeMs": 61238
+            },
+            {
+              "lap": 3,
+              "timeMs": 60255
+            },
+            {
+              "lap": 4,
+              "timeMs": 60154
+            },
+            {
+              "lap": 5,
+              "timeMs": 59990
+            },
+            {
+              "lap": 6,
+              "timeMs": 60563
+            },
+            {
+              "lap": 7,
+              "timeMs": 60944
+            },
+            {
+              "lap": 8,
+              "timeMs": 61411
+            },
+            {
+              "lap": 9,
+              "timeMs": 61102
+            },
+            {
+              "lap": 10,
+              "timeMs": 61967
+            },
+            {
+              "lap": 11,
+              "timeMs": 61580
+            },
+            {
+              "lap": 12,
+              "timeMs": 61559
+            },
+            {
+              "lap": 13,
+              "timeMs": 62354
+            },
+            {
+              "lap": 14,
+              "timeMs": 62711
+            },
+            {
+              "lap": 15,
+              "timeMs": 62549
+            },
+            {
+              "lap": 16,
+              "timeMs": 65052
+            }
+          ],
+          "lapsCompleted": 16,
+          "name": "Christian Craig",
+          "plate": 28,
+          "points": null,
+          "pos": 1,
+          "riderId": "christian-craig",
+          "status": null,
+          "team": "Monster Energy Star Racing Yamaha  W"
+        },
+        {
+          "bestLapMs": 60647,
+          "bike": "Honda CRF250R",
+          "gapMs": 5698,
+          "hometown": "Wesley Chapel, FL",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 62832
+            },
+            {
+              "lap": 2,
+              "timeMs": 61194
+            },
+            {
+              "lap": 3,
+              "timeMs": 62779
+            },
+            {
+              "lap": 4,
+              "timeMs": 60647
+            },
+            {
+              "lap": 5,
+              "timeMs": 61057
+            },
+            {
+              "lap": 6,
+              "timeMs": 60849
+            },
+            {
+              "lap": 7,
+              "timeMs": 61278
+            },
+            {
+              "lap": 8,
+              "timeMs": 60884
+            },
+            {
+              "lap": 9,
+              "timeMs": 61175
+            },
+            {
+              "lap": 10,
+              "timeMs": 61504
+            },
+            {
+              "lap": 11,
+              "timeMs": 62084
+            },
+            {
+              "lap": 12,
+              "timeMs": 61774
+            },
+            {
+              "lap": 13,
+              "timeMs": 61400
+            },
+            {
+              "lap": 14,
+              "timeMs": 61374
+            },
+            {
+              "lap": 15,
+              "timeMs": 62904
+            },
+            {
+              "lap": 16,
+              "timeMs": 63666
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Hunter Lawrence",
+          "plate": 96,
+          "points": null,
+          "pos": 2,
+          "riderId": "hunter-lawrence",
+          "status": null,
+          "team": "Team Honda HRC  W"
+        },
+        {
+          "bestLapMs": 60882,
+          "bike": "Kawasaki KX250",
+          "gapMs": 9954,
+          "hometown": "Temecula, CA",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 62223
+            },
+            {
+              "lap": 2,
+              "timeMs": 61278
+            },
+            {
+              "lap": 3,
+              "timeMs": 61422
+            },
+            {
+              "lap": 4,
+              "timeMs": 60882
+            },
+            {
+              "lap": 5,
+              "timeMs": 60931
+            },
+            {
+              "lap": 6,
+              "timeMs": 61016
+            },
+            {
+              "lap": 7,
+              "timeMs": 61933
+            },
+            {
+              "lap": 8,
+              "timeMs": 61039
+            },
+            {
+              "lap": 9,
+              "timeMs": 62314
+            },
+            {
+              "lap": 10,
+              "timeMs": 61588
+            },
+            {
+              "lap": 11,
+              "timeMs": 61651
+            },
+            {
+              "lap": 12,
+              "timeMs": 63277
+            },
+            {
+              "lap": 13,
+              "timeMs": 62838
+            },
+            {
+              "lap": 14,
+              "timeMs": 62527
+            },
+            {
+              "lap": 15,
+              "timeMs": 63149
+            },
+            {
+              "lap": 16,
+              "timeMs": 64840
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Seth Hammaker",
+          "plate": 47,
+          "points": null,
+          "pos": 3,
+          "riderId": "seth-hammaker",
+          "status": null,
+          "team": "Monster Energy Pro Circuit Kawasaki W"
+        },
+        {
+          "bestLapMs": 60553,
+          "bike": "GASGAS MC 250F",
+          "gapMs": 14809,
+          "hometown": "Minneaola, FL",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 61911
+            },
+            {
+              "lap": 2,
+              "timeMs": 61613
+            },
+            {
+              "lap": 3,
+              "timeMs": 60868
+            },
+            {
+              "lap": 4,
+              "timeMs": 61207
+            },
+            {
+              "lap": 5,
+              "timeMs": 69767
+            },
+            {
+              "lap": 6,
+              "timeMs": 60922
+            },
+            {
+              "lap": 7,
+              "timeMs": 60553
+            },
+            {
+              "lap": 8,
+              "timeMs": 61460
+            },
+            {
+              "lap": 9,
+              "timeMs": 60786
+            },
+            {
+              "lap": 10,
+              "timeMs": 60876
+            },
+            {
+              "lap": 11,
+              "timeMs": 63828
+            },
+            {
+              "lap": 12,
+              "timeMs": 62152
+            },
+            {
+              "lap": 13,
+              "timeMs": 61650
+            },
+            {
+              "lap": 14,
+              "timeMs": 61638
+            },
+            {
+              "lap": 15,
+              "timeMs": 63134
+            },
+            {
+              "lap": 16,
+              "timeMs": 64446
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Michael Mosiman",
+          "plate": 29,
+          "points": null,
+          "pos": 4,
+          "riderId": "michael-mosiman",
+          "status": null,
+          "team": "Troy Lee Designs Red Bull GASGAS Factory  W Racing"
+        },
+        {
+          "bestLapMs": 60618,
+          "bike": "Yamaha YZ250F",
+          "gapMs": 23244,
+          "hometown": "Livingston, TN",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 63712
+            },
+            {
+              "lap": 2,
+              "timeMs": 63079
+            },
+            {
+              "lap": 3,
+              "timeMs": 62179
+            },
+            {
+              "lap": 4,
+              "timeMs": 60960
+            },
+            {
+              "lap": 5,
+              "timeMs": 62007
+            },
+            {
+              "lap": 6,
+              "timeMs": 60618
+            },
+            {
+              "lap": 7,
+              "timeMs": 61357
+            },
+            {
+              "lap": 8,
+              "timeMs": 61192
+            },
+            {
+              "lap": 9,
+              "timeMs": 61460
+            },
+            {
+              "lap": 10,
+              "timeMs": 62650
+            },
+            {
+              "lap": 11,
+              "timeMs": 64707
+            },
+            {
+              "lap": 12,
+              "timeMs": 62902
+            },
+            {
+              "lap": 13,
+              "timeMs": 64142
+            },
+            {
+              "lap": 14,
+              "timeMs": 63950
+            },
+            {
+              "lap": 15,
+              "timeMs": 63470
+            },
+            {
+              "lap": 16,
+              "timeMs": 65270
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Nate Thrasher",
+          "plate": 49,
+          "points": null,
+          "pos": 5,
+          "riderId": "nate-thrasher",
+          "status": null,
+          "team": "Monster Energy Star Racing Yamaha  W"
+        },
+        {
+          "bestLapMs": 61932,
+          "bike": "Honda CRF250R",
+          "gapMs": 40386,
+          "hometown": "Menifee, CA",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 62378
+            },
+            {
+              "lap": 2,
+              "timeMs": 63185
+            },
+            {
+              "lap": 3,
+              "timeMs": 63859
+            },
+            {
+              "lap": 4,
+              "timeMs": 62876
+            },
+            {
+              "lap": 5,
+              "timeMs": 63754
+            },
+            {
+              "lap": 6,
+              "timeMs": 62969
+            },
+            {
+              "lap": 7,
+              "timeMs": 61932
+            },
+            {
+              "lap": 8,
+              "timeMs": 63413
+            },
+            {
+              "lap": 9,
+              "timeMs": 64552
+            },
+            {
+              "lap": 10,
+              "timeMs": 62997
+            },
+            {
+              "lap": 11,
+              "timeMs": 64103
+            },
+            {
+              "lap": 12,
+              "timeMs": 64653
+            },
+            {
+              "lap": 13,
+              "timeMs": 64227
+            },
+            {
+              "lap": 14,
+              "timeMs": 65528
+            },
+            {
+              "lap": 15,
+              "timeMs": 64410
+            },
+            {
+              "lap": 16,
+              "timeMs": 68990
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Vince Friese",
+          "plate": 62,
+          "points": null,
+          "pos": 6,
+          "riderId": "vince-friese",
+          "status": null,
+          "team": "Smartop Bullfrog Spas MotoConcepts Honda  W"
+        },
+        {
+          "bestLapMs": 60598,
+          "bike": "Kawasaki KX250",
+          "gapMs": 49493,
+          "hometown": "Menifee, CA",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 60598
+            },
+            {
+              "lap": 2,
+              "timeMs": 63961
+            },
+            {
+              "lap": 3,
+              "timeMs": 60921
+            },
+            {
+              "lap": 4,
+              "timeMs": 75941
+            },
+            {
+              "lap": 5,
+              "timeMs": 62868
+            },
+            {
+              "lap": 6,
+              "timeMs": 62328
+            },
+            {
+              "lap": 7,
+              "timeMs": 63679
+            },
+            {
+              "lap": 8,
+              "timeMs": 62391
+            },
+            {
+              "lap": 9,
+              "timeMs": 63042
+            },
+            {
+              "lap": 10,
+              "timeMs": 62945
+            },
+            {
+              "lap": 11,
+              "timeMs": 64324
+            },
+            {
+              "lap": 12,
+              "timeMs": 63462
+            },
+            {
+              "lap": 13,
+              "timeMs": 67539
+            },
+            {
+              "lap": 14,
+              "timeMs": 65384
+            },
+            {
+              "lap": 15,
+              "timeMs": 66280
+            },
+            {
+              "lap": 16,
+              "timeMs": 68389
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Jo Shimoda",
+          "plate": 30,
+          "points": null,
+          "pos": 7,
+          "riderId": "jo-shimoda",
+          "status": null,
+          "team": "Monster energy ProCircuit Kawasaki  W"
+        },
+        {
+          "bestLapMs": 61098,
+          "bike": "Yamaha YZ250F",
+          "gapMs": 52899,
+          "hometown": "Coalville, UT",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 65795
+            },
+            {
+              "lap": 2,
+              "timeMs": 61098
+            },
+            {
+              "lap": 3,
+              "timeMs": 61955
+            },
+            {
+              "lap": 4,
+              "timeMs": 62974
+            },
+            {
+              "lap": 5,
+              "timeMs": 61861
+            },
+            {
+              "lap": 6,
+              "timeMs": 62073
+            },
+            {
+              "lap": 7,
+              "timeMs": 62327
+            },
+            {
+              "lap": 8,
+              "timeMs": 61461
+            },
+            {
+              "lap": 9,
+              "timeMs": 66429
+            },
+            {
+              "lap": 10,
+              "timeMs": 63290
+            },
+            {
+              "lap": 11,
+              "timeMs": 66342
+            },
+            {
+              "lap": 12,
+              "timeMs": 64607
+            },
+            {
+              "lap": 13,
+              "timeMs": 67629
+            },
+            {
+              "lap": 14,
+              "timeMs": 69380
+            },
+            {
+              "lap": 15,
+              "timeMs": 65186
+            },
+            {
+              "lap": 16,
+              "timeMs": 69591
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Garrett Marchbanks",
+          "plate": 35,
+          "points": null,
+          "pos": 8,
+          "riderId": "garrett-marchbanks",
+          "status": null,
+          "team": "Muc-Off FXR ClubMX  W"
+        },
+        {
+          "bestLapMs": 62913,
+          "bike": "GASGAS MC 250F",
+          "gapMs": 54645,
+          "hometown": "Phoenix, AZ",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 63991
+            },
+            {
+              "lap": 2,
+              "timeMs": 63709
+            },
+            {
+              "lap": 3,
+              "timeMs": 62913
+            },
+            {
+              "lap": 4,
+              "timeMs": 65435
+            },
+            {
+              "lap": 5,
+              "timeMs": 63685
+            },
+            {
+              "lap": 6,
+              "timeMs": 64154
+            },
+            {
+              "lap": 7,
+              "timeMs": 64881
+            },
+            {
+              "lap": 8,
+              "timeMs": 65633
+            },
+            {
+              "lap": 9,
+              "timeMs": 64406
+            },
+            {
+              "lap": 10,
+              "timeMs": 65468
+            },
+            {
+              "lap": 11,
+              "timeMs": 66118
+            },
+            {
+              "lap": 12,
+              "timeMs": 66231
+            },
+            {
+              "lap": 13,
+              "timeMs": 64849
+            },
+            {
+              "lap": 14,
+              "timeMs": 65141
+            },
+            {
+              "lap": 15,
+              "timeMs": 64530
+            },
+            {
+              "lap": 16,
+              "timeMs": 65608
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Chris Blose",
+          "plate": 66,
+          "points": null,
+          "pos": 9,
+          "riderId": "chris-blose",
+          "status": null,
+          "team": "AJE Motorsport MOTUL GAS GAS  W"
+        },
+        {
+          "bestLapMs": 63486,
+          "bike": "Yamaha YZ250F",
+          "gapMs": 58012,
+          "hometown": "Newhall, CA",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 68916
+            },
+            {
+              "lap": 2,
+              "timeMs": 65060
+            },
+            {
+              "lap": 3,
+              "timeMs": 64011
+            },
+            {
+              "lap": 4,
+              "timeMs": 64151
+            },
+            {
+              "lap": 5,
+              "timeMs": 64051
+            },
+            {
+              "lap": 6,
+              "timeMs": 64072
+            },
+            {
+              "lap": 7,
+              "timeMs": 64877
+            },
+            {
+              "lap": 8,
+              "timeMs": 63486
+            },
+            {
+              "lap": 9,
+              "timeMs": 63863
+            },
+            {
+              "lap": 10,
+              "timeMs": 64660
+            },
+            {
+              "lap": 11,
+              "timeMs": 64855
+            },
+            {
+              "lap": 12,
+              "timeMs": 64861
+            },
+            {
+              "lap": 13,
+              "timeMs": 64541
+            },
+            {
+              "lap": 14,
+              "timeMs": 64419
+            },
+            {
+              "lap": 15,
+              "timeMs": 65052
+            },
+            {
+              "lap": 16,
+              "timeMs": 67134
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Robbie Wageman",
+          "plate": 69,
+          "points": null,
+          "pos": 10,
+          "riderId": "robbie-wageman",
+          "status": null,
+          "team": "Team Solitaire Nuclear Blast Records Yamaha  W"
+        },
+        {
+          "bestLapMs": 64097,
+          "bike": "Suzuki RM-Z250",
+          "gapMs": null,
+          "hometown": "Alpine, CA",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 65391
+            },
+            {
+              "lap": 2,
+              "timeMs": 64097
+            },
+            {
+              "lap": 3,
+              "timeMs": 64284
+            },
+            {
+              "lap": 4,
+              "timeMs": 65375
+            },
+            {
+              "lap": 5,
+              "timeMs": 64645
+            },
+            {
+              "lap": 6,
+              "timeMs": 64553
+            },
+            {
+              "lap": 7,
+              "timeMs": 64334
+            },
+            {
+              "lap": 8,
+              "timeMs": 64566
+            },
+            {
+              "lap": 9,
+              "timeMs": 65639
+            },
+            {
+              "lap": 10,
+              "timeMs": 67735
+            },
+            {
+              "lap": 11,
+              "timeMs": 67335
+            },
+            {
+              "lap": 12,
+              "timeMs": 67144
+            },
+            {
+              "lap": 13,
+              "timeMs": 66756
+            },
+            {
+              "lap": 14,
+              "timeMs": 68444
+            },
+            {
+              "lap": 15,
+              "timeMs": 72930
+            }
+          ],
+          "lapsCompleted": 15,
+          "name": "Dilan Schwartz",
+          "plate": 40,
+          "points": null,
+          "pos": 11,
+          "riderId": "dilan-schwartz",
+          "status": null,
+          "team": "BarX Suzuki  W"
+        },
+        {
+          "bestLapMs": 64006,
+          "bike": "Yamaha YZ250F",
+          "gapMs": 3761,
+          "hometown": "Brigden, ON",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 64909
+            },
+            {
+              "lap": 2,
+              "timeMs": 64006
+            },
+            {
+              "lap": 3,
+              "timeMs": 64322
+            },
+            {
+              "lap": 4,
+              "timeMs": 65151
+            },
+            {
+              "lap": 5,
+              "timeMs": 65516
+            },
+            {
+              "lap": 6,
+              "timeMs": 65660
+            },
+            {
+              "lap": 7,
+              "timeMs": 66683
+            },
+            {
+              "lap": 8,
+              "timeMs": 66219
+            },
+            {
+              "lap": 9,
+              "timeMs": 65271
+            },
+            {
+              "lap": 10,
+              "timeMs": 66080
+            },
+            {
+              "lap": 11,
+              "timeMs": 67474
+            },
+            {
+              "lap": 12,
+              "timeMs": 67279
+            },
+            {
+              "lap": 13,
+              "timeMs": 67664
+            },
+            {
+              "lap": 14,
+              "timeMs": 69605
+            },
+            {
+              "lap": 15,
+              "timeMs": 69846
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Cole Thompson",
+          "plate": 161,
+          "points": null,
+          "pos": 12,
+          "riderId": "cole-thompson",
+          "status": null,
+          "team": "Parts Canada, Thor  W"
+        },
+        {
+          "bestLapMs": 64844,
+          "bike": "KTM 250 SX-F",
+          "gapMs": 20645,
+          "hometown": "Ravensdale, WA",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 66758
+            },
+            {
+              "lap": 2,
+              "timeMs": 64844
+            },
+            {
+              "lap": 3,
+              "timeMs": 77319
+            },
+            {
+              "lap": 4,
+              "timeMs": 65456
+            },
+            {
+              "lap": 5,
+              "timeMs": 66154
+            },
+            {
+              "lap": 6,
+              "timeMs": 66070
+            },
+            {
+              "lap": 7,
+              "timeMs": 65787
+            },
+            {
+              "lap": 8,
+              "timeMs": 67029
+            },
+            {
+              "lap": 9,
+              "timeMs": 66481
+            },
+            {
+              "lap": 10,
+              "timeMs": 67679
+            },
+            {
+              "lap": 11,
+              "timeMs": 67821
+            },
+            {
+              "lap": 12,
+              "timeMs": 67088
+            },
+            {
+              "lap": 13,
+              "timeMs": 68398
+            },
+            {
+              "lap": 14,
+              "timeMs": 67027
+            },
+            {
+              "lap": 15,
+              "timeMs": 68422
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Carson Brown",
+          "plate": 910,
+          "points": null,
+          "pos": 13,
+          "riderId": "carson-brown",
+          "status": null,
+          "team": "AEO Powersports KTM Racing  W"
+        },
+        {
+          "bestLapMs": 63865,
+          "bike": "Suzuki RM-Z250",
+          "gapMs": 23596,
+          "hometown": "Simi Valley, CA",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 65568
+            },
+            {
+              "lap": 2,
+              "timeMs": 64189
+            },
+            {
+              "lap": 3,
+              "timeMs": 85221
+            },
+            {
+              "lap": 4,
+              "timeMs": 76918
+            },
+            {
+              "lap": 5,
+              "timeMs": 64214
+            },
+            {
+              "lap": 6,
+              "timeMs": 63865
+            },
+            {
+              "lap": 7,
+              "timeMs": 65887
+            },
+            {
+              "lap": 8,
+              "timeMs": 65213
+            },
+            {
+              "lap": 9,
+              "timeMs": 66455
+            },
+            {
+              "lap": 10,
+              "timeMs": 66362
+            },
+            {
+              "lap": 11,
+              "timeMs": 67584
+            },
+            {
+              "lap": 12,
+              "timeMs": 67033
+            },
+            {
+              "lap": 13,
+              "timeMs": 66773
+            },
+            {
+              "lap": 14,
+              "timeMs": 66423
+            },
+            {
+              "lap": 15,
+              "timeMs": 66467
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Carson Mumford",
+          "plate": 43,
+          "points": null,
+          "pos": 14,
+          "riderId": "carson-mumford",
+          "status": null,
+          "team": "BarX Suzuki  W"
+        },
+        {
+          "bestLapMs": 65556,
+          "bike": "KTM 250 SX-F",
+          "gapMs": 26602,
+          "hometown": "Longview, WA",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 70331
+            },
+            {
+              "lap": 2,
+              "timeMs": 66375
+            },
+            {
+              "lap": 3,
+              "timeMs": 67192
+            },
+            {
+              "lap": 4,
+              "timeMs": 66602
+            },
+            {
+              "lap": 5,
+              "timeMs": 65556
+            },
+            {
+              "lap": 6,
+              "timeMs": 66594
+            },
+            {
+              "lap": 7,
+              "timeMs": 67590
+            },
+            {
+              "lap": 8,
+              "timeMs": 65887
+            },
+            {
+              "lap": 9,
+              "timeMs": 67470
+            },
+            {
+              "lap": 10,
+              "timeMs": 67204
+            },
+            {
+              "lap": 11,
+              "timeMs": 71446
+            },
+            {
+              "lap": 12,
+              "timeMs": 69727
+            },
+            {
+              "lap": 13,
+              "timeMs": 68527
+            },
+            {
+              "lap": 14,
+              "timeMs": 66621
+            },
+            {
+              "lap": 15,
+              "timeMs": 70398
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Devin Harriman",
+          "plate": 216,
+          "points": null,
+          "pos": 15,
+          "riderId": "devin-harriman",
+          "status": null,
+          "team": "Motorsport Hillsboro, Fusion Graphics, W  Legacy Racew"
+        },
+        {
+          "bestLapMs": 65812,
+          "bike": "Yamaha YZ250F",
+          "gapMs": 55756,
+          "hometown": "Corona, CA",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 67487
+            },
+            {
+              "lap": 2,
+              "timeMs": 68661
+            },
+            {
+              "lap": 3,
+              "timeMs": 67138
+            },
+            {
+              "lap": 4,
+              "timeMs": 66605
+            },
+            {
+              "lap": 5,
+              "timeMs": 66204
+            },
+            {
+              "lap": 6,
+              "timeMs": 66966
+            },
+            {
+              "lap": 7,
+              "timeMs": 65812
+            },
+            {
+              "lap": 8,
+              "timeMs": 65936
+            },
+            {
+              "lap": 9,
+              "timeMs": 66483
+            },
+            {
+              "lap": 10,
+              "timeMs": 67456
+            },
+            {
+              "lap": 11,
+              "timeMs": 80170
+            },
+            {
+              "lap": 12,
+              "timeMs": 69170
+            },
+            {
+              "lap": 13,
+              "timeMs": 72688
+            },
+            {
+              "lap": 14,
+              "timeMs": 77527
+            },
+            {
+              "lap": 15,
+              "timeMs": 80271
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Ryan Surratt",
+          "plate": 58,
+          "points": null,
+          "pos": 16,
+          "riderId": "ryan-surratt",
+          "status": null,
+          "team": "Team Solitaire Nuclear Blast Records Yamaha  W"
+        },
+        {
+          "bestLapMs": 66293,
+          "bike": "Kawasaki KX250",
+          "gapMs": null,
+          "hometown": "Amherst, OH",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 68766
+            },
+            {
+              "lap": 2,
+              "timeMs": 67914
+            },
+            {
+              "lap": 3,
+              "timeMs": 67004
+            },
+            {
+              "lap": 4,
+              "timeMs": 66293
+            },
+            {
+              "lap": 5,
+              "timeMs": 67009
+            },
+            {
+              "lap": 6,
+              "timeMs": 68421
+            },
+            {
+              "lap": 7,
+              "timeMs": 67786
+            },
+            {
+              "lap": 8,
+              "timeMs": 67857
+            },
+            {
+              "lap": 9,
+              "timeMs": 70404
+            },
+            {
+              "lap": 10,
+              "timeMs": 71163
+            },
+            {
+              "lap": 11,
+              "timeMs": 70997
+            },
+            {
+              "lap": 12,
+              "timeMs": 73773
+            },
+            {
+              "lap": 13,
+              "timeMs": 74529
+            },
+            {
+              "lap": 14,
+              "timeMs": 76406
+            }
+          ],
+          "lapsCompleted": 14,
+          "name": "Logan Karnow",
+          "plate": 67,
+          "points": null,
+          "pos": 17,
+          "riderId": "logan-karnow",
+          "status": null,
+          "team": "Motozone, CMS Roofing and Restoration,WNamura Pi"
+        },
+        {
+          "bestLapMs": 65326,
+          "bike": "Yamaha YZ250F",
+          "gapMs": 18514,
+          "hometown": "El Paso, TX",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 68588
+            },
+            {
+              "lap": 2,
+              "timeMs": 66836
+            },
+            {
+              "lap": 3,
+              "timeMs": 66016
+            },
+            {
+              "lap": 4,
+              "timeMs": 66546
+            },
+            {
+              "lap": 5,
+              "timeMs": 67616
+            },
+            {
+              "lap": 6,
+              "timeMs": 66208
+            },
+            {
+              "lap": 7,
+              "timeMs": 65326
+            },
+            {
+              "lap": 8,
+              "timeMs": 66213
+            },
+            {
+              "lap": 9,
+              "timeMs": 67813
+            },
+            {
+              "lap": 10,
+              "timeMs": 109290
+            },
+            {
+              "lap": 11,
+              "timeMs": 69401
+            },
+            {
+              "lap": 12,
+              "timeMs": 68586
+            },
+            {
+              "lap": 13,
+              "timeMs": 73626
+            },
+            {
+              "lap": 14,
+              "timeMs": 77323
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Hunter Schlosser",
+          "plate": 79,
+          "points": null,
+          "pos": 18,
+          "riderId": "hunter-schlosser",
+          "status": null,
+          "team": "Hugh Ridley, Aektiv,SC Service,Lenco,MotoElPaso,L  W"
+        },
+        {
+          "bestLapMs": 66767,
+          "bike": "Husqvarna FC 250",
+          "gapMs": 26502,
+          "hometown": "Rayleigh, ENG",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 71195
+            },
+            {
+              "lap": 2,
+              "timeMs": 67202
+            },
+            {
+              "lap": 3,
+              "timeMs": 66995
+            },
+            {
+              "lap": 4,
+              "timeMs": 66767
+            },
+            {
+              "lap": 5,
+              "timeMs": 68620
+            },
+            {
+              "lap": 6,
+              "timeMs": 67830
+            },
+            {
+              "lap": 7,
+              "timeMs": 68695
+            },
+            {
+              "lap": 8,
+              "timeMs": 73885
+            },
+            {
+              "lap": 9,
+              "timeMs": 72785
+            },
+            {
+              "lap": 10,
+              "timeMs": 77569
+            },
+            {
+              "lap": 11,
+              "timeMs": 77742
+            },
+            {
+              "lap": 12,
+              "timeMs": 74520
+            },
+            {
+              "lap": 13,
+              "timeMs": 74094
+            },
+            {
+              "lap": 14,
+              "timeMs": 77483
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Dylan Woodcock",
+          "plate": 260,
+          "points": null,
+          "pos": 19,
+          "riderId": "dylan-woodcock",
+          "status": null,
+          "team": "Stunt Flying, California MX Holidays, Seven,  W Pod, Be"
+        },
+        {
+          "bestLapMs": 65213,
+          "bike": "Yamaha YZ250F",
+          "gapMs": null,
+          "hometown": "Schneeberg, GER",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 68569
+            },
+            {
+              "lap": 2,
+              "timeMs": 65581
+            },
+            {
+              "lap": 3,
+              "timeMs": 67159
+            },
+            {
+              "lap": 4,
+              "timeMs": 65213
+            },
+            {
+              "lap": 5,
+              "timeMs": 65914
+            },
+            {
+              "lap": 6,
+              "timeMs": 65260
+            },
+            {
+              "lap": 7,
+              "timeMs": 66348
+            },
+            {
+              "lap": 8,
+              "timeMs": 66510
+            },
+            {
+              "lap": 9,
+              "timeMs": 66752
+            },
+            {
+              "lap": 10,
+              "timeMs": 118091
+            }
+          ],
+          "lapsCompleted": 10,
+          "name": "Dominique Thury",
+          "plate": 98,
+          "points": null,
+          "pos": 20,
+          "riderId": "dominique-thury",
+          "status": null,
+          "team": "Muc-Off FXR ClubMX  W"
+        },
+        {
+          "bestLapMs": 68075,
+          "bike": "KTM 125 SX",
+          "gapMs": null,
+          "hometown": "Klamath Falls, OR",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 71158
+            },
+            {
+              "lap": 2,
+              "timeMs": 68075
+            },
+            {
+              "lap": 3,
+              "timeMs": 68185
+            },
+            {
+              "lap": 4,
+              "timeMs": 68524
+            },
+            {
+              "lap": 5,
+              "timeMs": 68223
+            },
+            {
+              "lap": 6,
+              "timeMs": 68579
+            },
+            {
+              "lap": 7,
+              "timeMs": 71106
+            }
+          ],
+          "lapsCompleted": 7,
+          "name": "red Steinke",
+          "plate": 726,
+          "points": null,
+          "pos": 21,
+          "riderId": "red-steinke",
+          "status": null,
+          "team": "MotoSport Hillsboro, Slims Top Shelf, Lonesome Cam  W"
+        },
+        {
+          "bestLapMs": 65484,
+          "bike": "GASGAS MC 250F",
+          "gapMs": null,
+          "hometown": "Hamel, MN",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 68754
+            },
+            {
+              "lap": 2,
+              "timeMs": 66143
+            },
+            {
+              "lap": 3,
+              "timeMs": 66262
+            },
+            {
+              "lap": 4,
+              "timeMs": 65484
+            },
+            {
+              "lap": 5,
+              "timeMs": 67045
+            }
+          ],
+          "lapsCompleted": 5,
+          "name": "rry Robin",
+          "plate": 97,
+          "points": null,
+          "pos": 22,
+          "riderId": "rry-robin",
+          "status": null,
+          "team": "SKDA, FCC Motosports  W"
+        }
+      ],
+      "session": "S2F1"
+    },
+    {
+      "class": "450SX",
+      "moto": 1,
+      "results": [
+        {
+          "bestLapMs": 59714,
+          "bike": "Kawasaki KX450SR",
+          "gapMs": null,
+          "hometown": "Rio Rancho, NM",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 60169
+            },
+            {
+              "lap": 2,
+              "timeMs": 60308
+            },
+            {
+              "lap": 3,
+              "timeMs": 60076
+            },
+            {
+              "lap": 4,
+              "timeMs": 59714
+            },
+            {
+              "lap": 5,
+              "timeMs": 60561
+            },
+            {
+              "lap": 6,
+              "timeMs": 60007
+            },
+            {
+              "lap": 7,
+              "timeMs": 59908
+            },
+            {
+              "lap": 8,
+              "timeMs": 60568
+            },
+            {
+              "lap": 9,
+              "timeMs": 61006
+            },
+            {
+              "lap": 10,
+              "timeMs": 61149
+            },
+            {
+              "lap": 11,
+              "timeMs": 61078
+            },
+            {
+              "lap": 12,
+              "timeMs": 61086
+            },
+            {
+              "lap": 13,
+              "timeMs": 60552
+            },
+            {
+              "lap": 14,
+              "timeMs": 60753
+            },
+            {
+              "lap": 15,
+              "timeMs": 61121
+            },
+            {
+              "lap": 16,
+              "timeMs": 61903
+            },
+            {
+              "lap": 17,
+              "timeMs": 61816
+            },
+            {
+              "lap": 18,
+              "timeMs": 61562
+            },
+            {
+              "lap": 19,
+              "timeMs": 61501
+            },
+            {
+              "lap": 20,
+              "timeMs": 62326
+            },
+            {
+              "lap": 21,
+              "timeMs": 63188
+            }
+          ],
+          "lapsCompleted": 21,
+          "name": "Jason Anderson",
+          "plate": 21,
+          "points": null,
+          "pos": 1,
+          "riderId": "jason-anderson",
+          "status": null,
+          "team": "Monster Energy Kawasaki"
+        },
+        {
+          "bestLapMs": 59798,
+          "bike": "KTM 450 SX-F FE",
+          "gapMs": 3366,
+          "hometown": "Hamilton, OH",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 60820
+            },
+            {
+              "lap": 2,
+              "timeMs": 60681
+            },
+            {
+              "lap": 3,
+              "timeMs": 59798
+            },
+            {
+              "lap": 4,
+              "timeMs": 60100
+            },
+            {
+              "lap": 5,
+              "timeMs": 60418
+            },
+            {
+              "lap": 6,
+              "timeMs": 60270
+            },
+            {
+              "lap": 7,
+              "timeMs": 59805
+            },
+            {
+              "lap": 8,
+              "timeMs": 60865
+            },
+            {
+              "lap": 9,
+              "timeMs": 60530
+            },
+            {
+              "lap": 10,
+              "timeMs": 61618
+            },
+            {
+              "lap": 11,
+              "timeMs": 61097
+            },
+            {
+              "lap": 12,
+              "timeMs": 61085
+            },
+            {
+              "lap": 13,
+              "timeMs": 60972
+            },
+            {
+              "lap": 14,
+              "timeMs": 60939
+            },
+            {
+              "lap": 15,
+              "timeMs": 62868
+            },
+            {
+              "lap": 16,
+              "timeMs": 61782
+            },
+            {
+              "lap": 17,
+              "timeMs": 61923
+            },
+            {
+              "lap": 18,
+              "timeMs": 61331
+            },
+            {
+              "lap": 19,
+              "timeMs": 61792
+            },
+            {
+              "lap": 20,
+              "timeMs": 62020
+            },
+            {
+              "lap": 21,
+              "timeMs": 62689
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Aaron Plessinger",
+          "plate": 7,
+          "points": null,
+          "pos": 2,
+          "riderId": "aaron-plessinger",
+          "status": null,
+          "team": "Red Bull KTM"
+        },
+        {
+          "bestLapMs": 59768,
+          "bike": "GASGAS MC 450F",
+          "gapMs": 6165,
+          "hometown": "Greenville, FL",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 61099
+            },
+            {
+              "lap": 2,
+              "timeMs": 60707
+            },
+            {
+              "lap": 3,
+              "timeMs": 60760
+            },
+            {
+              "lap": 4,
+              "timeMs": 59768
+            },
+            {
+              "lap": 5,
+              "timeMs": 61032
+            },
+            {
+              "lap": 6,
+              "timeMs": 60231
+            },
+            {
+              "lap": 7,
+              "timeMs": 60312
+            },
+            {
+              "lap": 8,
+              "timeMs": 60762
+            },
+            {
+              "lap": 9,
+              "timeMs": 61529
+            },
+            {
+              "lap": 10,
+              "timeMs": 60980
+            },
+            {
+              "lap": 11,
+              "timeMs": 61455
+            },
+            {
+              "lap": 12,
+              "timeMs": 61759
+            },
+            {
+              "lap": 13,
+              "timeMs": 61463
+            },
+            {
+              "lap": 14,
+              "timeMs": 61682
+            },
+            {
+              "lap": 15,
+              "timeMs": 61208
+            },
+            {
+              "lap": 16,
+              "timeMs": 61670
+            },
+            {
+              "lap": 17,
+              "timeMs": 61033
+            },
+            {
+              "lap": 18,
+              "timeMs": 61704
+            },
+            {
+              "lap": 19,
+              "timeMs": 61736
+            },
+            {
+              "lap": 20,
+              "timeMs": 61983
+            },
+            {
+              "lap": 21,
+              "timeMs": 62875
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Justin Barcia",
+          "plate": 51,
+          "points": null,
+          "pos": 3,
+          "riderId": "justin-barcia",
+          "status": null,
+          "team": "Troy Lee Designs Red Bull GASGAS Factory Racing"
+        },
+        {
+          "bestLapMs": 59583,
+          "bike": "Yamaha YZ450F",
+          "gapMs": 9919,
+          "hometown": "Cortez, CO",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 61906
+            },
+            {
+              "lap": 2,
+              "timeMs": 61816
+            },
+            {
+              "lap": 3,
+              "timeMs": 60859
+            },
+            {
+              "lap": 4,
+              "timeMs": 59583
+            },
+            {
+              "lap": 5,
+              "timeMs": 60673
+            },
+            {
+              "lap": 6,
+              "timeMs": 60446
+            },
+            {
+              "lap": 7,
+              "timeMs": 60227
+            },
+            {
+              "lap": 8,
+              "timeMs": 60413
+            },
+            {
+              "lap": 9,
+              "timeMs": 61355
+            },
+            {
+              "lap": 10,
+              "timeMs": 62354
+            },
+            {
+              "lap": 11,
+              "timeMs": 61606
+            },
+            {
+              "lap": 12,
+              "timeMs": 61982
+            },
+            {
+              "lap": 13,
+              "timeMs": 61153
+            },
+            {
+              "lap": 14,
+              "timeMs": 61085
+            },
+            {
+              "lap": 15,
+              "timeMs": 61544
+            },
+            {
+              "lap": 16,
+              "timeMs": 60962
+            },
+            {
+              "lap": 17,
+              "timeMs": 61110
+            },
+            {
+              "lap": 18,
+              "timeMs": 61980
+            },
+            {
+              "lap": 19,
+              "timeMs": 62047
+            },
+            {
+              "lap": 20,
+              "timeMs": 62578
+            },
+            {
+              "lap": 21,
+              "timeMs": 62842
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Eli Tomac",
+          "plate": 3,
+          "points": null,
+          "pos": 4,
+          "riderId": "eli-tomac",
+          "status": null,
+          "team": "Monster Energy Star Racing Yamaha"
+        },
+        {
+          "bestLapMs": 60621,
+          "bike": "Husqvarna FC 450 RE",
+          "gapMs": 13951,
+          "hometown": "Murrieta, CA",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 62341
+            },
+            {
+              "lap": 2,
+              "timeMs": 61283
+            },
+            {
+              "lap": 3,
+              "timeMs": 60921
+            },
+            {
+              "lap": 4,
+              "timeMs": 60673
+            },
+            {
+              "lap": 5,
+              "timeMs": 61201
+            },
+            {
+              "lap": 6,
+              "timeMs": 60621
+            },
+            {
+              "lap": 7,
+              "timeMs": 60965
+            },
+            {
+              "lap": 8,
+              "timeMs": 60845
+            },
+            {
+              "lap": 9,
+              "timeMs": 60805
+            },
+            {
+              "lap": 10,
+              "timeMs": 61269
+            },
+            {
+              "lap": 11,
+              "timeMs": 61948
+            },
+            {
+              "lap": 12,
+              "timeMs": 61400
+            },
+            {
+              "lap": 13,
+              "timeMs": 60820
+            },
+            {
+              "lap": 14,
+              "timeMs": 61308
+            },
+            {
+              "lap": 15,
+              "timeMs": 61441
+            },
+            {
+              "lap": 16,
+              "timeMs": 61962
+            },
+            {
+              "lap": 17,
+              "timeMs": 62218
+            },
+            {
+              "lap": 18,
+              "timeMs": 63031
+            },
+            {
+              "lap": 19,
+              "timeMs": 62243
+            },
+            {
+              "lap": 20,
+              "timeMs": 62011
+            },
+            {
+              "lap": 21,
+              "timeMs": 62549
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Malcolm Stewart",
+          "plate": 27,
+          "points": null,
+          "pos": 5,
+          "riderId": "malcolm-stewart",
+          "status": null,
+          "team": "Rockstar Energy Husqvarna Factory Racing"
+        },
+        {
+          "bestLapMs": 60291,
+          "bike": "Yamaha YZ450F",
+          "gapMs": 14779,
+          "hometown": "Tallahassee, FL",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 63398
+            },
+            {
+              "lap": 2,
+              "timeMs": 62121
+            },
+            {
+              "lap": 3,
+              "timeMs": 61086
+            },
+            {
+              "lap": 4,
+              "timeMs": 60696
+            },
+            {
+              "lap": 5,
+              "timeMs": 61496
+            },
+            {
+              "lap": 6,
+              "timeMs": 60291
+            },
+            {
+              "lap": 7,
+              "timeMs": 60790
+            },
+            {
+              "lap": 8,
+              "timeMs": 60524
+            },
+            {
+              "lap": 9,
+              "timeMs": 61172
+            },
+            {
+              "lap": 10,
+              "timeMs": 60721
+            },
+            {
+              "lap": 11,
+              "timeMs": 60818
+            },
+            {
+              "lap": 12,
+              "timeMs": 61003
+            },
+            {
+              "lap": 13,
+              "timeMs": 62438
+            },
+            {
+              "lap": 14,
+              "timeMs": 61837
+            },
+            {
+              "lap": 15,
+              "timeMs": 61291
+            },
+            {
+              "lap": 16,
+              "timeMs": 62348
+            },
+            {
+              "lap": 17,
+              "timeMs": 62708
+            },
+            {
+              "lap": 18,
+              "timeMs": 61706
+            },
+            {
+              "lap": 19,
+              "timeMs": 61690
+            },
+            {
+              "lap": 20,
+              "timeMs": 62293
+            },
+            {
+              "lap": 21,
+              "timeMs": 61400
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Dylan Ferrandis",
+          "plate": 14,
+          "points": null,
+          "pos": 6,
+          "riderId": "dylan-ferrandis",
+          "status": null,
+          "team": "Monster Energy Star Racing Yamaha"
+        },
+        {
+          "bestLapMs": 60678,
+          "bike": "KTM 450 SX-F FE",
+          "gapMs": 16649,
+          "hometown": "Newport, NC",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 62919
+            },
+            {
+              "lap": 2,
+              "timeMs": 60678
+            },
+            {
+              "lap": 3,
+              "timeMs": 60936
+            },
+            {
+              "lap": 4,
+              "timeMs": 61221
+            },
+            {
+              "lap": 5,
+              "timeMs": 61403
+            },
+            {
+              "lap": 6,
+              "timeMs": 60847
+            },
+            {
+              "lap": 7,
+              "timeMs": 60962
+            },
+            {
+              "lap": 8,
+              "timeMs": 60920
+            },
+            {
+              "lap": 9,
+              "timeMs": 61134
+            },
+            {
+              "lap": 10,
+              "timeMs": 62177
+            },
+            {
+              "lap": 11,
+              "timeMs": 61805
+            },
+            {
+              "lap": 12,
+              "timeMs": 63469
+            },
+            {
+              "lap": 13,
+              "timeMs": 61946
+            },
+            {
+              "lap": 14,
+              "timeMs": 61356
+            },
+            {
+              "lap": 15,
+              "timeMs": 62589
+            },
+            {
+              "lap": 16,
+              "timeMs": 61653
+            },
+            {
+              "lap": 17,
+              "timeMs": 61808
+            },
+            {
+              "lap": 18,
+              "timeMs": 61431
+            },
+            {
+              "lap": 19,
+              "timeMs": 61678
+            },
+            {
+              "lap": 20,
+              "timeMs": 61466
+            },
+            {
+              "lap": 21,
+              "timeMs": 61693
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Cooper Webb",
+          "plate": 1,
+          "points": null,
+          "pos": 7,
+          "riderId": "cooper-webb",
+          "status": null,
+          "team": "Red Bull KTM"
+        },
+        {
+          "bestLapMs": 60304,
+          "bike": "KTM 450 SX-F FE",
+          "gapMs": 34013,
+          "hometown": "Corona, CA",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 62554
+            },
+            {
+              "lap": 2,
+              "timeMs": 63311
+            },
+            {
+              "lap": 3,
+              "timeMs": 61012
+            },
+            {
+              "lap": 4,
+              "timeMs": 61082
+            },
+            {
+              "lap": 5,
+              "timeMs": 63070
+            },
+            {
+              "lap": 6,
+              "timeMs": 61975
+            },
+            {
+              "lap": 7,
+              "timeMs": 60304
+            },
+            {
+              "lap": 8,
+              "timeMs": 60523
+            },
+            {
+              "lap": 9,
+              "timeMs": 61215
+            },
+            {
+              "lap": 10,
+              "timeMs": 60776
+            },
+            {
+              "lap": 11,
+              "timeMs": 62134
+            },
+            {
+              "lap": 12,
+              "timeMs": 62514
+            },
+            {
+              "lap": 13,
+              "timeMs": 62920
+            },
+            {
+              "lap": 14,
+              "timeMs": 61983
+            },
+            {
+              "lap": 15,
+              "timeMs": 64465
+            },
+            {
+              "lap": 16,
+              "timeMs": 62544
+            },
+            {
+              "lap": 17,
+              "timeMs": 64045
+            },
+            {
+              "lap": 18,
+              "timeMs": 63711
+            },
+            {
+              "lap": 19,
+              "timeMs": 63576
+            },
+            {
+              "lap": 20,
+              "timeMs": 64107
+            },
+            {
+              "lap": 21,
+              "timeMs": 64764
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Marvin Musquin",
+          "plate": 25,
+          "points": null,
+          "pos": 8,
+          "riderId": "marvin-musquin",
+          "status": null,
+          "team": "Red Bull KTM"
+        },
+        {
+          "bestLapMs": 60288,
+          "bike": "Honda CRF450R WE",
+          "gapMs": 37714,
+          "hometown": "Clermont, FL",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 61519
+            },
+            {
+              "lap": 2,
+              "timeMs": 61585
+            },
+            {
+              "lap": 3,
+              "timeMs": 60872
+            },
+            {
+              "lap": 4,
+              "timeMs": 61385
+            },
+            {
+              "lap": 5,
+              "timeMs": 61288
+            },
+            {
+              "lap": 6,
+              "timeMs": 60393
+            },
+            {
+              "lap": 7,
+              "timeMs": 60288
+            },
+            {
+              "lap": 8,
+              "timeMs": 60300
+            },
+            {
+              "lap": 9,
+              "timeMs": 71051
+            },
+            {
+              "lap": 10,
+              "timeMs": 60667
+            },
+            {
+              "lap": 11,
+              "timeMs": 61860
+            },
+            {
+              "lap": 12,
+              "timeMs": 63466
+            },
+            {
+              "lap": 13,
+              "timeMs": 62058
+            },
+            {
+              "lap": 14,
+              "timeMs": 62098
+            },
+            {
+              "lap": 15,
+              "timeMs": 66935
+            },
+            {
+              "lap": 16,
+              "timeMs": 63514
+            },
+            {
+              "lap": 17,
+              "timeMs": 63326
+            },
+            {
+              "lap": 18,
+              "timeMs": 63480
+            },
+            {
+              "lap": 19,
+              "timeMs": 63406
+            },
+            {
+              "lap": 20,
+              "timeMs": 63073
+            },
+            {
+              "lap": 21,
+              "timeMs": 64001
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Chase Sexton",
+          "plate": 23,
+          "points": null,
+          "pos": 9,
+          "riderId": "chase-sexton",
+          "status": null,
+          "team": "Team Honda HRC"
+        },
+        {
+          "bestLapMs": 61349,
+          "bike": "Husqvarna FC 450 RE",
+          "gapMs": 48582,
+          "hometown": "Murrieta, CA",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 64044
+            },
+            {
+              "lap": 2,
+              "timeMs": 63041
+            },
+            {
+              "lap": 3,
+              "timeMs": 62344
+            },
+            {
+              "lap": 4,
+              "timeMs": 61604
+            },
+            {
+              "lap": 5,
+              "timeMs": 61349
+            },
+            {
+              "lap": 6,
+              "timeMs": 62051
+            },
+            {
+              "lap": 7,
+              "timeMs": 61546
+            },
+            {
+              "lap": 8,
+              "timeMs": 62812
+            },
+            {
+              "lap": 9,
+              "timeMs": 62630
+            },
+            {
+              "lap": 10,
+              "timeMs": 63059
+            },
+            {
+              "lap": 11,
+              "timeMs": 62891
+            },
+            {
+              "lap": 12,
+              "timeMs": 63044
+            },
+            {
+              "lap": 13,
+              "timeMs": 62936
+            },
+            {
+              "lap": 14,
+              "timeMs": 63574
+            },
+            {
+              "lap": 15,
+              "timeMs": 63592
+            },
+            {
+              "lap": 16,
+              "timeMs": 63308
+            },
+            {
+              "lap": 17,
+              "timeMs": 63630
+            },
+            {
+              "lap": 18,
+              "timeMs": 63034
+            },
+            {
+              "lap": 19,
+              "timeMs": 64209
+            },
+            {
+              "lap": 20,
+              "timeMs": 64199
+            },
+            {
+              "lap": 21,
+              "timeMs": 67822
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Dean Wilson",
+          "plate": 15,
+          "points": null,
+          "pos": 10,
+          "riderId": "dean-wilson",
+          "status": null,
+          "team": "Rockstar Energy Husqvarna Factory Racing"
+        },
+        {
+          "bestLapMs": 61933,
+          "bike": "KTM 450 SX-F FE",
+          "gapMs": 51534,
+          "hometown": "Clermont, FL",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 64671
+            },
+            {
+              "lap": 2,
+              "timeMs": 63606
+            },
+            {
+              "lap": 3,
+              "timeMs": 62206
+            },
+            {
+              "lap": 4,
+              "timeMs": 62939
+            },
+            {
+              "lap": 5,
+              "timeMs": 61933
+            },
+            {
+              "lap": 6,
+              "timeMs": 62328
+            },
+            {
+              "lap": 7,
+              "timeMs": 62599
+            },
+            {
+              "lap": 8,
+              "timeMs": 62745
+            },
+            {
+              "lap": 9,
+              "timeMs": 62230
+            },
+            {
+              "lap": 10,
+              "timeMs": 62968
+            },
+            {
+              "lap": 11,
+              "timeMs": 62595
+            },
+            {
+              "lap": 12,
+              "timeMs": 62886
+            },
+            {
+              "lap": 13,
+              "timeMs": 63061
+            },
+            {
+              "lap": 14,
+              "timeMs": 63595
+            },
+            {
+              "lap": 15,
+              "timeMs": 63182
+            },
+            {
+              "lap": 16,
+              "timeMs": 63043
+            },
+            {
+              "lap": 17,
+              "timeMs": 63130
+            },
+            {
+              "lap": 18,
+              "timeMs": 63301
+            },
+            {
+              "lap": 19,
+              "timeMs": 65327
+            },
+            {
+              "lap": 20,
+              "timeMs": 64887
+            },
+            {
+              "lap": 21,
+              "timeMs": 66567
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Joey Savatgy",
+          "plate": 17,
+          "points": null,
+          "pos": 11,
+          "riderId": "joey-savatgy",
+          "status": null,
+          "team": "Rocky Mountain ATV/MC WPS KTM"
+        },
+        {
+          "bestLapMs": 60034,
+          "bike": "Kawasaki KX450SR",
+          "gapMs": 55407,
+          "hometown": "New Smyrna Beach, FL",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 60034
+            },
+            {
+              "lap": 2,
+              "timeMs": 60636
+            },
+            {
+              "lap": 3,
+              "timeMs": 60341
+            },
+            {
+              "lap": 4,
+              "timeMs": 61772
+            },
+            {
+              "lap": 5,
+              "timeMs": 60393
+            },
+            {
+              "lap": 6,
+              "timeMs": 61713
+            },
+            {
+              "lap": 7,
+              "timeMs": 60447
+            },
+            {
+              "lap": 8,
+              "timeMs": 60960
+            },
+            {
+              "lap": 9,
+              "timeMs": 62622
+            },
+            {
+              "lap": 10,
+              "timeMs": 64448
+            },
+            {
+              "lap": 11,
+              "timeMs": 64926
+            },
+            {
+              "lap": 12,
+              "timeMs": 64897
+            },
+            {
+              "lap": 13,
+              "timeMs": 68424
+            },
+            {
+              "lap": 14,
+              "timeMs": 65262
+            },
+            {
+              "lap": 15,
+              "timeMs": 64900
+            },
+            {
+              "lap": 16,
+              "timeMs": 63868
+            },
+            {
+              "lap": 17,
+              "timeMs": 64565
+            },
+            {
+              "lap": 18,
+              "timeMs": 65082
+            },
+            {
+              "lap": 19,
+              "timeMs": 66362
+            },
+            {
+              "lap": 20,
+              "timeMs": 68435
+            },
+            {
+              "lap": 21,
+              "timeMs": 67065
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Adam Cianciarulo",
+          "plate": 9,
+          "points": null,
+          "pos": 12,
+          "riderId": "adam-cianciarulo",
+          "status": null,
+          "team": "Monster Energy Kawasaki"
+        },
+        {
+          "bestLapMs": 60802,
+          "bike": "Honda CRF450R WE",
+          "gapMs": 58137,
+          "hometown": "Clermont, FL",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 61422
+            },
+            {
+              "lap": 2,
+              "timeMs": 60802
+            },
+            {
+              "lap": 3,
+              "timeMs": 74480
+            },
+            {
+              "lap": 4,
+              "timeMs": 62374
+            },
+            {
+              "lap": 5,
+              "timeMs": 61712
+            },
+            {
+              "lap": 6,
+              "timeMs": 61396
+            },
+            {
+              "lap": 7,
+              "timeMs": 61676
+            },
+            {
+              "lap": 8,
+              "timeMs": 63339
+            },
+            {
+              "lap": 9,
+              "timeMs": 63153
+            },
+            {
+              "lap": 10,
+              "timeMs": 62765
+            },
+            {
+              "lap": 11,
+              "timeMs": 62464
+            },
+            {
+              "lap": 12,
+              "timeMs": 63057
+            },
+            {
+              "lap": 13,
+              "timeMs": 62626
+            },
+            {
+              "lap": 14,
+              "timeMs": 63422
+            },
+            {
+              "lap": 15,
+              "timeMs": 64293
+            },
+            {
+              "lap": 16,
+              "timeMs": 63988
+            },
+            {
+              "lap": 17,
+              "timeMs": 64801
+            },
+            {
+              "lap": 18,
+              "timeMs": 63434
+            },
+            {
+              "lap": 19,
+              "timeMs": 65133
+            },
+            {
+              "lap": 20,
+              "timeMs": 65234
+            },
+            {
+              "lap": 21,
+              "timeMs": 65902
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Ken Roczen",
+          "plate": 94,
+          "points": null,
+          "pos": 13,
+          "riderId": "ken-roczen",
+          "status": null,
+          "team": "Team Honda HRC"
+        },
+        {
+          "bestLapMs": 61100,
+          "bike": "KTM 450 SX-F FE",
+          "gapMs": 61784,
+          "hometown": "Oakland, FL",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 61100
+            },
+            {
+              "lap": 2,
+              "timeMs": 62414
+            },
+            {
+              "lap": 3,
+              "timeMs": 62253
+            },
+            {
+              "lap": 4,
+              "timeMs": 61655
+            },
+            {
+              "lap": 5,
+              "timeMs": 65687
+            },
+            {
+              "lap": 6,
+              "timeMs": 64493
+            },
+            {
+              "lap": 7,
+              "timeMs": 65099
+            },
+            {
+              "lap": 8,
+              "timeMs": 65263
+            },
+            {
+              "lap": 9,
+              "timeMs": 63706
+            },
+            {
+              "lap": 10,
+              "timeMs": 64942
+            },
+            {
+              "lap": 11,
+              "timeMs": 64678
+            },
+            {
+              "lap": 12,
+              "timeMs": 63389
+            },
+            {
+              "lap": 13,
+              "timeMs": 63731
+            },
+            {
+              "lap": 14,
+              "timeMs": 64071
+            },
+            {
+              "lap": 15,
+              "timeMs": 63307
+            },
+            {
+              "lap": 16,
+              "timeMs": 63705
+            },
+            {
+              "lap": 17,
+              "timeMs": 63256
+            },
+            {
+              "lap": 18,
+              "timeMs": 64290
+            },
+            {
+              "lap": 19,
+              "timeMs": 65274
+            },
+            {
+              "lap": 20,
+              "timeMs": 64769
+            },
+            {
+              "lap": 21,
+              "timeMs": 65704
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Shane McElrath",
+          "plate": 12,
+          "points": null,
+          "pos": 14,
+          "riderId": "shane-mcelrath",
+          "status": null,
+          "team": "Rocky Mountain ATV/MC WPS KTM"
+        },
+        {
+          "bestLapMs": 62749,
+          "bike": "KTM 450 SX-F",
+          "gapMs": null,
+          "hometown": "Murrieta, CA",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 66715
+            },
+            {
+              "lap": 2,
+              "timeMs": 63151
+            },
+            {
+              "lap": 3,
+              "timeMs": 63387
+            },
+            {
+              "lap": 4,
+              "timeMs": 63886
+            },
+            {
+              "lap": 5,
+              "timeMs": 62749
+            },
+            {
+              "lap": 6,
+              "timeMs": 63786
+            },
+            {
+              "lap": 7,
+              "timeMs": 62946
+            },
+            {
+              "lap": 8,
+              "timeMs": 63052
+            },
+            {
+              "lap": 9,
+              "timeMs": 64030
+            },
+            {
+              "lap": 10,
+              "timeMs": 63393
+            },
+            {
+              "lap": 11,
+              "timeMs": 63684
+            },
+            {
+              "lap": 12,
+              "timeMs": 64808
+            },
+            {
+              "lap": 13,
+              "timeMs": 64456
+            },
+            {
+              "lap": 14,
+              "timeMs": 64212
+            },
+            {
+              "lap": 15,
+              "timeMs": 64736
+            },
+            {
+              "lap": 16,
+              "timeMs": 64853
+            },
+            {
+              "lap": 17,
+              "timeMs": 66203
+            },
+            {
+              "lap": 18,
+              "timeMs": 68672
+            },
+            {
+              "lap": 19,
+              "timeMs": 69808
+            },
+            {
+              "lap": 20,
+              "timeMs": 73101
+            }
+          ],
+          "lapsCompleted": 20,
+          "name": "Max Anstie",
+          "plate": 34,
+          "points": null,
+          "pos": 15,
+          "riderId": "max-anstie",
+          "status": null,
+          "team": "Rocky Mountain ATV/MC WPS KTM"
+        },
+        {
+          "bestLapMs": 63247,
+          "bike": "Suzuki RM-Z450",
+          "gapMs": 9419,
+          "hometown": "Brick, NJ",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 65396
+            },
+            {
+              "lap": 2,
+              "timeMs": 63247
+            },
+            {
+              "lap": 3,
+              "timeMs": 63702
+            },
+            {
+              "lap": 4,
+              "timeMs": 63326
+            },
+            {
+              "lap": 5,
+              "timeMs": 66581
+            },
+            {
+              "lap": 6,
+              "timeMs": 63795
+            },
+            {
+              "lap": 7,
+              "timeMs": 64632
+            },
+            {
+              "lap": 8,
+              "timeMs": 64304
+            },
+            {
+              "lap": 9,
+              "timeMs": 64937
+            },
+            {
+              "lap": 10,
+              "timeMs": 64462
+            },
+            {
+              "lap": 11,
+              "timeMs": 64804
+            },
+            {
+              "lap": 12,
+              "timeMs": 65326
+            },
+            {
+              "lap": 13,
+              "timeMs": 64348
+            },
+            {
+              "lap": 14,
+              "timeMs": 66802
+            },
+            {
+              "lap": 15,
+              "timeMs": 66165
+            },
+            {
+              "lap": 16,
+              "timeMs": 70905
+            },
+            {
+              "lap": 17,
+              "timeMs": 70544
+            },
+            {
+              "lap": 18,
+              "timeMs": 65708
+            },
+            {
+              "lap": 19,
+              "timeMs": 67714
+            },
+            {
+              "lap": 20,
+              "timeMs": 65140
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Brandon Hartranft",
+          "plate": 41,
+          "points": null,
+          "pos": 16,
+          "riderId": "brandon-hartranft",
+          "status": null,
+          "team": "Twisted Tea Suzuki"
+        },
+        {
+          "bestLapMs": 63703,
+          "bike": "Yamaha YZ450F",
+          "gapMs": 20014,
+          "hometown": "Clermont, FL",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 67695
+            },
+            {
+              "lap": 2,
+              "timeMs": 65074
+            },
+            {
+              "lap": 3,
+              "timeMs": 63703
+            },
+            {
+              "lap": 4,
+              "timeMs": 64422
+            },
+            {
+              "lap": 5,
+              "timeMs": 64517
+            },
+            {
+              "lap": 6,
+              "timeMs": 64592
+            },
+            {
+              "lap": 7,
+              "timeMs": 65707
+            },
+            {
+              "lap": 8,
+              "timeMs": 64285
+            },
+            {
+              "lap": 9,
+              "timeMs": 65024
+            },
+            {
+              "lap": 10,
+              "timeMs": 65635
+            },
+            {
+              "lap": 11,
+              "timeMs": 64357
+            },
+            {
+              "lap": 12,
+              "timeMs": 65023
+            },
+            {
+              "lap": 13,
+              "timeMs": 68077
+            },
+            {
+              "lap": 14,
+              "timeMs": 68481
+            },
+            {
+              "lap": 15,
+              "timeMs": 69634
+            },
+            {
+              "lap": 16,
+              "timeMs": 66013
+            },
+            {
+              "lap": 17,
+              "timeMs": 68638
+            },
+            {
+              "lap": 18,
+              "timeMs": 69028
+            },
+            {
+              "lap": 19,
+              "timeMs": 65891
+            },
+            {
+              "lap": 20,
+              "timeMs": 67336
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Alex Martin",
+          "plate": 26,
+          "points": null,
+          "pos": 17,
+          "riderId": "alex-martin",
+          "status": null,
+          "team": "Muc-Off FXR ClubMX"
+        },
+        {
+          "bestLapMs": 64253,
+          "bike": "Yamaha YZ450F",
+          "gapMs": null,
+          "hometown": "Valrico, FL",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 67707
+            },
+            {
+              "lap": 2,
+              "timeMs": 65536
+            },
+            {
+              "lap": 3,
+              "timeMs": 64253
+            },
+            {
+              "lap": 4,
+              "timeMs": 64964
+            },
+            {
+              "lap": 5,
+              "timeMs": 64976
+            },
+            {
+              "lap": 6,
+              "timeMs": 65118
+            },
+            {
+              "lap": 7,
+              "timeMs": 65935
+            },
+            {
+              "lap": 8,
+              "timeMs": 65158
+            },
+            {
+              "lap": 9,
+              "timeMs": 64787
+            },
+            {
+              "lap": 10,
+              "timeMs": 65163
+            },
+            {
+              "lap": 11,
+              "timeMs": 64867
+            },
+            {
+              "lap": 12,
+              "timeMs": 67824
+            },
+            {
+              "lap": 13,
+              "timeMs": 68326
+            },
+            {
+              "lap": 14,
+              "timeMs": 73702
+            },
+            {
+              "lap": 15,
+              "timeMs": 69932
+            },
+            {
+              "lap": 16,
+              "timeMs": 71851
+            },
+            {
+              "lap": 17,
+              "timeMs": 70293
+            },
+            {
+              "lap": 18,
+              "timeMs": 70467
+            },
+            {
+              "lap": 19,
+              "timeMs": 75380
+            }
+          ],
+          "lapsCompleted": 19,
+          "name": "Kyle Chisholm",
+          "plate": 11,
+          "points": null,
+          "pos": 18,
+          "riderId": "kyle-chisholm",
+          "status": null,
+          "team": "Team Chiz, Yamaha, LS2, FXR, Rock River"
+        },
+        {
+          "bestLapMs": 65445,
+          "bike": "GASGAS MC 450F",
+          "gapMs": 11983,
+          "hometown": "Deland, FL",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 68038
+            },
+            {
+              "lap": 2,
+              "timeMs": 65617
+            },
+            {
+              "lap": 3,
+              "timeMs": 66698
+            },
+            {
+              "lap": 4,
+              "timeMs": 65445
+            },
+            {
+              "lap": 5,
+              "timeMs": 66379
+            },
+            {
+              "lap": 6,
+              "timeMs": 65761
+            },
+            {
+              "lap": 7,
+              "timeMs": 67595
+            },
+            {
+              "lap": 8,
+              "timeMs": 67123
+            },
+            {
+              "lap": 9,
+              "timeMs": 67120
+            },
+            {
+              "lap": 10,
+              "timeMs": 68148
+            },
+            {
+              "lap": 11,
+              "timeMs": 71481
+            },
+            {
+              "lap": 12,
+              "timeMs": 69093
+            },
+            {
+              "lap": 13,
+              "timeMs": 70211
+            },
+            {
+              "lap": 14,
+              "timeMs": 69312
+            },
+            {
+              "lap": 15,
+              "timeMs": 68488
+            },
+            {
+              "lap": 16,
+              "timeMs": 68700
+            },
+            {
+              "lap": 17,
+              "timeMs": 67149
+            },
+            {
+              "lap": 18,
+              "timeMs": 71571
+            },
+            {
+              "lap": 19,
+              "timeMs": 74792
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Justin Starling",
+          "plate": 95,
+          "points": null,
+          "pos": 19,
+          "riderId": "justin-starling",
+          "status": null,
+          "team": "FXR, SKDA, JSR Motorsports"
+        },
+        {
+          "bestLapMs": 65740,
+          "bike": "KTM 450 SX-F",
+          "gapMs": 21849,
+          "hometown": "Huntersville, NC",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 70167
+            },
+            {
+              "lap": 2,
+              "timeMs": 65740
+            },
+            {
+              "lap": 3,
+              "timeMs": 65881
+            },
+            {
+              "lap": 4,
+              "timeMs": 67045
+            },
+            {
+              "lap": 5,
+              "timeMs": 66989
+            },
+            {
+              "lap": 6,
+              "timeMs": 66209
+            },
+            {
+              "lap": 7,
+              "timeMs": 65914
+            },
+            {
+              "lap": 8,
+              "timeMs": 66004
+            },
+            {
+              "lap": 9,
+              "timeMs": 66617
+            },
+            {
+              "lap": 10,
+              "timeMs": 69398
+            },
+            {
+              "lap": 11,
+              "timeMs": 74791
+            },
+            {
+              "lap": 12,
+              "timeMs": 70666
+            },
+            {
+              "lap": 13,
+              "timeMs": 69222
+            },
+            {
+              "lap": 14,
+              "timeMs": 68843
+            },
+            {
+              "lap": 15,
+              "timeMs": 67254
+            },
+            {
+              "lap": 16,
+              "timeMs": 66182
+            },
+            {
+              "lap": 17,
+              "timeMs": 71419
+            },
+            {
+              "lap": 18,
+              "timeMs": 76313
+            },
+            {
+              "lap": 19,
+              "timeMs": 73865
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "Josh Hill",
+          "plate": 751,
+          "points": null,
+          "pos": 20,
+          "riderId": "josh-hill",
+          "status": null,
+          "team": "Team Tedder Monster Energy Lucas Oil KTM Racing"
+        },
+        {
+          "bestLapMs": 65821,
+          "bike": "Kawasaki KX450",
+          "gapMs": 32577,
+          "hometown": "Manlleu, BC",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 68237
+            },
+            {
+              "lap": 2,
+              "timeMs": 65821
+            },
+            {
+              "lap": 3,
+              "timeMs": 68452
+            },
+            {
+              "lap": 4,
+              "timeMs": 67733
+            },
+            {
+              "lap": 5,
+              "timeMs": 66553
+            },
+            {
+              "lap": 6,
+              "timeMs": 68870
+            },
+            {
+              "lap": 7,
+              "timeMs": 68182
+            },
+            {
+              "lap": 8,
+              "timeMs": 68947
+            },
+            {
+              "lap": 9,
+              "timeMs": 69489
+            },
+            {
+              "lap": 10,
+              "timeMs": 71534
+            },
+            {
+              "lap": 11,
+              "timeMs": 68433
+            },
+            {
+              "lap": 12,
+              "timeMs": 71171
+            },
+            {
+              "lap": 13,
+              "timeMs": 69644
+            },
+            {
+              "lap": 14,
+              "timeMs": 69230
+            },
+            {
+              "lap": 15,
+              "timeMs": 70165
+            },
+            {
+              "lap": 16,
+              "timeMs": 74977
+            },
+            {
+              "lap": 17,
+              "timeMs": 70693
+            },
+            {
+              "lap": 18,
+              "timeMs": 72457
+            },
+            {
+              "lap": 19,
+              "timeMs": 70571
+            }
+          ],
+          "lapsCompleted": null,
+          "name": "an Cros",
+          "plate": 848,
+          "points": null,
+          "pos": 21,
+          "riderId": "an-cros",
+          "status": null,
+          "team": "MADD Parts, Circuit Equipment, Namura Tech, Kawa"
+        },
+        {
+          "bestLapMs": 63144,
+          "bike": "Suzuki RM-Z450",
+          "gapMs": null,
+          "hometown": "Wesley Chapel, FL",
+          "laps": [
+            {
+              "lap": 1,
+              "timeMs": 65094
+            },
+            {
+              "lap": 2,
+              "timeMs": 63144
+            },
+            {
+              "lap": 3,
+              "timeMs": 63996
+            },
+            {
+              "lap": 4,
+              "timeMs": 63342
+            },
+            {
+              "lap": 5,
+              "timeMs": 64546
+            },
+            {
+              "lap": 6,
+              "timeMs": 65847
+            },
+            {
+              "lap": 7,
+              "timeMs": 75491
+            },
+            {
+              "lap": 8,
+              "timeMs": 67592
+            }
+          ],
+          "lapsCompleted": 8,
+          "name": "stin Bogle",
+          "plate": 19,
+          "points": null,
+          "pos": 22,
+          "riderId": "stin-bogle",
+          "status": null,
+          "team": "Twisted Tea Suzuki"
+        }
+      ],
+      "session": "S1F1"
+    }
+  ],
+  "qualifying": [
+    {
+      "class": "250SX West",
+      "rows": [
+        {
+          "bestMs": 59510,
+          "bike": "Yamaha YZ250F",
+          "name": "Christian Craig",
+          "plate": 28,
+          "pos": 1,
+          "riderId": "christian-craig",
+          "sessions": [
+            null,
+            61303,
+            null,
+            59510,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 60302,
+          "bike": "GASGAS MC 250F",
+          "name": "Michael Mosiman",
+          "plate": 29,
+          "pos": 2,
+          "riderId": "michael-mosiman",
+          "sessions": [
+            null,
+            60945,
+            null,
+            60302,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 60709,
+          "bike": "Yamaha YZ250F",
+          "name": "Nate Thrasher",
+          "plate": 49,
+          "pos": 3,
+          "riderId": "nate-thrasher",
+          "sessions": [
+            null,
+            62960,
+            null,
+            60709,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 60738,
+          "bike": "Kawasaki KX250",
+          "name": "Seth Hammaker",
+          "plate": 47,
+          "pos": 4,
+          "riderId": "seth-hammaker",
+          "sessions": [
+            null,
+            61436,
+            null,
+            60738,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 60913,
+          "bike": "Honda CRF250R",
+          "name": "Hunter Lawrence",
+          "plate": 96,
+          "pos": 5,
+          "riderId": "hunter-lawrence",
+          "sessions": [
+            null,
+            63066,
+            null,
+            60913,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 61154,
+          "bike": "Kawasaki KX250",
+          "name": "Jo Shimoda",
+          "plate": 30,
+          "pos": 6,
+          "riderId": "jo-shimoda",
+          "sessions": [
+            null,
+            61697,
+            null,
+            61154,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 61564,
+          "bike": "Yamaha YZ250F",
+          "name": "Garrett Marchbanks",
+          "plate": 35,
+          "pos": 7,
+          "riderId": "garrett-marchbanks",
+          "sessions": [
+            null,
+            103182,
+            null,
+            61564,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 61842,
+          "bike": "GASGAS MC 250F",
+          "name": "Chris Blose",
+          "plate": 66,
+          "pos": 8,
+          "riderId": "chris-blose",
+          "sessions": [
+            null,
+            63336,
+            null,
+            61842,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 61885,
+          "bike": "Honda CRF250R",
+          "name": "Vince Friese",
+          "plate": 62,
+          "pos": 9,
+          "riderId": "vince-friese",
+          "sessions": [
+            null,
+            63131,
+            null,
+            61885,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 62209,
+          "bike": "Yamaha YZ250F",
+          "name": "Robbie Wageman",
+          "plate": 69,
+          "pos": 10,
+          "riderId": "robbie-wageman",
+          "sessions": [
+            null,
+            63523,
+            null,
+            62209,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 62214,
+          "bike": "KTM 250 SX-F",
+          "name": "Derek Kelley",
+          "plate": 74,
+          "pos": 11,
+          "riderId": "derek-kelley",
+          "sessions": [
+            null,
+            65048,
+            null,
+            62214,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 62804,
+          "bike": "Yamaha YZ250F",
+          "name": "Cole Thompson",
+          "plate": 161,
+          "pos": 12,
+          "riderId": "cole-thompson",
+          "sessions": [
+            null,
+            64944,
+            null,
+            62804,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 63504,
+          "bike": "Suzuki RM-Z250",
+          "name": "Dilan Schwartz",
+          "plate": 40,
+          "pos": 13,
+          "riderId": "dilan-schwartz",
+          "sessions": [
+            null,
+            64953,
+            null,
+            63504,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 63557,
+          "bike": "Suzuki RM-Z250",
+          "name": "Carson Mumford",
+          "plate": 43,
+          "pos": 14,
+          "riderId": "carson-mumford",
+          "sessions": [
+            null,
+            64776,
+            null,
+            63557,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 63565,
+          "bike": "KTM 250 SX-F",
+          "name": "Carson Brown",
+          "plate": 910,
+          "pos": 15,
+          "riderId": "carson-brown",
+          "sessions": [
+            65106,
+            null,
+            63565,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 63841,
+          "bike": "Kawasaki KX250",
+          "name": "Logan Karnow",
+          "plate": 67,
+          "pos": 16,
+          "riderId": "logan-karnow",
+          "sessions": [
+            null,
+            66072,
+            null,
+            63841,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 64238,
+          "bike": "Yamaha YZ250F",
+          "name": "Dominique Thury",
+          "plate": 98,
+          "pos": 17,
+          "riderId": "dominique-thury",
+          "sessions": [
+            null,
+            64238,
+            null,
+            64634,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 64792,
+          "bike": "Kawasaki KX250",
+          "name": "Dylan Walsh",
+          "plate": 101,
+          "pos": 18,
+          "riderId": "dylan-walsh",
+          "sessions": [
+            null,
+            66770,
+            null,
+            64792,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 64806,
+          "bike": "Honda CRF250R",
+          "name": "Cheyenne Harmon",
+          "plate": 118,
+          "pos": 19,
+          "riderId": "cheyenne-harmon",
+          "sessions": [
+            66951,
+            null,
+            64806,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 64964,
+          "bike": "GASGAS MC 250F",
+          "name": "Jerry Robin",
+          "plate": 97,
+          "pos": 20,
+          "riderId": "jerry-robin",
+          "sessions": [
+            66091,
+            null,
+            64964,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 65162,
+          "bike": "KTM 125 SX",
+          "name": "Gared Steinke",
+          "plate": 726,
+          "pos": 21,
+          "riderId": "gared-steinke",
+          "sessions": [
+            67336,
+            null,
+            65162,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 65181,
+          "bike": "Yamaha YZ250F",
+          "name": "Hunter Schlosser",
+          "plate": 79,
+          "pos": 22,
+          "riderId": "hunter-schlosser",
+          "sessions": [
+            null,
+            67115,
+            null,
+            65181,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 65239,
+          "bike": "GASGAS MC 250F",
+          "name": "Mitchell Harrison",
+          "plate": 64,
+          "pos": 23,
+          "riderId": "mitchell-harrison",
+          "sessions": [
+            null,
+            69435,
+            null,
+            65239,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 65260,
+          "bike": "Yamaha YZ250F",
+          "name": "Ryan Surratt",
+          "plate": 58,
+          "pos": 24,
+          "riderId": "ryan-surratt",
+          "sessions": [
+            null,
+            67754,
+            null,
+            65260,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 65305,
+          "bike": "KTM 250 SX-F",
+          "name": "Devin Harriman",
+          "plate": 216,
+          "pos": 25,
+          "riderId": "devin-harriman",
+          "sessions": [
+            null,
+            65305,
+            null,
+            65718,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 65930,
+          "bike": "Husqvarna FC 250",
+          "name": "Dylan Woodcock",
+          "plate": 260,
+          "pos": 26,
+          "riderId": "dylan-woodcock",
+          "sessions": [
+            67455,
+            null,
+            65930,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 66036,
+          "bike": "Honda CRF250R",
+          "name": "Maxwell Sanford",
+          "plate": 162,
+          "pos": 27,
+          "riderId": "maxwell-sanford",
+          "sessions": [
+            67109,
+            null,
+            66036,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 66147,
+          "bike": "Honda CRF250R",
+          "name": "Mcclellan Hile",
+          "plate": 503,
+          "pos": 28,
+          "riderId": "mcclellan-hile",
+          "sessions": [
+            68541,
+            null,
+            66147,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 66163,
+          "bike": "GASGAS MC 250F",
+          "name": "Geran Stapleton",
+          "plate": 914,
+          "pos": 29,
+          "riderId": "geran-stapleton",
+          "sessions": [
+            67274,
+            null,
+            66163,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 66173,
+          "bike": "Kawasaki KX250",
+          "name": "Wyatt Lyonsmith",
+          "plate": 181,
+          "pos": 30,
+          "riderId": "wyatt-lyonsmith",
+          "sessions": [
+            68406,
+            null,
+            66173,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 66421,
+          "bike": "Yamaha YZ250F",
+          "name": "Richard Taylor",
+          "plate": 141,
+          "pos": 31,
+          "riderId": "richard-taylor",
+          "sessions": [
+            69386,
+            null,
+            66421,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 66578,
+          "bike": "KTM 250 SX-F",
+          "name": "Kaeden Amerine",
+          "plate": 432,
+          "pos": 32,
+          "riderId": "kaeden-amerine",
+          "sessions": [
+            null,
+            69011,
+            null,
+            66578,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 66603,
+          "bike": "KTM 250 SX-F",
+          "name": "Thomas do",
+          "plate": 60,
+          "pos": 33,
+          "riderId": "thomas-do",
+          "sessions": [
+            67188,
+            null,
+            66603,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 66723,
+          "bike": "Kawasaki KX250",
+          "name": "Brandon Ray",
+          "plate": 388,
+          "pos": 34,
+          "riderId": "brandon-ray",
+          "sessions": [
+            68611,
+            null,
+            66723,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 66726,
+          "bike": "Kawasaki KX250",
+          "name": "Preston Taylor",
+          "plate": 996,
+          "pos": 35,
+          "riderId": "preston-taylor",
+          "sessions": [
+            68384,
+            null,
+            66726,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 66914,
+          "bike": "Kawasaki KX250",
+          "name": "Chris Howell",
+          "plate": 121,
+          "pos": 36,
+          "riderId": "chris-howell",
+          "sessions": [
+            67175,
+            null,
+            66914,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 67163,
+          "bike": "KTM 250 SX-F",
+          "name": "Chad Saultz",
+          "plate": 364,
+          "pos": 37,
+          "riderId": "chad-saultz",
+          "sessions": [
+            69630,
+            null,
+            67163,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 67313,
+          "bike": "GASGAS MC 250F",
+          "name": "Colby Copp",
+          "plate": 645,
+          "pos": 38,
+          "riderId": "colby-copp",
+          "sessions": [
+            68984,
+            null,
+            67313,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 67621,
+          "bike": "Kawasaki KX250",
+          "name": "Hunter Sayles",
+          "plate": 85,
+          "pos": 39,
+          "riderId": "hunter-sayles",
+          "sessions": [
+            67621,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 67977,
+          "bike": "Kawasaki KX250",
+          "name": "Tre Fierro",
+          "plate": 158,
+          "pos": 40,
+          "riderId": "tre-fierro",
+          "sessions": [
+            69844,
+            null,
+            67977,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 68270,
+          "bike": "GASGAS MC 250F",
+          "name": "Chance Blackburn",
+          "plate": 246,
+          "pos": 41,
+          "riderId": "chance-blackburn",
+          "sessions": [
+            70205,
+            null,
+            68270,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 68491,
+          "bike": "Yamaha YZ250F",
+          "name": "David Pulley",
+          "plate": 138,
+          "pos": 42,
+          "riderId": "david-pulley",
+          "sessions": [
+            69232,
+            null,
+            68491,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 68979,
+          "bike": "Yamaha YZ250F",
+          "name": "Jesse Flock",
+          "plate": 167,
+          "pos": 43,
+          "riderId": "jesse-flock",
+          "sessions": [
+            71350,
+            null,
+            68979,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 70557,
+          "bike": "Kawasaki KX250",
+          "name": "Todd Bannister",
+          "plate": 120,
+          "pos": 44,
+          "riderId": "todd-bannister",
+          "sessions": [
+            72844,
+            null,
+            70557,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        }
+      ],
+      "session": "S2QCOVR"
+    },
+    {
+      "class": "450SX",
+      "rows": [
+        {
+          "bestMs": 59108,
+          "bike": "Yamaha YZ450F",
+          "name": "Eli Tomac",
+          "plate": 3,
+          "pos": 1,
+          "riderId": "eli-tomac",
+          "sessions": [
+            60002,
+            null,
+            59108,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 59180,
+          "bike": "Yamaha YZ450F",
+          "name": "Dylan Ferrandis",
+          "plate": 14,
+          "pos": 2,
+          "riderId": "dylan-ferrandis",
+          "sessions": [
+            60352,
+            null,
+            59180,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 59256,
+          "bike": "KTM 450 SX-F FE",
+          "name": "Cooper Webb",
+          "plate": 1,
+          "pos": 3,
+          "riderId": "cooper-webb",
+          "sessions": [
+            60735,
+            null,
+            59256,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 59380,
+          "bike": "Kawasaki KX450SR",
+          "name": "Jason Anderson",
+          "plate": 21,
+          "pos": 4,
+          "riderId": "jason-anderson",
+          "sessions": [
+            61399,
+            null,
+            59380,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 59534,
+          "bike": "KTM 450 SX-F FE",
+          "name": "Marvin Musquin",
+          "plate": 25,
+          "pos": 5,
+          "riderId": "marvin-musquin",
+          "sessions": [
+            61230,
+            null,
+            59534,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 59838,
+          "bike": "Husqvarna FC 450 RE",
+          "name": "Malcolm Stewart",
+          "plate": 27,
+          "pos": 6,
+          "riderId": "malcolm-stewart",
+          "sessions": [
+            60506,
+            null,
+            59838,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 59932,
+          "bike": "Kawasaki KX450SR",
+          "name": "Adam Cianciarulo",
+          "plate": 9,
+          "pos": 7,
+          "riderId": "adam-cianciarulo",
+          "sessions": [
+            61169,
+            null,
+            59932,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 60102,
+          "bike": "Honda CRF450R WE",
+          "name": "Chase Sexton",
+          "plate": 23,
+          "pos": 8,
+          "riderId": "chase-sexton",
+          "sessions": [
+            60102,
+            null,
+            65859,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 60224,
+          "bike": "Honda CRF450R WE",
+          "name": "Ken Roczen",
+          "plate": 94,
+          "pos": 9,
+          "riderId": "ken-roczen",
+          "sessions": [
+            60533,
+            null,
+            60224,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 60991,
+          "bike": "Husqvarna FC 450 RE 1:00.290",
+          "name": "Dean Wilson",
+          "plate": 15,
+          "pos": 10,
+          "riderId": "dean-wilson",
+          "sessions": [
+            null,
+            60290,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 60481,
+          "bike": "KTM 450 SX-F FE",
+          "name": "Shane McElrath",
+          "plate": 12,
+          "pos": 11,
+          "riderId": "shane-mcelrath",
+          "sessions": [
+            62860,
+            null,
+            60481,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 60618,
+          "bike": "KTM 450 SX-F FE",
+          "name": "Aaron Plessinger",
+          "plate": 7,
+          "pos": 12,
+          "riderId": "aaron-plessinger",
+          "sessions": [
+            62007,
+            null,
+            60618,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 60677,
+          "bike": "GASGAS MC 450F",
+          "name": "Justin Barcia",
+          "plate": 51,
+          "pos": 13,
+          "riderId": "justin-barcia",
+          "sessions": [
+            61417,
+            null,
+            60677,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 61284,
+          "bike": "KTM 450 SX-F",
+          "name": "Max Anstie",
+          "plate": 34,
+          "pos": 14,
+          "riderId": "max-anstie",
+          "sessions": [
+            61634,
+            null,
+            61284,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 61582,
+          "bike": "KTM 450 SX-F FE",
+          "name": "Joey Savatgy",
+          "plate": 17,
+          "pos": 15,
+          "riderId": "joey-savatgy",
+          "sessions": [
+            62985,
+            null,
+            61582,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 61686,
+          "bike": "Suzuki RM-Z450",
+          "name": "Justin Bogle",
+          "plate": 19,
+          "pos": 16,
+          "riderId": "justin-bogle",
+          "sessions": [
+            62762,
+            null,
+            61686,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 61722,
+          "bike": "Yamaha YZ450F",
+          "name": "Alex Martin",
+          "plate": 26,
+          "pos": 17,
+          "riderId": "alex-martin",
+          "sessions": [
+            62243,
+            null,
+            61722,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 61936,
+          "bike": "GASGAS MC 450F",
+          "name": "Justin Starling",
+          "plate": 95,
+          "pos": 18,
+          "riderId": "justin-starling",
+          "sessions": [
+            64850,
+            null,
+            61936,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 62056,
+          "bike": "Suzuki RM-Z450",
+          "name": "Brandon Hartranft",
+          "plate": 41,
+          "pos": 19,
+          "riderId": "brandon-hartranft",
+          "sessions": [
+            64566,
+            null,
+            62056,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 62436,
+          "bike": "Yamaha YZ450F",
+          "name": "Ryan Breece",
+          "plate": 200,
+          "pos": 20,
+          "riderId": "ryan-breece",
+          "sessions": [
+            65094,
+            null,
+            62436,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 62698,
+          "bike": "Honda CRF450R",
+          "name": "Alex Ray",
+          "plate": 87,
+          "pos": 21,
+          "riderId": "alex-ray",
+          "sessions": [
+            null,
+            63509,
+            null,
+            62698,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 62893,
+          "bike": "Yamaha YZ450F",
+          "name": "Kyle Chisholm",
+          "plate": 11,
+          "pos": 22,
+          "riderId": "kyle-chisholm",
+          "sessions": [
+            null,
+            65885,
+            null,
+            62893,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 63212,
+          "bike": "KTM 450 SX-F",
+          "name": "Josh Hill",
+          "plate": 751,
+          "pos": 23,
+          "riderId": "josh-hill",
+          "sessions": [
+            null,
+            64877,
+            null,
+            63212,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 63519,
+          "bike": "Suzuki RM-Z450",
+          "name": "Adam Enticknap",
+          "plate": 722,
+          "pos": 24,
+          "riderId": "adam-enticknap",
+          "sessions": [
+            null,
+            65499,
+            null,
+            63519,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 63964,
+          "bike": "Honda CRF450R",
+          "name": "Cade Clason",
+          "plate": 78,
+          "pos": 25,
+          "riderId": "cade-clason",
+          "sessions": [
+            63964,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 64204,
+          "bike": "Honda CRF450R",
+          "name": "Bryson Gardner",
+          "plate": 837,
+          "pos": 26,
+          "riderId": "bryson-gardner",
+          "sessions": [
+            null,
+            65988,
+            null,
+            64204,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 64769,
+          "bike": "Kawasaki KX450",
+          "name": "Deven Raper",
+          "plate": 447,
+          "pos": 27,
+          "riderId": "deven-raper",
+          "sessions": [
+            null,
+            66339,
+            null,
+            64769,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 64908,
+          "bike": "Kawasaki KX450",
+          "name": "Joan Cros",
+          "plate": 848,
+          "pos": 28,
+          "riderId": "joan-cros",
+          "sessions": [
+            null,
+            66695,
+            null,
+            64908,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 65243,
+          "bike": "Husqvarna FC 450",
+          "name": "Nick Schmidt",
+          "plate": 114,
+          "pos": 29,
+          "riderId": "nick-schmidt",
+          "sessions": [
+            null,
+            67733,
+            null,
+            65243,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 65946,
+          "bike": "KTM 450 SX-F",
+          "name": "Alexander Nagy",
+          "plate": 509,
+          "pos": 30,
+          "riderId": "alexander-nagy",
+          "sessions": [
+            null,
+            67774,
+            null,
+            65946,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 66025,
+          "bike": "KTM 450 SX-F",
+          "name": "Kevin Moranz",
+          "plate": 57,
+          "pos": 31,
+          "riderId": "kevin-moranz",
+          "sessions": [
+            null,
+            66784,
+            null,
+            66025,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 66131,
+          "bike": "Yamaha YZ450F",
+          "name": "Vann Martin",
+          "plate": 421,
+          "pos": 32,
+          "riderId": "vann-martin",
+          "sessions": [
+            null,
+            70148,
+            null,
+            66131,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 66497,
+          "bike": "Kawasaki KX450",
+          "name": "Mason Kerr",
+          "plate": 597,
+          "pos": 33,
+          "riderId": "mason-kerr",
+          "sessions": [
+            null,
+            68598,
+            null,
+            66497,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 66652,
+          "bike": "Kawasaki KX450",
+          "name": "Theodore Pauli",
+          "plate": 282,
+          "pos": 34,
+          "riderId": "theodore-pauli",
+          "sessions": [
+            null,
+            69418,
+            null,
+            66652,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": null,
+          "bike": "Husqvarna FC 450 RE 1:06.802",
+          "name": "Chase Felong",
+          "plate": 154,
+          "pos": 35,
+          "riderId": "chase-felong",
+          "sessions": [
+            68771,
+            null,
+            66802,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 67809,
+          "bike": "Yamaha YZ450F",
+          "name": "RJ Wageman",
+          "plate": 99,
+          "pos": 36,
+          "riderId": "rj-wageman",
+          "sessions": [
+            null,
+            69774,
+            null,
+            67809,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 67836,
+          "bike": "Kawasaki KX250",
+          "name": "Joshua Greco",
+          "plate": 976,
+          "pos": 37,
+          "riderId": "joshua-greco",
+          "sessions": [
+            null,
+            68827,
+            null,
+            67836,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 67948,
+          "bike": "Kawasaki KX450",
+          "name": "Scotty Wennerstrom",
+          "plate": 501,
+          "pos": 38,
+          "riderId": "scotty-wennerstrom",
+          "sessions": [
+            null,
+            68893,
+            null,
+            67948,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 68686,
+          "bike": "Husqvarna FC 450",
+          "name": "JB Buller",
+          "plate": 542,
+          "pos": 39,
+          "riderId": "jb-buller",
+          "sessions": [
+            null,
+            71606,
+            null,
+            68686,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 69372,
+          "bike": "KTM 350 SX-F",
+          "name": "Kyle Greeson",
+          "plate": 204,
+          "pos": 40,
+          "riderId": "kyle-greeson",
+          "sessions": [
+            null,
+            70659,
+            null,
+            69372,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "bestMs": 69702,
+          "bike": "Yamaha YZ450F",
+          "name": "Austin Cozadd",
+          "plate": 512,
+          "pos": 41,
+          "riderId": "austin-cozadd",
+          "sessions": [
+            null,
+            72705,
+            null,
+            69702,
+            null,
+            null,
+            null,
+            null
+          ]
+        }
+      ],
+      "session": "S1QCOVR"
+    }
+  ],
+  "schema": 2,
+  "sources": [
+    {
+      "sha256": "3a428d55491c36ea26e802e31143f40817a45b8b9c1d4e3487d033b6040d2e27",
+      "url": "https://americanmotocrossresults.com/xml/SX/events/S2210/S1F1RES.pdf"
+    },
+    {
+      "sha256": "2f4aeadac96afae23d6775a84f56fc40755ddca4e85268f323eba21acfed3fee",
+      "url": "https://americanmotocrossresults.com/xml/SX/events/S2210/S1F1RID.pdf"
+    },
+    {
+      "sha256": "1d043c6721bc1efa24ab15a812224e008197be1a57c987a6ff0df1d540178466",
+      "url": "https://americanmotocrossresults.com/xml/SX/events/S2210/S1QCOVR.pdf"
+    },
+    {
+      "sha256": "c088c2a030f81418e729c76b918733999cca7788b6ced65857b8ffc9dfe8fb0d",
+      "url": "https://americanmotocrossresults.com/xml/SX/events/S2210/S2F1RES.pdf"
+    },
+    {
+      "sha256": "00317a99bf30ae9fb2e6900ed134aa0fdc77e4522ee25291ec0a64767afcae58",
+      "url": "https://americanmotocrossresults.com/xml/SX/events/S2210/S2F1RID.pdf"
+    },
+    {
+      "sha256": "cb21720ffdc9c5101b98fe09f2858f09a709c2856c2492657ce1d51049954b82",
+      "url": "https://americanmotocrossresults.com/xml/SX/events/S2210/S2QCOVR.pdf"
+    }
+  ],
+  "warnings": []
+}

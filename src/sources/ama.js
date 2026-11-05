@@ -145,15 +145,44 @@ const MX_CLASSES = { M1: '450MX', M2: '250MX' };
 export function motoSessions(manifest, series = 'MX') {
   if (series === 'SX') {
     const coast = coastFromManifest(manifest);
-    return manifest.sessions
+    const classNameFor = (classCode) =>
+      classCode === 'S1' ? '450SX' : coast ? `250SX ${coast}` : '250SX';
+
+    const mains = manifest.sessions
       .filter((session) => session.type === 'F' && /^S[12]F1$/.test(session.id))
       .map((session) => ({
         id: session.id,
-        className:
-          session.classCode === 'S1' ? '450SX' : coast ? `250SX ${coast}` : '250SX',
+        className: classNameFor(session.classCode),
         moto: 1,
         classCode: session.classCode,
       }));
+    if (mains.length > 0) return mains;
+
+    // A Triple Crown manifest lists three mains per class and no `F` session, but
+    // the overall classification still lives at `S1F1PRESS.pdf`. A few archive
+    // rounds list no mains at all (their sessions carry `SID="0"`), so the classes
+    // come from any 450/250 session and finally from the two classes every round runs.
+    const codes = new Set();
+    for (const session of manifest.sessions) {
+      if (/^S[12]E1$/.test(session.id)) codes.add(session.classCode);
+    }
+    if (codes.size === 0) {
+      for (const session of manifest.sessions) {
+        if (session.classCode === 'S1' || session.classCode === 'S2') codes.add(session.classCode);
+      }
+    }
+    if (codes.size === 0) {
+      codes.add('S1');
+      codes.add('S2');
+    }
+
+    return [...codes].sort().map((classCode) => ({
+      id: `${classCode}F1`,
+      className: classNameFor(classCode),
+      moto: 1,
+      classCode,
+      synthetic: true,
+    }));
   }
   return manifest.sessions
     .filter((session) => session.type === 'F' && /^M[12]F\d$/.test(session.id))

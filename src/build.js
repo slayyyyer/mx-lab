@@ -14,6 +14,7 @@ import { fetchBytes, fetchPdf } from './lib/http.js';
 import { pdfToText } from './lib/poppler.js';
 import { riderId, loadOverrides } from './identity.js';
 import { parseLapTimes } from './parse/lapTimes.js';
+import { parseOverall } from './parse/overall.js';
 import { parseQualifying } from './parse/qualifying.js';
 import { parseResults } from './parse/results.js';
 import {
@@ -67,13 +68,26 @@ export function assembleEvent({ event, motos, sources = [], overrides = {} }) {
   const qualifyingByKey = new Map();
 
   for (const moto of motos) {
-    const parsedResults = parseResults(moto.resultsText);
+    // A Triple Crown round prints three mains and one OVERALL classification; the
+    // overall is the round's finishing order and carries the official points.
+    let overallUsed = false;
+    let parsedResults = null;
+    if (moto.overallText) {
+      try {
+        parsedResults = parseOverall(moto.overallText);
+        overallUsed = true;
+      } catch (error) {
+        if (!moto.resultsText) throw error;
+        warnings.push(`${moto.session}: overall sheet unusable (${error.message}); using the main-event result sheet`);
+      }
+    }
+    parsedResults ??= parseResults(moto.resultsText);
     // A Supercross 250 class carries its coast in the class name (`250SX West`)
     // while the sheet prints only `250SX`, so the comparison is on the base class.
     if (!moto.class.startsWith(parsedResults.class)) {
       throw new Error(`moto ${moto.session}: title says ${parsedResults.class}, manifest says ${moto.class}`);
     }
-    if (parsedResults.moto !== moto.moto) {
+    if (!overallUsed && parsedResults.moto !== moto.moto) {
       throw new Error(`moto ${moto.session}: title says moto ${parsedResults.moto}, manifest says ${moto.moto}`);
     }
 
@@ -81,7 +95,7 @@ export function assembleEvent({ event, motos, sources = [], overrides = {} }) {
     // finishing order is the primary record. The failure is recorded as a
     // warning on the event, so coverage still shows the gap.
     let parsedLaps = { riders: [], warnings: [] };
-    if (moto.lapTimesText) {
+    if (moto.lapTimesText && !overallUsed) {
       try {
         parsedLaps = parseLapTimes(moto.lapTimesText);
       } catch (error) {
@@ -93,7 +107,9 @@ export function assembleEvent({ event, motos, sources = [], overrides = {} }) {
 
     const results = parsedResults.rows.map((row) => {
       const lapTimes = lapsByPlate.get(row.plate);
-      if (!lapTimes) warnings.push(`${moto.session} #${row.plate}: no entry on the individual lap times sheet`);
+      if (!lapTimes && !overallUsed) {
+        warnings.push(`${moto.session} #${row.plate}: no entry on the individual lap times sheet`);
+      }
       lapsByPlate.delete(row.plate);
       return {
         pos: row.pos,
@@ -103,10 +119,13 @@ export function assembleEvent({ event, motos, sources = [], overrides = {} }) {
         hometown: row.hometown,
         bike: row.bike,
         team: row.team,
-        status: row.status,
-        gapMs: row.gapMs,
-        lapsCompleted: row.lapsCompleted,
-        bestLapMs: row.bestLapMs,
+        status: row.status ?? null,
+        gapMs: row.gapMs ?? null,
+        lapsCompleted: row.lapsCompleted ?? null,
+        bestLapMs: row.bestLapMs ?? null,
+        // Official points where the sheet prints them (Triple Crown overall);
+        // otherwise the derived table is used.
+        points: row.points ?? null,
         laps: lapTimes?.laps ?? [],
       };
     });
@@ -117,7 +136,7 @@ export function assembleEvent({ event, motos, sources = [], overrides = {} }) {
 
     builtMotos.push({
       class: moto.class,
-      moto: moto.moto,
+      moto: overallUsed ? 1 : moto.moto,
       session: moto.session,
       results,
     });
@@ -192,15 +211,41 @@ export async function collectEvent({ eventId, base = AMA_BASE, series = 'MX', of
   const motos = [];
 
   for (const session of motoSessions(manifest, series)) {
-    const has = (kind) => manifest.sessions.find((s) => s.id === session.id)?.sheets.some((sheet) => sheet.kind === kind);
-    if (!has('results')) throw new Error(`${session.id}: manifest lists no results sheet`);
+    // A synthesized session exists only for a Triple Crown manifest that lists no
+    // `F` session at all; its overall sheet is then fetched by convention.
+    const has = (kind) =>
+      !session.synthetic && manifest.sessions.find((s) => s.id === session.id)?.sheets.some((sheet) => sheet.kind === kind);
+    // A Triple Crown round replaces the class result sheet with an OVERALL
+    // classification (the `PRESS` sheet), which is the round's finishing order.
+    const useOverall = Boolean(session.synthetic) || (!has('results') && has('official-results'));
+    if (!session.synthetic && !has('results') && !useOverall) {
+      throw new Error(`${session.id}: manifest lists no results sheet`);
+    }
 
-    const resultsUrl = `${base}/xml/${series}/events/${eventId}/${session.id}RES.pdf`;
-    const results = await fetchSheetText(resultsUrl, offline);
-    sources.push({ url: resultsUrl, sha256: results.meta.sha256 });
+    let resultsText = null;
+    let overallText = null;
+    if (session.synthetic) {
+      // The archive's incomplete manifests still publish the first main event, so
+      // it stands in when the overall classification cannot be read.
+      const fallbackUrl = `${base}/xml/${series}/events/${eventId}/${session.classCode}E1RES.pdf`;
+      const fallback = await fetchSheetText(fallbackUrl, offline);
+      resultsText = fallback.text;
+      sources.push({ url: fallbackUrl, sha256: fallback.meta.sha256 });
+    }
+    if (useOverall) {
+      const overallUrl = `${base}/xml/${series}/events/${eventId}/${session.id}PRESS.pdf`;
+      const overall = await fetchSheetText(overallUrl, offline);
+      overallText = overall.text;
+      sources.push({ url: overallUrl, sha256: overall.meta.sha256 });
+    } else {
+      const resultsUrl = `${base}/xml/${series}/events/${eventId}/${session.id}RES.pdf`;
+      const results = await fetchSheetText(resultsUrl, offline);
+      resultsText = results.text;
+      sources.push({ url: resultsUrl, sha256: results.meta.sha256 });
+    }
 
     let lapTimesText = null;
-    if (has('lap-times')) {
+    if (!useOverall && has('lap-times')) {
       const lapUrl = `${base}/xml/${series}/events/${eventId}/${session.id}RID.pdf`;
       const lapTimes = await fetchSheetText(lapUrl, offline);
       lapTimesText = lapTimes.text;
@@ -211,7 +256,8 @@ export async function collectEvent({ eventId, base = AMA_BASE, series = 'MX', of
       class: session.className,
       moto: session.moto,
       session: session.id,
-      resultsText: results.text,
+      resultsText,
+      overallText,
       lapTimesText,
     });
   }
@@ -239,14 +285,24 @@ export async function collectEvent({ eventId, base = AMA_BASE, series = 'MX', of
       track: manifest.track,
       location: manifest.location,
       date: manifest.date,
-      round: motos.length > 0 ? parseResults(motos[0].resultsText).round : null,
-      ofRounds: motos.length > 0 ? parseResults(motos[0].resultsText).ofRounds : null,
+      round: roundOf(motos),
+      ofRounds: ofRoundsOf(motos),
     },
     motos,
     sources,
     overrides,
   });
 }
+
+function parsedFirst(motos) {
+  const standard = motos.find((moto) => moto.resultsText);
+  if (standard) return parseResults(standard.resultsText);
+  const overall = motos.find((moto) => moto.overallText);
+  return overall ? parseOverall(overall.overallText) : null;
+}
+
+const roundOf = (motos) => parsedFirst(motos)?.round ?? null;
+const ofRoundsOf = (motos) => parsedFirst(motos)?.ofRounds ?? null;
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));

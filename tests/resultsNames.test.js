@@ -38,7 +38,10 @@ test('results: no committed row carries a truncated rider or place', async () =>
     const event = JSON.parse(await readFile(new URL(file, dir), 'utf8'));
     for (const moto of event.motos) {
       for (const row of moto.results) {
-        if (/\s{2,}/.test(row.name) || !/^[A-Z0-9]/.test(row.hometown)) {
+        // A place cut mid-word is a fragment (`duras`), not a lowercase place: the
+        // 2023 sheets print `murrieta, CA` exactly as it was entered.
+        const fragment = /^[a-z]{1,8}$/.test(row.hometown);
+        if (/\s{2,}/.test(row.name) || fragment) {
           bad.push(`${event.event.id} ${moto.class} #${row.plate}: ${JSON.stringify([row.name, row.hometown])}`);
         }
       }

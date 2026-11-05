@@ -13,7 +13,7 @@
   <div class="wrap">
     <div class="brand">
       <h1><a href="index.html">mx-lab</a></h1>
-      <span class="sub">AMA Pro Motocross, 2020–2026</span>
+      <span class="sub">AMA Pro Motocross &amp; Supercross, 2020–2026</span>
     </div>
     <nav class="site">
       <a href="index.html">Overview</a>
@@ -31,7 +31,8 @@
   <h2>6.5 — The championship, computed</h2>
   <p class="lede">
     Season standings scored from finishers, using the standard moto points table. Both motos count, a
-    DNF scores nothing, and the chart tracks the points race round by round.
+    DNF scores nothing, and the chart tracks the points race round by round. Classes follow the
+    season: Supercross 250 titles are scored per coast, and a showdown does not count as one.
   </p>
 
   <div class="note">
@@ -71,7 +72,9 @@
       Points are computed from the committed results using the standard AMA Pro Motocross moto table
       (1st 25, 2nd 22, 3rd 20, 4th 18, 5th 16, then one fewer per place to 20th). Ties are broken by
       wins, then best finish, then rider id. The clinch round is the first round after which the
-      leader's gap exceeds the points still available at 50 per round.
+      leader's gap exceeds the points still available at 50 per round. A Supercross Triple Crown
+      round prints the official award on its overall sheet, and that value is used instead of the
+      table for those rounds.
       Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
     </p>
   </div>
@@ -87,10 +90,24 @@ const classSelect = document.querySelector('#class-select');
 const seasons = data.seasons.map((row) => row.season).sort((a, b) => b - a);
 
 fillSelect(seasonSelect, seasons.map((season) => ({ value: season, label: `${season}` })));
-fillSelect(classSelect, [
-  { value: '450MX', label: '450MX' },
-  { value: '250MX', label: '250MX' },
-]);
+// Motorcross first, then Supercross; the list follows what the season actually ran,
+// because a 250SX coast or a showdown class only exists in some years.
+const CLASS_ORDER = ['450MX', '250MX', '450SX', '250SX Showdown', '250SX East', '250SX West'];
+
+function fillClasses(season) {
+  const previous = classSelect.value;
+  const names = Object.keys(season.classes).sort(
+    (a, b) => CLASS_ORDER.indexOf(a) - CLASS_ORDER.indexOf(b) || a.localeCompare(b),
+  );
+  fillSelect(classSelect, names.map((name) => ({ value: name, label: name })));
+  if (names.includes(previous)) classSelect.value = previous;
+}
+
+function currentSeason() {
+  return data.seasons.find((row) => row.season === Number(seasonSelect.value));
+}
+
+fillClasses(currentSeason());
 
 function current() {
   const season = data.seasons.find((row) => row.season === Number(seasonSelect.value));
@@ -151,7 +168,10 @@ function render() {
   );
 }
 
-seasonSelect.addEventListener('change', render);
+seasonSelect.addEventListener('change', () => {
+  fillClasses(currentSeason());
+  render();
+});
 classSelect.addEventListener('change', render);
 render();
 </script>
