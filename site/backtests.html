@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Backtests — mx-lab</title>
+<meta name="description" content="Walk-forward backtests of the mx-lab models, pre-registered before the results were read.">
+<meta name="theme-color" content="#0c1117">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <h1><a href="index.html">mx-lab</a></h1>
+      <span class="sub">AMA Pro Motocross &amp; Supercross, 2020–2026</span>
+    </div>
+    <nav class="site">
+      <a href="index.html">Overview</a>
+      <a href="lap-chart.html">Lap chart</a>
+      <a href="fade.html">Fade</a>
+      <a href="lap-one.html">Lap 1</a>
+      <a href="qualifying.html">Qualifying</a>
+      <a href="titles.html">Titles</a>
+      <a href="ratings.html">Ratings</a>
+      <a href="methods.html">Methods</a>
+      <a href="backtests.html">Backtests</a>
+      <a href="coverage.html">Coverage</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2>Backtests</h2>
+  <p class="lede">
+    Each model predicts a moto it has never seen, in chronological order, and is scored on the
+    prediction rather than on a fitted value. The design was written down in
+    <span class="mono">docs/backtests.md</span> before any result was read.
+  </p>
+
+  <div class="note">
+    <strong>Pre-registered.</strong> Walk-forward by moto, per class, with no feature that sees the
+    moto it predicts. The field average is the baseline every other model has to beat; a model that
+    does not beat it has not earned a place on the site.
+  </div>
+
+  <div id="stats"><p class="small">Loading…</p></div>
+
+  <h3>Overall</h3>
+  <p class="small">
+    MAE is the mean absolute finishing-position error. Brier and log loss are for the win, podium and
+    top-ten probabilities. A lower number is better in every column.
+  </p>
+  <div class="panel table-scroll" id="overall-table"></div>
+
+  <h3>Skill over the field, with intervals</h3>
+  <p class="small">
+    The share by which each model's Brier score beats the field average, bootstrapped over motos
+    (<span id="reps">—</span> resamples). An interval that spans zero means the model has not shown a
+    real edge on this sample.
+  </p>
+  <div class="panel table-scroll" id="interval-table"></div>
+
+  <h3>By season</h3>
+  <p class="small">The best model in each season by MAE, and how many motos it was scored on.</p>
+  <div class="panel table-scroll" id="season-table"></div>
+
+  <h3>By class</h3>
+  <p class="small">The same comparison inside each class, which is the unit the ratings are built on.</p>
+  <div class="panel table-scroll" id="class-table"></div>
+
+  <p class="small">
+    Full method, calibration bins and the pre-registration text: <a href="https://github.com/slayyyyer/mx-lab/blob/main/docs/backtests.md">docs/backtests.md</a>.
+  </p>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>
+      <strong>Unofficial.</strong> Not affiliated with or endorsed by AMA Pro Racing, MX Sports,
+      Pro Motocross, Supercross, any series, team or rider. Series names appear in plain text only;
+      no logos or marks are used.
+    </p>
+    <p class="small">
+      Backtests are computed from the committed dataset by <span class="mono">src/analysis/backtest.js</span>
+      and written to <span class="mono">data/derived/backtests.json</span>. Dataset and code:
+      <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+    </p>
+  </div>
+</footer>
+
+<script type="module">
+import { load, num, esc, table, statBlock } from './assets/ui.js';
+
+const b = await load('backtests');
+const models = b.models ?? [];
+const overall = b.overall ?? {};
+const intervals = b.intervals ?? {};
+const show = (value, digits = 3) => (Number.isFinite(value) ? value.toFixed(digits) : '—');
+const pctOf = (value, digits = 2) => (Number.isFinite(value) ? `${(value * 100).toFixed(digits)}%` : '—');
+
+document.querySelector('#stats').innerHTML = statBlock([
+  { value: num(b.coverage?.motos ?? 0), label: 'motos scored' },
+  { value: num(b.coverage?.rows ?? 0), label: 'result rows' },
+  { value: num(models.length), label: 'models' },
+  { value: num(b.design?.bootstrapReps ?? 0), label: 'bootstrap resamples' },
+]);
+
+document.querySelector('#reps').textContent = num(b.design?.bootstrapReps ?? 0);
+
+document.querySelector('#overall-table').innerHTML = table(
+  ['Model', 'MAE', 'Median ρ', 'Brier win', 'Brier podium', 'Log loss win', 'Skill vs field (win)'],
+  models.map((model) => {
+    const row = overall[model.id] ?? {};
+    return [
+      esc(model.label ?? model.id),
+      show(row.mae, 2),
+      row.medianRho === null || row.medianRho === undefined ? '—' : show(row.medianRho, 3),
+      show(row.brier?.win),
+      show(row.brier?.podium),
+      show(row.logLoss?.win),
+      pctOf(row.skillVsField?.win),
+    ];
+  }),
+  { numeric: [1, 2, 3, 4, 5, 6] },
+);
+
+const intervalRows = models
+  .filter((model) => intervals[model.id])
+  .map((model) => {
+    const entry = intervals[model.id];
+    const span = (key) =>
+      entry[key] ? `${pctOf(entry[key].lo)} – ${pctOf(entry[key].hi)}` : '—';
+    return [esc(model.label ?? model.id), span('winVsField'), span('podiumVsField'), span('top10VsField')];
+  });
+document.querySelector('#interval-table').innerHTML = table(
+  ['Model', 'Win', 'Podium', 'Top 10'],
+  intervalRows,
+  { numeric: [1, 2, 3] },
+);
+
+function bestBy(rows, key) {
+  return [...(rows ?? [])]
+    .map((entry) => {
+      const scored = models
+        .map((model) => ({ id: model.id, mae: entry.models?.[model.id]?.mae, motos: entry.models?.[model.id]?.motos }))
+        .filter((candidate) => Number.isFinite(candidate.mae));
+      if (scored.length === 0) return null;
+      const best = scored.sort((a, b) => a.mae - b.mae)[0];
+      return [entry[key], num(best.motos ?? 0), esc(models.find((m) => m.id === best.id)?.label ?? best.id), show(best.mae, 2)];
+    })
+    .filter(Boolean);
+}
+
+document.querySelector('#season-table').innerHTML = table(['Season', 'Motos', 'Best model', 'MAE'], bestBy(b.bySeason, 'season'), {
+  numeric: [0, 1, 3],
+});
+document.querySelector('#class-table').innerHTML = table(['Class', 'Motos', 'Best model', 'MAE'], bestBy(b.byClass, 'class'), {
+  numeric: [1, 3],
+});
+</script>
+</body>
+</html>

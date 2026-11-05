@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coverage — mx-lab</title>
+<meta name="description" content="What the mx-lab dataset and each analysis cover, and where the sources stop.">
+<meta name="theme-color" content="#0c1117">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <h1><a href="index.html">mx-lab</a></h1>
+      <span class="sub">AMA Pro Motocross &amp; Supercross, 2020–2026</span>
+    </div>
+    <nav class="site">
+      <a href="index.html">Overview</a>
+      <a href="lap-chart.html">Lap chart</a>
+      <a href="fade.html">Fade</a>
+      <a href="lap-one.html">Lap 1</a>
+      <a href="qualifying.html">Qualifying</a>
+      <a href="titles.html">Titles</a>
+      <a href="ratings.html">Ratings</a>
+      <a href="methods.html">Methods</a>
+      <a href="backtests.html">Backtests</a>
+      <a href="coverage.html">Coverage</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2>Coverage</h2>
+  <p class="lede">
+    What is in the dataset, which analysis can use it, and the places where a source simply stops.
+    Nothing here is filled in from another source: a gap is recorded as a gap.
+  </p>
+
+  <div id="stats"><p class="small">Loading…</p></div>
+
+  <h3>By season</h3>
+  <div class="panel table-scroll" id="season-table"></div>
+
+  <h3>Which analysis uses which seasons</h3>
+  <div class="panel table-scroll" id="analysis-table"></div>
+
+  <h3>Known gaps</h3>
+  <div class="panel">
+    <ul class="small">
+      <li>
+        <strong>2023 Supercross has 16 rounds, not 17.</strong> The PDF archive publishes nothing at
+        <span class="mono">S2310</span>; the season table records 16 and no round is invented.
+      </li>
+      <li>
+        <strong>No per-lap positions before 2025.</strong> The 2020–2024 <span class="mono">LAP</span>
+        sheet is a matrix of plates by position, not positions, so the lap chart covers 2025–2026
+        only. Lap <em>times</em> exist from 2020.
+      </li>
+      <li>
+        <strong>2020 Motocross prints no lap-1 time at all</strong> — <span class="mono">--.---</span>
+        for the whole field. The 2020 Supercross rounds do print it, so the lap-1 analysis is not
+        empty in 2020, only in Motocross.
+      </li>
+      <li>
+        <strong>Supercross Triple Crown rounds carry no lap times.</strong> Their classification comes
+        from an overall report whose points column is the Olympic sum of places, not a championship
+        award.
+      </li>
+      <li>
+        <strong>2026 Anaheim 1 has no 250 qualifying report</strong>, so that round's 250 class
+        commits with an empty qualifying list.
+      </li>
+      <li>
+        <strong>Source warnings are kept.</strong> Missing final laps, red-flag lap times and printed
+        best laps that are not in the lap list are recorded with the value as printed.
+      </li>
+    </ul>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>
+      <strong>Unofficial.</strong> Not affiliated with or endorsed by AMA Pro Racing, MX Sports,
+      Pro Motocross, Supercross, any series, team or rider. Series names appear in plain text only;
+      no logos or marks are used. Results are attributed to
+      <span class="mono">americanmotocrossresults.com</span>,
+      <span class="mono">results.promotocross.com</span> and
+      <span class="mono">results.supercrosslive.com</span>.
+    </p>
+    <p class="small">
+      Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+      Per-source detail is in <span class="mono">docs/sources.md</span>.
+    </p>
+  </div>
+</footer>
+
+<script type="module">
+import { load, num, esc, table, statBlock } from './assets/ui.js';
+
+const meta = await load('meta');
+const dataset = meta.dataset;
+
+document.querySelector('#stats').innerHTML = statBlock([
+  { value: num(dataset.events), label: 'events' },
+  { value: num(dataset.motos), label: 'motos' },
+  { value: num(dataset.rows), label: 'result rows' },
+  { value: num(dataset.laps), label: 'lap times' },
+  { value: num(dataset.qualifyingSheets), label: 'qualifying sheets' },
+  { value: num(dataset.warnings), label: 'source warnings' },
+]);
+
+const sourceLabel = (source) => {
+  if (source.includes('supercrosslive')) return 'Supercross LiveTime';
+  if (source.includes('promotocross')) return 'Motocross LiveTime';
+  return 'PDF archive';
+};
+
+document.querySelector('#season-table').innerHTML = table(
+  ['Season', 'Source', 'Events', 'Motos', 'Result rows', 'Lap times', 'Qualifying', 'Warnings'],
+  meta.seasons.map((row) => [
+    row.season,
+    esc(sourceLabel(row.source)),
+    num(row.events),
+    num(row.motos),
+    num(row.rows),
+    num(row.laps),
+    num(row.qualifying ?? 0),
+    num(row.warnings ?? 0),
+  ]),
+  { numeric: [0, 2, 3, 4, 5, 6, 7] },
+);
+
+const lapChart = await load('lap-chart');
+const coverage = lapChart.coverage ?? {};
+
+const analyses = [
+  ['6.1', 'Lap chart', '2025–2026', 'Needs a printed per-lap position'],
+  ['6.2', 'Fade', '2020–2026', 'Needs per-lap times only'],
+  ['6.3', 'Lap 1', '2020–2026', 'Motocross 2020 has no lap-1 times'],
+  ['6.4', 'Qualifying', '2020–2026', 'Rider must appear in the motos'],
+  ['6.5', 'Titles', '2020–2026', 'Points computed from finishing positions'],
+  ['6.6', 'Ratings', '2020–2026', 'One rating per class across seasons'],
+];
+
+document.querySelector('#analysis-table').innerHTML = table(
+  ['#', 'Analysis', 'Seasons', 'What it needs'],
+  analyses.map(([id, name, seasons, note]) => [id, esc(name), esc(seasons), esc(note)]),
+  { numeric: [0] },
+);
+</script>
+</body>
+</html>

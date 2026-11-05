@@ -11,27 +11,31 @@ Two rules apply to all six:
   `data/derived/` no longer matches `data/events/`, and the Pages workflow runs that check before
   deploying.
 
+The dataset is now both series: 195 events, 17,434 result rows and 250,699 per-lap times, covering
+Motocross 2020–2026 and Supercross 2020–2026.
+
 | # | Analysis | File | Coverage | Needs per-lap position? |
 |---|---|---|---|---|
-| 6.1 | Lap chart | `lap-chart.json` | 2025–2026, 22 events | yes |
-| 6.2 | Fade | `fade.json` | 2020–2026, 77 events | no |
-| 6.3 | Lap 1 | `lap-one.json` | **2021–2026** | no |
-| 6.4 | Qualifying | `qualifying.json` | 2020–2026, 77 events | no |
-| 6.5 | Titles | `titles.json` | 2020–2026, 77 events | no |
-| 6.6 | Ratings | `ratings.json` | 2020–2026, 77 events | no |
+| 6.1 | Lap chart | `lap-chart.json` | 2025–2026, 144 motos | yes |
+| 6.2 | Fade | `fade.json` | 2020–2026, 14,468 rider-motos | no |
+| 6.3 | Lap 1 | `lap-one.json` | 2020–2026 (2020 Motocross absent) | no |
+| 6.4 | Qualifying | `qualifying.json` | 2020–2026, 322 sheets | no |
+| 6.5 | Titles | `titles.json` | 2020–2026, both series | no |
+| 6.6 | Ratings | `ratings.json` | 2020–2026, both series | no |
 
 ## 6.1 — Lap chart
 
 **Question.** Where was each rider on each lap?
 
-**Method.** Read the position the timing system prints on every lap row for 2025–2026 and chart it.
+**Method.** Read the position the timing system prints on every lap row for 2025–2026, both series.
 The file keeps the top twenty finishers of each moto; a full forty-line chart is unreadable and the
 lapped riders are exactly the ones whose printed position needs care.
 
-**Coverage.** 22 events, 88 motos, 28,455 charted lap positions. **2020–2024 has no per-lap
-position at all**: the lap chart sheet holds plates rather than positions (`docs/sources.md` §7.2),
-and cumulative lap times cannot reconstruct absolute track position because lap 1 has no time. No
-position is estimated, so this analysis starts in 2025.
+**Coverage.** 2025–2026: 144 motos and 50,019 charted lap positions. **2020–2024 has no per-lap
+position at all** for either series: the Motocross lap chart sheet holds plates rather than positions
+(`docs/sources.md` §7.2), the Supercross `LAP` sheet is a matrix of plates by position, and
+cumulative lap times cannot reconstruct absolute track position because lap 1 has no time. No
+position is estimated.
 
 ## 6.2 — Fade
 
@@ -44,8 +48,8 @@ the first. A moto needs at least six usable laps on each side of the split. Resu
 Median rather than mean so one bad lap cannot decide the answer; percentages rather than seconds so
 a 1:10 track and a 2:20 track are comparable.
 
-**Coverage.** All seven seasons: 11,316 rider-motos measured, with the rest skipped for too few
-laps and counted in `coverage.riderMotosSkipped`. Season medians sit between 1.5% and 2.1%.
+**Coverage.** All seven seasons and both series: 14,468 rider-motos measured, with the rest skipped
+for too few laps and counted in `coverage.riderMotosSkipped`.
 
 **Reading it.** The leaderboard needs ten measured motos in a season. Differences in the second
 decimal are stopwatch noise, not fitness.
@@ -57,10 +61,11 @@ decimal are stopwatch noise, not fitness.
 **Method.** Per moto, rank the riders who have a lap-1 time by that time and by finish, and take
 Spearman's rho. Report the median rho per season and the share of motos above 0.5.
 
-**Coverage.** **2021–2026.** 2020 is absent because the lap sheet prints `--.---` for lap 1 for the
-entire field — none of the season's 1,400 result rows has a lap-1 time. 2021–2024 have one for part
-of the field (about 17–25% of rows), 2025–2026 for nearly all of it. Every season line on the site
-reports its own coverage, and a moto needs eight riders with a lap-1 time to be measured at all.
+**Coverage.** **2020–2026, with one gap.** 2020 Motocross prints `--.---` for lap 1 for the entire
+field, so none of that season's Motocross rows has a lap-1 time; the 2020 Supercross rounds do print
+it. 2021–2024 Motocross has one for part of the field (about 17–25% of rows), 2025–2026 for nearly
+all of it. Every season line on the site reports its own coverage, and a moto needs eight riders with
+a lap-1 time to be measured at all.
 
 **Caveat.** This is a correlation within a moto, not a causal claim: fast starters are usually fast
 riders.
@@ -73,9 +78,10 @@ riders.
 compute qualifying position minus mean finishing position. Positive means the rider gained places.
 Also report Spearman's rho between qualifying position and mean finish per event.
 
-**Coverage.** All seven seasons, both classes, 154 qualifying sheets. The qualifying sheet lists the
-whole entry list (around 70 riders for a 40-rider moto field), so riders who did not make the motos
-are excluded — otherwise "gained places" would be dominated by riders who never raced.
+**Coverage.** All seven seasons and both series, 322 qualifying sheets. The qualifying sheet lists
+the whole entry list, so riders who did not make the motos are excluded — otherwise "gained places"
+would be dominated by riders who never raced. A Supercross 250 sheet prints the coast on the plate
+(`1W`), which is what makes the class join correctly.
 
 ## 6.5 — Titles
 
@@ -89,10 +95,14 @@ flattered by dropping bad races. Ties break on wins, then best finish, then ride
 The clinch round is the first round after which the leader's advantage is greater than the points
 still available, at 50 per round.
 
-**Coverage.** All seven seasons and both classes. The derived champions are Zach Osborne and Dylan
-Ferrandis (2020), Ferrandis and Jett Lawrence (2021), Eli Tomac and Jett Lawrence (2022), Jett and
-Hunter Lawrence (2023), Chase Sexton and Haiden Deegan (2024), Jett Lawrence and Deegan (2025),
-Hunter Lawrence and Cole Davies (2026).
+**Supercross.** A 250 title is scored per coast (`250SX East`, `250SX West`). An East/West showdown is
+recorded but not scored, because it races two championships at once. Triple Crown rounds classify on
+an overall sheet whose printed award is used instead of the table where it exists.
+
+**Coverage.** All seven seasons and both series. Derived champions: 2020 Tomac (450SX), Sexton/Ferrandis
+(250SX East/West), Osborne and Ferrandis (MX); 2021 Webb, Nichols/Cooper; 2022 Tomac, Jett Lawrence and
+Craig; 2023 Sexton, Hunter and Jett Lawrence; 2024 Jett Lawrence, Vialle/Kitchen; 2025 Webb, Deegan and
+Vialle, Jett Lawrence and Deegan (MX); 2026 Roczen, Deegan and Davies, Hunter Lawrence and Davies (MX).
 
 **Caveat.** A published standings total may differ where a series applied a tie-break or a penalty
 that the results sheets do not show. The site labels these as computed.
@@ -107,11 +117,11 @@ not move a rating forty times as far as a two-rider one. All deltas for a moto a
 pre-moto snapshot and applied together, which makes the result independent of pair order.
 
 A rider new to a class enters at that class's current median rating rather than a fixed 1500, so the
-scale does not drift as the field grows. One rating per class runs across all seven seasons, so a
-number change does not restart it.
+scale does not drift as the field grows. One rating per class runs across all seasons, so a number
+change does not restart it.
 
-**Coverage.** Both classes, all seasons; leaderboards need ten motos. Ratings are not comparable
-across classes.
+**Coverage.** Both classes and both series, all seasons; leaderboards need ten motos. Ratings are not
+comparable across classes.
 
 ## What the site does not do
 

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methods — mx-lab</title>
+<meta name="description" content="The method, coverage and caveats behind each mx-lab analysis.">
+<meta name="theme-color" content="#0c1117">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <h1><a href="index.html">mx-lab</a></h1>
+      <span class="sub">AMA Pro Motocross &amp; Supercross, 2020–2026</span>
+    </div>
+    <nav class="site">
+      <a href="index.html">Overview</a>
+      <a href="lap-chart.html">Lap chart</a>
+      <a href="fade.html">Fade</a>
+      <a href="lap-one.html">Lap 1</a>
+      <a href="qualifying.html">Qualifying</a>
+      <a href="titles.html">Titles</a>
+      <a href="ratings.html">Ratings</a>
+      <a href="methods.html">Methods</a>
+      <a href="backtests.html">Backtests</a>
+      <a href="coverage.html">Coverage</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2>Methods</h2>
+  <p class="lede">
+    Six analyses, one dataset. Each section states the question, how it is answered, what the source
+    actually covers, and what the number does not mean.
+  </p>
+
+  <div class="note">
+    <strong>Two rules apply to all six.</strong> A number is only produced where the source has it,
+    and derived files are committed and checked — <span class="mono">npm run derive --check</span>
+    fails if they no longer match the dataset.
+  </div>
+
+  <h3>6.1 — Lap chart</h3>
+  <p><strong>Question.</strong> Where was each rider on each lap?</p>
+  <p>
+    <strong>Method.</strong> Read the position the timing system prints on every lap row for the
+    2025–2026 seasons, both series. The file keeps the top twenty finishers of each moto: a full
+    forty-line chart is unreadable, and the lapped riders are exactly the ones whose printed position
+    needs care.
+  </p>
+  <p>
+    <strong>Coverage.</strong> 2025–2026 only. The 2020–2024 lap chart sheet holds plates rather than
+    positions, and cumulative lap times cannot reconstruct absolute track position because lap 1 has
+    no time. No position is estimated.
+  </p>
+
+  <h3>6.2 — Fade</h3>
+  <p><strong>Question.</strong> How much does a rider slow between the first and second half of a moto?</p>
+  <p>
+    <strong>Method.</strong> Take laps 2 to the end, drop laps slower than 1.4× the rider's own median
+    (a pit stop or a crash, not fading), then compare the median of the second half with the first. A
+    moto needs at least six usable laps each side. The result is a percentage, so a 1:10 track and a
+    2:20 track are comparable.
+  </p>
+  <p>
+    <strong>Coverage.</strong> Every season and both series. The leaderboard needs ten measured motos
+    in a season. Differences in the second decimal are stopwatch noise, not fitness.
+  </p>
+
+  <h3>6.3 — Lap 1</h3>
+  <p><strong>Question.</strong> Does the opening lap already decide the finishing order?</p>
+  <p>
+    <strong>Method.</strong> Per moto, rank the riders who have a lap-1 time by that time and by
+    finish, then take Spearman's rho. Report the median per season and the share of motos above 0.5. A
+    moto needs eight riders with a lap-1 time to be measured at all.
+  </p>
+  <p>
+    <strong>Coverage.</strong> 2020–2026, with a gap: 2020 Motocross prints
+    <span class="mono">--.---</span> for lap 1 across the entire field, while 2020 Supercross does
+    print it. This is a correlation within a moto, not a causal claim — fast starters are usually fast
+    riders.
+  </p>
+
+  <h3>6.4 — Qualifying</h3>
+  <p><strong>Question.</strong> What is a fast qualifying lap worth once the gate drops?</p>
+  <p>
+    <strong>Method.</strong> Within an event and class, join the qualifying sheet to the moto results
+    by rider, then compute qualifying position minus mean finishing position. Positive means the rider
+    gained places. Also report Spearman's rho between qualifying position and mean finish per event.
+  </p>
+  <p>
+    <strong>Coverage.</strong> All seasons and classes. The qualifying sheet lists the whole entry
+    list, so riders who did not make the motos are excluded — otherwise "gained places" would be
+    dominated by riders who never raced.
+  </p>
+
+  <h3>6.5 — Titles</h3>
+  <p><strong>Question.</strong> Who won, when did they clinch, and how did the points race move?</p>
+  <p>
+    <strong>Method.</strong> Points are <strong>computed from finishing positions</strong> with the
+    standard moto table — 25, 22, 20, 18, 16, then one fewer per place to 1 for 20th. Both motos score;
+    a DNF scores 0 and still counts as a moto started. Ties break on wins, then best finish, then rider
+    id. The clinch round is the first round after which the leader's gap exceeds the points still
+    available at 50 per round.
+  </p>
+  <p>
+    <strong>Supercross.</strong> The 250 title is scored per coast, and an East/West showdown is
+    recorded but not scored — it races two championships at once. Where a Triple Crown overall sheet
+    prints the official award, that value is used instead of the table.
+  </p>
+  <p>
+    <strong>Caveat.</strong> A published standings total may differ where a series applied a tie-break
+    or a penalty the sheets do not show.
+  </p>
+
+  <h3>6.6 — Ratings</h3>
+  <p><strong>Question.</strong> How good is each rider relative to the riders they actually raced?</p>
+  <p>
+    <strong>Method.</strong> Elo per class over every moto: within a moto every finisher is compared
+    with every other finisher, K = 32 spread across the field, and all deltas are computed from the
+    pre-moto snapshot and applied together. A rider new to a class enters at that class's current
+    median rather than a fixed 1500, so the scale does not drift.
+  </p>
+  <p>
+    <strong>Coverage.</strong> Both classes and both series; leaderboards need ten motos. Ratings are
+    not comparable across classes.
+  </p>
+
+  <h3>Backtests</h3>
+  <p>
+    The models behind these pages are scored walk-forward on motos they have never seen, with the
+    design written down before the results were read. See the
+    <a href="backtests.html">backtests page</a> for the errors, the bootstrap intervals and the
+    by-season comparison against the field average.
+  </p>
+
+  <h3>What this site does not do</h3>
+  <ul class="small">
+    <li>No live scraping: the pages read committed derived files.</li>
+    <li>No imputation: a missing lap time, position or qualifying row stays missing.</li>
+    <li>No claims about machinery, teams or fitness. These are results, not explanations.</li>
+    <li>No raw PDFs, mirrored pages or series logos.</li>
+  </ul>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>
+      <strong>Unofficial.</strong> Not affiliated with or endorsed by AMA Pro Racing, MX Sports,
+      Pro Motocross, Supercross, any series, team or rider. Series names appear in plain text only;
+      no logos or marks are used.
+    </p>
+    <p class="small">
+      Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+    </p>
+  </div>
+</footer>
+</body>
+</html>
