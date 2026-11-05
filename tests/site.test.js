@@ -63,17 +63,55 @@ test('no warm accent literals survive in the site', () => {
   }
 });
 
+test('every url() in the stylesheet resolves relative to the stylesheet', () => {
+  const cssPath = path.join(site, 'assets', 'style.css');
+  const css = readFileSync(cssPath, 'utf8');
+  const urls = [...css.matchAll(/url\("([^"]+)"\)/g)]
+    .map((match) => match[1])
+    .filter((url) => !/^(https?:|data:)/.test(url));
+  assert(urls.length > 0, 'stylesheet declares no local url()');
+  for (const url of urls) {
+    const target = path.resolve(path.dirname(cssPath), url.split(/[?#]/)[0]);
+    assert(existsSync(target), `stylesheet url() missing: ${url} (resolved to ${path.relative(site, target)})`);
+  }
+});
+
 test('every @font-face file exists and the font payload stays small', () => {
-  const css = readFileSync(path.join(site, 'assets', 'style.css'), 'utf8');
-  const files = [...css.matchAll(/url\("(assets\/fonts\/[^"]+\.woff2)"\)/g)].map((match) => match[1]);
+  const cssPath = path.join(site, 'assets', 'style.css');
+  const css = readFileSync(cssPath, 'utf8');
+  const files = [...css.matchAll(/@font-face\s*\{[\s\S]*?\}/g)]
+    .map((block) => block[0].match(/url\("([^"]+\.woff2)"\)/)?.[1])
+    .filter(Boolean);
   assert(files.length > 0, 'no font files declared');
   let bytes = 0;
   for (const file of files) {
-    const full = path.join(site, file);
-    assert(existsSync(full), `missing font: ${file}`);
+    const full = path.resolve(path.dirname(cssPath), file);
+    assert(existsSync(full), `missing font: ${file} (resolved to ${path.relative(site, full)})`);
     bytes += statSync(full).size;
   }
   assert(bytes < 200 * 1024, `font payload is ${Math.round(bytes / 1024)} KB, over the 200 KB budget`);
+});
+
+test('every font preload exists and names a declared @font-face', () => {
+  const css = readFileSync(path.join(site, 'assets', 'style.css'), 'utf8');
+  const declared = new Set(
+    [...css.matchAll(/@font-face\s*\{[\s\S]*?\}/g)]
+      .map((block) => block[0].match(/url\("([^"]+\.woff2)"\)/)?.[1])
+      .filter(Boolean)
+      .map((file) => path.basename(file)),
+  );
+  for (const file of pages) {
+    const html = read(file);
+    const fonts = [...html.matchAll(/<link\b[^>]*rel="preload"[^>]*>/g)]
+      .map((match) => match[0])
+      .filter((tag) => /\bas="font"/.test(tag));
+    assert(fonts.length > 0, `${file}: no font preloads`);
+    for (const tag of fonts) {
+      const href = tag.match(/href="([^"]+)"/)?.[1] ?? '';
+      assert(existsSync(path.join(site, href)), `${file}: preload missing ${href}`);
+      assert(declared.has(path.basename(href)), `${file}: preload ${href} has no matching @font-face`);
+    }
+  }
 });
 
 test('the share image is a PNG that exists', () => {
