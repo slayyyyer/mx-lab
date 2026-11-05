@@ -51,7 +51,10 @@ export function lineChart({
   showLegend = true,
   tickEvery = 1,
 }) {
-  const pad = { top: 16, right: showLegend ? 150 : 20, bottom: 40, left: 52 };
+  // Room for the longest legend name at the 11px mono size, so labels stay
+  // inside the viewBox instead of spilling past the chart's right edge.
+  const longestLabel = series.reduce((longest, line) => Math.max(longest, line.label.length), 0);
+  const pad = { top: 16, right: showLegend ? Math.max(150, 42 + longestLabel * 7) : 20, bottom: 40, left: 52 };
   const plotW = width - pad.left - pad.right;
   const plotH = height - pad.top - pad.bottom;
   const flat = series.flatMap((line) => line.points).filter((value) => Number.isFinite(value));
