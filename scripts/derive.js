@@ -6,6 +6,7 @@
 // The output is deterministic (sorted keys, rounded floats, no timestamps), so a
 // rebuild of an unchanged dataset is byte-identical and `--check` is meaningful.
 
+import { createHash } from 'node:crypto';
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
@@ -28,6 +29,9 @@ for (const file of files) {
 }
 
 const derived = deriveAll(events);
+// A stable identity for the exact event files behind every derived number, so the
+// footer can name the build without storing a timestamp.
+derived.meta.dataset.fingerprint = createHash('sha256').update(stableStringify(events)).digest('hex');
 await mkdir(outDir, { recursive: true });
 
 let stale = 0;

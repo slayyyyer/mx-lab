@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Riders — mx-lab</title>
+<meta name="description" content="Every rider in the AMA Pro Motocross and Supercross dataset, 2020–2026, with starts, wins and podiums across both series.">
+<meta name="theme-color" content="#0c1117">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mx-lab">
+<meta property="og:title" content="Riders — mx-lab">
+<meta property="og:description" content="Every rider in the AMA Pro Motocross and Supercross dataset, 2020–2026, with starts, wins and podiums across both series.">
+<meta property="og:image" content="https://slayyyyer.github.io/mx-lab/og.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <h1><a href="index.html">mx-lab</a></h1>
+      <span class="sub">AMA Pro Motocross &amp; Supercross, 2020–2026</span>
+    </div>
+    <nav class="site">
+      <a href="index.html">Overview</a>
+      <a href="lap-chart.html">Lap chart</a>
+      <a href="fade.html">Fade</a>
+      <a href="lap-one.html">Lap 1</a>
+      <a href="qualifying.html">Qualifying</a>
+      <a href="titles.html">Titles</a>
+      <a href="ratings.html">Ratings</a>
+      <a href="riders.html" aria-current="page">Riders</a>
+      <a href="tracks.html">Tracks</a>
+      <a href="methods.html">Methods</a>
+      <a href="backtests.html">Backtests</a>
+      <a href="coverage.html">Coverage</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2>Riders</h2>
+  <p class="lede">
+    Every rider in the dataset, across both series. A rider is one identity, not one plate number:
+    changing numbers between seasons does not split a career, and a 250SX coast still belongs to the
+    same person who raced Motocross that summer.
+  </p>
+
+  <div id="stats"></div>
+
+  <div class="note">
+    These are counts, not ratings. Wins and podiums are finishing positions in motos; a moto a rider
+    did not start is not counted at all. Ratings live on the <a href="ratings.html">Ratings</a> page.
+  </div>
+
+  <div class="controls">
+    <label class="field">Find a rider
+      <input id="search" type="search" placeholder="name" autocomplete="off">
+    </label>
+  </div>
+
+  <div class="panel table-scroll" id="rider-table"><p class="small">Loading…</p></div>
+  <p class="small" id="table-note"></p>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>
+      <strong>Unofficial.</strong> Not affiliated with or endorsed by AMA Pro Racing, MX Sports,
+      Pro Motocross, any series, team or rider. Series names appear in plain text only; no logos or
+      marks are used.
+    </p>
+    <p class="small">
+      Aggregated from every moto result in the dataset, joined by rider identity rather than plate.
+      Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
+    </p>
+  </div>
+</footer>
+
+<script type="module">
+import { load, num, esc, table, statBlock } from './assets/ui.js';
+
+const data = await load('entities');
+const search = document.querySelector('#search');
+const LIMIT = 150;
+
+document.querySelector('#stats').innerHTML = statBlock([
+  { value: num(data.coverage.riders), label: 'riders' },
+  { value: num(data.riders.filter((rider) => rider.wins > 0).length), label: 'race winners' },
+  { value: num(data.coverage.tracks), label: 'tracks' },
+  { value: num(data.coverage.seasons.length), label: 'seasons' },
+]);
+
+function render() {
+  const query = search.value.trim().toLowerCase();
+  const rows = data.riders.filter((rider) => !query || rider.name.toLowerCase().includes(query));
+  const shown = rows.slice(0, LIMIT);
+  document.querySelector('#rider-table').innerHTML = table(
+    ['Rider', 'Starts', 'Wins', 'Podiums', 'Top 10s', 'Best', 'Seasons', 'Classes'],
+    shown.map((rider) => [
+      esc(rider.name),
+      num(rider.starts),
+      num(rider.wins),
+      num(rider.podiums),
+      num(rider.top10s),
+      rider.best ?? '—',
+      rider.seasons[0] === rider.seasons.at(-1) ? rider.seasons[0] : `${rider.seasons[0]}–${rider.seasons.at(-1)}`,
+      rider.classes.join(', '),
+    ]),
+    { numeric: [1, 2, 3, 4, 5] },
+  );
+  document.querySelector('#table-note').textContent =
+    rows.length > LIMIT
+      ? `Showing the top ${LIMIT} of ${num(rows.length)} matching riders; search narrows the list.`
+      : `${num(rows.length)} rider${rows.length === 1 ? '' : 's'} shown.`;
+}
+
+search.addEventListener('input', render);
+render();
+</script>
+<script type="module" src="assets/version.js"></script>
+</body>
+</html>

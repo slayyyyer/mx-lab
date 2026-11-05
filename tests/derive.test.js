@@ -5,6 +5,7 @@ import { POINTS_TABLE, median, pointsFor, ranks, round, spearman } from '../src/
 import { buildFade, riderFade } from '../src/derive/fade.js';
 import { buildLapChart } from '../src/derive/lapChart.js';
 import { buildLapOne } from '../src/derive/lapOne.js';
+import { buildEntities } from '../src/derive/entities.js';
 import { buildQualifying } from '../src/derive/qualifying.js';
 import { buildRatings, eloMoto } from '../src/derive/ratings.js';
 import { buildTitles, countback } from '../src/derive/titles.js';
@@ -231,6 +232,81 @@ test('derive: a Motocross class clinches on its own rounds, not the longer Super
   ]);
   eq(built.seasons[0].classes['450MX'].champion.clinchedRound, 2);
   eq(built.seasons[0].classes['450SX'].champion.clinchedRound, 4);
+});
+
+test('derive: glicko rewards the winner and reports how settled each rating is', () => {
+  const moto = (aPos, bPos) => ({
+    class: '450MX',
+    moto: 1,
+    results: [row({ pos: aPos, riderId: 'a', name: 'A' }), row({ pos: bPos, riderId: 'b', name: 'B' })],
+  });
+  const built = buildRatings([
+    event({ id: 'G1', date: '2024-05-25', round: 1, ofRounds: 2, motos: [moto(1, 2)] }),
+    event({ id: 'G2', date: '2024-06-01', round: 2, ofRounds: 2, motos: [moto(1, 2)] }),
+  ]);
+  const season = built.classes['450MX'].seasons[0];
+  const a = season.riders.find((rider) => rider.riderId === 'a');
+  const b = season.riders.find((rider) => rider.riderId === 'b');
+  assert(a.glicko > 1500, 'the winner should gain');
+  assert(b.glicko < 1500, 'the loser should lose');
+  assert(a.glicko > b.glicko, 'the winner should rank above the loser');
+  assert(a.glickoRd > 0 && a.glickoRd < 350, 'two motos should leave the rating less than fully uncertain');
+});
+
+test('derive: entities aggregate riders across classes and tracks across events', () => {
+  const moto = (className, rows) => ({ class: className, moto: 1, results: rows });
+  const built = buildEntities([
+    event({
+      id: 'E1',
+      date: '2024-05-25',
+      round: 1,
+      ofRounds: 1,
+      motos: [
+        moto('450MX', [row({ pos: 1, riderId: 'a', name: 'A' }), row({ pos: 2, riderId: 'b', name: 'B' })]),
+        moto('250MX', [row({ pos: 1, riderId: 'a', name: 'A' }), row({ pos: 3, riderId: 'b', name: 'B' })]),
+      ],
+    }),
+  ]);
+  eq(built.coverage.riders, 2);
+  eq(built.tracks.length, 1);
+  eq(built.tracks[0].events, 1);
+  const a = built.riders.find((rider) => rider.riderId === 'a');
+  eq(a.starts, 2);
+  eq(a.wins, 2);
+  eq(a.classes.length, 2);
+  eq(a.best, 1);
+});
+
+test('derive: re-ranking reports how far the pole sitter fell', () => {
+  const built = buildQualifying([
+    event({
+      id: 'Q1',
+      date: '2024-05-25',
+      round: 1,
+      ofRounds: 1,
+      qualifying: [
+        {
+          class: '450MX',
+          rows: [
+            { pos: 1, riderId: 'a', name: 'A', bestMs: 1000 },
+            { pos: 2, riderId: 'b', name: 'B', bestMs: 1100 },
+          ],
+        },
+      ],
+      motos: [
+        {
+          class: '450MX',
+          moto: 1,
+          results: [row({ pos: 2, riderId: 'a', name: 'A' }), row({ pos: 1, riderId: 'b', name: 'B' })],
+        },
+      ],
+    }),
+  ]);
+  const race = built.races[0];
+  eq(race.poleFinish, 2);
+  eq(race.poleWon, false);
+  eq(race.medianMove, 1);
+  eq(built.seasons[0].poleWinRate, 0);
 });
 
 test('derive: elo compares every finisher, sums to roughly zero, and rewards the better result', () => {

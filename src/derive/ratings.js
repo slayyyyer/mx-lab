@@ -40,6 +40,88 @@ export function eloMoto(ratings, order, k = K) {
   return deltas;
 }
 
+// Glicko-2 over the same motos and the same pairwise comparisons. It is carried
+// alongside Elo for one reason: the rating deviation. A rating earned over three
+// motos is not as settled as one earned over thirty, and RD says so.
+const GLICKO_SCALE = 173.7178;
+const GLICKO_TAU = 0.5;
+const GLICKO_RD = 350;
+const GLICKO_VOLATILITY = 0.06;
+
+const gFactor = (phi) => 1 / Math.sqrt(1 + (3 * phi * phi) / (Math.PI * Math.PI));
+
+function volatilityStep(phi, delta, variance, volatility) {
+  const a = Math.log(volatility * volatility);
+  const f = (x) => {
+    const ex = Math.exp(x);
+    const num = ex * (delta * delta - phi * phi - variance - ex);
+    const den = 2 * (phi * phi + variance + ex) ** 2;
+    return num / den - (x - a) / (GLICKO_TAU * GLICKO_TAU);
+  };
+  let A = a;
+  let B;
+  if (delta * delta > phi * phi + variance) {
+    B = Math.log(delta * delta - phi * phi - variance);
+  } else {
+    let k = 1;
+    while (f(a - k * GLICKO_TAU) < 0) k += 1;
+    B = a - k * GLICKO_TAU;
+  }
+  let fA = f(A);
+  let fB = f(B);
+  for (let i = 0; i < 100 && Math.abs(B - A) > 1e-6; i += 1) {
+    const C = A + ((A - B) * fA) / (fB - fA);
+    const fC = f(C);
+    if (fC * fB <= 0) {
+      A = B;
+      fA = fB;
+    } else {
+      fA /= 2;
+    }
+    B = C;
+    fB = fC;
+  }
+  return Math.exp(A / 2);
+}
+
+export function glickoMoto(state, order) {
+  const updates = new Map();
+  if (order.length < 2) return updates;
+  for (let i = 0; i < order.length; i += 1) {
+    const me = state.get(order[i]);
+    if (!me) continue;
+    const mu = (me.rating - 1500) / GLICKO_SCALE;
+    const phi = me.rd / GLICKO_SCALE;
+    let varianceSum = 0;
+    let deltaSum = 0;
+    for (let j = 0; j < order.length; j += 1) {
+      if (i === j) continue;
+      const other = state.get(order[j]);
+      if (!other) continue;
+      const muOpponent = (other.rating - 1500) / GLICKO_SCALE;
+      const phiOpponent = other.rd / GLICKO_SCALE;
+      const gOpponent = gFactor(phiOpponent);
+      const expected = 1 / (1 + Math.exp(-gOpponent * (mu - muOpponent)));
+      const score = i < j ? 1 : 0;
+      varianceSum += gOpponent * gOpponent * expected * (1 - expected);
+      deltaSum += gOpponent * (score - expected);
+    }
+    if (varianceSum === 0) continue;
+    const variance = 1 / varianceSum;
+    const delta = variance * deltaSum;
+    const volatility = volatilityStep(phi, delta, variance, me.volatility ?? GLICKO_VOLATILITY);
+    const phiStar = Math.sqrt(phi * phi + volatility * volatility);
+    const phiNew = 1 / Math.sqrt(1 / (phiStar * phiStar) + 1 / variance);
+    const muNew = mu + phiNew * phiNew * deltaSum;
+    updates.set(order[i], {
+      rating: 1500 + GLICKO_SCALE * muNew,
+      rd: GLICKO_SCALE * phiNew,
+      volatility,
+    });
+  }
+  return updates;
+}
+
 export function buildRatings(events) {
   const classes = new Map();
 
@@ -51,6 +133,7 @@ export function buildRatings(events) {
         classes.set(moto.class, {
           class: moto.class,
           ratings: new Map(),
+          glicko: new Map(),
           names: new Map(),
           seasons: new Map(),
           rounds: [],
@@ -66,6 +149,7 @@ export function buildRatings(events) {
       for (const row of rows) {
         if (!state.ratings.has(row.riderId)) {
           state.ratings.set(row.riderId, entry);
+          state.glicko.set(row.riderId, { rating: START, rd: GLICKO_RD, volatility: GLICKO_VOLATILITY });
           state.names.set(row.riderId, row.name);
         } else {
           state.names.set(row.riderId, row.name);
@@ -80,13 +164,18 @@ export function buildRatings(events) {
 
       const order = rows.map((row) => row.riderId);
       const deltas = eloMoto(state.ratings, order);
+      const glickoUpdates = glickoMoto(state.glicko, order);
       for (const [riderId, delta] of deltas) {
         state.ratings.set(riderId, state.ratings.get(riderId) + delta);
       }
+      for (const [riderId, next] of glickoUpdates) state.glicko.set(riderId, next);
       for (const row of rows) {
         const stat = getRiderSeason(seasonState, row.riderId, row.name, state.ratings.get(row.riderId));
         stat.end = state.ratings.get(row.riderId);
         stat.peak = stat.peak === null ? stat.end : Math.max(stat.peak, stat.end);
+        const glicko = state.glicko.get(row.riderId);
+        stat.glickoEnd = glicko.rating;
+        stat.glickoRd = glicko.rd;
       }
 
       state.lastRoundRatings = new Map(state.ratings);
@@ -111,6 +200,7 @@ export function buildRatings(events) {
     entrant: `a new rider enters at the class median and the scale starts at ${START}`,
     leaderboardMinimum: `${MIN_MOTOS_LEADERBOARD} motos`,
     continuity: 'one rating per class across all seasons; changing a plate number does not restart it',
+    glicko: 'Glicko-2 over the same pairwise moto comparisons, with an initial deviation of 350 and tau 0.5; the deviation is the point — it says how settled the number is',
   }, classes: {} };
 
   for (const [className, state] of [...classes.entries()].sort((a, b) => cmp(a[0], b[0]))) {
@@ -126,6 +216,8 @@ export function buildRatings(events) {
           rating: round(rider.end),
           delta: round(rider.end - rider.start),
           peak: round(rider.peak),
+          glicko: round(rider.glickoEnd),
+          glickoRd: round(rider.glickoRd),
         }))
         .sort((a, b) => b.rating - a.rating || cmp(a.riderId, b.riderId));
 
@@ -158,7 +250,15 @@ export function buildRatings(events) {
         for (const seasonState of state.seasons.values()) {
           motos += seasonState.riders.get(riderId)?.motos ?? 0;
         }
-        return { riderId, name: state.names.get(riderId), rating: round(rating), motos };
+        const glicko = state.glicko.get(riderId);
+        return {
+          riderId,
+          name: state.names.get(riderId),
+          rating: round(rating),
+          glicko: round(glicko.rating),
+          glickoRd: round(glicko.rd),
+          motos,
+        };
       })
       .filter((rider) => rider.motos >= MIN_MOTOS_LEADERBOARD)
       .sort((a, b) => b.rating - a.rating || cmp(a.riderId, b.riderId))
@@ -188,6 +288,8 @@ function getRiderSeason(seasonState, riderId, name, start) {
       start,
       end: start,
       peak: null,
+      glickoEnd: 1500,
+      glickoRd: GLICKO_RD,
     });
   }
   return seasonState.riders.get(riderId);

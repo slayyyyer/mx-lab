@@ -6,6 +6,12 @@
 <title>Qualifying — mx-lab</title>
 <meta name="description" content="What a fast qualifying lap is worth in AMA Pro Motocross, and who races better than they qualify.">
 <meta name="theme-color" content="#0c1117">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mx-lab">
+<meta property="og:title" content="Qualifying — mx-lab">
+<meta property="og:description" content="What a fast qualifying lap is worth in AMA Pro Motocross, and who races better than they qualify.">
+<meta property="og:image" content="https://slayyyyer.github.io/mx-lab/og.svg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -23,6 +29,8 @@
       <a href="qualifying.html" aria-current="page">Qualifying</a>
       <a href="titles.html">Titles</a>
       <a href="ratings.html">Ratings</a>
+      <a href="riders.html">Riders</a>
+      <a href="tracks.html">Tracks</a>
       <a href="methods.html">Methods</a>
       <a href="backtests.html">Backtests</a>
       <a href="coverage.html">Coverage</a>
@@ -61,6 +69,14 @@
   <h3>Event by event</h3>
   <div class="panel table-scroll" id="race-table"></div>
 
+  <h3>If the gate were the grid</h3>
+  <p class="small">
+    Re-ranking the field by qualifying order and comparing it with the finishing order. “Median move”
+    is the median absolute number of places between the two; “pole win rate” is how often the fastest
+    qualifier actually won.
+  </p>
+  <div class="panel" id="rerank-table"></div>
+
   <h3>Season summary</h3>
   <div class="panel" id="season-table"></div>
 </main>
@@ -76,7 +92,8 @@
       Qualifying times come from the combined qualifying sheet each class publishes, and finishing
       positions from the moto results. Positions gained is qualifying position minus the mean of the
       rider's moto finishes at that event. Correlation is Spearman rho between qualifying position and
-      mean moto finish.
+      mean moto finish; re-ranking compares the same two orders by absolute places moved and by how
+      often the fastest qualifier won.
       Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
     </p>
   </div>
@@ -97,14 +114,25 @@ document.querySelector('#stats').innerHTML = statBlock([
   { value: data.seasons.length, label: 'seasons' },
 ]);
 
-document.querySelector('#season-table').innerHTML = table(
-  ['Season', 'Events', 'Rider-events', 'Median gain', 'Median rho'],
+document.querySelector('#season-table').innerHTML = table(    ['Season', 'Events', 'Rider-events', 'Median gain', 'Median rho'],
+    data.seasons.map((row) => [
+      row.season,
+      num(row.events),
+      num(row.riders),
+      row.medianGain === null ? '—' : `${row.medianGain > 0 ? '+' : ''}${row.medianGain.toFixed(2)}`,
+      row.medianRho === null ? '—' : row.medianRho.toFixed(3),
+    ]),
+    { numeric: [1, 2, 3, 4] },
+);
+
+document.querySelector('#rerank-table').innerHTML = table(
+  ['Season', 'Event/classes', 'Median move', 'Pole win rate', 'Median pole finish'],
   data.seasons.map((row) => [
     row.season,
     num(row.events),
-    num(row.riders),
-    row.medianGain === null ? '—' : `${row.medianGain > 0 ? '+' : ''}${row.medianGain.toFixed(2)}`,
-    row.medianRho === null ? '—' : row.medianRho.toFixed(3),
+    row.medianMove === null ? '—' : row.medianMove.toFixed(2),
+    share(row.poleWinRate),
+    row.medianPoleFinish === null ? '—' : row.medianPoleFinish.toFixed(1),
   ]),
   { numeric: [1, 2, 3, 4] },
 );
@@ -133,16 +161,18 @@ function renderRaces(season) {
     .filter((row) => row.season === Number(season))
     .sort((a, b) => (a.round ?? 0) - (b.round ?? 0) || a.class.localeCompare(b.class));
   document.querySelector('#race-table').innerHTML = table(
-    ['Round', 'Class', 'Qualified', 'Raced', 'Median gain', 'rho'],
+    ['Round', 'Class', 'Qualified', 'Raced', 'Median gain', 'Median move', 'Pole finish', 'rho'],
     rows.map((row) => [
       `${row.round ?? '?'}. ${esc(row.name)}`,
       row.class,
       num(row.qualified),
       num(row.raced),
       row.medianGain === null ? '—' : `${row.medianGain > 0 ? '+' : ''}${row.medianGain.toFixed(2)}`,
+      row.medianMove === null ? '—' : row.medianMove.toFixed(2),
+      row.poleFinish === null ? '—' : row.poleFinish.toFixed(1),
       row.rho === null ? '—' : row.rho.toFixed(3),
     ]),
-    { numeric: [2, 3, 4, 5] },
+    { numeric: [2, 3, 4, 5, 6, 7] },
   );
 }
 
@@ -154,5 +184,6 @@ seasonSelect.addEventListener('change', () => {
 renderRiders(seasonSelect.value);
 renderRaces(seasonSelect.value);
 </script>
+<script type="module" src="assets/version.js"></script>
 </body>
 </html>

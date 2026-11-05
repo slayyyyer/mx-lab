@@ -3,6 +3,7 @@
 // here, and writes the result — so the tests run the same code the site shows.
 
 import { buildBacktests } from '../analysis/backtest.js';
+import { buildEntities } from './entities.js';
 import { buildFade } from './fade.js';
 import { buildLapChart } from './lapChart.js';
 import { buildLapOne } from './lapOne.js';
@@ -85,6 +86,7 @@ export function deriveAll(events) {
     titles: buildTitles(events),
     ratings: buildRatings(events),
     backtests: buildBacktests(events),
+    entities: buildEntities(events),
   };
 }
 
@@ -98,4 +100,5 @@ export const DERIVED_FILES = [
   ['titles', 'titles.json'],
   ['ratings', 'ratings.json'],
   ['backtests', 'backtests.json'],
+  ['entities', 'entities.json'],
 ];

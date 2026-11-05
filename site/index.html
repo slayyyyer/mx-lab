@@ -6,6 +6,12 @@
 <title>mx-lab — AMA Pro Motocross results, analysed</title>
 <meta name="description" content="Unofficial analyses of AMA Pro Motocross results, 2020–2026, built from one validated dataset.">
 <meta name="theme-color" content="#0c1117">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mx-lab">
+<meta property="og:title" content="mx-lab — AMA Pro Motocross results, analysed">
+<meta property="og:description" content="Unofficial analyses of AMA Pro Motocross results, 2020–2026, built from one validated dataset.">
+<meta property="og:image" content="https://slayyyyer.github.io/mx-lab/og.svg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -23,6 +29,8 @@
       <a href="qualifying.html">Qualifying</a>
       <a href="titles.html">Titles</a>
       <a href="ratings.html">Ratings</a>
+      <a href="riders.html">Riders</a>
+      <a href="tracks.html">Tracks</a>
       <a href="methods.html">Methods</a>
       <a href="backtests.html">Backtests</a>
       <a href="coverage.html">Coverage</a>
@@ -39,6 +47,9 @@
   </p>
 
   <div id="stats"><p class="small">Loading the dataset summary…</p></div>
+
+  <h3>What the data says</h3>
+  <div class="panel" id="findings"><p class="small">Loading findings…</p></div>
 
   <h3>What is here</h3>
   <div class="grid">
@@ -114,7 +125,7 @@
 </footer>
 
 <script type="module">
-import { load, num, table, statBlock } from './assets/ui.js';
+import { load, num, esc, table, statBlock } from './assets/ui.js';
 
 const meta = await load('meta');
 const dataset = meta.dataset;
@@ -143,6 +154,20 @@ document.querySelector('#coverage').innerHTML = table(
 document.querySelector('#warning-line').textContent =
   `${num(dataset.warnings)} source warnings are recorded in the dataset across ` +
   `${num(dataset.qualifyingSheets)} qualifying sheets; none of them blocks a build, and each names the sheet it came from.`;
+
+const [entities, titles] = await Promise.all([load('entities'), load('titles')]);
+const topRider = entities.riders[0];
+const busiestTrack = entities.tracks[0];
+const championships = titles.seasons.flatMap((season) => Object.values(season.classes)).filter((entry) => entry.champion);
+const clinched = championships.filter((entry) => entry.champion.clinchedRound != null).length;
+
+document.querySelector('#findings').innerHTML = `<ul class="findings">
+  <li><strong>${esc(topRider.name)}</strong> has the most moto wins in the dataset (${num(topRider.wins)}), across ${topRider.classes.length} classes.</li>
+  <li><strong>${esc(busiestTrack.track)}</strong> is the most-visited track, with ${num(busiestTrack.events)} events.</li>
+  <li>${num(championships.length)} championships are scored, and ${num(clinched)} of them clinch by a round the dataset can name.</li>
+  <li>${num(entities.coverage.riders)} riders appear across ${num(dataset.events)} events; every moto result is traceable to its round.</li>
+</ul>`;
 </script>
+<script type="module" src="assets/version.js"></script>
 </body>
 </html>

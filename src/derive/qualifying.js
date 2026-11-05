@@ -20,7 +20,16 @@ export function buildQualifying(events) {
   for (const event of sortedEvents(events)) {
     const season = seasonOf(event);
     if (!seasons.has(season)) {
-      seasons.set(season, { season, events: 0, riders: 0, gains: [], rhos: [] });
+      seasons.set(season, {
+        season,
+        events: 0,
+        riders: 0,
+        gains: [],
+        rhos: [],
+        moves: [],
+        poleFinishes: [],
+        poleWins: 0,
+      });
     }
     const seasonRow = seasons.get(season);
 
@@ -43,12 +52,14 @@ export function buildQualifying(events) {
 
       const pairs = [];
       const gains = [];
+      const moves = [];
       for (const row of qualRows) {
         const positions = finishes.get(row.riderId);
         if (!positions || positions.length === 0) continue;
         const finish = mean(positions);
         pairs.push([row.pos, finish]);
         gains.push(row.pos - finish);
+        moves.push(Math.abs(row.pos - finish));
 
         const key = `${season}:${row.riderId}`;
         if (!riders.has(key)) {
@@ -71,9 +82,21 @@ export function buildQualifying(events) {
 
       if (pairs.length === 0) continue;
       const rho = spearman(pairs);
+
+      // Re-ranking: if the gate were the grid, how far would the finishing order
+      // move? The pole sitter's own finish is the sharpest single check.
+      const pole = qualRows.find((row) => row.pos === 1) ?? null;
+      const poleFinish = pole ? mean(finishes.get(pole.riderId) ?? []) : null;
+      const poleWon = poleFinish === 1;
+
       seasonRow.events += 1;
       seasonRow.riders += gains.length;
       seasonRow.gains.push(...gains);
+      seasonRow.moves.push(...moves);
+      if (Number.isFinite(poleFinish)) {
+        seasonRow.poleFinishes.push(poleFinish);
+        if (poleWon) seasonRow.poleWins += 1;
+      }
       if (rho !== null) seasonRow.rhos.push(rho);
 
       raceRows.push({
@@ -85,6 +108,9 @@ export function buildQualifying(events) {
         qualified: qualRows.length,
         raced: gains.length,
         medianGain: round(median(gains)),
+        medianMove: round(median(moves)),
+        poleFinish: round(poleFinish, 1),
+        poleWon,
         rho: round(rho, 3),
       });
     }
@@ -98,6 +124,9 @@ export function buildQualifying(events) {
       riders: row.riders,
       medianGain: round(median(row.gains)),
       medianRho: round(median(row.rhos), 3),
+      medianMove: round(median(row.moves)),
+      poleWinRate: row.poleFinishes.length > 0 ? round(row.poleWins / row.poleFinishes.length, 3) : null,
+      medianPoleFinish: round(median(row.poleFinishes), 1),
     }))
     .sort((a, b) => a.season - b.season);
 
@@ -122,6 +151,7 @@ export function buildQualifying(events) {
       metric: 'qualifying position minus mean moto finishing position at the same event',
       join: 'rider within event and class; riders absent from the motos are not counted',
       correlation: 'Spearman rho between qualifying position and mean moto finish, per event and class',
+      reRank: 'median absolute places moved between qualifying order and finishing order; the pole sitter counts as a win only when they win the moto',
       entrant: 'a rider-season needs 3 paired events to appear on the leaderboard',
     },
     coverage: {
