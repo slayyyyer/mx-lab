@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lap chart — mx-lab</title>
-<meta name="description" content="Per-lap positions for every 2025–2026 AMA Pro Motocross moto.">
+<meta name="description" content="Per-lap positions for AMA Pro Motocross and Supercross motos, 2020–2026.">
 <meta name="theme-color" content="#0c1117">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="mx-lab">
 <meta property="og:title" content="Lap chart — mx-lab">
-<meta property="og:description" content="Per-lap positions for every 2025–2026 AMA Pro Motocross moto.">
+<meta property="og:description" content="Per-lap positions for AMA Pro Motocross and Supercross motos, 2020–2026.">
 <meta property="og:image" content="https://slayyyyer.github.io/mx-lab/og.svg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="assets/style.css">
@@ -46,9 +46,11 @@
   </p>
 
   <div class="note">
-    <strong>2025–2026 only.</strong> Those seasons print a position on every lap. The 2020–2024 sheets
-    print lap <em>times</em> and no position, and none is derived here — a reconstructed position would
-    look authoritative and be wrong. The other analyses on this site cover all seven seasons.
+    <strong>Supercross from 2020, Motocross from 2025.</strong> LiveTime prints a position on every lap
+    row for 2025–2026. For 2020–2024 Supercross the position comes from the round's
+    <span class="mono">LAP CHART</span> sheet, which prints plates in position order for every lap and is
+    inverted into the same shape. Pre-2025 Motocross publishes no chart sheet, so those motos are not
+    charted and no position is estimated.
   </div>
 
   <div id="stats"></div>
@@ -72,9 +74,11 @@
       marks are used.
     </p>
     <p class="small">
-      Per-lap positions are read from the timing system's lap table for 2025–2026
-      (<span class="mono">results.promotocross.com</span>). The chart keeps the top twenty finishers of
-      each moto; a line breaks where the source prints no position for that lap.
+      Per-lap positions come from the timing system's lap table for 2025–2026
+      (<span class="mono">results.promotocross.com</span>) and from the inverted
+      <span class="mono">LAP CHART</span> sheet for 2020–2024 Supercross
+      (<span class="mono">americanmotocrossresults.com</span>). The chart keeps the top twenty finishers
+      of each moto; a line breaks where the source prints no position for that lap.
       Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.
     </p>
   </div>

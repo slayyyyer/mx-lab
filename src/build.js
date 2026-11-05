@@ -13,6 +13,7 @@ import { stableStringify } from './lib/json.js';
 import { fetchBytes, fetchPdf } from './lib/http.js';
 import { pdfToText } from './lib/poppler.js';
 import { riderId, loadOverrides } from './identity.js';
+import { parseLapChart } from './parse/lapChart.js';
 import { parseLapTimes } from './parse/lapTimes.js';
 import { parseOverall } from './parse/overall.js';
 import { parseQualifying } from './parse/qualifying.js';
@@ -134,6 +135,28 @@ export function assembleEvent({ event, motos, sources = [], overrides = {} }) {
       warnings.push(`${moto.session}: #${leftover} has lap times but no result row`);
     }
 
+    // The LAP CHART sheet is the only per-lap position in 2020–2024. It is keyed
+    // by plate and printed as a position-by-lap grid, so it is attached after the
+    // result rows exist and never invents a position for a plate it omits.
+    let chart = null;
+    if (moto.lapChartText) {
+      try {
+        chart = parseLapChart(moto.lapChartText);
+      } catch (error) {
+        warnings.push(`${moto.session}: lap chart not parsed (${error.message}); lap times kept without positions`);
+      }
+    }
+    if (chart) {
+      for (const result of results) {
+        const sequence = chart.byPlate.get(result.plate);
+        if (!sequence) continue;
+        for (const lap of result.laps) {
+          const position = sequence[lap.lap - 1];
+          if (Number.isInteger(position)) lap.position = position;
+        }
+      }
+    }
+
     builtMotos.push({
       class: moto.class,
       moto: overallUsed ? 1 : moto.moto,
@@ -252,6 +275,16 @@ export async function collectEvent({ eventId, base = AMA_BASE, series = 'MX', of
       sources.push({ url: lapUrl, sha256: lapTimes.meta.sha256 });
     }
 
+    // Supercross prints a LAP CHART sheet beside the individual lap times; it is
+    // the only source of per-lap positions in the PDF era.
+    let lapChartText = null;
+    if (series === 'SX' && !useOverall && has('lap-chart')) {
+      const chartUrl = `${base}/xml/${series}/events/${eventId}/${session.id}LAP.pdf`;
+      const chart = await fetchSheetText(chartUrl, offline);
+      lapChartText = chart.text;
+      sources.push({ url: chartUrl, sha256: chart.meta.sha256 });
+    }
+
     motos.push({
       class: session.className,
       moto: session.moto,
@@ -259,6 +292,7 @@ export async function collectEvent({ eventId, base = AMA_BASE, series = 'MX', of
       resultsText,
       overallText,
       lapTimesText,
+      lapChartText,
     });
   }
 

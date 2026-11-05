@@ -9,7 +9,7 @@ are used. Results are attributed to their timing and scoring providers.
 > **Status: 2020–2026 is ingested — 195 events, 17,434 result rows, 250,699 per-lap times.**
 > Motocross runs 2020–2026 (77 events: 55 from the PDF archive, 22 from LiveTime, ADR 0005) and
 > Supercross runs 2020–2026 (118 events: 84 from the PDF archive, 34 from `results.supercrosslive.com`);
-> no event is refused by the gate. Per-lap **positions** exist only for 2025–2026. **The six analyses
+> no event is refused by the gate. Per-lap **positions** exist for both series from 2025, and for Supercross from 2020 via the archive's `LAP CHART` sheet. **The six analyses
 > and the static site are built** — `data/derived/`, `site/` and `docs/analyses.md` record what each one
 > measures and where its coverage stops.
 
@@ -120,7 +120,7 @@ the decisions behind them.
 
 | # | Analysis | Coverage | Notes |
 |---|---|---|---|
-| 6.1 | Lap chart | 2025–2026 only | no per-lap position exists before 2025 |
+| 6.1 | Lap chart | 2020–2026 | Supercross charted from 2020; Motocross from 2025 |
 | 6.2 | Fade | 2020–2026 | time-based, so it needs no position |
 | 6.3 | Lap 1 | 2021–2026 | 2020 prints no lap-1 time at all |
 | 6.4 | Qualifying | 2020–2026 | rider must appear in qualifying and the motos |

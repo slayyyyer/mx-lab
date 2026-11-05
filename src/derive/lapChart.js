@@ -1,9 +1,9 @@
 // 6.1 — the lap chart.
 //
-// Only 2025–2026 carries a position on each lap: the timing system prints one
-// per row of the lap table. For 2020–2024 the dataset has lap *times* and no
-// positions, and none are invented (ADR 0003). The chart therefore names its
-// coverage on the page instead of quietly starting in 2025.
+// Positions come from two places. 2025–2026 prints one per row of the lap table;
+// 2020–2024 Supercross prints a LAP CHART grid (position rows, plate cells) that
+// is inverted into the same shape. Motocross before 2025 has no chart sheet and
+// no position is invented for it. The chart names its coverage on the page.
 //
 // The chart keeps the top 20 finishers of each moto. A 40-line chart is
 // unreadable, and the riders who were lapped are the ones whose positions the
@@ -11,7 +11,7 @@
 
 import { seasonOf, sortedEvents, sortedMotos } from './common.js';
 
-export const LAP_CHART_SEASONS = [2025, 2026];
+export const LAP_CHART_SEASONS = [2020, 2021, 2022, 2023, 2024, 2025, 2026];
 const TOP_N = 20;
 
 export function buildLapChart(events) {
@@ -23,7 +23,6 @@ export function buildLapChart(events) {
 
   for (const event of sortedEvents(events)) {
     const season = seasonOf(event);
-    if (!LAP_CHART_SEASONS.includes(season)) continue;
 
     const motos = [];
     for (const moto of sortedMotos(event)) {
@@ -67,21 +66,24 @@ export function buildLapChart(events) {
     });
   }
 
+  const chartedSeasons = [...new Set(races.map((race) => race.season))].sort((a, b) => a - b);
+
   return {
     analysis: 'lap-chart',
     method: {
       charted: `top ${TOP_N} finishers of each moto`,
-      source: 'per-lap position printed by the timing system',
-      seasons: LAP_CHART_SEASONS,
+      source: 'per-lap position from the timing system (2025–2026) or the LAP CHART grid (2020–2024 Supercross)',
+      seasons: chartedSeasons,
     },
     coverage: {
-      seasons: LAP_CHART_SEASONS,
+      seasons: chartedSeasons,
       events: races.length,
       motos: motoCount,
       riders: riderCount,
       lapsWithPosition: lapCount,
       lapsWithoutPosition,
-      periods: '2025–2026 only: the 2020–2024 sheets print no per-lap position and none is derived',
+      periods:
+        '2020–2024 Supercross positions are inverted from the LAP CHART sheet; 2025–2026 from the timing system; pre-2025 Motocross and Triple Crown rounds print no chart and are not charted',
     },
     races,
   };

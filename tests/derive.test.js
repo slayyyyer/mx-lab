@@ -94,7 +94,7 @@ test('derive: the lap chart uses only seasons that print per-lap positions', () 
   const chart = buildLapChart([pdf, lt]);
   eq(chart.coverage.events, 1);
   eq(chart.coverage.motos, 1);
-  eq(chart.coverage.seasons, [2025, 2026]);
+  eq(chart.coverage.seasons, [2025]);
   eq(chart.races[0].motos[0].riders[0].positions, [2, 1]);});
 
 test('derive: lap 1 correlates with the finish when it is printed', () => {
@@ -357,11 +357,13 @@ test('derive: the committed dataset produces all six analyses deterministically'
   eq(first.meta.dataset.laps, 250699);
   eq(first.meta.seasons.length, 7);
 
-  eq(first.lapChart.coverage.seasons, [2025, 2026]);
-  eq(first.lapChart.coverage.motos, 144);
-  // The chart keeps the top twenty finishers, so it counts fewer laps than the 51,432
-  // the dataset holds for 2025-2026.
-  assert(first.lapChart.coverage.lapsWithPosition > 25000, 'lap chart is thinner than the top-20 field');
+  // 2020-2024 Supercross is charted from the LAP CHART sheet; pre-2025 Motocross
+  // has no chart sheet and Triple Crown rounds publish none either.
+  eq(first.lapChart.coverage.seasons, [2020, 2021, 2022, 2023, 2024, 2025, 2026]);
+  eq(first.lapChart.coverage.motos, 271);
+  // The chart keeps the top twenty finishers, so it counts fewer laps than the
+  // dataset holds.
+  assert(first.lapChart.coverage.lapsWithPosition > 90000, 'lap chart is thinner than the top-20 field');
 
   eq(first.fade.coverage.seasons, [2020, 2021, 2022, 2023, 2024, 2025, 2026]);
   assert(first.fade.coverage.riderMotos > 8000, `fade measured only ${first.fade.coverage.riderMotos} motos`);
