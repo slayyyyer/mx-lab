@@ -49,7 +49,9 @@ Surveying the actual pages added facts that shape the ingest:
 - 22 more events: 3,521 result rows and 51,638 per-lap times, every one of which
   carries a position.
 - The eras are **not** symmetric and the site must say so: position-per-lap
-  analyses are 2025–2026 only, lap-time analyses cover 2020–2026.
+  analyses were 2025–2026 only when this was written; the 2020–2024 `LAP CHART`
+  sheets were later inverted into positions (amended 2026-11-05, see ADR 0006),
+  while lap-time analyses cover 2020–2026.
 - Name normalisation now matters: `HAIDEN DEEGAN Holeshot` must become
   `Haiden Deegan`, or one rider becomes two identities across a season.
 - The roster is derived data with a schema of its own; it is rebuilt by the same

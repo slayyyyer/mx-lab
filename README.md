@@ -147,8 +147,9 @@ to GitHub Pages. Pages has to be set to deploy from GitHub Actions in the reposi
 - **Provenance without artefacts.** `sources[]` records each source page's URL and sha256; the
   PDFs and mirrored HTML are never committed.
 - **Positions only where the source has them.** A lap may carry `position` (schema 2). 2025–2026
-  prints one per lap; 2020–2024 has none, and none is derived — a retro-fitted position would look
-  authoritative and be wrong.
+  prints one per lap; 2020–2024 comes from inverting each moto's `LAP CHART` sheet. Triple Crown
+  rounds publish no single chart and carry none. Nothing is estimated — a retro-fitted position
+  would look authoritative and be wrong.
 
 ## Not in this repository
 

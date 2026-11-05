@@ -64,3 +64,12 @@ honestly claim seven seasons either.
   analysis layer would have no artefact in the repository.
 - **A framework for the site.** Six pages and two chart shapes do not need one, and a dependency-free
   site has no build to break.
+
+## Amendment (2026-11-05)
+
+Decision 2 above is superseded. The 2020–2024 `LAP CHART` sheet is a grid of positions
+by lap whose cells are plate numbers, so inverting it yields per-lap positions for both
+series. The lap chart now covers 2020–2026 (176 events, 489 motos, 162,158 positions).
+Triple Crown rounds publish three separate mains and no single chart, so they remain
+uncharted; 2026 Anaheim 1 publishes no qualifying report for either class.
+See `docs/sources.md` §16.

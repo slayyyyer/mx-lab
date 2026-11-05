@@ -27,14 +27,16 @@ Motocross 2020–2026 and Supercross 2020–2026.
 
 **Question.** Where was each rider on each lap?
 
-**Method.** Read the position the timing system prints on every lap row for 2025–2026, both series.
-The file keeps the top twenty finishers of each moto; a full forty-line chart is unreadable and the
-lapped riders are exactly the ones whose printed position needs care.
+**Method.** Read the position the timing system prints on every lap row for 2025–2026. For
+2020–2024, invert each moto's `LAP CHART` sheet: its rows are finishing positions and its cells are
+plate numbers, one column per lap, so a plate's position on a lap is the row its number sits in. Both
+series publish that sheet (`M1F1LAP`, `S1F1LAP`, …). The file keeps the top twenty finishers of each
+moto; a full forty-line chart is unreadable and the lapped riders are exactly the ones whose printed
+position needs care.
 
-**Coverage.** 2025–2026: 144 motos and 50,019 charted lap positions. **2020–2024 has no per-lap
-position at all** for either series: the Motocross lap chart sheet holds plates rather than positions
-(`docs/sources.md` §7.2), the Supercross `LAP` sheet is a matrix of plates by position, and
-cumulative lap times cannot reconstruct absolute track position because lap 1 has no time. No
+**Coverage.** 2020–2026: 176 events, 489 motos and 162,158 charted lap positions. The only rounds
+without them are Triple Crown events (13 in 2020–2024, six in 2025–2026), which publish three
+separate mains and no single chart, and whose overall classification carries no lap times. No
 position is estimated.
 
 ## 6.2 — Fade
