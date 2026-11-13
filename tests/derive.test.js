@@ -422,6 +422,12 @@ test('derive: the committed dataset produces all six analyses deterministically'
       assert(season.riders.length > 10, `${className} ${season.season} has no rated field`);
       assert(season.leaders.length > 0, `${className} ${season.season} has an empty leaders table`);
       assert(
+        season.riders.every(
+          (rider) => Math.abs(rider.glicko - 1500) < 1500 && rider.glickoRd > 0 && rider.glickoRd <= 350,
+        ),
+        `${className} ${season.season} has a diverged glicko rating`,
+      );
+      assert(
         season.trajectory.every((line) => line.ratings.every((value) => value === null || Number.isFinite(value))),
         'trajectory must not contain NaN',
       );

@@ -97,9 +97,10 @@
     <p class="small">Elo with K = 32 spread across the field (K ÷ (n − 1) per pairing), starting at 1500; a rider new
       to a class enters at that class's current median so the scale does not drift. One rating per
       class runs across all seven seasons, so a number change does not restart it. Glicko-2 uses the
-      same pairwise comparisons with an initial deviation of 350 and tau 0.5; its deviation is shown,
-      not hidden. Ratings are computed from moto finishing positions; riders who did not start a moto
-      are not compared.
+      same pairwise comparisons with an initial deviation of 350 and tau 0.5. Its step is capped at the
+      same 32 points and its volatility held between 0.01 and 0.2, because an unbounded Glicko step
+      runs away on 40-rider motos. Its deviation is shown, not hidden. Ratings are computed from moto
+      finishing positions; riders who did not start a moto are not compared.
       Dataset and code: <a href="https://github.com/slayyyyer/mx-lab">github.com/slayyyyer/mx-lab</a>.</p>
     <!-- /chrome:method -->
     <p class="small">

@@ -57,6 +57,22 @@ const GLICKO_TAU = 0.5;
 const GLICKO_RD = 350;
 const GLICKO_VOLATILITY = 0.06;
 
+// Two bounds keep Glicko-2 from running away, which it otherwise does on this
+// dataset. Its update is unbounded: once a rider sits far from the field every
+// expected score saturates, the information term collapses, and one result is
+// read as a shift of thousands of points — the 450MX ratings reached 1e67, and a
+// shock inflated the deviation to match, so the seasons after it were noise. The
+// Elo model on the same motos already says a moto moves a rating by at most K,
+// so Glicko is given the same bound, and the volatility of a performance is held
+// between 0.01 and 0.2 (Glickman's default is 0.06) so one surprise cannot
+// declare a settled rating meaningless. Both bounds bind only in the pathological
+// case: on the normal motos the update is smaller than K.
+const GLICKO_MAX_STEP = K;
+const GLICKO_MIN_VOLATILITY = 0.01;
+const GLICKO_MAX_VOLATILITY = 0.2;
+
+const clamp = (value, low, high) => Math.min(high, Math.max(low, value));
+
 const gFactor = (phi) => 1 / Math.sqrt(1 + (3 * phi * phi) / (Math.PI * Math.PI));
 
 function volatilityStep(phi, delta, variance, volatility) {
@@ -118,12 +134,16 @@ export function glickoMoto(state, order) {
     if (varianceSum === 0) continue;
     const variance = 1 / varianceSum;
     const delta = variance * deltaSum;
-    const volatility = volatilityStep(phi, delta, variance, me.volatility ?? GLICKO_VOLATILITY);
+    const volatility = clamp(
+      volatilityStep(phi, delta, variance, me.volatility ?? GLICKO_VOLATILITY),
+      GLICKO_MIN_VOLATILITY,
+      GLICKO_MAX_VOLATILITY,
+    );
     const phiStar = Math.sqrt(phi * phi + volatility * volatility);
     const phiNew = 1 / Math.sqrt(1 / (phiStar * phiStar) + 1 / variance);
-    const muNew = mu + phiNew * phiNew * deltaSum;
+    const step = clamp(phiNew * phiNew * deltaSum * GLICKO_SCALE, -GLICKO_MAX_STEP, GLICKO_MAX_STEP);
     updates.set(order[i], {
-      rating: 1500 + GLICKO_SCALE * muNew,
+      rating: me.rating + step,
       rd: GLICKO_SCALE * phiNew,
       volatility,
     });
@@ -209,7 +229,7 @@ export function buildRatings(events) {
     entrant: `a new rider enters at the class median and the scale starts at ${START}`,
     leaderboardMinimum: `${MIN_MOTOS_LEADERBOARD} motos, or half a season's motos where a season offers fewer`,
     continuity: 'one rating per class across all seasons; changing a plate number does not restart it',
-    glicko: 'Glicko-2 over the same pairwise moto comparisons, with an initial deviation of 350 and tau 0.5; the deviation is the point — it says how settled the number is',
+    glicko: `Glicko-2 over the same pairwise moto comparisons, with an initial deviation of 350 and tau 0.5; one moto moves a rating at most ${GLICKO_MAX_STEP} points, as in the Elo model, and volatility is held between ${GLICKO_MIN_VOLATILITY} and ${GLICKO_MAX_VOLATILITY}; the deviation is the point — it says how settled the number is`,
   }, classes: {} };
 
   for (const [className, state] of [...classes.entries()].sort((a, b) => cmp(a[0], b[0]))) {
