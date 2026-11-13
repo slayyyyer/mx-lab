@@ -122,8 +122,9 @@ A rider new to a class enters at that class's current median rating rather than 
 scale does not drift as the field grows. One rating per class runs across all seasons, so a number
 change does not restart it.
 
-**Coverage.** Both classes and both series, all seasons; leaderboards need ten motos. Ratings are not
-comparable across classes.
+**Coverage.** Both classes and both series, all seasons; leaderboards need ten motos, or half a
+season's motos in a season that offers fewer than ten (250SX runs eight rounds). The all-time table
+needs ten motos. Ratings are not comparable across classes.
 
 ## What the site does not do
 

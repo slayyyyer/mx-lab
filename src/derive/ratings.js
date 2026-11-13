@@ -23,6 +23,15 @@ const START = 1500;
 const MIN_MOTOS_LEADERBOARD = 10;
 const TRAJECTORY_RIDERS = 5;
 
+// A season leaderboard wants ten motos behind a rating. A season cannot always
+// offer ten: 250SX East and West run eight rounds, so their champion rides eight
+// times and a flat ten left both classes with an empty leaders table on every
+// season. A season shorter than the minimum asks for half its motos instead,
+// which still keeps a one-moto cameo off the list. Seasons long enough for ten
+// are unaffected.
+export const seasonLeaderboardMinimum = (seasonMotos) =>
+  seasonMotos >= MIN_MOTOS_LEADERBOARD ? MIN_MOTOS_LEADERBOARD : Math.max(1, Math.ceil(seasonMotos / 2));
+
 export function eloMoto(ratings, order, k = K) {
   const n = order.length;
   if (n < 2) return new Map();
@@ -198,7 +207,7 @@ export function buildRatings(events) {
     model: 'Elo, every finisher compared with every other finisher in the same moto',
     k: K,
     entrant: `a new rider enters at the class median and the scale starts at ${START}`,
-    leaderboardMinimum: `${MIN_MOTOS_LEADERBOARD} motos`,
+    leaderboardMinimum: `${MIN_MOTOS_LEADERBOARD} motos, or half a season's motos where a season offers fewer`,
     continuity: 'one rating per class across all seasons; changing a plate number does not restart it',
     glicko: 'Glicko-2 over the same pairwise moto comparisons, with an initial deviation of 350 and tau 0.5; the deviation is the point — it says how settled the number is',
   }, classes: {} };
@@ -221,7 +230,8 @@ export function buildRatings(events) {
         }))
         .sort((a, b) => b.rating - a.rating || cmp(a.riderId, b.riderId));
 
-      const leaders = riders.filter((rider) => rider.motos >= MIN_MOTOS_LEADERBOARD).slice(0, 25);
+      const seasonMotos = riders.reduce((most, rider) => Math.max(most, rider.motos), 0);
+      const leaders = riders.filter((rider) => rider.motos >= seasonLeaderboardMinimum(seasonMotos)).slice(0, 25);
       const topIds = riders.slice(0, TRAJECTORY_RIDERS).map((rider) => rider.riderId);
       const rounds = state.rounds.filter((roundEntry) => roundEntry.season === season);
 

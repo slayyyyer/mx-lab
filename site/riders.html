@@ -91,9 +91,32 @@
 <script type="module">
 import { load, num, esc, table, statBlock } from './assets/ui.js';
 
-const data = await load('entities');
+const [data, ratings] = await Promise.all([load('entities'), load('ratings')]);
 const search = document.querySelector('#search');
 const LIMIT = 150;
+
+// The class and season each rider was last rated in, so a row can open that
+// rider's rating where it currently sits. Read from the ratings file rather than
+// from the entity's last race: a last race can be a class that carries no rating
+// (250SX Showdown), and a rider can race two classes in one season.
+const latestRating = new Map();
+for (const [className, bundle] of Object.entries(ratings.classes)) {
+  for (const season of bundle.seasons) {
+    for (const rider of season.riders) {
+      const seen = latestRating.get(rider.riderId);
+      if (!seen || season.season > seen.season) {
+        latestRating.set(rider.riderId, { className, season: season.season });
+      }
+    }
+  }
+}
+
+// A rating table links here as `riders.html?rider=<riderId>`; the search box takes
+// that rider's name, so the table opens on the one row. An unknown id is ignored.
+const linked =
+  data.riders.find((rider) => rider.riderId === new URLSearchParams(location.search).get('rider')) ?? null;
+if (linked) search.value = linked.name;
+let scrolled = false;
 
 document.querySelector('#stats').innerHTML = statBlock([
   { value: num(data.coverage.riders), label: 'riders' },
@@ -102,14 +125,23 @@ document.querySelector('#stats').innerHTML = statBlock([
   { value: num(data.coverage.seasons.length), label: 'seasons' },
 ]);
 
+function riderCell(rider) {
+  const entry = latestRating.get(rider.riderId);
+  if (!entry) return esc(rider.name);
+  return `<a href="ratings.html?class=${encodeURIComponent(entry.className)}&season=${entry.season}&rider=${encodeURIComponent(
+    rider.riderId,
+  )}">${esc(rider.name)}</a>`;
+}
+
 function render() {
   const query = search.value.trim().toLowerCase();
   const rows = data.riders.filter((rider) => !query || rider.name.toLowerCase().includes(query));
   const shown = rows.slice(0, LIMIT);
-  document.querySelector('#rider-table').innerHTML = table(
+  const panel = document.querySelector('#rider-table');
+  panel.innerHTML = table(
     ['Rider', 'Starts', 'Wins', 'Podiums', 'Top 10s', 'Best', 'Seasons', 'Classes'],
     shown.map((rider) => [
-      esc(rider.name),
+      riderCell(rider),
       num(rider.starts),
       num(rider.wins),
       num(rider.podiums),
@@ -120,6 +152,15 @@ function render() {
     ]),
     { numeric: [1, 2, 3, 4, 5] },
   );
+  if (linked && !scrolled) {
+    const row = [...panel.querySelectorAll('tbody tr')].find((tr) => tr.cells[0]?.textContent.trim() === linked.name);
+    if (row) {
+      row.classList.add('is-linked');
+      row.scrollIntoView({ block: 'center' });
+      scrolled = true;
+    }
+  }
+
   document.querySelector('#table-note').textContent =
     rows.length > LIMIT
       ? `Showing the top ${LIMIT} of ${num(rows.length)} matching riders; search narrows the list.`

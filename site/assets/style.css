@@ -348,6 +348,12 @@ th {
 td { color: var(--muted-2); }
 td.num, th.num { text-align: right; font-family: var(--mono); font-size: 13px; color: var(--text); }
 tbody tr:hover { background: var(--panel-2); }
+/* The row a link from another page pointed at. The tint lives on the cells, so
+   hover has to be restated for them or it would never show; it matches the
+   panel-2 a plain row's hover paints. */
+tbody tr.is-linked td { background: var(--accent-tint); color: var(--text); }
+tbody tr.is-linked td:first-child { border-left: 3px solid var(--accent); padding-left: 9px; }
+tbody tr.is-linked:hover td { background: var(--panel-2); }
 .table-scroll { max-height: 620px; overflow: auto; border: 1px solid var(--line); border-radius: var(--radius); }
 .table-scroll table { min-width: 560px; }
 

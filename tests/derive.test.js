@@ -420,6 +420,7 @@ test('derive: the committed dataset produces all six analyses deterministically'
   for (const className of ['250MX', '250SX East', '250SX West', '450MX', '450SX']) {
     for (const season of first.ratings.classes[className].seasons) {
       assert(season.riders.length > 10, `${className} ${season.season} has no rated field`);
+      assert(season.leaders.length > 0, `${className} ${season.season} has an empty leaders table`);
       assert(
         season.trajectory.every((line) => line.ratings.every((value) => value === null || Number.isFinite(value))),
         'trajectory must not contain NaN',

@@ -60,6 +60,9 @@
     <label class="field">Season
       <select id="season-select"></select>
     </label>
+    <label class="field">Find a rider
+      <input id="search" type="search" placeholder="name" autocomplete="off">
+    </label>
   </div>
 
   <div id="stats"></div>
@@ -116,21 +119,75 @@ import { lineChart } from './assets/chart.js';
 const data = await load('ratings');
 const classSelect = document.querySelector('#class-select');
 const seasonSelect = document.querySelector('#season-select');
-const classes = Object.keys(data.classes).sort().reverse();
-fillSelect(classSelect, classes.map((name) => ({ value: name, label: name })));
+const search = document.querySelector('#search');
+const params = new URLSearchParams(location.search);
+
+// Where each rider was last rated. A link from the Riders page carries that class
+// and season, and a bare `?rider=` is resolved here the same way.
+const latest = new Map();
+for (const [className, bundle] of Object.entries(data.classes)) {
+  for (const season of bundle.seasons) {
+    for (const rider of season.riders) {
+      const seen = latest.get(rider.riderId);
+      if (!seen || season.season > seen.season) {
+        latest.set(rider.riderId, { className, season: season.season, name: rider.name });
+      }
+    }
+  }
+}
+
+const linkedId = params.get('rider');
+const linked = linkedId ? (latest.get(linkedId) ?? null) : null;
+const linkedHref = linkedId ? `riders.html?rider=${encodeURIComponent(linkedId)}` : null;
 
 function seasonsOf(className) {
   return data.classes[className].seasons.map((row) => row.season).sort((a, b) => b - a);
 }
 
-function renderSeasonOptions() {
-  fillSelect(seasonSelect, seasonsOf(classSelect.value).map((season) => ({ value: season, label: `${season}` })));
+const classes = Object.keys(data.classes).sort().reverse();
+const preferredClass = classes.includes(params.get('class')) ? params.get('class') : linked?.className;
+fillSelect(classSelect, classes.map((name) => ({ value: name, label: name })), preferredClass);
+
+// The search box narrows both tables, so opening a rider means typing their name.
+if (linked) search.value = linked.name;
+
+// Riders are identified by `riderId` everywhere — the same key the entities file
+// uses — so a name here can open that rider's row on the Riders page.
+const riderLink = (rider) =>
+  `<a href="riders.html?rider=${encodeURIComponent(rider.riderId)}">${esc(rider.name)}</a>`;
+
+function renderSeasonOptions(preferred) {
+  fillSelect(
+    seasonSelect,
+    seasonsOf(classSelect.value).map((season) => ({ value: season, label: `${season}` })),
+    preferred,
+  );
+}
+
+let scrolled = false;
+
+// Both tables can hold the linked rider, and a re-render recreates their rows, so
+// the marker is reapplied after every render; the page only scrolls the first time.
+function markLinked() {
+  if (!linkedHref) return;
+  const marked = [...document.querySelectorAll('#leader-table tbody tr, #alltime-table tbody tr')].filter(
+    (row) => row.cells[0]?.querySelector('a')?.getAttribute('href') === linkedHref,
+  );
+  for (const row of marked) row.classList.add('is-linked');
+  if (!scrolled && marked.length > 0) {
+    marked[0].scrollIntoView({ block: 'center' });
+    scrolled = true;
+  }
 }
 
 function render() {
   const className = classSelect.value;
   const bundle = data.classes[className];
   const season = bundle.seasons.find((row) => row.season === Number(seasonSelect.value)) ?? bundle.seasons[0];
+  const query = search.value.trim().toLowerCase();
+  const keep = (rider) => !query || rider.name.toLowerCase().includes(query);
+  const leaders = season.leaders.filter(keep);
+  const allTime = bundle.allTime.filter(keep);
 
   document.querySelector('#stats').innerHTML = statBlock([
     { value: season.leaders[0] ? esc(season.leaders[0].name) : '—', label: 'top rated' },
@@ -140,46 +197,62 @@ function render() {
   ]);
 
   const rounds = season.rounds.map((row) => `R${row.round ?? '?'}`);
+  const lines = season.trajectory.filter((line) => !query || (line.name ?? line.riderId).toLowerCase().includes(query));
   // The axis follows the data: a fixed 1900 ceiling clipped the top-rated seasons.
-  const rated = season.trajectory.flatMap((line) => line.ratings).filter((value) => Number.isFinite(value));
-  const yMin = rated.length > 0 ? Math.floor((Math.min(...rated) - 25) / 50) * 50 : 1400;
-  const yMax = rated.length > 0 ? Math.ceil((Math.max(...rated) + 25) / 50) * 50 : 1800;
-  document.querySelector('#chart-panel').innerHTML = season.trajectory.length
+  const rated = lines.flatMap((line) => line.ratings).filter((value) => Number.isFinite(value));
+  const span = rated.length > 0 ? Math.max(...rated) - Math.min(...rated) : 0;
+  // One rider's line moves by tens of points, not hundreds, so a narrowed chart
+  // gets a finer grid: the smallest step that keeps roughly eight rows, with the
+  // 25-point padding on each side counted in. The unfiltered season keeps 50.
+  const yStep = !query ? 50 : [5, 10, 25, 50, 100].find((step) => (span + 50) / step <= 8) ?? 100;
+  const yMin = rated.length > 0 ? Math.floor((Math.min(...rated) - 25) / yStep) * yStep : 1400;
+  const yMax = rated.length > 0 ? Math.ceil((Math.max(...rated) + 25) / yStep) * yStep : 1800;
+  document.querySelector('#chart-panel').innerHTML = lines.length
     ? lineChart({
-        series: season.trajectory.map((line) => ({ label: line.name ?? line.riderId, points: line.ratings })),
+        series: lines.map((line) => ({ label: line.name ?? line.riderId, points: line.ratings })),
         xLabels: rounds,
         yMin,
         yMax,
-        yStep: 50,
-        yLabel: `Elo rating by round, ${className} ${season.season}`,
+        yStep,
+        yLabel: query
+          ? `Elo rating by round for ${query}, ${className} ${season.season}`
+          : `Elo rating by round, ${className} ${season.season}`,
       })
-    : '<p class="small">No trajectory for this season.</p>';
+    : query
+      ? `<p class="small">No rating trajectory for “${esc(query)}” in ${esc(className)} ${esc(season.season)}: the chart follows that season's top five.</p>`
+      : '<p class="small">No trajectory for this season.</p>';
 
-  document.querySelector('#leader-table').innerHTML = table(
-    ['Rider', 'Elo', 'Glicko', 'RD', 'Season change', 'Peak', 'Motos'],
-    season.leaders.map((rider) => [
-      esc(rider.name),
-      num(rider.rating),
-      num(rider.glicko),
-      num(rider.glickoRd),
-      signed(rider.delta, 0),
-      num(rider.peak),
-      num(rider.motos),
-    ]),
-    { numeric: [1, 2, 3, 4, 5, 6] },
-  );
+  document.querySelector('#leader-table').innerHTML = leaders.length
+    ? table(
+        ['Rider', 'Elo', 'Glicko', 'RD', 'Season change', 'Peak', 'Motos'],
+        leaders.map((rider) => [
+          riderLink(rider),
+          num(rider.rating),
+          num(rider.glicko),
+          num(rider.glickoRd),
+          signed(rider.delta, 0),
+          num(rider.peak),
+          num(rider.motos),
+        ]),
+        { numeric: [1, 2, 3, 4, 5, 6] },
+      )
+    : `<p class="small">No rider matching “${esc(query)}” in ${esc(className)} ${esc(season.season)}.</p>`;
 
-  document.querySelector('#alltime-table').innerHTML = table(
-    ['Rider', 'Elo', 'Glicko', 'RD', 'Motos'],
-    bundle.allTime.map((rider) => [
-      esc(rider.name),
-      num(rider.rating),
-      num(rider.glicko),
-      num(rider.glickoRd),
-      num(rider.motos),
-    ]),
-    { numeric: [1, 2, 3, 4] },
-  );
+  document.querySelector('#alltime-table').innerHTML = allTime.length
+    ? table(
+        ['Rider', 'Elo', 'Glicko', 'RD', 'Motos'],
+        allTime.map((rider) => [
+          riderLink(rider),
+          num(rider.rating),
+          num(rider.glicko),
+          num(rider.glickoRd),
+          num(rider.motos),
+        ]),
+        { numeric: [1, 2, 3, 4] },
+      )
+    : `<p class="small">No rider matching “${esc(query)}” in ${esc(className)} among riders with at least ten motos.</p>`;
+
+  markLinked();
 }
 
 classSelect.addEventListener('change', () => {
@@ -187,7 +260,15 @@ classSelect.addEventListener('change', () => {
   render();
 });
 seasonSelect.addEventListener('change', render);
-renderSeasonOptions();
+search.addEventListener('input', render);
+
+// The link's season wins when this class has it; otherwise the rider's own latest.
+const requestedSeason = Number(params.get('season'));
+renderSeasonOptions(
+  Number.isInteger(requestedSeason) && seasonsOf(classSelect.value).includes(requestedSeason)
+    ? requestedSeason
+    : linked?.season,
+);
 render();
 </script>
 <script type="module" src="assets/version.js"></script>
