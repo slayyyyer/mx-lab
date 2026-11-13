@@ -113,7 +113,7 @@
 </footer>
 
 <script type="module">
-import { load, num, signed, esc, table, statBlock, fillSelect } from './assets/ui.js';
+import { load, num, signed, esc, table, statBlock, fillSelect, riderLink } from './assets/ui.js';
 import { lineChart } from './assets/chart.js';
 
 const data = await load('ratings');
@@ -150,11 +150,6 @@ fillSelect(classSelect, classes.map((name) => ({ value: name, label: name })), p
 
 // The search box narrows both tables, so opening a rider means typing their name.
 if (linked) search.value = linked.name;
-
-// Riders are identified by `riderId` everywhere — the same key the entities file
-// uses — so a name here can open that rider's row on the Riders page.
-const riderLink = (rider) =>
-  `<a href="riders.html?rider=${encodeURIComponent(rider.riderId)}">${esc(rider.name)}</a>`;
 
 function renderSeasonOptions(preferred) {
   fillSelect(

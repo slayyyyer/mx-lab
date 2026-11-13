@@ -104,7 +104,7 @@
 </footer>
 
 <script type="module">
-import { load, num, esc, table, statBlock, fillSelect } from './assets/ui.js';
+import { load, num, table, statBlock, fillSelect, riderLink } from './assets/ui.js';
 import { lineChart } from './assets/chart.js';
 
 const data = await load('titles');
@@ -172,7 +172,7 @@ function render() {
       .filter((rider) => rider.points > 0)
       .map((rider, index) => [
       index + 1,
-      esc(rider.name),
+      riderLink(rider),
       num(rider.points),
       num(rider.motos),
       num(rider.wins),
@@ -186,7 +186,11 @@ function render() {
 
   document.querySelector('#rounds-table').innerHTML = table(
     ['Round', 'Winner', 'Points'],
-    standings.roundWinners.map((row) => [row.round, esc(names.get(row.riderId) ?? row.riderId), num(row.points)]),
+    standings.roundWinners.map((row) => [
+      row.round,
+      riderLink({ riderId: row.riderId, name: names.get(row.riderId) ?? row.riderId }),
+      num(row.points),
+    ]),
     { numeric: [0, 2] },
   );
 }

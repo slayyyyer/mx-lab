@@ -46,6 +46,10 @@ export function table(headers, rows, { className = '', numeric = [] } = {}) {
   return `<table class="${className}"><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
 }
 
+/** A rider name linked to that rider's row on the Riders page, keyed by `riderId`. */
+export const riderLink = (rider) =>
+  `<a href="riders.html?rider=${encodeURIComponent(rider.riderId)}">${esc(rider.name)}</a>`;
+
 export function setHTML(element, html) {
   element.innerHTML = html;
 }
